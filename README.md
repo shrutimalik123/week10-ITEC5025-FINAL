@@ -36,7 +36,8 @@ week10-ITEC5025-FINAL/
 │   ├── streamlit_app.py     # Streamlit web UI
 │   ├── chatbot_w9.py        # HypotifyChatbot engine (BiLSTM + DB)
 │   ├── db_manager.py        # SQLite CRUD layer
-│   ├── hypotify.db          # SQLite database (~137 MB)
+│   ├── hypotify.db.part1    # Database part 1 (<100MB)
+│   ├── hypotify.db.part2    # Database part 2 (<100MB)
 │   ├── chatbot_model_w8.keras  # Trained Bidirectional LSTM model
 │   ├── tokenizer_w8.pkl     # Keras tokenizer
 │   ├── label_encoder_w8.pkl # Intent label encoder

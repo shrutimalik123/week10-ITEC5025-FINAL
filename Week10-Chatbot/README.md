@@ -15,9 +15,9 @@
 |---|---|
 | `app.py` | Flask web server — `/chat`, `/health`, `/stats`, `/history` endpoints |
 | `streamlit_app.py` | Streamlit UI — one-command deployment, dark theme, sidebar commands |
-| `chatbot_w9.py` | `HypotifyChatbot` engine — BiLSTM + DB + sentiment + NER |
 | `db_manager.py` | SQLite CRUD layer — patient, admission, diagnoses, labs, logs |
-| `hypotify.db` | SQLite database (~137 MB) — 100K patients, 361K admissions/diagnoses, 100K labs |
+| `hypotify.db.part1` | Database part 1 (<100MB for GitHub) |
+| `hypotify.db.part2` | Database part 2 (<100MB for GitHub) |
 | `chatbot_model_w8.keras` | Trained Bidirectional LSTM model |
 | `tokenizer_w8.pkl` | Keras tokenizer (fitted on training data) |
 | `label_encoder_w8.pkl` | Scikit-learn LabelEncoder for 20 intent classes |
@@ -70,6 +70,17 @@ Open **http://127.0.0.1:5000** in your browser.
 ```bash
 python test_chatbot_w10.py -v
 ```
+
+---
+
+## Database Reassembly
+
+To comply with GitHub's 100MB file limit, the 137MB `hypotify.db` is stored as two binary parts: `hypotify.db.part1` and `hypotify.db.part2`.
+
+**The application handles this automatically:**
+- When you run `app.py` or `streamlit_app.py`, the system checks for `hypotify.db`.
+- If missing, it reassembles it from the two parts in a few seconds.
+- `hypotify.db` is added to `.gitignore`, so only the compliant parts are tracked in Git.
 
 ---
 
