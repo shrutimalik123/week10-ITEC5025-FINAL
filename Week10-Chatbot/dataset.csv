@@ -1,0 +1,387 @@
+user_input,intent,response
+hello,greeting,Hello! Welcome to the Hypotify Clinical Chatbot. How can I help you today?
+hi,greeting,Hi there! I'm your Hypotify clinical assistant. Type 'help' to see what I can do.
+hey,greeting,Hey! How can I assist you today?
+good morning,greeting,Good morning! Ready to assist with patient data and clinical insights.
+good afternoon,greeting,Good afternoon! How can I help?
+good evening,greeting,Good evening! What can I do for you?
+howdy,greeting,Howdy! Welcome to the Hypotify Clinical Chatbot.
+greetings,greeting,Greetings! I'm here to help with clinical data.
+what's up,greeting,Hi! I'm here and ready to assist you with patient data.
+hola,greeting,Hola! How can I help you today?
+hi there,greeting,Hi there! Welcome to Hypotify. How can I assist?
+good day,greeting,Good day! Ready to help with all your clinical data needs.
+hey there,greeting,Hey there! I'm your Hypotify clinical assistant.
+morning,greeting,Good morning! How can I assist you today?
+evening,greeting,Good evening! Ready to help with clinical queries.
+hello chatbot,greeting,Hello! I'm the Hypotify clinical assistant. What do you need?
+hi bot,greeting,Hi! I'm here to assist with your patient data needs.
+hello there,greeting,Hello! Welcome. How can I help you with the clinical database today?
+goodbye,goodbye,Goodbye! Thank you for using Hypotify. Stay healthy!
+bye,goodbye,Take care! Come back anytime you need clinical insights.
+exit,goodbye,Farewell! Hope I was able to assist you today.
+quit,goodbye,Goodbye! Until next time.
+see you later,goodbye,See you! Stay healthy!
+farewell,goodbye,Farewell! Have a great day.
+adios,goodbye,Adios! Take care.
+take care,goodbye,Take care! Come back anytime.
+i'm done,goodbye,Alright, goodbye! Feel free to return whenever you need help.
+close,goodbye,Closing session. Goodbye!
+see you,goodbye,See you later! Stay healthy!
+bye bye,goodbye,Bye bye! Thanks for using Hypotify.
+good night,goodbye,Good night! Come back anytime.
+have a good day,goodbye,You too! Goodbye and stay healthy.
+i'm leaving,goodbye,Goodbye! Thank you for using the Hypotify Clinical Chatbot.
+thanks bye,goodbye,You're welcome! Goodbye and take care.
+that's all,goodbye,Alright! Goodbye and feel free to come back anytime.
+done for now,goodbye,Great! Goodbye for now. Come back anytime you need help.
+help,help,"Here's what I can help with: patient lookup, list patients, clinical insights, translation, medical terms, sentiment analysis, and named entity recognition."
+what can you do,help,I can look up patients, show clinical insights, translate text, analyze sentiment, and much more. Type 'help' for the full command list.
+show commands,help,Available commands: patient <id>, patients list, insights, translate, sentiment, ner. Type 'help' for details.
+commands,help,Here are the available commands. Type 'help' to see the full list.
+menu,help,Here is the menu of options. Type 'help' to see what I can do.
+options,help,I can assist with patient data, clinical insights, translations, and more. Type 'help'.
+what do you support,help,I support patient lookups, clinical insights, translations, sentiment analysis, and named entity recognition.
+assist me,help,I'm here to help! Type 'help' to see the list of available commands.
+guide me,help,Sure! Type 'help' to see a guided list of everything I can do.
+how does this work,help,This chatbot uses NLP and machine learning to understand your queries. Type 'help' for commands.
+what commands,help,Type 'help' to see the full list of available commands.
+show me the menu,help,Here is the command menu. Type 'help' for the full list of supported operations.
+what are my options,help,You have many options! Type 'help' to see the complete list of commands.
+i need help,help,I'm here to help! Type 'help' to see all available commands.
+can you help me,help,Of course! Type 'help' to see a full list of what I can assist with.
+tutorial,help,I can walk you through the system. Type 'help' to see all available commands and examples.
+get started,help,To get started, type 'help' to see the list of available commands and features.
+show me patient,patient_lookup,I can look up a patient for you. Please provide the patient ID (e.g., patient P000001).
+get patient,patient_lookup,Sure! Provide a patient ID to retrieve their record.
+find patient,patient_lookup,I'll help find a patient. Please provide the patient ID.
+view patient,patient_lookup,To view a patient record, please provide the patient ID.
+patient record,patient_lookup,I can retrieve a patient record. Please provide the patient ID.
+lookup patient,patient_lookup,Provide a patient ID and I'll look them up right away.
+retrieve patient,patient_lookup,I'll retrieve the patient data. Please give me the patient ID.
+display patient,patient_lookup,I'll display the patient information. What is the patient ID?
+what is patient,patient_lookup,I need a patient ID to look up their details. Please provide one.
+patient information,patient_lookup,To get patient information, please tell me the patient ID.
+show patient details,patient_lookup,I can show patient details. Which patient ID would you like me to look up?
+get me patient data,patient_lookup,Provide the patient ID and I'll fetch their data immediately.
+search for patient,patient_lookup,I can search for a patient. Please provide the patient ID.
+find me a patient,patient_lookup,I'll help you find a patient. What is the patient ID?
+access patient file,patient_lookup,To access a patient file, please provide the patient ID.
+pull up patient,patient_lookup,I'll pull up the patient record. Please provide the patient ID.
+check patient record,patient_lookup,I can check a patient record. What is the patient ID?
+open patient chart,patient_lookup,I'll open the patient chart. Please provide the patient ID.
+get patient profile,patient_lookup,I can retrieve a patient profile. Please provide the patient ID.
+show me a patient,patient_lookup,Sure! Which patient ID would you like me to pull up?
+list all patients,list_patients,I'll list all patients in the database for you.
+show all patients,list_patients,Fetching the full patient list now...
+all patients,list_patients,Here are all the patients in the database.
+how many patients,list_patients,Let me count the total number of patients for you.
+patient list,list_patients,Fetching the patient list from the database.
+display all patients,list_patients,Displaying all available patients now.
+patients in database,list_patients,Here are the patients currently stored in the database.
+count patients,list_patients,Counting the number of patients in the database for you.
+total patients,list_patients,Let me calculate the total patient count.
+show me all records,list_patients,Fetching all patient records from the database.
+every patient,list_patients,Retrieving the complete list of all patients.
+patients list,list_patients,Fetching the patient list from the database.
+give me all patients,list_patients,Retrieving all patients from the database now.
+show patients,list_patients,Showing all patients in the clinical database.
+full patient list,list_patients,Let me retrieve the complete patient list for you.
+how many records,list_patients,Let me count the total number of patient records in the database.
+pull all patients,list_patients,Pulling all patients from the database now.
+retrieve all patients,list_patients,Fetching all patient data from the clinical database.
+list patients,list_patients,Listing all patients in the database.
+show database,list_patients,Displaying the full patient database for you.
+language distribution,insights_language,Let me pull up the language distribution statistics.
+what languages,insights_language,Fetching the language breakdown from the patient database.
+language statistics,insights_language,Here are the language statistics for the patient population.
+how many speak spanish,insights_language,Let me check how many patients speak Spanish.
+language breakdown,insights_language,I'll show you the complete language breakdown.
+patients by language,insights_language,Fetching patients grouped by language now.
+language insights,insights_language,Here are the language-based insights from the patient database.
+language stats,insights_language,Loading language statistics for the clinical population.
+what languages do patients speak,insights_language,Let me check the language distribution across all patients.
+show language data,insights_language,Pulling up language data from the patient records.
+language demographics,insights_language,Fetching language demographic data from the patient population.
+most common language,insights_language,Let me find the most commonly spoken language in the patient population.
+spoken languages,insights_language,I can show you data on languages spoken by patients. Fetching now.
+language of patients,insights_language,Retrieving language distribution data for all patients.
+how many english speakers,insights_language,Let me count the number of English-speaking patients in the database.
+how many mandarin speakers,insights_language,Fetching the count of Mandarin-speaking patients from the database.
+language count,insights_language,Let me count patients by language for you.
+language percentages,insights_language,Calculating language percentages across the patient population.
+language report,insights_language,Generating a language distribution report from the patient database.
+language of all patients,insights_language,Here is the language breakdown for all patients in the database.
+age statistics,insights_age,Let me calculate the age statistics for you.
+average age,insights_age,I'll compute the average patient age right away.
+age distribution,insights_age,Fetching the age distribution across the patient population.
+how old are patients,insights_age,Let me pull up age data for the patients.
+patient ages,insights_age,I'll retrieve the patient age statistics from the database.
+age breakdown,insights_age,Here is the age breakdown for all patients.
+age insights,insights_age,Fetching age-based insights from the clinical database.
+demographics age,insights_age,Loading age demographics from the patient database.
+youngest patient,insights_age,Let me find age statistics including the youngest patient.
+oldest patient,insights_age,I'll look up the age range including the oldest patient on record.
+mean age,insights_age,Let me calculate the mean age of all patients in the database.
+median age,insights_age,I'll compute the median age across all patients.
+age range,insights_age,Let me pull up the minimum and maximum patient ages.
+age analytics,insights_age,Fetching age analytics from the patient database.
+age of patients,insights_age,Retrieving age data for all patients in the clinical database.
+age groups,insights_age,Let me show you the age group distribution across patients.
+senior patients,insights_age,Let me show age statistics including the distribution of older patients.
+patient demographics age,insights_age,Loading age demographic data from the patient records.
+how old is the average patient,insights_age,I'll calculate the average patient age from the database.
+what is the average age,insights_age,Let me compute the average age across all patients in the database.
+gender distribution,insights_gender,Fetching gender distribution statistics now.
+gender statistics,insights_gender,Let me look up the gender breakdown for you.
+male female ratio,insights_gender,I'll calculate the male-to-female ratio in the patient population.
+how many male,insights_gender,Let me count the number of male patients in the database.
+how many female,insights_gender,Fetching the count of female patients now.
+gender breakdown,insights_gender,Here is the gender breakdown across all patients.
+gender stats,insights_gender,Loading gender statistics from the clinical database.
+gender insights,insights_gender,Fetching gender-based insights from the patient population.
+sex distribution,insights_gender,Pulling up the sex/gender distribution across all patients.
+show gender data,insights_gender,Here is the gender data from the patient records.
+how many men,insights_gender,Let me count the number of male patients in the database.
+how many women,insights_gender,Fetching the count of female patients from the database.
+gender percentages,insights_gender,Calculating gender percentages across the patient population.
+gender report,insights_gender,Generating a gender distribution report from the patient database.
+male patients,insights_gender,Fetching the count and percentage of male patients.
+female patients,insights_gender,Fetching the count and percentage of female patients.
+gender demographics,insights_gender,Loading gender demographic data from the patient population.
+what percent male,insights_gender,Let me calculate the percentage of male patients in the database.
+what percent female,insights_gender,Calculating the percentage of female patients in the database.
+patient gender breakdown,insights_gender,Here is the gender breakdown for all patients in the clinical database.
+poverty statistics,insights_poverty,Analyzing poverty data across the patient population.
+poverty rate,insights_poverty,Let me pull up the poverty rate statistics for you.
+below poverty,insights_poverty,Fetching data on patients living below the poverty line.
+poverty analysis,insights_poverty,Performing a poverty analysis across the patient population.
+poverty percentage,insights_poverty,Calculating the poverty percentage for the clinical population.
+low income patients,insights_poverty,Fetching data on low-income patients in the database.
+socioeconomic data,insights_poverty,Loading socioeconomic data from the patient database.
+poverty distribution,insights_poverty,Here is the poverty distribution across all patients.
+how many patients below poverty line,insights_poverty,Let me calculate the number of patients below the poverty line.
+poverty level breakdown,insights_poverty,Fetching the poverty level breakdown for the clinical population.
+poverty stats,insights_poverty,Loading poverty statistics from the patient records.
+poverty insights,insights_poverty,Fetching poverty-based insights from the patient database.
+socioeconomic status,insights_poverty,Loading socioeconomic status data from the patient population.
+income data,insights_poverty,Fetching income level data from the patient database.
+financial hardship,insights_poverty,Loading data on patients experiencing financial hardship.
+poverty percent,insights_poverty,Calculating the poverty percentage across the clinical population.
+how poor,insights_poverty,Let me pull up poverty statistics for the patient population.
+poverty demographics,insights_poverty,Fetching poverty demographic data from the patient database.
+what is the poverty rate,insights_poverty,Let me calculate the poverty rate across all patients.
+average poverty percentage,insights_poverty,I'll compute the mean poverty percentage across all patients.
+translate,translate,"I can translate text for you! Use: translate ""<text>"" to <language>"
+translation,translate,Sure! Tell me the text and target language for translation.
+convert text,translate,I can convert text to another language. Please provide the text and target language.
+translate this,translate,"Provide the text you'd like translated and the target language. Example: translate ""Hello"" to Spanish"
+how do you say,translate,"Tell me the phrase and the target language. Example: translate ""Hello"" to French"
+in spanish,translate,"I can help with Spanish translation! Use: translate ""<text>"" to Spanish"
+in french,translate,"I can help with French translation! Use: translate ""<text>"" to French"
+in another language,translate,Provide the text and target language and I'll translate it for you.
+translate to,translate,Please provide the text and the target language for translation.
+language convert,translate,I can convert text between languages. What would you like to translate?
+translate to mandarin,translate,"I can translate to Mandarin! Use: translate ""<text>"" to Mandarin"
+translate to hindi,translate,"Translating to Hindi is supported. Use: translate ""<text>"" to Hindi"
+translate to portuguese,translate,"I can translate to Portuguese. Use: translate ""<text>"" to Portuguese"
+translate to arabic,translate,"Arabic translation is supported. Use: translate ""<text>"" to Arabic"
+translate to italian,translate,"I can help with Italian translation. Use: translate ""<text>"" to Italian"
+translate to german,translate,"German translation is available. Use: translate ""<text>"" to German"
+say it in french,translate,"Sure! Use: translate ""<text>"" to French"
+say it in spanish,translate,"Sure! Use: translate ""<text>"" to Spanish"
+language translation,translate,I can translate text between many languages. Provide text and target language.
+how to translate,translate,"Use the command: translate ""<your text>"" to <language>"
+medical term,medical_terms,"I can help with medical terminology! Use: medical <term> in <language>"
+what does it mean,medical_terms,Please provide the medical term and I'll look it up for you.
+medical definition,medical_terms,"I can provide medical definitions. Use: medical <term> in <language>"
+clinical term,medical_terms,"I can explain clinical terms. Use: medical <term> in <language>"
+medical vocabulary,medical_terms,I have a comprehensive medical vocabulary database. What term do you need?
+define medical,medical_terms,"I can define medical terms in multiple languages. Use: medical <term> in <language>"
+medical in spanish,medical_terms,"I can translate medical terms to Spanish. Use: medical <term> in Spanish"
+what does diagnosis mean,medical_terms,A diagnosis is a clinical determination of the nature of a patient's condition.
+medical terminology,medical_terms,"I can explain medical terminology. Use: medical <term> in <language>"
+explain medical term,medical_terms,"Sure! Provide the term and target language. Use: medical <term> in <language>"
+what does hypertension mean,medical_terms,Hypertension is a condition where blood pressure in the arteries is persistently elevated.
+define diabetes,medical_terms,Diabetes is a metabolic disease that causes high blood sugar levels due to insulin issues.
+what is a CBC,medical_terms,CBC stands for Complete Blood Count - a blood test measuring red/white cells and platelets.
+define sepsis,medical_terms,Sepsis is a life-threatening condition caused by the body's response to an infection.
+what is tachycardia,medical_terms,Tachycardia is a heart rate that exceeds the normal resting rate (over 100 bpm in adults).
+clinical jargon,medical_terms,"I can help decode clinical jargon. Use: medical <term> in <language>"
+what is bradycardia,medical_terms,Bradycardia is a slower-than-normal heart rate (below 60 bpm in adults).
+define edema,medical_terms,Edema is swelling caused by excess fluid trapped in the body's tissues.
+what is anemia,medical_terms,Anemia is a condition where there aren't enough healthy red blood cells to carry oxygen.
+what is a metabolic panel,medical_terms,A metabolic panel is a blood test that measures electrolytes, kidney function, and liver enzymes.
+sentiment,sentiment,I can analyze the sentiment of any text. Use: sentiment <your text>
+analyze sentiment,sentiment,Sure! Provide text and I'll identify its emotional tone.
+is this positive,sentiment,Provide the text and I'll determine if it's positive, negative, or neutral.
+is this negative,sentiment,Share the text and I'll analyze its sentiment for you.
+how does this feel,sentiment,I can assess the emotional tone of any text. Just provide it!
+emotional tone,sentiment,I can detect the emotional tone of text. Use: sentiment <your text>
+text sentiment,sentiment,Provide the text and I'll analyze its sentiment right away.
+mood of text,sentiment,I can detect the mood of any text. Use: sentiment <your text>
+detect emotion,sentiment,I can detect emotions in text. Use: sentiment <your text>
+positive or negative,sentiment,Provide the text and I'll tell you if it's positive, negative, or neutral.
+good sentiment,sentiment,Share the text and I'll confirm whether it carries a positive sentiment.
+bad sentiment,sentiment,Provide the text and I'll determine its negative sentiment score.
+analyze this text,sentiment,I'll analyze the sentiment of your text. Please provide it using: sentiment <text>
+what is the sentiment,sentiment,Share the text and I'll calculate its sentiment score and label.
+run sentiment analysis,sentiment,Sure! Use: sentiment <your text> to get a sentiment score.
+check the mood,sentiment,I can check the emotional mood of any text. Use: sentiment <your text>
+how positive is this,sentiment,Provide the text and I'll calculate how positive it is on a [-1, +1] scale.
+how negative is this,sentiment,Share the text and I'll calculate its negativity score.
+detect sentiment,sentiment,I can detect the sentiment. Use: sentiment <your text>
+is this happy,sentiment,Provide the text and I'll determine whether it expresses happiness!
+is this angry,sentiment,Share the text and I'll analyze its tone for anger or frustration.
+named entity,ner,I can extract named entities from text. Use: ner <your text>
+ner,ner,Named entity recognition is ready. Use: ner <your text>
+extract entities,ner,"I'll identify people, places, dates, and medical terms from your text."
+find names,ner,I can find names and other entities. Use: ner <your text>
+detect entities,ner,Provide text and I'll detect all named entities within it.
+entity recognition,ner,I can recognize entities in clinical text. Use: ner <your text>
+who is mentioned,ner,I can identify who or what is mentioned in any text. Use: ner <your text>
+what is mentioned,ner,I can extract all relevant entities. Use: ner <your text>
+extract information,ner,I'll extract key information from your text. Use: ner <your text>
+find dates,ner,I can extract dates and other entities. Use: ner <your text>
+extract medical entities,ner,I can extract medical entities from clinical text. Use: ner <your text>
+find people,ner,I can find people mentioned in text. Use: ner <your text>
+find organizations,ner,I can identify organizations in your text. Use: ner <your text>
+find locations,ner,I can extract locations mentioned in your text. Use: ner <your text>
+what entities are in this,ner,Use: ner <your text> and I'll extract all named entities.
+extract proper nouns,ner,I can extract proper nouns and named entities. Use: ner <your text>
+identify names,ner,I can identify names and named entities in text. Use: ner <your text>
+run ner,ner,Sure! Use: ner <your text> to run Named Entity Recognition.
+entity extraction,ner,I can perform entity extraction on any text. Use: ner <your text>
+find medical entities,ner,"I'll identify medical terms, patient IDs, and clinical entities. Use: ner <text>"
+who appears in this text,ner,I can identify who appears in the text. Use: ner <your text>
+lab results,lab_results,Lab data includes CBC panels, metabolic panels, and urinalysis linked to patient admissions.
+cbc,lab_results,"I can help with CBC (Complete Blood Count) lab values. Which patient or panel are you interested in?"
+metabolic panel,lab_results,Metabolic panel data is available. Please provide a patient ID for specific results.
+blood work,lab_results,I can help interpret blood work results. Provide a patient ID for their lab data.
+lab data,lab_results,Lab data is linked to patient admissions. Provide a patient ID for specific lab results.
+test results,lab_results,I can retrieve test results. Please provide the patient ID.
+hemoglobin,lab_results,Hemoglobin values are part of the CBC panel. Provide a patient ID for their specific value.
+glucose level,lab_results,Glucose levels are tracked in the metabolic panel. Provide a patient ID to see their results.
+creatinine,lab_results,Creatinine is a key metabolic indicator. Provide a patient ID for their specific value.
+lab values,lab_results,I can look up lab values by patient ID. Which patient or test are you looking for?
+alt sgpt,lab_results,ALT/SGPT (alanine aminotransferase) is a liver enzyme test. Provide a patient ID for their results.
+urinalysis,lab_results,Urinalysis results are available. Provide a patient ID to retrieve their data.
+blood test results,lab_results,I can retrieve blood test results. Please provide the patient ID.
+show lab results,lab_results,I can show lab results. Please provide the patient ID.
+get lab data,lab_results,Fetching lab data. Please provide the patient ID.
+platelet count,lab_results,Platelet counts are part of the CBC panel. Provide a patient ID to see their value.
+white blood cells,lab_results,White blood cell counts are in the CBC panel. Provide a patient ID for their results.
+red blood cells,lab_results,Red blood cell counts come from the CBC panel. Provide a patient ID.
+lab panel,lab_results,I can retrieve any lab panel result. Please provide the patient ID and panel name.
+bun creatinine,lab_results,BUN and creatinine are kidney function indicators in the metabolic panel. Provide a patient ID.
+sodium potassium,lab_results,Sodium and potassium are electrolytes measured in the metabolic panel. Provide a patient ID.
+tell me more,context_followup,Happy to elaborate! Could you specify which topic you'd like more detail on?
+what else,context_followup,Of course! Let me know which area you'd like me to expand on.
+and then,context_followup,Sure! What would you like to know next?
+continue,context_followup,I'll continue! What specific information are you looking for?
+more details,context_followup,I can provide more details. Which topic would you like me to elaborate on?
+elaborate,context_followup,I'd be happy to elaborate. What aspect do you need more information on?
+go on,context_followup,Sure, I can continue. What would you like to know more about?
+anything else,context_followup,Is there anything else I can help you with today?
+can you explain,context_followup,Of course! What would you like me to explain in more detail?
+explain that,context_followup,Happy to explain further. Which part would you like clarified?
+can you repeat,context_followup,Sure! Let me repeat the information for you. What would you like me to go over again?
+i don't understand,context_followup,I'll try to clarify. Which part was unclear?
+i didn't get that,context_followup,Let me rephrase that. What part would you like me to explain again?
+what do you mean,context_followup,I'll clarify! Which part of my response was confusing?
+please explain,context_followup,Sure! What would you like me to explain in more detail?
+can you clarify,context_followup,Happy to clarify. What part was unclear?
+i need more info,context_followup,I can provide more information. Which topic would you like to expand on?
+give me more,context_followup,Sure! What would you like more detail about?
+additional details,context_followup,I can give additional details. What topic would you like more information on?
+keep going,context_followup,I'll continue! What would you like to know next?
+explain more,context_followup,Happy to explain more. Which part would you like me to elaborate on?
+race distribution,insights_race,Let me pull up the race distribution across the patient population.
+racial breakdown,insights_race,Fetching the racial breakdown from the patient database.
+patient race statistics,insights_race,Loading race statistics from the clinical database.
+how many asian patients,insights_race,Let me count the number of Asian patients in the database.
+how many hispanic patients,insights_race,Fetching the count of Hispanic patients from the database.
+race insights,insights_race,Here are the race-based insights from the patient population.
+ethnicity distribution,insights_race,I can show the ethnicity/race distribution. Fetching data now.
+racial statistics,insights_race,Loading racial statistics from the patient records.
+how many white patients,insights_race,Let me count the number of White patients in the database.
+show race data,insights_race,Pulling up race data from the patient records.
+race demographics,insights_race,Fetching race demographic data from the patient population.
+race percentages,insights_race,Calculating race percentages across the patient population.
+racial disparities,insights_race,Loading data on racial distribution across the patient population.
+minority patients,insights_race,Fetching demographic data on minority patients in the database.
+racial composition,insights_race,Here is the racial composition of the patient population.
+race report,insights_race,Generating a race distribution report from the patient database.
+how many black patients,insights_race,Let me count the number of Black/African American patients in the database.
+diversity statistics,insights_race,Loading diversity and race statistics from the patient population.
+race of patients,insights_race,Here is the race breakdown for all patients in the clinical database.
+patient ethnicity,insights_race,Fetching ethnicity data for all patients in the database.
+marital status distribution,insights_marital,Let me pull up marital status statistics for the patient population.
+how many married patients,insights_marital,Fetching the count of married patients from the database.
+single patients,insights_marital,Let me check how many patients are listed as single.
+marital breakdown,insights_marital,Here is the marital status breakdown for all patients.
+divorce statistics,insights_marital,Fetching divorce/separated patient statistics from the database.
+marital status insights,insights_marital,Here are the marital status insights from the clinical population.
+how many divorced,insights_marital,Let me count the number of divorced patients in the database.
+widowed patients,insights_marital,Fetching data on widowed patients in the clinical database.
+patient relationship status,insights_marital,Loading relationship/marital status data from the patient records.
+marital demographics,insights_marital,Fetching marital demographic data from the patient population.
+marital stats,insights_marital,Loading marital status statistics from the clinical database.
+how many single patients,insights_marital,Let me count the number of single patients in the database.
+marital status report,insights_marital,Generating a marital status distribution report.
+coupled patients,insights_marital,Fetching data on married or partnered patients.
+marital status of patients,insights_marital,Here is the marital status breakdown for all patients.
+patient diagnoses,diagnosis_lookup,I can look up diagnoses for a specific patient. Please provide the patient ID.
+what diagnosis,diagnosis_lookup,Provide a patient ID and I'll retrieve their diagnosis information.
+diagnoses for patient,diagnosis_lookup,I can retrieve all diagnoses linked to a patient. What is the patient ID?
+diagnosis history,diagnosis_lookup,I'll retrieve the diagnosis history. Please provide the patient ID.
+medical history,diagnosis_lookup,I can look up a patient's medical history. Please provide the patient ID.
+conditions,diagnosis_lookup,I can retrieve patient conditions/diagnoses. Provide the patient ID.
+what diseases,diagnosis_lookup,Let me look up the patient's recorded diseases/diagnoses. Provide the patient ID.
+icd code,diagnosis_lookup,I can look up ICD diagnosis codes. Please provide a patient ID or specific code.
+diagnosis code,diagnosis_lookup,I can retrieve diagnosis codes for a patient. What is the patient ID?
+medical conditions,diagnosis_lookup,I can look up medical conditions by patient ID. Please provide the ID.
+show diagnosis,diagnosis_lookup,I can show diagnostic information. Please provide the patient ID.
+get diagnoses,diagnosis_lookup,Fetching diagnoses. Please provide the patient ID.
+patient health issues,diagnosis_lookup,I can retrieve health issues/diagnoses for a patient. Provide the patient ID.
+patient disorders,diagnosis_lookup,I can retrieve patient disorders/diagnoses. Please provide the patient ID.
+what was diagnosed,diagnosis_lookup,I can retrieve what was diagnosed for a patient. Please provide the patient ID.
+chronic conditions,diagnosis_lookup,I can look up chronic conditions for a patient. Please provide the patient ID.
+past diagnoses,diagnosis_lookup,Fetching past diagnosis history. Please provide the patient ID.
+current diagnoses,diagnosis_lookup,I can retrieve current diagnoses for a patient. Please provide the patient ID.
+top diagnoses,diagnosis_lookup,I can show the most common diagnoses across the patient population.
+diagnosis statistics,diagnosis_lookup,Fetching diagnosis frequency data from the clinical database.
+admission history,admission_lookup,I can retrieve admission history. Please provide the patient ID.
+when was patient admitted,admission_lookup,Provide the patient ID and I'll fetch their admission records.
+hospital stays,admission_lookup,I can retrieve hospital stay history. Please provide the patient ID.
+admissions,admission_lookup,Fetching admission records. Please provide the patient ID.
+patient visits,admission_lookup,I can retrieve patient visit/admission data. What is the patient ID?
+how many admissions,admission_lookup,Let me look up the number of admissions for a patient. Provide the patient ID.
+admission dates,admission_lookup,I can retrieve the admission and discharge dates. Please provide the patient ID.
+discharge date,admission_lookup,I'll look up the discharge date for the patient. Please provide the patient ID.
+length of stay,admission_lookup,I can calculate the length of hospital stay. Please provide the patient ID.
+show admissions,admission_lookup,Fetching admission records from the database. Please provide the patient ID.
+hospital admission,admission_lookup,I can retrieve hospital admission records. Please provide the patient ID.
+when admitted,admission_lookup,Provide the patient ID and I'll retrieve their admission date.
+when discharged,admission_lookup,I can retrieve the discharge date. Please provide the patient ID.
+patient stay,admission_lookup,I can retrieve hospital stay information. Provide the patient ID.
+readmission,admission_lookup,I can check if a patient has been readmitted. Please provide the patient ID.
+total admissions,admission_lookup,Fetching the total number of admissions for a patient. Please provide the patient ID.
+average length of stay,admission_lookup,I can calculate the average length of hospital stay across all patients.
+admission record,admission_lookup,I can retrieve admission records. Please provide the patient ID.
+how long was patient admitted,admission_lookup,I can calculate the length of each hospital stay. Please provide the patient ID.
+list admissions,admission_lookup,Fetching the list of admissions for a patient. Please provide the patient ID.
+blah blah blah,unknown,I'm not sure what you mean. Could you rephrase that? Type 'help' to see available commands.
+asdfgh,unknown,I didn't understand that. Could you rephrase? Type 'help' for available commands.
+random text,unknown,I'm not quite sure what you mean. Try rephrasing your query or type 'help'.
+111111,unknown,That doesn't look like a valid command. Type 'help' to see what I can do.
+what is the weather,unknown,I'm a clinical chatbot and can only assist with patient and clinical data. Type 'help'.
+tell me a joke,unknown,I'm focused on clinical data queries. Type 'help' to see what I can assist with.
+play music,unknown,I'm a clinical assistant and don't support that. Type 'help' for what I can do.
+search google,unknown,I can only assist with clinical data queries. Type 'help' for available commands.
+what is 2 plus 2,unknown,I'm a clinical assistant and can't do math. Type 'help' for what I support.
+what time is it,unknown,I don't have access to the clock. I'm here for clinical data queries. Type 'help'.
+order food,unknown,I'm a clinical chatbot and can't order food. Type 'help' for available commands.
+book a flight,unknown,I can only assist with clinical and patient data queries. Type 'help'.
+what is your name,unknown,I'm the Hypotify Clinical Chatbot! Type 'help' to see what I can do.
+who made you,unknown,I was built by the Hypotify team to assist with clinical data. Type 'help' for commands.

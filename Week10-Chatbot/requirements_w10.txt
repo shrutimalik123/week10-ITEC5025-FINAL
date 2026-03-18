@@ -1,0 +1,12 @@
+# Week 10 – Hypotify Clinical Chatbot (Web Deployment)
+# Requirements for running app.py, streamlit_app.py, and test_chatbot_w10.py
+#
+# Install with:
+#   pip install -r requirements_w10.txt
+#
+# Note: Week 9 requirements (tensorflow, nltk, spacy, pandas, scikit-learn)
+#       must also be installed. See Week9-Chatbot/requirements_w9.txt.
+
+flask>=2.3.0
+flask-cors>=4.0.0
+streamlit>=1.32.0

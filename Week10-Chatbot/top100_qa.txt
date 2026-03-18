@@ -1,0 +1,572 @@
+================================================================================
+TOP 100 PROBABLE QUESTIONS AND CHATBOT ANSWERS
+Hypotify Clinical Chatbot – ITEC5025 Week 10
+Author: Shruti Malik | Date: March 18, 2026
+================================================================================
+
+The following 100 questions represent the most likely queries a user would
+direct at the Hypotify Clinical Chatbot, grouped by category, with the
+expected chatbot response or the type of response returned.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 1 – GREETINGS & CONVERSATION STARTERS (Q1–Q10)
+────────────────────────────────────────────────────────────────────────────────
+
+Q1:  Hello
+A:   Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you
+     today? Type 'help' to see all available commands.
+
+Q2:  Hi there
+A:   Hi there! How can I assist you today?
+
+Q3:  Good morning
+A:   Good morning! Welcome to Hypotify. I'm ready to help with patient data
+     and clinical queries.
+
+Q4:  Hey chatbot
+A:   Hey! I'm the Hypotify Clinical Assistant. What can I help you with?
+
+Q5:  Howdy
+A:   Howdy! Ready to help with your clinical queries. Type 'help' to get started.
+
+Q6:  What's up
+A:   I'm here and ready! Ask me about patient records, population statistics,
+     sentiment, NER, or database information.
+
+Q7:  Greetings
+A:   Greetings! I'm your Hypotify Clinical Chatbot. How may I assist you?
+
+Q8:  Hello Hypotify
+A:   Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you today?
+
+Q9:  Good afternoon
+A:   Good afternoon! Ready to assist. What would you like to know?
+
+Q10: Start
+A:   Welcome! I'm the Hypotify Clinical Chatbot. Type 'help' to see all
+     available commands, or just ask me a question.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 2 – HELP & CAPABILITY DISCOVERY (Q11–Q18)
+────────────────────────────────────────────────────────────────────────────────
+
+Q11: help
+A:   Available commands:
+       patient <id>           – look up a specific patient
+       admissions <id>        – hospital admission history
+       diagnoses <id>         – ICD-10 diagnoses
+       labs <id>              – lab test results
+       insights <category>    – population statistics (gender/age/race/language/poverty/marital)
+       sentiment <text>       – analyse sentiment
+       ner <text>             – named entity recognition
+       search <keyword>       – search the knowledge base
+       feedback <1-5> <text>  – submit a star rating
+       db info                – show database statistics
+       Type 'exit' or 'goodbye' to quit.
+
+Q12: What can you do?
+A:   I can look up patient records, retrieve admissions and diagnoses, show
+     lab results, compute population statistics, analyse sentiment, extract
+     named entities, search the knowledge base, and log user feedback.
+
+Q13: What commands are available?
+A:   [Returns the same help command list as Q11]
+
+Q14: How do I look up a patient?
+A:   Type:  patient <patient-uuid>
+     Example:  patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+     I'll return the patient's gender, date of birth, race, marital status,
+     language, and poverty percentage.
+
+Q15: What patient data do you have?
+A:   I have 100,000 patient records including gender, date of birth, race,
+     marital status, language, poverty percentage, along with 361,760 admission
+     records, 361,760 diagnoses, and 100,000 lab result rows.
+
+Q16: What statistics can you show?
+A:   I can show gender distribution, age statistics, race distribution,
+     language distribution, poverty statistics, and marital status breakdown
+     for the full 100,000-patient dataset.
+
+Q17: Tell me what you know about the database
+A:   The Hypotify database (hypotify.db) contains 8 tables: intents,
+     patients_summary, conversation_log, user_feedback, patients, admissions,
+     diagnoses, and labs. Type 'db info' to see current row counts.
+
+Q18: Can you understand natural language?
+A:   Yes — I use a Bidirectional LSTM neural network trained on clinical
+     intent examples to classify your messages. I also understand direct
+     commands via pattern matching.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 3 – PATIENT LOOKUP (Q19–Q28)
+────────────────────────────────────────────────────────────────────────────────
+
+Q19: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+A:   Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+     ──────────────────────────────────────────
+     Gender              : Female
+     Date of Birth       : 1951-07-10 07:29:47
+     Race                : Asian
+     Marital Status      : Single
+     Language            : English
+     Poverty %           : 13.7
+
+Q20: Look up patient C3935FBC-DBBA-4844-BBE4-A175FA508454
+A:   Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454
+     Gender              : Male
+     Date of Birth       : 1956-01-27 22:46:39
+     Race                : African American
+     Marital Status      : Single
+     Language            : English
+     Poverty %           : 15.73
+
+Q21: Show me patient 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+A:   Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+     Gender              : Male
+     Date of Birth       : 1972-12-22 10:11:01
+     Race                : White
+     Marital Status      : Married
+     Language            : English
+     Poverty %           : 7.09
+
+Q22: Pull up patient 81606388-2471-42A4-A6F1-1868AE25CFC3
+A:   Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3
+     Gender              : Male
+     Date of Birth       : 1984-01-17 00:49:06
+     Race                : Asian
+     Marital Status      : Separated
+     Language            : Spanish
+     Poverty %           : 2.17
+
+Q23: Find patient E3120DE9-3361-40CF-A618-265C769E75A2
+A:   Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2
+     Gender              : Female
+     Date of Birth       : 1978-12-21 07:24:08
+     Race                : White
+     Marital Status      : Married
+     Language            : English
+     Poverty %           : 18.67
+
+Q24: Get patient info for 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+A:   [Returns formatted patient record from the database]
+
+Q25: patient XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (nonexistent)
+A:   No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+Q26: Show me a list of patients
+A:   I can look up individual patients by their UUID. For population-level
+     statistics, try: insights gender / insights age / insights race.
+
+Q27: How many patients are in the database?
+A:   There are 100,000 patient records in the database. Type 'db info' to
+     see the full table statistics.
+
+Q28: Can I search for a patient by name?
+A:   Patient lookup is by UUID (the unique patient identifier in the dataset).
+     The dataset does not contain patient names for privacy reasons.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 4 – ADMISSIONS (Q29–Q35)
+────────────────────────────────────────────────────────────────────────────────
+
+Q29: admissions 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+A:   Admissions for 9380F9E3-… (1 record):
+     ────────────────────────────────────────────────────
+     Admission 5   2011-03-23 00:14:52  →  2011-03-28 01:57:56
+
+Q30: admissions 0A89658C-C739-45CA-9BF1-CBDDDFB922C0
+A:   Admissions for 0A89658C-… (4 records):
+     Admission 1   1974-02-10 00:04:28  →  1974-02-16 21:04:43
+     Admission 2   1991-05-22 15:08:52  →  1991-05-29 12:30:08
+     Admission 3   1995-02-26 08:01:26  →  1995-02-28 16:45:04
+     Admission 4   2005-03-17 04:51:15  →  2005-04-04 04:04:14
+
+Q31: Show hospital stays for a patient
+A:   Use the command:  admissions <patient-uuid>
+     I'll show all admission IDs, start dates, and end dates in chronological order.
+
+Q32: How many times was a patient admitted?
+A:   Use:  admissions <patient-uuid>
+     The response header shows the total record count, e.g. "(4 records)".
+
+Q33: What is the total number of admissions?
+A:   The database contains 361,760 admission records across all patients.
+
+Q34: When was the patient's most recent admission?
+A:   Use:  admissions <patient-uuid>
+     Records are returned in chronological order; the last one is the most recent.
+
+Q35: Show all hospital visits for patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+A:   [Returns all admission records for that patient from the admissions table]
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 5 – DIAGNOSES (Q36–Q42)
+────────────────────────────────────────────────────────────────────────────────
+
+Q36: diagnoses 54C6E968-45B3-46B1-A64F-2CE3124F2A65
+A:   Diagnoses for 54C6E968-… (up to 20 shown):
+     ────────────────────────────────────────────────────
+     F80.1   : Expressive language disorder
+     R04.81  : Acute idiopathic pulmonary hemorrhage in infants
+     I36     : Nonrheumatic tricuspid valve disorders
+
+Q37: diagnosis 9DD23357-9BEB-43E4-802D-1AB7ACDD4A3A
+A:   Diagnoses for 9DD23357-…:
+     H16.43  : Localized vascularization of cornea
+     M05.161 : Rheumatoid lung disease with rheumatoid arthritis of right knee
+
+Q38: What ICD codes does a patient have?
+A:   Use:  diagnoses <patient-uuid>
+     I'll return up to 20 unique ICD-10 diagnosis codes with descriptions.
+
+Q39: What is the most common diagnosis?
+A:   Use:  search <diagnosis-keyword>  to search the knowledge base.
+     For population-level diagnosis statistics, that analysis would require
+     a custom SQL aggregation across the 361,760-row diagnoses table.
+
+Q40: What does diagnosis code F80.1 mean?
+A:   ICD-10 code F80.1 is "Expressive language disorder" — a developmental
+     disorder characterized by difficulties with verbal and written expression.
+
+Q41: What does R04.81 mean?
+A:   ICD-10 code R04.81 is "Acute idiopathic pulmonary hemorrhage in infants"
+     — bleeding into the lungs in infants without a clearly identified cause.
+
+Q42: How many diagnoses are in the database?
+A:   The database contains 361,760 diagnosis records. Type 'db info' to verify.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 6 – LAB RESULTS (Q43–Q49)
+────────────────────────────────────────────────────────────────────────────────
+
+Q43: labs BF7165BC-CCD9-4CE4-944F-E3C9786B7BF3
+A:   Lab Results for BF7165BC-… (most recent 15):
+     ──────────────────────────────────────────────────────────
+     METABOLIC: ALT/SGPT          40.0 U/L       1974-01-11 21:10
+     CBC: MONOCYTES               0.9  k/cumm    1974-01-11 03:14
+     METABOLIC: GLUCOSE           134.2 mg/dL    1974-01-11 13:57
+     CBC: RDW                     15.0 %         1974-01-11 02:10
+     METABOLIC: ALBUMIN           2.8  gm/dL     1974-01-11 18:50
+
+Q44: Show lab results for a patient
+A:   Use:  labs <patient-uuid>
+     Returns the 15 most recent lab results sorted by date, with test name,
+     value, units, and timestamp.
+
+Q45: What lab tests are recorded?
+A:   The labs table includes metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT),
+     CBC panels (MONOCYTES, RDW), and many other standard lab test categories.
+
+Q46: What does a glucose of 134.2 mg/dL mean?
+A:   A fasting glucose of 134.2 mg/dL is above the normal range of 70–100 mg/dL
+     and above the pre-diabetes threshold of 100–125 mg/dL, placing it in the
+     diabetes range (≥126 mg/dL fasting). Clinical correlation is recommended.
+
+Q47: What is a normal albumin level?
+A:   Normal serum albumin is approximately 3.4–5.4 g/dL. A value of 2.8 gm/dL
+     (as in the sample data) may indicate hypoalbuminemia, which can be associated
+     with malnutrition, liver disease, or chronic illness.
+
+Q48: search glucose
+A:   Search results for 'glucose':
+     [lab_results] What are the glucose results for this patient?
+     [lab_results] Show blood glucose levels
+     … (up to 10 matching patterns from the intents table)
+
+Q49: How many lab records are in the database?
+A:   The labs table contains 100,000 rows (a representative sample from the
+     original >1 million-row dataset). Type 'db info' for current counts.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 7 – POPULATION INSIGHTS (Q50–Q63)
+────────────────────────────────────────────────────────────────────────────────
+
+Q50: insights gender
+A:   Gender Distribution (DB: 100,000 patients):
+       Female         : 49,832  (49.8%)
+       Male           : 50,168  (50.2%)
+
+Q51: What is the gender breakdown of patients?
+A:   [Returns the same gender distribution from the patients table]
+
+Q52: insights age
+A:   Age Statistics (DB: 100,000 patients with DOB):
+       Mean age   : 68.5 years
+       Youngest   : 0.0 years
+       Oldest     : 120+ years
+
+Q53: What is the average patient age?
+A:   The mean age of patients in the dataset is approximately 68.5 years,
+     computed from date_of_birth fields in the patients table.
+
+Q54: insights race
+A:   Race Distribution – Top 10 (DB: 100,000 patients):
+       White                  : 79,000  (79.0%)
+       African American       :  8,500  (8.5%)
+       Asian                  :  3,200  (3.2%)
+       Hispanic               :  2,100  (2.1%)
+       … (top 10 shown)
+
+Q55: What are the racial demographics?
+A:   [Returns the race distribution breakdown from the patients table]
+
+Q56: insights language
+A:   Language Distribution – Top 10 (DB: 100,000 patients):
+       English                :  94,000  (94.0%)
+       Spanish                :   3,800  (3.8%)
+       Portuguese             :     700  (0.7%)
+       … (top 10 shown)
+
+Q57: What languages do patients speak?
+A:   [Returns the language distribution from the patients table]
+
+Q58: insights poverty
+A:   Poverty Statistics (DB: 100,000 patients):
+       Mean poverty %       : 17.6%
+       Patients w/ data     : 98,400
+
+Q59: What is the poverty level for patients in the database?
+A:   The mean poverty percentage across all patients is approximately 17.6%.
+     This field represents the percentage of the local population below the
+     poverty line in each patient's location.
+
+Q60: insights marital
+A:   Marital Status Distribution (DB: 100,000 patients):
+       Married                :  45,200  (45.2%)
+       Single                 :  36,100  (36.1%)
+       Divorced               :  10,300  (10.3%)
+       Widowed                :   5,800  (5.8%)
+       Separated              :   2,600  (2.6%)
+
+Q61: What percentage of patients are married?
+A:   [Returns the marital status distribution; married patients typically
+     make up ~45% of the dataset]
+
+Q62: Show me statistics about the patient population
+A:   I can show: gender, age, race, language, poverty, and marital statistics.
+     Try: insights gender / insights age / insights race / insights language
+
+Q63: How diverse is the patient population?
+A:   The patient population spans multiple races (White, African American, Asian,
+     Hispanic, and others), speaks 10+ languages (majority English), and ranges
+     from 0 to 120+ years in age. Full breakdown available via insights commands.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 8 – SENTIMENT ANALYSIS (Q64–Q71)
+────────────────────────────────────────────────────────────────────────────────
+
+Q64: sentiment I love this clinical tool it is fantastic
+A:   Sentiment Analysis:
+       Text     : "I love this clinical tool it is fantastic"
+       Sentiment: POSITIVE 😊
+       Score    : +0.836  (+1.0 = very positive, -1.0 = very negative)
+
+Q65: sentiment I am very worried about my diagnosis
+A:   Sentiment Analysis:
+       Text     : "I am very worried about my diagnosis"
+       Sentiment: NEGATIVE 😟
+       Score    : -0.612
+
+Q66: sentiment The patient was admitted on Tuesday
+A:   Sentiment Analysis:
+       Text     : "The patient was admitted on Tuesday"
+       Sentiment: NEUTRAL 😐
+       Score    : 0.000
+
+Q67: sentiment This is terrible I hate waiting for test results
+A:   Sentiment Analysis:
+       Text     : "This is terrible I hate waiting for test results"
+       Sentiment: NEGATIVE 😟
+       Score    : -0.774
+
+Q68: sentiment The treatment was effective and the patient improved
+A:   Sentiment Analysis:
+       Text     : "The treatment was effective and the patient improved"
+       Sentiment: POSITIVE 😊
+       Score    : +0.521
+
+Q69: How does sentiment analysis work?
+A:   I use VADER (Valence Aware Dictionary and sEntiment Reasoner), a
+     rule-based model trained on social media text. It returns a compound
+     score from -1.0 (very negative) to +1.0 (very positive). Scores above
+     +0.05 are positive, below -0.05 are negative; otherwise neutral.
+
+Q70: Analyse the mood of: The patient is doing well
+A:   Sentiment Analysis:
+       Text     : "The patient is doing well"
+       Sentiment: POSITIVE 😊
+       Score    : +0.432
+
+Q71: sentiment I cannot believe how long I have waited
+A:   I'm sorry to hear that. I'm here to help.
+     Sentiment Analysis:
+       Sentiment: NEGATIVE 😟
+       Score    : -0.341
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 9 – NAMED ENTITY RECOGNITION (Q72–Q78)
+────────────────────────────────────────────────────────────────────────────────
+
+Q72: ner Dr. Patel treated on 2025-03-10
+A:   Named Entities in: "Dr. Patel treated on 2025-03-10"
+       [      PERSON]  Dr. Patel
+       [        DATE]  2025-03-10
+
+Q73: ner Shruti Malik was admitted to St. Mary Hospital on January 15 2025
+A:   Named Entities in: "Shruti Malik was admitted to St. Mary Hospital on January 15 2025"
+       [      PERSON]  Shruti Malik
+       [         ORG]  St. Mary Hospital
+       [        DATE]  January 15 2025
+
+Q74: ner The patient owed $3400 to Blue Cross Insurance
+A:   Named Entities in: "The patient owed $3400 to Blue Cross Insurance"
+       [       MONEY]  $3,400
+       [         ORG]  Blue Cross Insurance
+
+Q75: ner Omaha Nebraska clinic discharge on December 5
+A:   Named Entities in: "Omaha Nebraska clinic discharge on December 5"
+       [         GPE]  Omaha
+       [         GPE]  Nebraska
+       [        DATE]  December 5
+
+Q76: What is named entity recognition?
+A:   NER (Named Entity Recognition) identifies and classifies specific
+     items of information (entities) in text. Hypotify uses spaCy's
+     en_core_web_sm model to detect PERSON, ORG, DATE, GPE, MONEY, and
+     other clinical entity types.
+
+Q77: ner No entities in this plain text about nothing specific
+A:   No named entities detected in: "No entities in this plain text about nothing specific"
+
+Q78: Can you extract patient names from notes?
+A:   Yes — use the 'ner' command with free-form clinical text. I'll identify
+     PERSON entities (and dates, organizations, locations) using spaCy NER.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 10 – DATABASE & SYSTEM QUERIES (Q79–Q87)
+────────────────────────────────────────────────────────────────────────────────
+
+Q79: db info
+A:   Database Statistics (hypotify.db):
+     ────────────────────────────────────────────
+       intents          :       386 rows
+       patients_summary :        51 rows
+       conversation_log :   (grows with use)
+       user_feedback    :   (grows with use)
+       patients         :   100,000 rows
+       admissions       :   361,760 rows
+       diagnoses        :   361,760 rows
+       labs             :   100,000 rows
+
+Q80: How big is the database?
+A:   The hypotify.db file is approximately 137 MB on disk. It contains
+     8 tables and over 923,000 total rows of clinical and chatbot data.
+
+Q81: search hypertension
+A:   Search results for 'hypertension':
+     [diagnosis_lookup] Do you have hypertension records?
+     [diagnosis_lookup] Show diagnoses related to high blood pressure
+     … (up to 10 results from the intents knowledge base)
+
+Q82: search diabetes
+A:   Search results for 'diabetes':
+     [lab_results] Show blood glucose results
+     [diagnosis_lookup] What diabetes diagnoses are recorded?
+     … (matching patterns from the intents table)
+
+Q83: search admission
+A:   Search results for 'admission':
+     [admission_lookup] Show hospital admissions
+     [admission_lookup] When was the patient admitted?
+     … (matching patterns)
+
+Q84: What tables are in the database?
+A:   The database has 8 tables: intents, patients_summary, conversation_log,
+     user_feedback, patients, admissions, diagnoses, labs.
+
+Q85: Is my conversation being recorded?
+A:   Yes — every conversation turn is logged to the conversation_log table
+     with a timestamp, session ID, your message, the chatbot's response, and
+     the resolved intent tag. This enables usage analytics and audit trails.
+
+Q86: How do I submit feedback?
+A:   Type: feedback <rating> <optional comment>
+     Example: feedback 5 Excellent patient lookup!
+     Ratings are 1–5 stars and are stored permanently in the database.
+
+Q87: feedback 5 This chatbot is incredibly helpful for clinical queries
+A:   Thank you for your 5/5 rating! Your comment has been saved.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 11 – MEDICAL TERMS & CLINICAL KNOWLEDGE (Q88–Q94)
+────────────────────────────────────────────────────────────────────────────────
+
+Q88: What does ALT/SGPT measure?
+A:   ALT (Alanine Aminotransferase), also called SGPT, is a liver enzyme
+     measured in blood. Elevated levels can indicate liver damage or disease.
+     Normal range is approximately 7–56 U/L. The sample data shows a patient
+     value of 40.0 U/L, which is within the normal range.
+
+Q89: What is RDW in a CBC?
+A:   RDW (Red Cell Distribution Width) measures the variation in size of red
+     blood cells. Normal RDW is approximately 11.5–14.5%. A value of 15.0%
+     (as seen in the sample data) is mildly elevated and may indicate iron
+     deficiency anemia or mixed nutrient deficiency.
+
+Q90: What does low albumin mean?
+A:   Low serum albumin (hypoalbuminemia) — below 3.4 g/dL — can indicate
+     malnutrition, liver disease (cirrhosis), kidney disease (nephrotic
+     syndrome), or inflammatory conditions. The sample patient showed albumin
+     of 2.8 gm/dL, which is below the normal range.
+
+Q91: What is ICD-10?
+A:   ICD-10 (International Classification of Diseases, 10th Revision) is a
+     global standard for coding diseases, symptoms, procedures, and causes of
+     death. Each diagnosis in the database is coded with an ICD-10 code (e.g.,
+     F80.1 = Expressive language disorder, I36 = Nonrheumatic tricuspid valve
+     disorders).
+
+Q92: What is monocytes in a CBC?
+A:   Monocytes are a type of white blood cell involved in immune response.
+     In a CBC (Complete Blood Count), monocytes are measured in thousands per
+     cubic millimeter (k/cumm). Normal range is approximately 0.2–1.0 k/cumm.
+     The sample patient shows 0.9 k/cumm, within the normal range.
+
+Q93: medical terms
+A:   I can explain clinical terms when you ask about them directly. For example:
+     'What does ALT mean?' / 'What is RDW?' / 'Explain ICD-10'
+     Use the 'ner' command to extract medical entity names from clinical text.
+
+Q94: What does poverty_pct mean in the patient data?
+A:   The poverty_pct field represents the percentage of the residential
+     population in that patient's geographic area that is below the federal
+     poverty line. It is a socioeconomic indicator, not individual income data.
+
+────────────────────────────────────────────────────────────────────────────────
+CATEGORY 12 – FAREWELLS & CONTEXT FOLLOW-UPS (Q95–Q100)
+────────────────────────────────────────────────────────────────────────────────
+
+Q95:  goodbye
+A:    Goodbye! Stay healthy!
+
+Q96:  bye
+A:    Take care! Come back anytime.
+
+Q97:  exit
+A:    Goodbye! Stay healthy and well.
+
+Q98:  I'm done for today
+A:    Goodbye! Have a great day. Come back anytime you need clinical insights.
+
+Q99:  Tell me more (after asking insights gender)
+A:    I can also show age, gender, poverty, or race statistics. Which would
+     you like to explore next?
+
+Q100: What else can you tell me? (after a patient lookup)
+A:    Would you like to also see their lab results or diagnoses?
+     Type:  labs <patient-id>  or  diagnoses <patient-id>
+
+================================================================================
+END OF TOP 100 Q&A DOCUMENT
+================================================================================

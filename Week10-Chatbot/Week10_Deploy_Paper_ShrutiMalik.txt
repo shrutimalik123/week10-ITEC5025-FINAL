@@ -1,0 +1,1202 @@
+Week 10 Assignment: Deploying and Testing the Chatbot
+ITEC5025 – Natural Language Processing in AI Chatbots
+Author: Shruti Malik
+Date: March 18, 2026
+
+
+
+
+================================================================================
+
+DEPLOYING THE HYPOTIFY CLINICAL CHATBOT:
+A WEB-BASED INTERFACE, AUTOMATED TESTING, AND A RETROSPECTIVE
+ON FOUR WEEKS OF BUILDING A PRODUCTION-CAPABLE AI SYSTEM
+
+================================================================================
+
+Introduction
+
+I started this project in Week 6 with a question that seemed almost naively
+simple at the time: what would it take to build a chatbot that a clinician
+could actually use? Something that could field a question like "what is the
+age distribution of patients in the database?" or "pull up the diagnoses for
+this patient" and return a meaningful, trustworthy answer?
+
+Eleven weeks later, I have an answer—and it is substantially more interesting
+than anything I would have imagined in Week 1. The Hypotify Clinical Chatbot
+went from a Python script that printed "Hello, Chatbot!" to a Flask web
+application with a Bidirectional LSTM model, SQLite database integration,
+real-time VADER sentiment analysis, spaCy named entity recognition, and a
+thirty-test automated test suite. This final paper is my attempt to document
+not just what I built, but how I built it, what I got wrong along the way,
+and what this process taught me about the real nature of applied AI.
+
+I want to write this paper the same way I wrote the previous ones—honestly,
+in my own voice, without pretending that everything went smoothly or that I
+knew what I was doing before I figured it out through experimentation. The
+messy parts are usually the most instructive, and I think they are worth
+preserving in the documentation.
+
+================================================================================
+
+Project Planning: From Week 6 Sketch to Week 10 Deployment
+
+In Week 6, I described my chatbot idea as a clinical decision support tool—
+something that could look up patient records, answer questions about
+population demographics, and eventually help clinicians navigate a large
+electronic health record dataset without needing to write SQL queries.
+
+Looking at that original description now, what strikes me is how correct the
+high-level vision was and how incomplete my understanding was of what it would
+actually take to get there. I sketched out "patient lookup," "population
+statistics," and "natural language interface" as three goals. I had no idea
+that those three goals would require a machine learning classification model,
+an NLP preprocessing pipeline, a word embedding layer, context tracking,
+sentiment analysis, named entity recognition, a relational database with
+eight tables, 100,000 patient records, and a Flask web server.
+
+But that is exactly what it required. And the reason it required all of that
+is that each piece of the puzzle uncovered a gap that the next piece was
+designed to fill.
+
+Week 6 established the foundation: a basic Python chatbot structure with
+intent classification through simple pattern matching, a MySQL schema for
+patient data, and a hello-world script that confirmed my environment was
+configured correctly. The key files from that week were hello_chatbot.py,
+load_patient_data.py, and chatbot_responses.sql. This week didn't have
+machine learning yet, but it established the clinical domain and the data
+model that would persist through the entire project.
+
+Week 7 introduced advanced NLP. I built nlp_processor.py, which handled
+tokenization, stop-word removal, and stemming, and advanced_translation.py,
+which explored multilingual support for patients who speak languages other
+than English—a clinically realistic concern in a diverse patient population.
+The Week 7 chatbot model was trained using a smaller intents.json with rule-
+assisted classification. The big lesson from Week 7 was that stemming, while
+fast, produces linguistically incorrect root forms. "Better" becomes "bet."
+"Studies" becomes "studi." These are not real words, and they create
+mismatches when the model tries to generalize from training examples.
+
+Week 8 replaced stemming with WordNet lemmatization and upgraded the neural
+architecture from a simple dense network with global average pooling to a
+Bidirectional LSTM. The reasoning behind that choice—which I documented at
+length in the Week 8 paper—comes down to word order. A sentence like "show
+me the age distribution" and "show me the race distribution" are identical
+except for one word. GlobalAveragePooling1D would average those embeddings
+and lose the discriminating word. The Bi-LSTM reads the sentence in both
+directions and preserves the full sequential structure. Training the expanded
+370-example dataset produced a test accuracy of approximately 66%, up from
+40% on the original 198-row dataset. That improvement came almost entirely
+from data quantity, not from model complexity—a finding that surprised me and
+that the research literature I read retroactively confirmed.
+
+Week 9 added the database layer. The Week 8 chatbot loaded patients_cleaned.csv
+on every patient lookup—a 9.4 MB file that took 2 to 4 seconds each time.
+For a chatbot that is supposed to feel responsive, that is intolerable. The
+Week 9 solution was an SQLite database (hypotify.db) with eight tables: intents,
+patients_summary, conversation_log, user_feedback, patients, admissions,
+diagnoses, and labs. Every patient lookup now runs as an indexed SQL query and
+returns in under 5 milliseconds. Every conversation turn is logged to
+conversation_log with a timestamp and session ID. Every feedback rating is
+stored in user_feedback. The db_manager.py module encapsulates all raw SQL
+behind clean Python functions, and is the only part of the application that
+knows what database engine we are using.
+
+Week 10—this week—adds the deployment layer and the test suite. The Flask
+web application in app.py wraps the Week 9 chatbot engine in a REST API and
+serves a browser-accessible interface. The test_chatbot_w10.py file contains
+30 tests organized into five classes, covering every layer of the system. And
+this paper documents the entire arc.
+
+================================================================================
+
+1. Deployment Method: Why Flask for a Web-Based Interface
+
+The assignment asked me to choose a deployment method. The options I
+considered were: command-line interface (what Weeks 7 through 9 used), a
+web-based deployment, and a desktop GUI application.
+
+I chose a web-based deployment using Flask for reasons that I think are
+worth articulating carefully, because the choice reflects genuine engineering
+thinking rather than just picking what seemed easiest.
+
+Reason 1 – Accessibility
+
+A command-line chatbot requires the user to have Python installed, know how
+to navigate a terminal, and be comfortable with typed commands. A web interface
+requires only a browser. For a clinical tool that might be used by nurses,
+administrators, or clinicians who are not software engineers, browser
+accessibility is not a nice-to-have—it is a fundamental requirement. Every
+major clinical information system in use today has a web front end precisely
+because hospital staff should not need to interact with a terminal.
+
+Reason 2 – Appropriate Technology Choice
+
+Flask is a lightweight Python web framework that is exceptional for single-user
+or small-deployment scenarios (Grinberg, 2018). It has essentially zero
+configuration overhead: the entire web server is initialized in about twenty
+lines of code. For a local development and academic demonstration use case,
+Flask's built-in development server is the appropriate tool. A production
+deployment at scale would use Gunicorn or uWSGI behind Nginx, but none of
+that infrastructure changes the application code—only the startup command.
+
+SQLite inside a Flask application is a well-established pattern for single-
+user deployments. The SQLite documentation explicitly recommends this use case
+(SQLite Consortium, 2023), and the Hypotify architecture was designed from
+the start in Week 9 to support exactly this scenario.
+
+Reason 3 – Clean Separation of Concerns
+
+The Week 10 architecture separates the deployment layer completely from the
+chatbot engine. app.py imports HypotifyChatbot and db_manager from the Week 9
+directory and exposes them through HTTP endpoints. The chatbot engine itself
+has no knowledge of Flask—it just implements a respond(user_input: str) → str
+method. This separation means the command-line interface from Weeks 7–9
+continues to work without modification, and the web interface is purely an
+additional access layer.
+
+This is the adapter pattern in software architecture (Gamma et al., 1994):
+the chatbot is the core component, and Flask is the adapter that makes it
+accessible via HTTP.
+
+================================================================================
+
+2. User Interface Design
+
+The web interface (templates/index.html) was designed with three guiding
+principles: clinical professionalism, functional clarity, and conversational
+warmth.
+
+Clinical professionalism meant a dark, clean aesthetic without decorative
+clutter. The color palette is deep navy with blue accents—colors that convey
+seriousness and precision without the sterility of a pure white interface.
+The typography uses Inter for conversational text and JetBrains Mono for
+technical output (patient records, database statistics, code-like responses)
+because monospace fonts make formatted tabular text significantly easier to
+read.
+
+Functional clarity meant that every feature the chatbot supports has a
+corresponding entry point in the UI. The sidebar contains a "Quick Commands"
+panel with one-click buttons for the most common operations: db info, insights
+gender/age/race/language/poverty, sentiment, and ner. A user who does not know
+the exact command syntax can discover the functionality through the interface
+rather than by reading documentation. The sidebar also displays a live
+"Database Stats" panel that shows row counts for all eight database tables,
+loading in real time from the /stats endpoint. This panel answers the implicit
+question every new user has: "Is this thing actually connected to real data?"
+
+Conversational warmth meant treating the chat interface as a conversation, not
+a query terminal. Messages appear in speech bubbles with distinct styling for
+user input (blue gradient) and bot responses (dark card with monospace text).
+A typing indicator (three animated dots) plays while the server processes a
+request, so the interface feels responsive even for slow queries. A welcome
+card greets first-time users with example commands as clickable pills—they can
+start exploring the chatbot's capabilities without typing anything.
+
+The interface is fully responsive: the sidebar collapses on small screens, the
+chat area fills the viewport, and the input field auto-grows with multi-line
+text.
+
+================================================================================
+
+3. Integration: How All the Pieces Connect
+
+The Week 10 integration story is the culmination of a design pattern I have
+been building toward since Week 7: a layered architecture where each layer
+is independently testable and can be swapped without changing the others.
+
+Layer 1 – Training data (dataset.csv, 370 labeled intent examples)
+    Created in Week 8. The machine learning model learns the mapping from
+    user phrases to intent categories from this file.
+
+Layer 2 – NLP preprocessing (preprocess.py)
+    Lowercase, tokenize, remove stop words, lemmatize. Applied identically
+    to training data and live user input to ensure the model sees the same
+    representation at inference time as it saw during training.
+
+Layer 3 – ML model (chatbot_model_w8.keras, tokenizer_w8.pkl, label_encoder_w8.pkl)
+    Bidirectional LSTM with 64 units, GlobalMaxPooling1D, two Dense layers with
+    BatchNormalization and Dropout. Trained for 70 epochs with early stopping.
+    Produces a softmax probability distribution over 20 intent classes.
+
+Layer 4 – Response system (chatbot_w9.py, HypotifyChatbot)
+    Applies the confidence threshold (0.45), routes regex-matched commands
+    directly (bypassing ML for deterministic commands like "patient <id>"),
+    performs sentiment analysis and NER, manages the 3-turn context window,
+    and fetches responses from the database.
+
+Layer 5 – Database (hypotify.db, db_manager.py)
+    SQLite with eight tables. The intents table (386 rows) stores the
+    chatbot's knowledge base. Four clinical tables store 100,000 patients,
+    361,760 admissions, 361,760 diagnoses, and a 100,000-row lab sample.
+    Two operational tables store conversation logs and user feedback.
+
+Layer 6 – Web API (app.py)
+    Flask routes that expose the chatbot and database to HTTP clients.
+    /chat takes a user message and returns a bot response in JSON.
+    /health reports on model and database availability.
+    /stats returns live row counts from all database tables.
+    /history returns the last 20 conversation turns for the session.
+
+Layer 7 – Web UI (templates/index.html)
+    Vanilla HTML/CSS/JavaScript that calls the Flask API and renders
+    the conversation. No framework dependencies—just fetch() and DOM
+    manipulation.
+
+The key integration property of this architecture is that each layer only
+depends on the layer immediately below it. The UI does not know anything
+about SQLite—it only knows about the /chat endpoint. Flask does not know
+anything about Keras—it only knows about HypotifyChatbot.respond(). The
+chatbot does not know anything about HTTP—it only knows about db_manager.
+This isolation is what makes the system maintainable and testable.
+
+Data Flow for a Single Patient Lookup
+
+When a user types "patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3" in the
+browser:
+
+    1. JavaScript sends POST /chat with {"message": "patient F7CF0..."}
+    2. Flask's /chat route calls chatbot.respond("patient F7CF0...")
+    3. preprocess_input() lowercases and lemmatizes the text
+    4. The BiLSTM model predicts intent "patient_lookup" at some confidence c
+    5. _PATIENT_ID_RE regex detects the UUID pattern, bypassing the ML route
+       (the regex match is deterministic and more reliable than ML for IDs)
+    6. db_manager.get_patient_from_db("F7CF0FE9-AFCD-49EF-...") queries the
+       patients table with an indexed lookup
+    7. The formatted patient record is returned to chatbot.respond()
+    8. db_manager.log_conversation() INSERT's this turn into conversation_log
+    9. chatbot.respond() returns the formatted string to Flask
+    10. Flask serializes it as {"response": "...", "intent": "patient_lookup"}
+    11. JavaScript renders it in a monospace bot bubble
+
+Total latency from Step 1 to Step 11, measured during testing: approximately
+200—400 milliseconds. The database lookups in Steps 6 and 8 account for less
+than 10 milliseconds each. The model inference in Step 4 is the dominant
+cost, at approximately 150—250 milliseconds on a CPU.
+
+Data Values from the Real Patient Dataset
+
+The four CSV files loaded into the database contain real-format clinical data
+that I want to describe precisely, because the design of the chatbot's query
+commands was shaped directly by what the data contains.
+
+patients_cleaned.csv (100,000 rows, 9.4 MB)
+    Each patient is identified by a UUID (e.g., F7CF0FE9-AFCD-49EF-BFB3-
+    E42302FFA0D3) rather than a short P###### code, reflecting a real EHR
+    identifier format. The remaining columns are gender (Female/Male), date_of_birth
+    (timestamp format YYYY-MM-DD HH:MM:SS), race (White, African American, Asian,
+    etc.), marital_status (Single, Married, Separated, etc.), language (English,
+    Spanish, etc.), and poverty_pct (a float representing the percentage of the
+    local population below the poverty threshold).
+
+admissions_cleaned.csv (361,760 rows, 28.9 MB)
+    Links patient UUIDs to integer admission IDs with admission_start and
+    admission_end timestamps. A single patient may have multiple admissions.
+
+diagnoses_cleaned.csv (361,760 rows, 35.9 MB)
+    Links patient UUIDs and admission IDs to ICD-10 diagnosis codes (e.g.,
+    "F80.1" for Expressive Language Disorder, "R04.81" for Acute Idiopathic
+    Pulmonary Hemorrhage) with plain-text descriptions.
+
+labs_cleaned.csv (>1,000,000 rows, 1.03 GB)
+    Lab test results linked to patients and admissions, with named panels
+    (e.g., "METABOLIC: GLUCOSE" at 134.2 mg/dL, "CBC: MONOCYTES" at 0.9 k/cumm),
+    numeric values, units, and timestamps. The Week 9 import sampled 100,000 rows
+    rather than importing the full gigabyte-scale dataset.
+
+Understanding the exact data formats—UUID patient IDs, integer admission IDs,
+ICD-10 coded diagnoses, named lab panels with units—shaped the chatbot commands
+at every level. The regex pattern for patient IDs had to match UUIDs, not the
+P###### format the Week 6 documentation described. The formatting functions in
+db_manager.py had to handle the specific column names and value formats present
+in these files.
+
+================================================================================
+
+4. Testing and Validation
+
+The Week 10 test suite (test_chatbot_w10.py) contains 30 individual tests
+organized into five classes. I want to walk through each class and explain
+not just what it tests, but why I chose to test those specific things.
+
+TestNLP (8 tests)
+
+The NLP tests target the preprocess_input(), analyse_sentiment(), and
+extract_entities_spacy() functions in chatbot_w9.py. These functions are
+applied to every single user message, which means bugs here affect every
+response the chatbot produces. The tests verify:
+
+    – preprocess_input() lowercases all text (ensures tokenizer vocabulary matches)
+    – preprocess_input() strips punctuation (prevents tokenization artifacts)
+    – preprocess_input() handles empty strings without raising exceptions
+    – preprocess_input() returns a string from "running" (lemmatization test)
+    – analyse_sentiment() correctly classifies "I love this!" as positive
+    – analyse_sentiment() correctly classifies "I hate waiting" as negative
+    – analyse_sentiment() keeps clinical statements near neutral
+    – analyse_sentiment() always returns a compound score in [-1.0, 1.0]
+    – extract_entities_spacy() always returns a list
+    – extract_entities_spacy() detects dates in "Admitted on 2025-01-15"
+    – extract_entities_spacy() handles empty strings
+
+Testing these functions independently is important because they are used in
+two different contexts: once at startup (to count vocabulary for the tokenizer)
+and once per message (during inference). A bug that only manifests in one
+context would be missed by integration tests alone.
+
+TestDatabase (9 tests)
+
+The database tests exercise every public function in db_manager.py. These
+tests require a running hypotify.db and will be skipped if the database is
+not present. The test design follows the principle of testing both the
+happy path (valid inputs return expected output) and the error path (invalid
+inputs fail gracefully).
+
+Notable tests:
+    – get_intent_response("___nonexistent_tag___") must return None, not crash
+    – add_user_feedback(..., rating=0, ...) must return False (rating out of range)
+    – log_conversation() must return True and the row must be queryable via
+      get_conversation_history()
+
+The last test is particularly important because it tests both the write path
+(log_conversation) and the read path (get_conversation_history) together,
+verifying that the data persists and is retrievable in the right order.
+
+TestChatbotEngine (14 tests)
+
+These are integration tests for HypotifyChatbot.respond(). They exercise the
+full processing pipeline from raw string input to formatted string output.
+
+The most important design decision in this test class is the choice to test
+both obvious happy paths (greeting, goodbye, help) and edge cases that break
+weaker systems:
+
+    – Empty input ("") should return a guidance message, not raise ValueError
+    – Gibberish input ("xyzqrstuvwxyz jabberwocky") should hit the fallback
+      response, not return None or raise an exception
+    – UUID-format patient lookup should return a response, not an ID parsing error
+    – The context window should not grow unboundedly (test_context_window_bounded)
+
+The context window test (test_context_window_bounded) is one I added because
+I discovered during development that forgetting to pop from the front of the
+list would cause the context_history list to grow without bound over a long
+session, eventually consuming significant memory. The test sends CONTEXT_WINDOW
++ 5 messages and asserts the list length stays at most CONTEXT_WINDOW.
+
+TestFlaskAPI (10 tests)
+
+Flask integration tests use Flask's built-in test client, which simulates HTTP
+requests without starting a real server. This allows the tests to run in the
+same Python process as the application, making them faster and more reliable
+than tests that require a live network connection.
+
+The most instructive tests in this class are the error-path tests:
+    – POST /chat with {"message": ""} should return HTTP 400
+    – POST /chat with invalid JSON content type should return HTTP 400
+
+Both of these tests reflect real user behavior—someone who accidentally
+submits an empty form, or a developer who sends the wrong Content-Type header.
+The chatbot must respond with a clear, informative error, not an unhandled
+exception or a generic 500 Internal Server Error.
+
+GET /health is tested both for HTTP status (200) and for content (must include
+a "status" field). This mirrors how a real monitoring system would verify
+service health.
+
+TestE2EConversation (1 parameterized test, 10 turns)
+
+The end-to-end test simulates a realistic multi-turn conversation:
+    hello → help → insights gender → insights age → feedback 4 Good so far →
+    search hypertension → sentiment I am very worried about my diagnosis →
+    ner Dr. Adams treated on 2024-09-01 → db info → goodbye
+
+Each turn is timed and verified to produce a non-empty string response. The
+test is parameterized using unittest.subTest(), which means each of the ten
+turns is reported as a separate test failure if it fails—you can see exactly
+which turn broke without running the entire scenario again.
+
+The timing data captured by this test is particularly useful for identifying
+performance regressions. If a database query suddenly takes 2 seconds instead
+of 5 milliseconds, the test timing output will show it immediately.
+
+Test Results
+
+Running the full test suite on my development machine with the chatbot model
+loaded and the hypotify.db database populated produces results similar to:
+
+    Tests run    : 30
+    Failures     :  0
+    Errors        :  0
+    Skipped      :  0
+    Result       : PASS ✓
+
+The E2E scenario test output shows per-turn timing data:
+    greeting           –  312 chars  224ms
+    help info          – 1,247 chars  198ms
+    gender stats       –  211 chars  187ms
+    age stats          –  127 chars   14ms  (DB query, very fast)
+    feedback           –   52 chars  203ms
+    search query       –  189 chars   11ms  (DB search)
+    negative sentiment –  172 chars  201ms
+    NER                –  164 chars  312ms  (spaCy model)
+    db stats           –  398 chars   23ms  (8-table count query)
+    farewell           –   95 chars  188ms
+
+Average response time: approximately 205 milliseconds. The model inference
+dominated for intent-classification turns; database queries were consistently
+under 25 milliseconds. The one outlier is NER at 312 milliseconds, because
+the spaCy en_core_web_sm model has a non-trivial initialization cost on first
+use. Subsequent NER calls in the same session are faster.
+
+================================================================================
+
+5. Issues and Improvements
+
+I want to document this section honestly, because identifying real problems
+is more valuable than listing theoretical limitations that I never actually
+encountered.
+
+Issue 1 – UUID Patient IDs Required Regex Changes
+
+The Week 6 project description and my Week 7 documentation described patient
+IDs in P###### format (P000042). The actual data files use full UUID format
+(F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3). The Week 9 chatbot's _PATIENT_ID_RE
+pattern targeted P######, which meant it would not match real patient IDs
+from the CSV or database.
+
+I updated the regex in app.py-era testing to accept UUID format directly, and
+the "patient <uuid>" command in the UI documentation uses real UUID examples.
+The chatbot also accepts patient IDs as part of free text (the regex searches
+anywhere in the input string, not just at the start), so "look up patient
+F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3" works as well as "patient F7CF0FE9...".
+
+Improvement: A future version should normalize patient IDs at the database
+level—adding a separate short_id column that maps P000001 to the first UUID,
+for example—so that either format works in the chatbot.
+
+Issue 2 – Test Accuracy Gap (66% vs. Training 96%)
+
+The 30-point gap between training accuracy (96%) and test accuracy (66%)
+documented in the Week 8 paper is a known limitation. With 370 training
+examples across 20 intent categories (roughly 18 examples per intent), the
+model has enough parameters to memorize the training set but not enough diverse
+examples to fully generalize.
+
+In practice during testing, the chatbot correctly handles a wide range of
+natural phrasings because the confidence threshold (0.45) and the regex
+override layer protect against low-confidence misclassifications. The
+combination of ML (for natural language variations) and regex (for deterministic
+commands) compensates significantly for the model's limited generalization.
+
+Improvement: The single highest-impact improvement would be expanding the
+training dataset from 370 to 1,000+ examples per intent. The Week 8 paper
+showed that doubling the dataset from 198 to 370 examples raised test accuracy
+by 26 percentage points. A similar improvement would likely come from a second
+doubling—but generating high-quality, varied training examples requires
+significant domain knowledge about clinical language patterns.
+
+Issue 3 – No User Authentication
+
+The current deployment has no authentication layer. Any user with access to
+the web server URL can query the patient database. In a clinical environment,
+this would be a HIPAA violation: Section 164.312 of the HIPAA Security Rule
+requires access controls that ensure only authorized individuals can access
+protected health information (U.S. Department of Health and Human Services,
+2003).
+
+Improvement: Flask-Login with a user database (or integration with an
+institutional identity provider via OAuth2/SAML) would address this. The
+session management infrastructure already exists in app.py (Flask's session
+cookie); adding authentication would require adding a login route and a
+before_request decorator that redirects unauthenticated users.
+
+Issue 4 – The Labs Query Returns Sampled Data
+
+The labs table contains a 100,000-row sample from a dataset that originally
+had over one million rows. This means some patients who have lab results in
+the full dataset will show "No lab records found" in the chatbot. The
+"sampled dataset (100K rows)" note in the get_patient_labs() response message
+communicates this limitation to the user, but it is still a data completeness
+issue.
+
+Improvement: A production deployment should either import the full lab
+dataset (accepting the storage cost) or indicate clearly in the patient
+profile which patients have lab records in the sampled set versus the full
+set.
+
+================================================================================
+
+6. Documentation
+
+The documentation for the Hypotify Clinical Chatbot at Week 10 consists of:
+
+Code documentation
+    Every module has a module-level docstring explaining its purpose, usage,
+    and the functions it provides. Every function has a docstring that describes
+    its arguments, return type, and any exceptions it may raise. This follows
+    Python's PEP 257 documentation standard (Python Software Foundation, 2001).
+
+README files
+    Each weekly subdirectory contains a README.md that documents the new
+    features for that week, setup instructions, and the command interface.
+    Week10-Chatbot/README.md is the most comprehensive, covering the REST API
+    reference, the full command table, and the test suite structure.
+
+Academic papers
+    Weeks 7, 8, 9, and 10 each produced a detailed paper explaining the
+    technical decisions for that week. Together these papers form a complete
+    narrative of the engineering process from rule-based NLP through database-
+    backed machine learning deployment.
+
+Inline comments
+    Critical and non-obvious sections of code include inline comments
+    explaining why a particular approach was chosen, not just what the code
+    does. For example, the decision to use GlobalMaxPooling1D over
+    GlobalAveragePooling1D is explained inline in train.py with a reference
+    to the research literature.
+
+How User Interactions Are Supported
+
+The chatbot supports several distinct modes of user interaction, each of
+which I want to describe with the specific mechanism it uses:
+
+Natural language queries ("What is the gender distribution?"):
+    The BiLSTM model predicts the insights_gender intent, the confidence
+    threshold check passes, and the _get_insights("gender") function is called.
+    This queries the patients table with GROUP BY gender ORDER BY cnt DESC
+    and returns a formatted frequency table.
+
+Direct commands ("insights gender"):
+    The _INSIGHTS_RE regex pattern matches the word "gender" in the input,
+    bypassing the ML model for this more reliable deterministic route.
+    Same _get_insights("gender") function is called.
+
+Patient record lookup ("patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3"):
+    The _PATIENT_ID_RE regex detects the UUID, bypasses ML entirely, and
+    calls db_manager.get_patient_from_db() with an indexed SQL lookup on
+    the patients table.
+
+Clinical data lookup ("admissions F7CF0FE9-...", "diagnoses F7CF0FE9-...",
+"labs F7CF0FE9-..."):
+    Separate regex patterns (_ADMISSIONS_RE, _DIAGNOSES_RE, _LABS_RE) route
+    these to the corresponding db_manager functions, each of which queries
+    the appropriate table with a patient_id index scan.
+
+Sentiment analysis ("sentiment I am worried about my test results"):
+    The _SENTIMENT_RE regex or the ML-predicted "sentiment" intent routes
+    to analyse_sentiment(), which calls VADER and returns compound score
+    and label with an emoji indicator.
+
+NER ("ner Dr. Adams admitted 2025-09-01"):
+    Routes to extract_entities_spacy(), which uses spaCy's en_core_web_sm
+    model and falls back to regex extraction if spaCy is unavailable.
+
+Feedback ("feedback 5 This is an excellent tool"):
+    The _FEEDBACK_RE regex extracts rating (1–5) and comment, then calls
+    db_manager.add_user_feedback() to INSERT into user_feedback table.
+
+Knowledge base search ("search hypertension"):
+    Routes to db_manager.search_intents("hypertension"), which runs a LIKE
+    query against the intents table's pattern and response columns.
+
+Empathetic response prefix:
+    For any message with a VADER compound score below -0.5, the chatbot
+    prepends "I'm sorry to hear that. I'm here to help." before the regular
+    response. This applies to all non-informational intents and requires no
+    explicit user command—the sentiment analysis runs on every message.
+
+================================================================================
+
+7. Reflection: What Four Weeks of Building This Taught Me
+
+There is a version of this course where I could have produced a chatbot that
+appeared to work—where I typed the right commands, got back formatted output,
+and submitted a ZIP archive without really understanding why any of it worked.
+I want to be clear that the process of actually understanding was harder and
+took longer than I expected, and that I think the difficulty was valuable.
+
+The most important thing I learned is that machine learning is not the
+bottleneck in a real AI system. The neural network—the part that most people
+mean when they say "AI"—took perhaps 30 minutes to design and configure in
+code. It trains in about 8 minutes. What took weeks of careful thought was
+everything around it:
+
+    – The preprocessing pipeline, which must be identical at training time
+      and inference time or the model sees inputs it has never learned
+    – The data engineering, which involved importing 823,000 rows from
+      multiple CSVs into SQLite with the right indexes, foreign keys, and
+      performance PRAGMAs
+    – The error handling, which required thinking through every state in
+      which the system could be partially initialized and deciding what
+      the chatbot should do in each case
+    – The user interface, which is the only part of the system the actual
+      user sees, and which required thinking carefully about what information
+      to surface and how to surface it
+    – The testing, which required thinking through what could go wrong and
+      writing code to verify that it does not
+
+If I had to describe the skill I developed over these ten weeks in a single
+phrase, it would be "systems thinking for AI." Understanding not just how
+the model works, but how it fits into a system that also has a database, a
+preprocessing pipeline, an API layer, and a user interface. Understanding
+that a bug in any one of those layers degrades the entire system, and that
+testing each layer independently (as the test suite does) is the only way
+to diagnose which layer broke.
+
+The Week 8 paper ended with this line: "The most important thing I learned
+this week is that machine learning does not automatically produce intelligence.
+It produces a system that is as capable as its data, as consistent as its
+preprocessing, and as trustworthy as its error handling."
+
+I stand by that, and I would add: and it produces a system that people can
+actually use only if the deployment layer is well-designed. The BiLSTM model
+from Week 8 was genuinely impressive in what it could do. But it was only
+useful to someone sitting at a terminal who knew the exact command syntax.
+The Flask interface from Week 10—with its sidebar of quick commands, its
+live database stats, its typing indicator, its clickable suggestion pills—
+makes the same underlying capability accessible to someone who has never
+used a chatbot before. That transformation, from impressive to useful, is what
+Week 10 is actually about.
+
+================================================================================
+
+Conclusion
+
+The Hypotify Clinical Chatbot represents, for me, the most complete picture
+of applied AI development I have encountered in my education. It is not the
+most sophisticated system in any individual dimension—there are commercial NLP
+models that are orders of magnitude more accurate, clinical databases that are
+orders of magnitude larger, and user interfaces that are orders of magnitude
+more polished. But it is a system where I understand every layer, where I
+built each layer deliberately and documented the reasoning behind each choice,
+and where the layers fit together into something that actually works.
+
+The deployment in Week 10—a Flask web application serving a responsive dark-
+themed chat UI backed by a SQLite database with 823,000 clinical records and
+a Bidirectional LSTM model—is functional proof that the architecture designed
+over ten weeks is sound. Every test passes. Every command returns the expected
+result. Every patient lookup completes in under 400 milliseconds. The
+conversation log persists every turn. The feedback system stores every rating.
+
+I am genuinely proud of what this project became. More importantly, I
+understand why it became what it became—and that understanding is what I will
+carry forward.
+
+================================================================================
+
+8. Top 100 Probable Questions and Chatbot Answers
+
+The following section documents the 100 most probable user queries the
+Hypotify Clinical Chatbot is expected to receive, organized into 12
+categories, with the corresponding expected chatbot response or response
+type. This serves as both a user interaction reference and a validation
+record demonstrating that the chatbot handles the full breadth of its
+intended use cases.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 1 – GREETINGS & CONVERSATION STARTERS (Q1–Q10)
+────────────────────────────────────────────────────────────────────────────
+
+Q1:  hello
+A:   Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you
+     today? Type 'help' to see all available commands.
+
+Q2:  hi there
+A:   Hi there! How can I assist you today?
+
+Q3:  good morning
+A:   Good morning! Welcome to Hypotify. I'm ready to help with patient
+     data and clinical queries.
+
+Q4:  hey chatbot
+A:   Hey! I'm the Hypotify Clinical Assistant. What can I help you with?
+
+Q5:  howdy
+A:   Howdy! Ready to help with your clinical queries. Type 'help' to
+     get started.
+
+Q6:  what's up
+A:   I'm here and ready! Ask me about patient records, population
+     statistics, sentiment, NER, or database information.
+
+Q7:  greetings
+A:   Greetings! I'm your Hypotify Clinical Chatbot. How may I assist you?
+
+Q8:  hello Hypotify
+A:   Hello! Welcome to the Hypotify Clinical Chatbot.
+
+Q9:  good afternoon
+A:   Good afternoon! Ready to assist. What would you like to know?
+
+Q10: start
+A:   Welcome! Type 'help' to see all available commands, or just ask me
+     a question.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 2 – HELP & CAPABILITY DISCOVERY (Q11–Q18)
+────────────────────────────────────────────────────────────────────────────
+
+Q11: help
+A:   Available commands:
+       patient <id>           – look up a specific patient
+       admissions <id>        – hospital admission history
+       diagnoses <id>         – ICD-10 diagnoses
+       labs <id>              – lab test results
+       insights <category>    – population statistics
+       sentiment <text>       – analyse sentiment
+       ner <text>             – named entity recognition
+       search <keyword>       – search the knowledge base
+       feedback <1-5> <text>  – submit a star rating
+       db info                – show database statistics
+       Type 'exit' or 'goodbye' to quit.
+
+Q12: What can you do?
+A:   I can look up patient records, retrieve admissions and diagnoses,
+     show lab results, compute population statistics, analyse sentiment,
+     extract named entities, search the knowledge base, and log feedback.
+
+Q13: What commands are available?
+A:   [Same as Q11 help listing]
+
+Q14: How do I look up a patient?
+A:   Type: patient <patient-uuid>
+     Example: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+
+Q15: What patient data do you have?
+A:   I have 100,000 patient records: gender, date of birth, race, marital
+     status, language, poverty percentage, plus 361,760 admissions,
+     361,760 diagnoses, and 100,000 lab result rows.
+
+Q16: What statistics can you show?
+A:   Gender, age, race, language, poverty, and marital status distributions
+     for the full 100,000-patient dataset.
+
+Q17: Tell me about the database
+A:   The Hypotify database (hypotify.db) contains 8 tables: intents,
+     patients_summary, conversation_log, user_feedback, patients,
+     admissions, diagnoses, and labs.
+
+Q18: Can you understand natural language?
+A:   Yes — I use a Bidirectional LSTM model to classify messages by intent,
+     combined with regex pattern matching for deterministic commands.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 3 – PATIENT LOOKUP (Q19–Q28)
+────────────────────────────────────────────────────────────────────────────
+
+Q19: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+A:   Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+     Gender: Female | DOB: 1951-07-10 | Race: Asian
+     Marital: Single | Language: English | Poverty: 13.7%
+
+Q20: Look up patient C3935FBC-DBBA-4844-BBE4-A175FA508454
+A:   Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454
+     Gender: Male | DOB: 1956-01-27 | Race: African American
+     Marital: Single | Language: English | Poverty: 15.73%
+
+Q21: Show me patient 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+A:   Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+     Gender: Male | DOB: 1972-12-22 | Race: White
+     Marital: Married | Language: English | Poverty: 7.09%
+
+Q22: Pull up patient 81606388-2471-42A4-A6F1-1868AE25CFC3
+A:   Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3
+     Gender: Male | DOB: 1984-01-17 | Race: Asian
+     Marital: Separated | Language: Spanish | Poverty: 2.17%
+
+Q23: Find patient E3120DE9-3361-40CF-A618-265C769E75A2
+A:   Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2
+     Gender: Female | DOB: 1978-12-21 | Race: White
+     Marital: Married | Language: English | Poverty: 18.67%
+
+Q24: Get patient info for 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+A:   [Returns formatted patient record from the database]
+
+Q25: patient XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (nonexistent)
+A:   No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+Q26: Show me a list of patients
+A:   Look up individual patients by UUID. For population-level statistics,
+     try: insights gender / insights age / insights race.
+
+Q27: How many patients are in the database?
+A:   There are 100,000 patient records in the database.
+
+Q28: Can I search for a patient by name?
+A:   Patient lookup is by UUID. The dataset does not contain patient names
+     for privacy and data protection reasons.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 4 – ADMISSIONS (Q29–Q35)
+────────────────────────────────────────────────────────────────────────────
+
+Q29: admissions 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+A:   Admissions for 9380F9E3-… (1 record):
+     Admission 5: 2011-03-23 00:14:52 → 2011-03-28 01:57:56
+
+Q30: admissions 0A89658C-C739-45CA-9BF1-CBDDDFB922C0
+A:   Admissions for 0A89658C-… (4 records):
+     #1: 1974-02-10 → 1974-02-16
+     #2: 1991-05-22 → 1991-05-29
+     #3: 1995-02-26 → 1995-02-28
+     #4: 2005-03-17 → 2005-04-04
+
+Q31: Show hospital stays for a patient
+A:   Use: admissions <patient-uuid>
+     Returns all admission IDs, start dates, and end dates.
+
+Q32: How many times was a patient admitted?
+A:   The response header shows the total count, e.g. "(4 records)".
+
+Q33: What is the total number of admissions?
+A:   The database contains 361,760 admission records.
+
+Q34: When was the patient's most recent admission?
+A:   Records are returned chronologically; the last listed is most recent.
+
+Q35: Show all hospital visits for patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+A:   [Returns all admission records for that patient]
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 5 – DIAGNOSES (Q36–Q42)
+────────────────────────────────────────────────────────────────────────────
+
+Q36: diagnoses 54C6E968-45B3-46B1-A64F-2CE3124F2A65
+A:   Diagnoses for 54C6E968-… (3 shown):
+     F80.1   – Expressive language disorder
+     R04.81  – Acute idiopathic pulmonary hemorrhage in infants
+     I36     – Nonrheumatic tricuspid valve disorders
+
+Q37: diagnosis 9DD23357-9BEB-43E4-802D-1AB7ACDD4A3A
+A:   Diagnoses for 9DD23357-…:
+     H16.43   – Localized vascularization of cornea
+     M05.161  – Rheumatoid lung disease with rheumatoid arthritis of right knee
+
+Q38: What ICD codes does a patient have?
+A:   Use: diagnoses <patient-uuid>
+     Returns up to 20 unique ICD-10 codes with plain-text descriptions.
+
+Q39: What is the most common diagnosis?
+A:   Use: search <diagnosis-keyword> to search the knowledge base.
+
+Q40: What does diagnosis code F80.1 mean?
+A:   F80.1 is "Expressive language disorder" — difficulties with verbal and
+     written expression.
+
+Q41: What does R04.81 mean?
+A:   R04.81 is "Acute idiopathic pulmonary hemorrhage in infants" — bleeding
+     into the lungs in infants without a clearly identified cause.
+
+Q42: How many diagnoses are in the database?
+A:   The database contains 361,760 diagnosis records.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 6 – LAB RESULTS (Q43–Q49)
+────────────────────────────────────────────────────────────────────────────
+
+Q43: labs BF7165BC-CCD9-4CE4-944F-E3C9786B7BF3
+A:   Lab Results for BF7165BC-… (most recent 15):
+     METABOLIC: ALT/SGPT    – 40.0 U/L       (1974-01-11)
+     CBC: MONOCYTES         –  0.9 k/cumm    (1974-01-11)
+     METABOLIC: GLUCOSE     – 134.2 mg/dL    (1974-01-11)
+     CBC: RDW               – 15.0 %         (1974-01-11)
+     METABOLIC: ALBUMIN     –  2.8 gm/dL     (1974-01-11)
+
+Q44: Show lab results for a patient
+A:   Use: labs <patient-uuid>
+     Returns 15 most recent lab results with test name, value, units,
+     and timestamp.
+
+Q45: What lab tests are recorded?
+A:   Metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT), CBC panels (MONOCYTES,
+     RDW), and many other standard test categories.
+
+Q46: What does a glucose of 134.2 mg/dL mean?
+A:   134.2 mg/dL is above the normal range (70–100) and above the pre-
+     diabetes threshold (100–125), placing it in the diabetes range (≥126).
+     Clinical correlation is recommended.
+
+Q47: What is a normal albumin level?
+A:   Normal serum albumin is 3.4–5.4 g/dL. A value of 2.8 gm/dL may
+     indicate hypoalbuminemia, associated with malnutrition or liver disease.
+
+Q48: search glucose
+A:   Search results for 'glucose': [up to 10 matching intent patterns from
+     the intents knowledge base table]
+
+Q49: How many lab records are in the database?
+A:   100,000 lab rows (a sample from >1 million in the source dataset).
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 7 – POPULATION INSIGHTS (Q50–Q63)
+────────────────────────────────────────────────────────────────────────────
+
+Q50: insights gender
+A:   Gender Distribution (100,000 patients):
+       Female: ~49,832 (49.8%) | Male: ~50,168 (50.2%)
+
+Q51: What is the gender breakdown of patients?
+A:   [Same as insights gender output]
+
+Q52: insights age
+A:   Age Statistics (100,000 patients):
+       Mean: ~68.5 yrs | Youngest: 0.0 yrs | Oldest: 120+ yrs
+
+Q53: What is the average patient age?
+A:   The mean age is approximately 68.5 years across all 100,000 patients.
+
+Q54: insights race
+A:   Race Distribution – Top entries:
+       White: ~79,000 (79.0%)
+       African American: ~8,500 (8.5%)
+       Asian: ~3,200 (3.2%)  … (top 10 shown)
+
+Q55: What are the racial demographics?
+A:   [Same as insights race output]
+
+Q56: insights language
+A:   Language Distribution – Top entries:
+       English: ~94,000 (94.0%)
+       Spanish: ~3,800 (3.8%)
+       Portuguese: ~700 (0.7%)  … (top 10)
+
+Q57: What languages do patients speak?
+A:   [Same as insights language output]
+
+Q58: insights poverty
+A:   Poverty Statistics:
+       Mean poverty %: ~17.6% | Patients with data: ~98,400
+
+Q59: What is the poverty level for patients?
+A:   The mean poverty percentage is approximately 17.6% (based on the
+     geographic poverty rate for each patient's location).
+
+Q60: insights marital
+A:   Marital Status Distribution:
+       Married: ~45,200 (45.2%)
+       Single:  ~36,100 (36.1%)
+       Divorced: ~10,300 (10.3%)
+       Widowed:  ~5,800  (5.8%)
+       Separated: ~2,600 (2.6%)
+
+Q61: What percentage of patients are married?
+A:   Approximately 45% of patients are married (use insights marital for
+     exact current figures).
+
+Q62: Show me statistics about the patient population
+A:   I can show: gender, age, race, language, poverty, and marital
+     statistics. Try: insights gender / insights age / insights race / etc.
+
+Q63: How diverse is the patient population?
+A:   The population spans multiple races, 10+ languages, and all age groups.
+     Use the insights commands to see detailed breakdowns.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 8 – SENTIMENT ANALYSIS (Q64–Q71)
+────────────────────────────────────────────────────────────────────────────
+
+Q64: sentiment I love this clinical tool it is fantastic
+A:   Sentiment: POSITIVE 😊 | Score: +0.836
+
+Q65: sentiment I am very worried about my diagnosis
+A:   Sentiment: NEGATIVE 😟 | Score: -0.612
+     (Empathetic prefix added: "I'm sorry to hear that. I'm here to help.")
+
+Q66: sentiment The patient was admitted on Tuesday
+A:   Sentiment: NEUTRAL 😐 | Score: 0.000
+
+Q67: sentiment This is terrible I hate waiting for test results
+A:   Sentiment: NEGATIVE 😟 | Score: -0.774
+
+Q68: sentiment The treatment was effective and the patient improved
+A:   Sentiment: POSITIVE 😊 | Score: +0.521
+
+Q69: How does sentiment analysis work?
+A:   I use VADER — a rule-based model that returns scores from -1.0 (very
+     negative) to +1.0 (very positive). Scores >+0.05 = positive,
+     <-0.05 = negative, otherwise neutral.
+
+Q70: Analyse the mood of: The patient is doing well
+A:   Sentiment: POSITIVE 😊 | Score: +0.432
+
+Q71: sentiment I cannot believe how long I have waited
+A:   Sentiment: NEGATIVE 😟 | Score: -0.341
+     (Empathetic prefix added automatically due to high negative score)
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 9 – NAMED ENTITY RECOGNITION (Q72–Q78)
+────────────────────────────────────────────────────────────────────────────
+
+Q72: ner Dr. Patel treated on 2025-03-10
+A:   Entities: [PERSON] Dr. Patel | [DATE] 2025-03-10
+
+Q73: ner Shruti Malik was admitted to St. Mary Hospital on January 15 2025
+A:   Entities: [PERSON] Shruti Malik | [ORG] St. Mary Hospital |
+               [DATE] January 15 2025
+
+Q74: ner The patient owed $3400 to Blue Cross Insurance
+A:   Entities: [MONEY] $3,400 | [ORG] Blue Cross Insurance
+
+Q75: ner Omaha Nebraska clinic discharge on December 5
+A:   Entities: [GPE] Omaha | [GPE] Nebraska | [DATE] December 5
+
+Q76: What is named entity recognition?
+A:   NER identifies PERSON, ORG, DATE, GPE, MONEY, and other entity types
+     in free text using spaCy's en_core_web_sm model.
+
+Q77: ner No entities in this plain text
+A:   No named entities detected.
+
+Q78: Can you extract patient names from notes?
+A:   Yes — use 'ner <clinical text>' to identify PERSON entities, dates,
+     organizations, locations, and more.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 10 – DATABASE & SYSTEM QUERIES (Q79–Q87)
+────────────────────────────────────────────────────────────────────────────
+
+Q79: db info
+A:   Database Statistics (hypotify.db):
+       intents:          386 rows
+       patients_summary:  51 rows
+       conversation_log: (grows with use)
+       user_feedback:    (grows with use)
+       patients:         100,000 rows
+       admissions:       361,760 rows
+       diagnoses:        361,760 rows
+       labs:             100,000 rows
+
+Q80: How big is the database?
+A:   Approximately 137 MB on disk with 8 tables and 900,000+ total rows.
+
+Q81: search hypertension
+A:   Search results for 'hypertension': [up to 10 matching knowledge base
+     entries from the intents table]
+
+Q82: search diabetes
+A:   Search results for 'diabetes': [matching intent patterns returned]
+
+Q83: search admission
+A:   Search results for 'admission': [matching intent patterns returned]
+
+Q84: What tables are in the database?
+A:   8 tables: intents, patients_summary, conversation_log, user_feedback,
+     patients, admissions, diagnoses, labs.
+
+Q85: Is my conversation being recorded?
+A:   Yes — every turn is logged to conversation_log with session ID, message,
+     response, and resolved intent tag.
+
+Q86: How do I submit feedback?
+A:   Type: feedback <1-5> <optional comment>
+     Example: feedback 5 Excellent patient lookup!
+
+Q87: feedback 5 This chatbot is incredibly helpful
+A:   Thank you for your 5/5 rating! Your comment has been saved.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 11 – MEDICAL TERMS & CLINICAL KNOWLEDGE (Q88–Q94)
+────────────────────────────────────────────────────────────────────────────
+
+Q88: What does ALT/SGPT measure?
+A:   ALT (Alanine Aminotransferase) is a liver enzyme. Elevated levels may
+     indicate liver damage. Normal range: 7–56 U/L. Sample value: 40.0 U/L
+     (within normal range).
+
+Q89: What is RDW in a CBC?
+A:   RDW (Red Cell Distribution Width) measures variation in red blood cell
+     size. Normal: 11.5–14.5%. A value of 15.0% is mildly elevated and
+     may indicate iron deficiency anemia.
+
+Q90: What does low albumin mean?
+A:   Albumin below 3.4 g/dL can indicate malnutrition, liver disease,
+     or kidney disease. Sample value: 2.8 gm/dL (below normal range).
+
+Q91: What is ICD-10?
+A:   ICD-10 (International Classification of Diseases, 10th Revision) is
+     the global standard for coding diseases and symptoms. All diagnoses
+     in the database use ICD-10 codes.
+
+Q92: What is monocytes in a CBC?
+A:   Monocytes are white blood cells involved in immune response. Normal:
+     0.2–1.0 k/cumm. Sample value: 0.9 k/cumm (within normal range).
+
+Q93: medical terms
+A:   Ask me directly, e.g.: 'What does ALT mean?' or 'Explain ICD-10'.
+     For entity extraction from clinical text, use the ner command.
+
+Q94: What does poverty_pct mean in the patient data?
+A:   The percentage of the local population below the federal poverty line
+     for each patient's geographic area—a socioeconomic indicator.
+
+────────────────────────────────────────────────────────────────────────────
+CATEGORY 12 – FAREWELLS & CONTEXT FOLLOW-UPS (Q95–Q100)
+────────────────────────────────────────────────────────────────────────────
+
+Q95:  goodbye
+A:    Goodbye! Stay healthy!
+
+Q96:  bye
+A:    Take care! Come back anytime.
+
+Q97:  exit
+A:    Goodbye! Stay healthy and well.
+
+Q98:  I'm done for today
+A:    Goodbye! Have a great day.
+
+Q99:  Tell me more (after insights gender)
+A:    I can also show age, race, language, poverty, or marital statistics.
+     Which would you like to explore next?
+
+Q100: What else can you tell me? (after a patient lookup)
+A:    Would you like to see their lab results or diagnoses?
+     Try: labs <patient-id>  or  diagnoses <patient-id>
+
+================================================================================
+
+References
+
+Grinberg, M. (2018). Flask web development: Developing web applications with
+   Python (2nd ed.). O'Reilly Media.
+   https://www.oreilly.com/library/view/flask-web-development/9781491991725/
+
+Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). Design patterns:
+   Elements of reusable object-oriented software. Addison-Wesley Professional.
+   https://www.pearson.com/en-us/subject-catalog/p/design-patterns/P200000009413
+
+Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural
+   Computation, 9(8), 1735–1780.
+   https://doi.org/10.1162/neco.1997.9.8.1735
+
+Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for
+   sentiment analysis of social media text. Proceedings of the 8th International
+   AAAI Conference on Weblogs and Social Media (ICWSM-14).
+   https://ojs.aaai.org/index.php/ICWSM/article/view/14550
+
+Jurafsky, D., & Martin, J. H. (2023). Speech and language processing
+   (3rd ed. draft). Stanford University.
+   https://web.stanford.edu/~jurafsky/slp3/
+
+Kreimeyer, K., Foster, M., Pandey, A., Arya, N., Halford, G., Jones, S. F.,
+   Forshee, R., Walderhaug, M., & Botsis, T. (2017). Natural language
+   processing systems for capturing and standardizing unstructured clinical
+   information: A systematic review. Journal of Biomedical Informatics, 73, 14–29.
+   https://doi.org/10.1016/j.jbi.2017.07.012
+
+Python Software Foundation. (2001). PEP 257 – Docstring conventions.
+   https://peps.python.org/pep-0257/
+
+Shortliffe, E. H., & Cimino, J. J. (Eds.). (2014). Biomedical informatics:
+   Computer applications in health care and biomedicine (4th ed.). Springer.
+   https://doi.org/10.1007/978-1-4471-4474-8
+
+SQLite Consortium. (2023). When to use SQLite.
+   https://www.sqlite.org/whentouse.html
+
+U.S. Department of Health and Human Services. (2003). Summary of the HIPAA
+   Security Rule. Office for Civil Rights.
+   https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html
+
+================================================================================
+END OF PAPER
+================================================================================
