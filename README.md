@@ -88,6 +88,7 @@ python test_chatbot_w10.py -v
 - **Sentiment analysis** — `sentiment <text>` (VADER, score -1.0 to +1.0)
 - **Named entity recognition** — `ner <text>` (spaCy: PERSON, DATE, ORG, GPE, MONEY)
 - **Knowledge base search** — `search <keyword>`
+- **Top 100 Q&A** — 100 probable clinical questions are now integrated into the database for live retrieval.
 - **Feedback** — `feedback <1-5> <comment>`
 - **DB info** — `db info`
 
