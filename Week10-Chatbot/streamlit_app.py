@@ -267,13 +267,6 @@ def render_sidebar(chatbot, dbm):
             st.rerun()
 
     st.sidebar.divider()
-    
-    # ── Top 100 Q&A Viewer ─────────────────────────────────────────────────────
-    if st.sidebar.button("💯 View Top 100 Q&A", use_container_width=True):
-        st.session_state.show_top100 = not st.session_state.get("show_top100", False)
-        st.rerun()
-        
-    st.sidebar.divider()
     st.sidebar.caption(
         "Author: Shruti Malik · ITEC5025\n"
         "Week 10 · March 2026"
@@ -387,19 +380,6 @@ def main():
         unsafe_allow_html=True,
     )
     st.divider()
-
-    # View Top 100 Tracker
-    if st.session_state.get("show_top100", False):
-        st.markdown("### 📚 Top 100 Probable Questions and Answers")
-        try:
-            qa_path = os.path.join(os.path.dirname(__file__), "top100_qa.txt")
-            with open(qa_path, "r", encoding="utf-8") as f:
-                content = f.read()
-            with st.expander("Click to read the full document", expanded=True):
-                st.code(content, language="text")
-        except Exception as e:
-            st.error(f"Could not load top100_qa.txt: {e}")
-        st.divider()
 
     # Render conversation history
     render_messages()

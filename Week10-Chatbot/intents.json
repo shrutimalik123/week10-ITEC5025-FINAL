@@ -1,2377 +1,1005 @@
-[
+{
+  "intents": [
+    {
+      "tag": "admission_lookup",
+      "responses": [
+        "I can retrieve admission history. Please provide the patient ID.",
+        "Provide the patient ID and I'll fetch their admission records.",
+        "I can retrieve hospital stay history. Please provide the patient ID.",
+        "Fetching admission records. Please provide the patient ID.",
+        "I can retrieve patient visit/admission data. What is the patient ID?",
+        "Let me look up the number of admissions for a patient. Provide the patient ID.",
+        "I can retrieve the admission and discharge dates. Please provide the patient ID.",
+        "I'll look up the discharge date for the patient. Please provide the patient ID.",
+        "I can calculate the length of hospital stay. Please provide the patient ID.",
+        "Fetching admission records from the database. Please provide the patient ID.",
+        "I can retrieve hospital admission records. Please provide the patient ID.",
+        "Provide the patient ID and I'll retrieve their admission date.",
+        "I can retrieve the discharge date. Please provide the patient ID.",
+        "I can retrieve hospital stay information. Provide the patient ID.",
+        "I can check if a patient has been readmitted. Please provide the patient ID.",
+        "Fetching the total number of admissions for a patient. Please provide the patient ID.",
+        "I can calculate the average length of hospital stay across all patients.",
+        "I can retrieve admission records. Please provide the patient ID.",
+        "I can calculate the length of each hospital stay. Please provide the patient ID.",
+        "Fetching the list of admissions for a patient. Please provide the patient ID."
+      ]
+    },
+    {
+      "tag": "context_followup",
+      "responses": [
+        "Happy to elaborate! Could you specify which topic you'd like more detail on?",
+        "Of course! Let me know which area you'd like me to expand on.",
+        "Sure! What would you like to know next?",
+        "I'll continue! What specific information are you looking for?",
+        "I can provide more details. Which topic would you like me to elaborate on?",
+        "I'd be happy to elaborate. What aspect do you need more information on?",
+        "Sure",
+        "Is there anything else I can help you with today?",
+        "Of course! What would you like me to explain in more detail?",
+        "Happy to explain further. Which part would you like clarified?",
+        "Sure! Let me repeat the information for you. What would you like me to go over again?",
+        "I'll try to clarify. Which part was unclear?",
+        "Let me rephrase that. What part would you like me to explain again?",
+        "I'll clarify! Which part of my response was confusing?",
+        "Sure! What would you like me to explain in more detail?",
+        "Happy to clarify. What part was unclear?",
+        "I can provide more information. Which topic would you like to expand on?",
+        "Sure! What would you like more detail about?",
+        "I can give additional details. What topic would you like more information on?",
+        "I'll continue! What would you like to know next?",
+        "Happy to explain more. Which part would you like me to elaborate on?"
+      ]
+    },
+    {
+      "tag": "diagnosis_lookup",
+      "responses": [
+        "I can look up diagnoses for a specific patient. Please provide the patient ID.",
+        "Provide a patient ID and I'll retrieve their diagnosis information.",
+        "I can retrieve all diagnoses linked to a patient. What is the patient ID?",
+        "I'll retrieve the diagnosis history. Please provide the patient ID.",
+        "I can look up a patient's medical history. Please provide the patient ID.",
+        "I can retrieve patient conditions/diagnoses. Provide the patient ID.",
+        "Let me look up the patient's recorded diseases/diagnoses. Provide the patient ID.",
+        "I can look up ICD diagnosis codes. Please provide a patient ID or specific code.",
+        "I can retrieve diagnosis codes for a patient. What is the patient ID?",
+        "I can look up medical conditions by patient ID. Please provide the ID.",
+        "I can show diagnostic information. Please provide the patient ID.",
+        "Fetching diagnoses. Please provide the patient ID.",
+        "I can retrieve health issues/diagnoses for a patient. Provide the patient ID.",
+        "I can retrieve patient disorders/diagnoses. Please provide the patient ID.",
+        "I can retrieve what was diagnosed for a patient. Please provide the patient ID.",
+        "I can look up chronic conditions for a patient. Please provide the patient ID.",
+        "Fetching past diagnosis history. Please provide the patient ID.",
+        "I can retrieve current diagnoses for a patient. Please provide the patient ID.",
+        "I can show the most common diagnoses across the patient population.",
+        "Fetching diagnosis frequency data from the clinical database."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "responses": [
+        "Goodbye! Thank you for using Hypotify. Stay healthy!",
+        "Take care! Come back anytime you need clinical insights.",
+        "Farewell! Hope I was able to assist you today.",
+        "Goodbye! Until next time.",
+        "See you! Stay healthy!",
+        "Farewell! Have a great day.",
+        "Adios! Take care.",
+        "Take care! Come back anytime.",
+        "Alright",
+        "Closing session. Goodbye!",
+        "See you later! Stay healthy!",
+        "Bye bye! Thanks for using Hypotify.",
+        "Good night! Come back anytime.",
+        "You too! Goodbye and stay healthy.",
+        "Goodbye! Thank you for using the Hypotify Clinical Chatbot.",
+        "You're welcome! Goodbye and take care.",
+        "Alright! Goodbye and feel free to come back anytime.",
+        "Great! Goodbye for now. Come back anytime you need help."
+      ]
+    },
     {
-        "tag": "greeting",
-        "pattern": "hello",
-        "response": "Hello! Welcome to the Hypotify Clinical Chatbot. How can I help you today?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hi",
-        "response": "Hi there! I'm your Hypotify clinical assistant. Type 'help' to see what I can do."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hey",
-        "response": "Hey! How can I assist you today?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "good morning",
-        "response": "Good morning! Ready to assist with patient data and clinical insights."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "good afternoon",
-        "response": "Good afternoon! How can I help?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "good evening",
-        "response": "Good evening! What can I do for you?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "howdy",
-        "response": "Howdy! Welcome to the Hypotify Clinical Chatbot."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "greetings",
-        "response": "Greetings! I'm here to help with clinical data."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "what's up",
-        "response": "Hi! I'm here and ready to assist you with patient data."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hola",
-        "response": "Hola! How can I help you today?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hi there",
-        "response": "Hi there! Welcome to Hypotify. How can I assist?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "good day",
-        "response": "Good day! Ready to help with all your clinical data needs."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hey there",
-        "response": "Hey there! I'm your Hypotify clinical assistant."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "morning",
-        "response": "Good morning! How can I assist you today?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "evening",
-        "response": "Good evening! Ready to help with clinical queries."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hello chatbot",
-        "response": "Hello! I'm the Hypotify clinical assistant. What do you need?"
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hi bot",
-        "response": "Hi! I'm here to assist with your patient data needs."
-    },
-    {
-        "tag": "greeting",
-        "pattern": "hello there",
-        "response": "Hello! Welcome. How can I help you with the clinical database today?"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "goodbye",
-        "response": "Goodbye! Thank you for using Hypotify. Stay healthy!"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "bye",
-        "response": "Take care! Come back anytime you need clinical insights."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "exit",
-        "response": "Farewell! Hope I was able to assist you today."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "quit",
-        "response": "Goodbye! Until next time."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "see you later",
-        "response": "See you! Stay healthy!"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "farewell",
-        "response": "Farewell! Have a great day."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "adios",
-        "response": "Adios! Take care."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "take care",
-        "response": "Take care! Come back anytime."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "i'm done",
-        "response": "Alright"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "close",
-        "response": "Closing session. Goodbye!"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "see you",
-        "response": "See you later! Stay healthy!"
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "bye bye",
-        "response": "Bye bye! Thanks for using Hypotify."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "good night",
-        "response": "Good night! Come back anytime."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "have a good day",
-        "response": "You too! Goodbye and stay healthy."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "i'm leaving",
-        "response": "Goodbye! Thank you for using the Hypotify Clinical Chatbot."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "thanks bye",
-        "response": "You're welcome! Goodbye and take care."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "that's all",
-        "response": "Alright! Goodbye and feel free to come back anytime."
-    },
-    {
-        "tag": "goodbye",
-        "pattern": "done for now",
-        "response": "Great! Goodbye for now. Come back anytime you need help."
-    },
-    {
-        "tag": "help",
-        "pattern": "help",
-        "response": "Here's what I can help with: patient lookup, list patients, clinical insights, translation, medical terms, sentiment analysis, and named entity recognition."
-    },
-    {
-        "tag": "help",
-        "pattern": "what can you do",
-        "response": "I can look up patients"
-    },
-    {
-        "tag": "help",
-        "pattern": "show commands",
-        "response": "Available commands: patient <id>"
-    },
-    {
-        "tag": "help",
-        "pattern": "commands",
-        "response": "Here are the available commands. Type 'help' to see the full list."
-    },
-    {
-        "tag": "help",
-        "pattern": "menu",
-        "response": "Here is the menu of options. Type 'help' to see what I can do."
-    },
-    {
-        "tag": "help",
-        "pattern": "options",
-        "response": "I can assist with patient data"
-    },
-    {
-        "tag": "help",
-        "pattern": "what do you support",
-        "response": "I support patient lookups"
-    },
-    {
-        "tag": "help",
-        "pattern": "assist me",
-        "response": "I'm here to help! Type 'help' to see the list of available commands."
-    },
-    {
-        "tag": "help",
-        "pattern": "guide me",
-        "response": "Sure! Type 'help' to see a guided list of everything I can do."
-    },
-    {
-        "tag": "help",
-        "pattern": "how does this work",
-        "response": "This chatbot uses NLP and machine learning to understand your queries. Type 'help' for commands."
-    },
-    {
-        "tag": "help",
-        "pattern": "what commands",
-        "response": "Type 'help' to see the full list of available commands."
-    },
-    {
-        "tag": "help",
-        "pattern": "show me the menu",
-        "response": "Here is the command menu. Type 'help' for the full list of supported operations."
-    },
-    {
-        "tag": "help",
-        "pattern": "what are my options",
-        "response": "You have many options! Type 'help' to see the complete list of commands."
-    },
-    {
-        "tag": "help",
-        "pattern": "i need help",
-        "response": "I'm here to help! Type 'help' to see all available commands."
-    },
-    {
-        "tag": "help",
-        "pattern": "can you help me",
-        "response": "Of course! Type 'help' to see a full list of what I can assist with."
-    },
-    {
-        "tag": "help",
-        "pattern": "tutorial",
-        "response": "I can walk you through the system. Type 'help' to see all available commands and examples."
-    },
-    {
-        "tag": "help",
-        "pattern": "get started",
-        "response": "To get started"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "show me patient",
-        "response": "I can look up a patient for you. Please provide the patient ID (e.g."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "get patient",
-        "response": "Sure! Provide a patient ID to retrieve their record."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "find patient",
-        "response": "I'll help find a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "view patient",
-        "response": "To view a patient record"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "patient record",
-        "response": "I can retrieve a patient record. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "lookup patient",
-        "response": "Provide a patient ID and I'll look them up right away."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "retrieve patient",
-        "response": "I'll retrieve the patient data. Please give me the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "display patient",
-        "response": "I'll display the patient information. What is the patient ID?"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "what is patient",
-        "response": "I need a patient ID to look up their details. Please provide one."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "patient information",
-        "response": "To get patient information"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "show patient details",
-        "response": "I can show patient details. Which patient ID would you like me to look up?"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "get me patient data",
-        "response": "Provide the patient ID and I'll fetch their data immediately."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "search for patient",
-        "response": "I can search for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "find me a patient",
-        "response": "I'll help you find a patient. What is the patient ID?"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "access patient file",
-        "response": "To access a patient file"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "pull up patient",
-        "response": "I'll pull up the patient record. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "check patient record",
-        "response": "I can check a patient record. What is the patient ID?"
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "open patient chart",
-        "response": "I'll open the patient chart. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "get patient profile",
-        "response": "I can retrieve a patient profile. Please provide the patient ID."
-    },
-    {
-        "tag": "patient_lookup",
-        "pattern": "show me a patient",
-        "response": "Sure! Which patient ID would you like me to pull up?"
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "list all patients",
-        "response": "I'll list all patients in the database for you."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "show all patients",
-        "response": "Fetching the full patient list now..."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "all patients",
-        "response": "Here are all the patients in the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "how many patients",
-        "response": "Let me count the total number of patients for you."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "patient list",
-        "response": "Fetching the patient list from the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "display all patients",
-        "response": "Displaying all available patients now."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "patients in database",
-        "response": "Here are the patients currently stored in the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "count patients",
-        "response": "Counting the number of patients in the database for you."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "total patients",
-        "response": "Let me calculate the total patient count."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "show me all records",
-        "response": "Fetching all patient records from the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "every patient",
-        "response": "Retrieving the complete list of all patients."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "patients list",
-        "response": "Fetching the patient list from the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "give me all patients",
-        "response": "Retrieving all patients from the database now."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "show patients",
-        "response": "Showing all patients in the clinical database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "full patient list",
-        "response": "Let me retrieve the complete patient list for you."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "how many records",
-        "response": "Let me count the total number of patient records in the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "pull all patients",
-        "response": "Pulling all patients from the database now."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "retrieve all patients",
-        "response": "Fetching all patient data from the clinical database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "list patients",
-        "response": "Listing all patients in the database."
-    },
-    {
-        "tag": "list_patients",
-        "pattern": "show database",
-        "response": "Displaying the full patient database for you."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language distribution",
-        "response": "Let me pull up the language distribution statistics."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "what languages",
-        "response": "Fetching the language breakdown from the patient database."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language statistics",
-        "response": "Here are the language statistics for the patient population."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "how many speak spanish",
-        "response": "Let me check how many patients speak Spanish."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language breakdown",
-        "response": "I'll show you the complete language breakdown."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "patients by language",
-        "response": "Fetching patients grouped by language now."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language insights",
-        "response": "Here are the language-based insights from the patient database."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language stats",
-        "response": "Loading language statistics for the clinical population."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "what languages do patients speak",
-        "response": "Let me check the language distribution across all patients."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "show language data",
-        "response": "Pulling up language data from the patient records."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language demographics",
-        "response": "Fetching language demographic data from the patient population."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "most common language",
-        "response": "Let me find the most commonly spoken language in the patient population."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "spoken languages",
-        "response": "I can show you data on languages spoken by patients. Fetching now."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language of patients",
-        "response": "Retrieving language distribution data for all patients."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "how many english speakers",
-        "response": "Let me count the number of English-speaking patients in the database."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "how many mandarin speakers",
-        "response": "Fetching the count of Mandarin-speaking patients from the database."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language count",
-        "response": "Let me count patients by language for you."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language percentages",
-        "response": "Calculating language percentages across the patient population."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language report",
-        "response": "Generating a language distribution report from the patient database."
-    },
-    {
-        "tag": "insights_language",
-        "pattern": "language of all patients",
-        "response": "Here is the language breakdown for all patients in the database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age statistics",
-        "response": "Let me calculate the age statistics for you."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "average age",
-        "response": "I'll compute the average patient age right away."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age distribution",
-        "response": "Fetching the age distribution across the patient population."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "how old are patients",
-        "response": "Let me pull up age data for the patients."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "patient ages",
-        "response": "I'll retrieve the patient age statistics from the database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age breakdown",
-        "response": "Here is the age breakdown for all patients."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age insights",
-        "response": "Fetching age-based insights from the clinical database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "demographics age",
-        "response": "Loading age demographics from the patient database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "youngest patient",
-        "response": "Let me find age statistics including the youngest patient."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "oldest patient",
-        "response": "I'll look up the age range including the oldest patient on record."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "mean age",
-        "response": "Let me calculate the mean age of all patients in the database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "median age",
-        "response": "I'll compute the median age across all patients."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age range",
-        "response": "Let me pull up the minimum and maximum patient ages."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age analytics",
-        "response": "Fetching age analytics from the patient database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age of patients",
-        "response": "Retrieving age data for all patients in the clinical database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "age groups",
-        "response": "Let me show you the age group distribution across patients."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "senior patients",
-        "response": "Let me show age statistics including the distribution of older patients."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "patient demographics age",
-        "response": "Loading age demographic data from the patient records."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "how old is the average patient",
-        "response": "I'll calculate the average patient age from the database."
-    },
-    {
-        "tag": "insights_age",
-        "pattern": "what is the average age",
-        "response": "Let me compute the average age across all patients in the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender distribution",
-        "response": "Fetching gender distribution statistics now."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender statistics",
-        "response": "Let me look up the gender breakdown for you."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "male female ratio",
-        "response": "I'll calculate the male-to-female ratio in the patient population."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "how many male",
-        "response": "Let me count the number of male patients in the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "how many female",
-        "response": "Fetching the count of female patients now."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender breakdown",
-        "response": "Here is the gender breakdown across all patients."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender stats",
-        "response": "Loading gender statistics from the clinical database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender insights",
-        "response": "Fetching gender-based insights from the patient population."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "sex distribution",
-        "response": "Pulling up the sex/gender distribution across all patients."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "show gender data",
-        "response": "Here is the gender data from the patient records."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "how many men",
-        "response": "Let me count the number of male patients in the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "how many women",
-        "response": "Fetching the count of female patients from the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender percentages",
-        "response": "Calculating gender percentages across the patient population."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender report",
-        "response": "Generating a gender distribution report from the patient database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "male patients",
-        "response": "Fetching the count and percentage of male patients."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "female patients",
-        "response": "Fetching the count and percentage of female patients."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "gender demographics",
-        "response": "Loading gender demographic data from the patient population."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "what percent male",
-        "response": "Let me calculate the percentage of male patients in the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "what percent female",
-        "response": "Calculating the percentage of female patients in the database."
-    },
-    {
-        "tag": "insights_gender",
-        "pattern": "patient gender breakdown",
-        "response": "Here is the gender breakdown for all patients in the clinical database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty statistics",
-        "response": "Analyzing poverty data across the patient population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty rate",
-        "response": "Let me pull up the poverty rate statistics for you."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "below poverty",
-        "response": "Fetching data on patients living below the poverty line."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty analysis",
-        "response": "Performing a poverty analysis across the patient population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty percentage",
-        "response": "Calculating the poverty percentage for the clinical population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "low income patients",
-        "response": "Fetching data on low-income patients in the database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "socioeconomic data",
-        "response": "Loading socioeconomic data from the patient database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty distribution",
-        "response": "Here is the poverty distribution across all patients."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "how many patients below poverty line",
-        "response": "Let me calculate the number of patients below the poverty line."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty level breakdown",
-        "response": "Fetching the poverty level breakdown for the clinical population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty stats",
-        "response": "Loading poverty statistics from the patient records."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty insights",
-        "response": "Fetching poverty-based insights from the patient database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "socioeconomic status",
-        "response": "Loading socioeconomic status data from the patient population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "income data",
-        "response": "Fetching income level data from the patient database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "financial hardship",
-        "response": "Loading data on patients experiencing financial hardship."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty percent",
-        "response": "Calculating the poverty percentage across the clinical population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "how poor",
-        "response": "Let me pull up poverty statistics for the patient population."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "poverty demographics",
-        "response": "Fetching poverty demographic data from the patient database."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "what is the poverty rate",
-        "response": "Let me calculate the poverty rate across all patients."
-    },
-    {
-        "tag": "insights_poverty",
-        "pattern": "average poverty percentage",
-        "response": "I'll compute the mean poverty percentage across all patients."
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate",
-        "response": "I can translate text for you! Use: translate \"<text>\" to <language>"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translation",
-        "response": "Sure! Tell me the text and target language for translation."
-    },
-    {
-        "tag": "translate",
-        "pattern": "convert text",
-        "response": "I can convert text to another language. Please provide the text and target language."
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate this",
-        "response": "Provide the text you'd like translated and the target language. Example: translate \"Hello\" to Spanish"
-    },
-    {
-        "tag": "translate",
-        "pattern": "how do you say",
-        "response": "Tell me the phrase and the target language. Example: translate \"Hello\" to French"
-    },
-    {
-        "tag": "translate",
-        "pattern": "in spanish",
-        "response": "I can help with Spanish translation! Use: translate \"<text>\" to Spanish"
-    },
-    {
-        "tag": "translate",
-        "pattern": "in french",
-        "response": "I can help with French translation! Use: translate \"<text>\" to French"
-    },
-    {
-        "tag": "translate",
-        "pattern": "in another language",
-        "response": "Provide the text and target language and I'll translate it for you."
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to",
-        "response": "Please provide the text and the target language for translation."
-    },
-    {
-        "tag": "translate",
-        "pattern": "language convert",
-        "response": "I can convert text between languages. What would you like to translate?"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to mandarin",
-        "response": "I can translate to Mandarin! Use: translate \"<text>\" to Mandarin"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to hindi",
-        "response": "Translating to Hindi is supported. Use: translate \"<text>\" to Hindi"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to portuguese",
-        "response": "I can translate to Portuguese. Use: translate \"<text>\" to Portuguese"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to arabic",
-        "response": "Arabic translation is supported. Use: translate \"<text>\" to Arabic"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to italian",
-        "response": "I can help with Italian translation. Use: translate \"<text>\" to Italian"
-    },
-    {
-        "tag": "translate",
-        "pattern": "translate to german",
-        "response": "German translation is available. Use: translate \"<text>\" to German"
-    },
-    {
-        "tag": "translate",
-        "pattern": "say it in french",
-        "response": "Sure! Use: translate \"<text>\" to French"
-    },
-    {
-        "tag": "translate",
-        "pattern": "say it in spanish",
-        "response": "Sure! Use: translate \"<text>\" to Spanish"
-    },
-    {
-        "tag": "translate",
-        "pattern": "language translation",
-        "response": "I can translate text between many languages. Provide text and target language."
-    },
-    {
-        "tag": "translate",
-        "pattern": "how to translate",
-        "response": "Use the command: translate \"<your text>\" to <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "medical term",
-        "response": "I can help with medical terminology! Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what does it mean",
-        "response": "Please provide the medical term and I'll look it up for you."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "medical definition",
-        "response": "I can provide medical definitions. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "clinical term",
-        "response": "I can explain clinical terms. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "medical vocabulary",
-        "response": "I have a comprehensive medical vocabulary database. What term do you need?"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "define medical",
-        "response": "I can define medical terms in multiple languages. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "medical in spanish",
-        "response": "I can translate medical terms to Spanish. Use: medical <term> in Spanish"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what does diagnosis mean",
-        "response": "A diagnosis is a clinical determination of the nature of a patient's condition."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "medical terminology",
-        "response": "I can explain medical terminology. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "explain medical term",
-        "response": "Sure! Provide the term and target language. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what does hypertension mean",
-        "response": "Hypertension is a condition where blood pressure in the arteries is persistently elevated."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "define diabetes",
-        "response": "Diabetes is a metabolic disease that causes high blood sugar levels due to insulin issues."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what is a CBC",
-        "response": "CBC stands for Complete Blood Count - a blood test measuring red/white cells and platelets."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "define sepsis",
-        "response": "Sepsis is a life-threatening condition caused by the body's response to an infection."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what is tachycardia",
-        "response": "Tachycardia is a heart rate that exceeds the normal resting rate (over 100 bpm in adults)."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "clinical jargon",
-        "response": "I can help decode clinical jargon. Use: medical <term> in <language>"
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what is bradycardia",
-        "response": "Bradycardia is a slower-than-normal heart rate (below 60 bpm in adults)."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "define edema",
-        "response": "Edema is swelling caused by excess fluid trapped in the body's tissues."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what is anemia",
-        "response": "Anemia is a condition where there aren't enough healthy red blood cells to carry oxygen."
-    },
-    {
-        "tag": "medical_terms",
-        "pattern": "what is a metabolic panel",
-        "response": "A metabolic panel is a blood test that measures electrolytes"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "sentiment",
-        "response": "I can analyze the sentiment of any text. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "analyze sentiment",
-        "response": "Sure! Provide text and I'll identify its emotional tone."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "is this positive",
-        "response": "Provide the text and I'll determine if it's positive"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "is this negative",
-        "response": "Share the text and I'll analyze its sentiment for you."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "how does this feel",
-        "response": "I can assess the emotional tone of any text. Just provide it!"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "emotional tone",
-        "response": "I can detect the emotional tone of text. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "text sentiment",
-        "response": "Provide the text and I'll analyze its sentiment right away."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "mood of text",
-        "response": "I can detect the mood of any text. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "detect emotion",
-        "response": "I can detect emotions in text. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "positive or negative",
-        "response": "Provide the text and I'll tell you if it's positive"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "good sentiment",
-        "response": "Share the text and I'll confirm whether it carries a positive sentiment."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "bad sentiment",
-        "response": "Provide the text and I'll determine its negative sentiment score."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "analyze this text",
-        "response": "I'll analyze the sentiment of your text. Please provide it using: sentiment <text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "what is the sentiment",
-        "response": "Share the text and I'll calculate its sentiment score and label."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "run sentiment analysis",
-        "response": "Sure! Use: sentiment <your text> to get a sentiment score."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "check the mood",
-        "response": "I can check the emotional mood of any text. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "how positive is this",
-        "response": "Provide the text and I'll calculate how positive it is on a [-1"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "how negative is this",
-        "response": "Share the text and I'll calculate its negativity score."
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "detect sentiment",
-        "response": "I can detect the sentiment. Use: sentiment <your text>"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "is this happy",
-        "response": "Provide the text and I'll determine whether it expresses happiness!"
-    },
-    {
-        "tag": "sentiment",
-        "pattern": "is this angry",
-        "response": "Share the text and I'll analyze its tone for anger or frustration."
-    },
-    {
-        "tag": "ner",
-        "pattern": "named entity",
-        "response": "I can extract named entities from text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "ner",
-        "response": "Named entity recognition is ready. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "extract entities",
-        "response": "I'll identify people, places, dates, and medical terms from your text."
-    },
-    {
-        "tag": "ner",
-        "pattern": "find names",
-        "response": "I can find names and other entities. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "detect entities",
-        "response": "Provide text and I'll detect all named entities within it."
-    },
-    {
-        "tag": "ner",
-        "pattern": "entity recognition",
-        "response": "I can recognize entities in clinical text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "who is mentioned",
-        "response": "I can identify who or what is mentioned in any text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "what is mentioned",
-        "response": "I can extract all relevant entities. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "extract information",
-        "response": "I'll extract key information from your text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "find dates",
-        "response": "I can extract dates and other entities. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "extract medical entities",
-        "response": "I can extract medical entities from clinical text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "find people",
-        "response": "I can find people mentioned in text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "find organizations",
-        "response": "I can identify organizations in your text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "find locations",
-        "response": "I can extract locations mentioned in your text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "what entities are in this",
-        "response": "Use: ner <your text> and I'll extract all named entities."
-    },
-    {
-        "tag": "ner",
-        "pattern": "extract proper nouns",
-        "response": "I can extract proper nouns and named entities. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "identify names",
-        "response": "I can identify names and named entities in text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "run ner",
-        "response": "Sure! Use: ner <your text> to run Named Entity Recognition."
-    },
-    {
-        "tag": "ner",
-        "pattern": "entity extraction",
-        "response": "I can perform entity extraction on any text. Use: ner <your text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "find medical entities",
-        "response": "I'll identify medical terms, patient IDs, and clinical entities. Use: ner <text>"
-    },
-    {
-        "tag": "ner",
-        "pattern": "who appears in this text",
-        "response": "I can identify who appears in the text. Use: ner <your text>"
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "lab results",
-        "response": "Lab data includes CBC panels"
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "cbc",
-        "response": "I can help with CBC (Complete Blood Count) lab values. Which patient or panel are you interested in?"
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "metabolic panel",
-        "response": "Metabolic panel data is available. Please provide a patient ID for specific results."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "blood work",
-        "response": "I can help interpret blood work results. Provide a patient ID for their lab data."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "lab data",
-        "response": "Lab data is linked to patient admissions. Provide a patient ID for specific lab results."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "test results",
-        "response": "I can retrieve test results. Please provide the patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "hemoglobin",
-        "response": "Hemoglobin values are part of the CBC panel. Provide a patient ID for their specific value."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "glucose level",
-        "response": "Glucose levels are tracked in the metabolic panel. Provide a patient ID to see their results."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "creatinine",
-        "response": "Creatinine is a key metabolic indicator. Provide a patient ID for their specific value."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "lab values",
-        "response": "I can look up lab values by patient ID. Which patient or test are you looking for?"
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "alt sgpt",
-        "response": "ALT/SGPT (alanine aminotransferase) is a liver enzyme test. Provide a patient ID for their results."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "urinalysis",
-        "response": "Urinalysis results are available. Provide a patient ID to retrieve their data."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "blood test results",
-        "response": "I can retrieve blood test results. Please provide the patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "show lab results",
-        "response": "I can show lab results. Please provide the patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "get lab data",
-        "response": "Fetching lab data. Please provide the patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "platelet count",
-        "response": "Platelet counts are part of the CBC panel. Provide a patient ID to see their value."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "white blood cells",
-        "response": "White blood cell counts are in the CBC panel. Provide a patient ID for their results."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "red blood cells",
-        "response": "Red blood cell counts come from the CBC panel. Provide a patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "lab panel",
-        "response": "I can retrieve any lab panel result. Please provide the patient ID and panel name."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "bun creatinine",
-        "response": "BUN and creatinine are kidney function indicators in the metabolic panel. Provide a patient ID."
-    },
-    {
-        "tag": "lab_results",
-        "pattern": "sodium potassium",
-        "response": "Sodium and potassium are electrolytes measured in the metabolic panel. Provide a patient ID."
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "tell me more",
-        "response": "Happy to elaborate! Could you specify which topic you'd like more detail on?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "what else",
-        "response": "Of course! Let me know which area you'd like me to expand on."
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "and then",
-        "response": "Sure! What would you like to know next?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "continue",
-        "response": "I'll continue! What specific information are you looking for?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "more details",
-        "response": "I can provide more details. Which topic would you like me to elaborate on?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "elaborate",
-        "response": "I'd be happy to elaborate. What aspect do you need more information on?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "go on",
-        "response": "Sure"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "anything else",
-        "response": "Is there anything else I can help you with today?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "can you explain",
-        "response": "Of course! What would you like me to explain in more detail?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "explain that",
-        "response": "Happy to explain further. Which part would you like clarified?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "can you repeat",
-        "response": "Sure! Let me repeat the information for you. What would you like me to go over again?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "i don't understand",
-        "response": "I'll try to clarify. Which part was unclear?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "i didn't get that",
-        "response": "Let me rephrase that. What part would you like me to explain again?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "what do you mean",
-        "response": "I'll clarify! Which part of my response was confusing?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "please explain",
-        "response": "Sure! What would you like me to explain in more detail?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "can you clarify",
-        "response": "Happy to clarify. What part was unclear?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "i need more info",
-        "response": "I can provide more information. Which topic would you like to expand on?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "give me more",
-        "response": "Sure! What would you like more detail about?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "additional details",
-        "response": "I can give additional details. What topic would you like more information on?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "keep going",
-        "response": "I'll continue! What would you like to know next?"
-    },
-    {
-        "tag": "context_followup",
-        "pattern": "explain more",
-        "response": "Happy to explain more. Which part would you like me to elaborate on?"
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race distribution",
-        "response": "Let me pull up the race distribution across the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "racial breakdown",
-        "response": "Fetching the racial breakdown from the patient database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "patient race statistics",
-        "response": "Loading race statistics from the clinical database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "how many asian patients",
-        "response": "Let me count the number of Asian patients in the database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "how many hispanic patients",
-        "response": "Fetching the count of Hispanic patients from the database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race insights",
-        "response": "Here are the race-based insights from the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "ethnicity distribution",
-        "response": "I can show the ethnicity/race distribution. Fetching data now."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "racial statistics",
-        "response": "Loading racial statistics from the patient records."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "how many white patients",
-        "response": "Let me count the number of White patients in the database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "show race data",
-        "response": "Pulling up race data from the patient records."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race demographics",
-        "response": "Fetching race demographic data from the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race percentages",
-        "response": "Calculating race percentages across the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "racial disparities",
-        "response": "Loading data on racial distribution across the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "minority patients",
-        "response": "Fetching demographic data on minority patients in the database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "racial composition",
-        "response": "Here is the racial composition of the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race report",
-        "response": "Generating a race distribution report from the patient database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "how many black patients",
-        "response": "Let me count the number of Black/African American patients in the database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "diversity statistics",
-        "response": "Loading diversity and race statistics from the patient population."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "race of patients",
-        "response": "Here is the race breakdown for all patients in the clinical database."
-    },
-    {
-        "tag": "insights_race",
-        "pattern": "patient ethnicity",
-        "response": "Fetching ethnicity data for all patients in the database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital status distribution",
-        "response": "Let me pull up marital status statistics for the patient population."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "how many married patients",
-        "response": "Fetching the count of married patients from the database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "single patients",
-        "response": "Let me check how many patients are listed as single."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital breakdown",
-        "response": "Here is the marital status breakdown for all patients."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "divorce statistics",
-        "response": "Fetching divorce/separated patient statistics from the database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital status insights",
-        "response": "Here are the marital status insights from the clinical population."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "how many divorced",
-        "response": "Let me count the number of divorced patients in the database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "widowed patients",
-        "response": "Fetching data on widowed patients in the clinical database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "patient relationship status",
-        "response": "Loading relationship/marital status data from the patient records."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital demographics",
-        "response": "Fetching marital demographic data from the patient population."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital stats",
-        "response": "Loading marital status statistics from the clinical database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "how many single patients",
-        "response": "Let me count the number of single patients in the database."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital status report",
-        "response": "Generating a marital status distribution report."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "coupled patients",
-        "response": "Fetching data on married or partnered patients."
-    },
-    {
-        "tag": "insights_marital",
-        "pattern": "marital status of patients",
-        "response": "Here is the marital status breakdown for all patients."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "patient diagnoses",
-        "response": "I can look up diagnoses for a specific patient. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "what diagnosis",
-        "response": "Provide a patient ID and I'll retrieve their diagnosis information."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "diagnoses for patient",
-        "response": "I can retrieve all diagnoses linked to a patient. What is the patient ID?"
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "diagnosis history",
-        "response": "I'll retrieve the diagnosis history. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "medical history",
-        "response": "I can look up a patient's medical history. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "conditions",
-        "response": "I can retrieve patient conditions/diagnoses. Provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "what diseases",
-        "response": "Let me look up the patient's recorded diseases/diagnoses. Provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "icd code",
-        "response": "I can look up ICD diagnosis codes. Please provide a patient ID or specific code."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "diagnosis code",
-        "response": "I can retrieve diagnosis codes for a patient. What is the patient ID?"
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "medical conditions",
-        "response": "I can look up medical conditions by patient ID. Please provide the ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "show diagnosis",
-        "response": "I can show diagnostic information. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "get diagnoses",
-        "response": "Fetching diagnoses. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "patient health issues",
-        "response": "I can retrieve health issues/diagnoses for a patient. Provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "patient disorders",
-        "response": "I can retrieve patient disorders/diagnoses. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "what was diagnosed",
-        "response": "I can retrieve what was diagnosed for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "chronic conditions",
-        "response": "I can look up chronic conditions for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "past diagnoses",
-        "response": "Fetching past diagnosis history. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "current diagnoses",
-        "response": "I can retrieve current diagnoses for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "top diagnoses",
-        "response": "I can show the most common diagnoses across the patient population."
-    },
-    {
-        "tag": "diagnosis_lookup",
-        "pattern": "diagnosis statistics",
-        "response": "Fetching diagnosis frequency data from the clinical database."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "admission history",
-        "response": "I can retrieve admission history. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "when was patient admitted",
-        "response": "Provide the patient ID and I'll fetch their admission records."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "hospital stays",
-        "response": "I can retrieve hospital stay history. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "admissions",
-        "response": "Fetching admission records. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "patient visits",
-        "response": "I can retrieve patient visit/admission data. What is the patient ID?"
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "how many admissions",
-        "response": "Let me look up the number of admissions for a patient. Provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "admission dates",
-        "response": "I can retrieve the admission and discharge dates. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "discharge date",
-        "response": "I'll look up the discharge date for the patient. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "length of stay",
-        "response": "I can calculate the length of hospital stay. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "show admissions",
-        "response": "Fetching admission records from the database. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "hospital admission",
-        "response": "I can retrieve hospital admission records. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "when admitted",
-        "response": "Provide the patient ID and I'll retrieve their admission date."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "when discharged",
-        "response": "I can retrieve the discharge date. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "patient stay",
-        "response": "I can retrieve hospital stay information. Provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "readmission",
-        "response": "I can check if a patient has been readmitted. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "total admissions",
-        "response": "Fetching the total number of admissions for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "average length of stay",
-        "response": "I can calculate the average length of hospital stay across all patients."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "admission record",
-        "response": "I can retrieve admission records. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "how long was patient admitted",
-        "response": "I can calculate the length of each hospital stay. Please provide the patient ID."
-    },
-    {
-        "tag": "admission_lookup",
-        "pattern": "list admissions",
-        "response": "Fetching the list of admissions for a patient. Please provide the patient ID."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "blah blah blah",
-        "response": "I'm not sure what you mean. Could you rephrase that? Type 'help' to see available commands."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "asdfgh",
-        "response": "I didn't understand that. Could you rephrase? Type 'help' for available commands."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "random text",
-        "response": "I'm not quite sure what you mean. Try rephrasing your query or type 'help'."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "111111",
-        "response": "That doesn't look like a valid command. Type 'help' to see what I can do."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "what is the weather",
-        "response": "I'm a clinical chatbot and can only assist with patient and clinical data. Type 'help'."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "tell me a joke",
-        "response": "I'm focused on clinical data queries. Type 'help' to see what I can assist with."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "play music",
-        "response": "I'm a clinical assistant and don't support that. Type 'help' for what I can do."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "search google",
-        "response": "I can only assist with clinical data queries. Type 'help' for available commands."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "what is 2 plus 2",
-        "response": "I'm a clinical assistant and can't do math. Type 'help' for what I support."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "what time is it",
-        "response": "I don't have access to the clock. I'm here for clinical data queries. Type 'help'."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "order food",
-        "response": "I'm a clinical chatbot and can't order food. Type 'help' for available commands."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "book a flight",
-        "response": "I can only assist with clinical and patient data queries. Type 'help'."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "what is your name",
-        "response": "I'm the Hypotify Clinical Chatbot! Type 'help' to see what I can do."
-    },
-    {
-        "tag": "unknown",
-        "pattern": "who made you",
-        "response": "I was built by the Hypotify team to assist with clinical data. Type 'help' for commands."
-    },
-    {
-        "tag": "top100_q4",
-        "pattern": "hey chatbot",
-        "response": "Hey! I'm the Hypotify Clinical Assistant. What can I help you with?"
-    },
-    {
-        "tag": "top100_q8",
-        "pattern": "hello Hypotify",
-        "response": "Hello! Welcome to the Hypotify Clinical Chatbot."
-    },
-    {
-        "tag": "top100_q10",
-        "pattern": "start",
-        "response": "Welcome! Type 'help' to see all available commands, or just ask me a question."
-    },
-    {
-        "tag": "top100_q12",
-        "pattern": "What can you do?",
-        "response": "I can look up patient records, retrieve admissions and diagnoses, show lab results, compute population statistics, analyse sentiment, extract named entities, search the knowledge base, and log feedback."
-    },
-    {
-        "tag": "top100_q13",
-        "pattern": "What commands are available?",
-        "response": "[Same as Q11 help listing]"
-    },
-    {
-        "tag": "top100_q14",
-        "pattern": "How do I look up a patient?",
-        "response": "Type: patient <patient-uuid> Example: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3"
-    },
-    {
-        "tag": "top100_q15",
-        "pattern": "What patient data do you have?",
-        "response": "I have 100,000 patient records: gender, date of birth, race, marital status, language, poverty percentage, plus 361,760 admissions, 361,760 diagnoses, and 100,000 lab result rows."
-    },
-    {
-        "tag": "top100_q16",
-        "pattern": "What statistics can you show?",
-        "response": "Gender, age, race, language, poverty, and marital status distributions for the full 100,000-patient dataset."
-    },
-    {
-        "tag": "top100_q17",
-        "pattern": "Tell me about the database",
-        "response": "The Hypotify database (hypotify.db) contains 8 tables: intents, patients_summary, conversation_log, user_feedback, patients, admissions, diagnoses, and labs."
-    },
-    {
-        "tag": "top100_q18",
-        "pattern": "Can you understand natural language?",
-        "response": "Yes \u2014 I use a Bidirectional LSTM model to classify messages by intent, combined with regex pattern matching for deterministic commands."
-    },
-    {
-        "tag": "top100_q19",
-        "pattern": "patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3",
-        "response": "Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 Gender: Female | DOB: 1951-07-10 | Race: Asian Marital: Single | Language: English | Poverty: 13.7%"
-    },
-    {
-        "tag": "top100_q20",
-        "pattern": "Look up patient C3935FBC-DBBA-4844-BBE4-A175FA508454",
-        "response": "Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454 Gender: Male | DOB: 1956-01-27 | Race: African American Marital: Single | Language: English | Poverty: 15.73%"
-    },
-    {
-        "tag": "top100_q21",
-        "pattern": "Show me patient 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F",
-        "response": "Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F Gender: Male | DOB: 1972-12-22 | Race: White Marital: Married | Language: English | Poverty: 7.09%"
-    },
-    {
-        "tag": "top100_q22",
-        "pattern": "Pull up patient 81606388-2471-42A4-A6F1-1868AE25CFC3",
-        "response": "Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3 Gender: Male | DOB: 1984-01-17 | Race: Asian Marital: Separated | Language: Spanish | Poverty: 2.17%"
-    },
-    {
-        "tag": "top100_q23",
-        "pattern": "Find patient E3120DE9-3361-40CF-A618-265C769E75A2",
-        "response": "Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2 Gender: Female | DOB: 1978-12-21 | Race: White Marital: Married | Language: English | Poverty: 18.67%"
-    },
-    {
-        "tag": "top100_q24",
-        "pattern": "Get patient info for 9380F9E3-1927-42F3-9731-03A74D4E4C6B",
-        "response": "[Returns formatted patient record from the database]"
-    },
-    {
-        "tag": "top100_q25",
-        "pattern": "patient XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (nonexistent)",
-        "response": "No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-    },
-    {
-        "tag": "top100_q26",
-        "pattern": "Show me a list of patients",
-        "response": "Look up individual patients by UUID. For population-level statistics, try: insights gender / insights age / insights race."
-    },
-    {
-        "tag": "top100_q27",
-        "pattern": "How many patients are in the database?",
-        "response": "There are 100,000 patient records in the database."
-    },
-    {
-        "tag": "top100_q28",
-        "pattern": "Can I search for a patient by name?",
-        "response": "Patient lookup is by UUID. The dataset does not contain patient names for privacy and data protection reasons."
-    },
-    {
-        "tag": "top100_q29",
-        "pattern": "admissions 9380F9E3-1927-42F3-9731-03A74D4E4C6B",
-        "response": "Admissions for 9380F9E3-\u2026 (1 record): Admission 5: 2011-03-23 00:14:52 \u2192 2011-03-28 01:57:56"
-    },
-    {
-        "tag": "top100_q30",
-        "pattern": "admissions 0A89658C-C739-45CA-9BF1-CBDDDFB922C0",
-        "response": "Admissions for 0A89658C-\u2026 (4 records): #1: 1974-02-10 \u2192 1974-02-16 #2: 1991-05-22 \u2192 1991-05-29 #3: 1995-02-26 \u2192 1995-02-28 #4: 2005-03-17 \u2192 2005-04-04"
-    },
-    {
-        "tag": "top100_q31",
-        "pattern": "Show hospital stays for a patient",
-        "response": "Use: admissions <patient-uuid> Returns all admission IDs, start dates, and end dates."
-    },
-    {
-        "tag": "top100_q32",
-        "pattern": "How many times was a patient admitted?",
-        "response": "The response header shows the total count, e.g. \"(4 records)\"."
-    },
-    {
-        "tag": "top100_q33",
-        "pattern": "What is the total number of admissions?",
-        "response": "The database contains 361,760 admission records."
-    },
-    {
-        "tag": "top100_q34",
-        "pattern": "When was the patient's most recent admission?",
-        "response": "Records are returned chronologically; the last listed is most recent."
-    },
-    {
-        "tag": "top100_q35",
-        "pattern": "Show all hospital visits for patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3",
-        "response": "[Returns all admission records for that patient]"
-    },
-    {
-        "tag": "top100_q36",
-        "pattern": "diagnoses 54C6E968-45B3-46B1-A64F-2CE3124F2A65",
-        "response": "Diagnoses for 54C6E968-\u2026 (3 shown): F80.1 \u2013 Expressive language disorder R04.81 \u2013 Acute idiopathic pulmonary hemorrhage in infants I36 \u2013 Nonrheumatic tricuspid valve disorders"
-    },
-    {
-        "tag": "top100_q37",
-        "pattern": "diagnosis 9DD23357-9BEB-43E4-802D-1AB7ACDD4A3A",
-        "response": "Diagnoses for 9DD23357-\u2026: H16.43 \u2013 Localized vascularization of cornea M05.161 \u2013 Rheumatoid lung disease with rheumatoid arthritis of right knee"
-    },
-    {
-        "tag": "top100_q38",
-        "pattern": "What ICD codes does a patient have?",
-        "response": "Use: diagnoses <patient-uuid> Returns up to 20 unique ICD-10 codes with plain-text descriptions."
-    },
-    {
-        "tag": "top100_q39",
-        "pattern": "What is the most common diagnosis?",
-        "response": "Use: search <diagnosis-keyword> to search the knowledge base."
-    },
-    {
-        "tag": "top100_q40",
-        "pattern": "What does diagnosis code F80.1 mean?",
-        "response": "F80.1 is \"Expressive language disorder\" \u2014 difficulties with verbal and written expression."
-    },
-    {
-        "tag": "top100_q41",
-        "pattern": "What does R04.81 mean?",
-        "response": "R04.81 is \"Acute idiopathic pulmonary hemorrhage in infants\" \u2014 bleeding into the lungs in infants without a clearly identified cause."
-    },
-    {
-        "tag": "top100_q42",
-        "pattern": "How many diagnoses are in the database?",
-        "response": "The database contains 361,760 diagnosis records."
-    },
-    {
-        "tag": "top100_q43",
-        "pattern": "labs BF7165BC-CCD9-4CE4-944F-E3C9786B7BF3",
-        "response": "Lab Results for BF7165BC-\u2026 (most recent 15): METABOLIC: ALT/SGPT \u2013 40.0 U/L (1974-01-11) CBC: MONOCYTES \u2013 0.9 k/cumm (1974-01-11) METABOLIC: GLUCOSE \u2013 134.2 mg/dL (1974-01-11) CBC: RDW \u2013 15.0 % (1974-01-11) METABOLIC: ALBUMIN \u2013 2.8 gm/dL (1974-01-11)"
-    },
-    {
-        "tag": "top100_q44",
-        "pattern": "Show lab results for a patient",
-        "response": "Use: labs <patient-uuid> Returns 15 most recent lab results with test name, value, units, and timestamp."
-    },
-    {
-        "tag": "top100_q45",
-        "pattern": "What lab tests are recorded?",
-        "response": "Metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT), CBC panels (MONOCYTES, RDW), and many other standard test categories."
-    },
-    {
-        "tag": "top100_q46",
-        "pattern": "What does a glucose of 134.2 mg/dL mean?",
-        "response": "134.2 mg/dL is above the normal range (70\u2013100) and above the pre- diabetes threshold (100\u2013125), placing it in the diabetes range (\u2265126). Clinical correlation is recommended."
-    },
-    {
-        "tag": "top100_q47",
-        "pattern": "What is a normal albumin level?",
-        "response": "Normal serum albumin is 3.4\u20135.4 g/dL. A value of 2.8 gm/dL may indicate hypoalbuminemia, associated with malnutrition or liver disease."
-    },
-    {
-        "tag": "top100_q48",
-        "pattern": "search glucose",
-        "response": "Search results for 'glucose': [up to 10 matching intent patterns from the intents knowledge base table]"
-    },
-    {
-        "tag": "top100_q49",
-        "pattern": "How many lab records are in the database?",
-        "response": "100,000 lab rows (a sample from >1 million in the source dataset)."
-    },
-    {
-        "tag": "top100_q50",
-        "pattern": "insights gender",
-        "response": "Gender Distribution (100,000 patients): Female: ~49,832 (49.8%) | Male: ~50,168 (50.2%)"
-    },
-    {
-        "tag": "top100_q51",
-        "pattern": "What is the gender breakdown of patients?",
-        "response": "[Same as insights gender output]"
-    },
-    {
-        "tag": "top100_q52",
-        "pattern": "insights age",
-        "response": "Age Statistics (100,000 patients): Mean: ~68.5 yrs | Youngest: 0.0 yrs | Oldest: 120+ yrs"
-    },
-    {
-        "tag": "top100_q53",
-        "pattern": "What is the average patient age?",
-        "response": "The mean age is approximately 68.5 years across all 100,000 patients."
-    },
-    {
-        "tag": "top100_q54",
-        "pattern": "insights race",
-        "response": "Race Distribution \u2013 Top entries: White: ~79,000 (79.0%) African American: ~8,500 (8.5%) Asian: ~3,200 (3.2%) \u2026 (top 10 shown)"
-    },
-    {
-        "tag": "top100_q55",
-        "pattern": "What are the racial demographics?",
-        "response": "[Same as insights race output]"
-    },
-    {
-        "tag": "top100_q56",
-        "pattern": "insights language",
-        "response": "Language Distribution \u2013 Top entries: English: ~94,000 (94.0%) Spanish: ~3,800 (3.8%) Portuguese: ~700 (0.7%) \u2026 (top 10)"
-    },
-    {
-        "tag": "top100_q57",
-        "pattern": "What languages do patients speak?",
-        "response": "[Same as insights language output]"
-    },
-    {
-        "tag": "top100_q58",
-        "pattern": "insights poverty",
-        "response": "Poverty Statistics: Mean poverty %: ~17.6% | Patients with data: ~98,400"
-    },
-    {
-        "tag": "top100_q59",
-        "pattern": "What is the poverty level for patients?",
-        "response": "The mean poverty percentage is approximately 17.6% (based on the geographic poverty rate for each patient's location)."
-    },
-    {
-        "tag": "top100_q60",
-        "pattern": "insights marital",
-        "response": "Marital Status Distribution: Married: ~45,200 (45.2%) Single: ~36,100 (36.1%) Divorced: ~10,300 (10.3%) Widowed: ~5,800 (5.8%) Separated: ~2,600 (2.6%)"
-    },
-    {
-        "tag": "top100_q61",
-        "pattern": "What percentage of patients are married?",
-        "response": "Approximately 45% of patients are married (use insights marital for exact current figures)."
-    },
-    {
-        "tag": "top100_q62",
-        "pattern": "Show me statistics about the patient population",
-        "response": "I can show: gender, age, race, language, poverty, and marital statistics. Try: insights gender / insights age / insights race / etc."
-    },
-    {
-        "tag": "top100_q63",
-        "pattern": "How diverse is the patient population?",
-        "response": "The population spans multiple races, 10+ languages, and all age groups. Use the insights commands to see detailed breakdowns."
-    },
-    {
-        "tag": "top100_q64",
-        "pattern": "sentiment I love this clinical tool it is fantastic",
-        "response": "Sentiment: POSITIVE \ud83d\ude0a | Score: +0.836"
-    },
-    {
-        "tag": "top100_q65",
-        "pattern": "sentiment I am very worried about my diagnosis",
-        "response": "Sentiment: NEGATIVE \ud83d\ude1f | Score: -0.612 (Empathetic prefix added: \"I'm sorry to hear that. I'm here to help.\")"
-    },
-    {
-        "tag": "top100_q66",
-        "pattern": "sentiment The patient was admitted on Tuesday",
-        "response": "Sentiment: NEUTRAL \ud83d\ude10 | Score: 0.000"
-    },
-    {
-        "tag": "top100_q67",
-        "pattern": "sentiment This is terrible I hate waiting for test results",
-        "response": "Sentiment: NEGATIVE \ud83d\ude1f | Score: -0.774"
-    },
-    {
-        "tag": "top100_q68",
-        "pattern": "sentiment The treatment was effective and the patient improved",
-        "response": "Sentiment: POSITIVE \ud83d\ude0a | Score: +0.521"
-    },
-    {
-        "tag": "top100_q69",
-        "pattern": "How does sentiment analysis work?",
-        "response": "I use VADER \u2014 a rule-based model that returns scores from -1.0 (very negative) to +1.0 (very positive). Scores >+0.05"
-    },
-    {
-        "tag": "top100_q70",
-        "pattern": "Analyse the mood of: The patient is doing well",
-        "response": "Sentiment: POSITIVE \ud83d\ude0a | Score: +0.432"
-    },
-    {
-        "tag": "top100_q71",
-        "pattern": "sentiment I cannot believe how long I have waited",
-        "response": "Sentiment: NEGATIVE \ud83d\ude1f | Score: -0.341 (Empathetic prefix added automatically due to high negative score)"
-    },
-    {
-        "tag": "top100_q72",
-        "pattern": "ner Dr. Patel treated on 2025-03-10",
-        "response": "Entities: [PERSON] Dr. Patel | [DATE] 2025-03-10"
-    },
-    {
-        "tag": "top100_q73",
-        "pattern": "ner Shruti Malik was admitted to St. Mary Hospital on January 15 2025",
-        "response": "Entities: [PERSON] Shruti Malik | [ORG] St. Mary Hospital | [DATE] January 15 2025"
-    },
-    {
-        "tag": "top100_q74",
-        "pattern": "ner The patient owed $3400 to Blue Cross Insurance",
-        "response": "Entities: [MONEY] $3,400 | [ORG] Blue Cross Insurance"
-    },
-    {
-        "tag": "top100_q75",
-        "pattern": "ner Omaha Nebraska clinic discharge on December 5",
-        "response": "Entities: [GPE] Omaha | [GPE] Nebraska | [DATE] December 5"
-    },
-    {
-        "tag": "top100_q76",
-        "pattern": "What is named entity recognition?",
-        "response": "NER identifies PERSON, ORG, DATE, GPE, MONEY, and other entity types in free text using spaCy's en_core_web_sm model."
-    },
-    {
-        "tag": "top100_q77",
-        "pattern": "ner No entities in this plain text",
-        "response": "No named entities detected."
-    },
-    {
-        "tag": "top100_q78",
-        "pattern": "Can you extract patient names from notes?",
-        "response": "Yes \u2014 use 'ner <clinical text>' to identify PERSON entities, dates, organizations, locations, and more."
-    },
-    {
-        "tag": "top100_q79",
-        "pattern": "db info",
-        "response": "Database Statistics (hypotify.db): intents: 386 rows patients_summary: 51 rows conversation_log: (grows with use) user_feedback: (grows with use) patients: 100,000 rows admissions: 361,760 rows diagnoses: 361,760 rows labs: 100,000 rows"
-    },
-    {
-        "tag": "top100_q80",
-        "pattern": "How big is the database?",
-        "response": "Approximately 137 MB on disk with 8 tables and 900,000+ total rows."
-    },
-    {
-        "tag": "top100_q81",
-        "pattern": "search hypertension",
-        "response": "Search results for 'hypertension': [up to 10 matching knowledge base entries from the intents table]"
-    },
-    {
-        "tag": "top100_q82",
-        "pattern": "search diabetes",
-        "response": "Search results for 'diabetes': [matching intent patterns returned]"
-    },
-    {
-        "tag": "top100_q83",
-        "pattern": "search admission",
-        "response": "Search results for 'admission': [matching intent patterns returned]"
-    },
-    {
-        "tag": "top100_q84",
-        "pattern": "What tables are in the database?",
-        "response": "8 tables: intents, patients_summary, conversation_log, user_feedback, patients, admissions, diagnoses, labs."
-    },
-    {
-        "tag": "top100_q85",
-        "pattern": "Is my conversation being recorded?",
-        "response": "Yes \u2014 every turn is logged to conversation_log with session ID, message, response, and resolved intent tag."
-    },
-    {
-        "tag": "top100_q86",
-        "pattern": "How do I submit feedback?",
-        "response": "Type: feedback <1-5> <optional comment> Example: feedback 5 Excellent patient lookup!"
-    },
-    {
-        "tag": "top100_q87",
-        "pattern": "feedback 5 This chatbot is incredibly helpful",
-        "response": "Thank you for your 5/5 rating! Your comment has been saved."
-    },
-    {
-        "tag": "top100_q88",
-        "pattern": "What does ALT/SGPT measure?",
-        "response": "ALT (Alanine Aminotransferase) is a liver enzyme. Elevated levels may indicate liver damage. Normal range: 7\u201356 U/L. Sample value: 40.0 U/L (within normal range)."
-    },
-    {
-        "tag": "top100_q89",
-        "pattern": "What is RDW in a CBC?",
-        "response": "RDW (Red Cell Distribution Width) measures variation in red blood cell size. Normal: 11.5\u201314.5%. A value of 15.0% is mildly elevated and may indicate iron deficiency anemia."
-    },
-    {
-        "tag": "top100_q90",
-        "pattern": "What does low albumin mean?",
-        "response": "Albumin below 3.4 g/dL can indicate malnutrition, liver disease, or kidney disease. Sample value: 2.8 gm/dL (below normal range)."
-    },
-    {
-        "tag": "top100_q91",
-        "pattern": "What is ICD-10?",
-        "response": "ICD-10 (International Classification of Diseases, 10th Revision) is the global standard for coding diseases and symptoms. All diagnoses in the database use ICD-10 codes."
-    },
-    {
-        "tag": "top100_q92",
-        "pattern": "What is monocytes in a CBC?",
-        "response": "Monocytes are white blood cells involved in immune response. Normal: 0.2\u20131.0 k/cumm. Sample value: 0.9 k/cumm (within normal range)."
-    },
-    {
-        "tag": "top100_q93",
-        "pattern": "medical terms",
-        "response": "Ask me directly, e.g.: 'What does ALT mean?' or 'Explain ICD-10'. For entity extraction from clinical text, use the ner command."
-    },
-    {
-        "tag": "top100_q94",
-        "pattern": "What does poverty_pct mean in the patient data?",
-        "response": "The percentage of the local population below the federal poverty line for each patient's geographic area\u2014a socioeconomic indicator."
-    },
-    {
-        "tag": "top100_q98",
-        "pattern": "I'm done for today",
-        "response": "Goodbye! Have a great day."
-    },
-    {
-        "tag": "top100_q99",
-        "pattern": "Tell me more (after insights gender)",
-        "response": "I can also show age, race, language, poverty, or marital statistics. Which would you like to explore next?"
-    },
-    {
-        "tag": "top100_q100",
-        "pattern": "What else can you tell me? (after a patient lookup)",
-        "response": "Would you like to see their lab results or diagnoses? Try: labs <patient-id> or diagnoses <patient-id>"
+      "tag": "greeting",
+      "responses": [
+        "Hello! Welcome to the Hypotify Clinical Chatbot. How can I help you today?",
+        "Hi there! I'm your Hypotify clinical assistant. Type 'help' to see what I can do.",
+        "Hey! How can I assist you today?",
+        "Good morning! Ready to assist with patient data and clinical insights.",
+        "Good afternoon! How can I help?",
+        "Good evening! What can I do for you?",
+        "Howdy! Welcome to the Hypotify Clinical Chatbot.",
+        "Greetings! I'm here to help with clinical data.",
+        "Hi! I'm here and ready to assist you with patient data.",
+        "Hola! How can I help you today?",
+        "Hi there! Welcome to Hypotify. How can I assist?",
+        "Good day! Ready to help with all your clinical data needs.",
+        "Hey there! I'm your Hypotify clinical assistant.",
+        "Good morning! How can I assist you today?",
+        "Good evening! Ready to help with clinical queries.",
+        "Hello! I'm the Hypotify clinical assistant. What do you need?",
+        "Hi! I'm here to assist with your patient data needs.",
+        "Hello! Welcome. How can I help you with the clinical database today?"
+      ]
+    },
+    {
+      "tag": "help",
+      "responses": [
+        "Available commands:\n  patient <id>           – look up a specific patient\n  admissions <id>        – hospital admission history\n  diagnoses <id>         – ICD-10 diagnoses\n  labs <id>              – lab test results\n  insights <category>    – population statistics\n                           (gender/age/race/language/poverty/marital)\n  sentiment <text>       – analyse sentiment\n  ner <text>             – named entity recognition\n  search <keyword>       – search the knowledge base\n  feedback <1-5> <text>  – submit a star rating\n  db info                – show database statistics\n  Type 'exit' or 'goodbye' to quit."
+      ]
+    },
+    {
+      "tag": "insights_age",
+      "responses": [
+        "Let me calculate the age statistics for you.",
+        "I'll compute the average patient age right away.",
+        "Fetching the age distribution across the patient population.",
+        "Let me pull up age data for the patients.",
+        "I'll retrieve the patient age statistics from the database.",
+        "Here is the age breakdown for all patients.",
+        "Fetching age-based insights from the clinical database.",
+        "Loading age demographics from the patient database.",
+        "Let me find age statistics including the youngest patient.",
+        "I'll look up the age range including the oldest patient on record.",
+        "Let me calculate the mean age of all patients in the database.",
+        "I'll compute the median age across all patients.",
+        "Let me pull up the minimum and maximum patient ages.",
+        "Fetching age analytics from the patient database.",
+        "Retrieving age data for all patients in the clinical database.",
+        "Let me show you the age group distribution across patients.",
+        "Let me show age statistics including the distribution of older patients.",
+        "Loading age demographic data from the patient records.",
+        "I'll calculate the average patient age from the database.",
+        "Let me compute the average age across all patients in the database."
+      ]
+    },
+    {
+      "tag": "insights_gender",
+      "responses": [
+        "Fetching gender distribution statistics now.",
+        "Let me look up the gender breakdown for you.",
+        "I'll calculate the male-to-female ratio in the patient population.",
+        "Let me count the number of male patients in the database.",
+        "Fetching the count of female patients now.",
+        "Here is the gender breakdown across all patients.",
+        "Loading gender statistics from the clinical database.",
+        "Fetching gender-based insights from the patient population.",
+        "Pulling up the sex/gender distribution across all patients.",
+        "Here is the gender data from the patient records.",
+        "Fetching the count of female patients from the database.",
+        "Calculating gender percentages across the patient population.",
+        "Generating a gender distribution report from the patient database.",
+        "Fetching the count and percentage of male patients.",
+        "Fetching the count and percentage of female patients.",
+        "Loading gender demographic data from the patient population.",
+        "Let me calculate the percentage of male patients in the database.",
+        "Calculating the percentage of female patients in the database.",
+        "Here is the gender breakdown for all patients in the clinical database."
+      ]
+    },
+    {
+      "tag": "insights_language",
+      "responses": [
+        "Let me pull up the language distribution statistics.",
+        "Fetching the language breakdown from the patient database.",
+        "Here are the language statistics for the patient population.",
+        "Let me check how many patients speak Spanish.",
+        "I'll show you the complete language breakdown.",
+        "Fetching patients grouped by language now.",
+        "Here are the language-based insights from the patient database.",
+        "Loading language statistics for the clinical population.",
+        "Let me check the language distribution across all patients.",
+        "Pulling up language data from the patient records.",
+        "Fetching language demographic data from the patient population.",
+        "Let me find the most commonly spoken language in the patient population.",
+        "I can show you data on languages spoken by patients. Fetching now.",
+        "Retrieving language distribution data for all patients.",
+        "Let me count the number of English-speaking patients in the database.",
+        "Fetching the count of Mandarin-speaking patients from the database.",
+        "Let me count patients by language for you.",
+        "Calculating language percentages across the patient population.",
+        "Generating a language distribution report from the patient database.",
+        "Here is the language breakdown for all patients in the database."
+      ]
+    },
+    {
+      "tag": "insights_marital",
+      "responses": [
+        "Let me pull up marital status statistics for the patient population.",
+        "Fetching the count of married patients from the database.",
+        "Let me check how many patients are listed as single.",
+        "Here is the marital status breakdown for all patients.",
+        "Fetching divorce/separated patient statistics from the database.",
+        "Here are the marital status insights from the clinical population.",
+        "Let me count the number of divorced patients in the database.",
+        "Fetching data on widowed patients in the clinical database.",
+        "Loading relationship/marital status data from the patient records.",
+        "Fetching marital demographic data from the patient population.",
+        "Loading marital status statistics from the clinical database.",
+        "Let me count the number of single patients in the database.",
+        "Generating a marital status distribution report.",
+        "Fetching data on married or partnered patients."
+      ]
+    },
+    {
+      "tag": "insights_poverty",
+      "responses": [
+        "Analyzing poverty data across the patient population.",
+        "Let me pull up the poverty rate statistics for you.",
+        "Fetching data on patients living below the poverty line.",
+        "Performing a poverty analysis across the patient population.",
+        "Calculating the poverty percentage for the clinical population.",
+        "Fetching data on low-income patients in the database.",
+        "Loading socioeconomic data from the patient database.",
+        "Here is the poverty distribution across all patients.",
+        "Let me calculate the number of patients below the poverty line.",
+        "Fetching the poverty level breakdown for the clinical population.",
+        "Loading poverty statistics from the patient records.",
+        "Fetching poverty-based insights from the patient database.",
+        "Loading socioeconomic status data from the patient population.",
+        "Fetching income level data from the patient database.",
+        "Loading data on patients experiencing financial hardship.",
+        "Calculating the poverty percentage across the clinical population.",
+        "Let me pull up poverty statistics for the patient population.",
+        "Fetching poverty demographic data from the patient database.",
+        "Let me calculate the poverty rate across all patients.",
+        "I'll compute the mean poverty percentage across all patients."
+      ]
+    },
+    {
+      "tag": "insights_race",
+      "responses": [
+        "Let me pull up the race distribution across the patient population.",
+        "Fetching the racial breakdown from the patient database.",
+        "Loading race statistics from the clinical database.",
+        "Let me count the number of Asian patients in the database.",
+        "Fetching the count of Hispanic patients from the database.",
+        "Here are the race-based insights from the patient population.",
+        "I can show the ethnicity/race distribution. Fetching data now.",
+        "Loading racial statistics from the patient records.",
+        "Let me count the number of White patients in the database.",
+        "Pulling up race data from the patient records.",
+        "Fetching race demographic data from the patient population.",
+        "Calculating race percentages across the patient population.",
+        "Loading data on racial distribution across the patient population.",
+        "Fetching demographic data on minority patients in the database.",
+        "Here is the racial composition of the patient population.",
+        "Generating a race distribution report from the patient database.",
+        "Let me count the number of Black/African American patients in the database.",
+        "Loading diversity and race statistics from the patient population.",
+        "Here is the race breakdown for all patients in the clinical database.",
+        "Fetching ethnicity data for all patients in the database."
+      ]
+    },
+    {
+      "tag": "lab_results",
+      "responses": [
+        "Lab data includes CBC panels",
+        "I can help with CBC (Complete Blood Count) lab values. Which patient or panel are you interested in?",
+        "Metabolic panel data is available. Please provide a patient ID for specific results.",
+        "I can help interpret blood work results. Provide a patient ID for their lab data.",
+        "Lab data is linked to patient admissions. Provide a patient ID for specific lab results.",
+        "I can retrieve test results. Please provide the patient ID.",
+        "Hemoglobin values are part of the CBC panel. Provide a patient ID for their specific value.",
+        "Glucose levels are tracked in the metabolic panel. Provide a patient ID to see their results.",
+        "Creatinine is a key metabolic indicator. Provide a patient ID for their specific value.",
+        "I can look up lab values by patient ID. Which patient or test are you looking for?",
+        "ALT/SGPT (alanine aminotransferase) is a liver enzyme test. Provide a patient ID for their results.",
+        "Urinalysis results are available. Provide a patient ID to retrieve their data.",
+        "I can retrieve blood test results. Please provide the patient ID.",
+        "I can show lab results. Please provide the patient ID.",
+        "Fetching lab data. Please provide the patient ID.",
+        "Platelet counts are part of the CBC panel. Provide a patient ID to see their value.",
+        "White blood cell counts are in the CBC panel. Provide a patient ID for their results.",
+        "Red blood cell counts come from the CBC panel. Provide a patient ID.",
+        "I can retrieve any lab panel result. Please provide the patient ID and panel name.",
+        "BUN and creatinine are kidney function indicators in the metabolic panel. Provide a patient ID.",
+        "Sodium and potassium are electrolytes measured in the metabolic panel. Provide a patient ID."
+      ]
+    },
+    {
+      "tag": "list_patients",
+      "responses": [
+        "I'll list all patients in the database for you.",
+        "Fetching the full patient list now...",
+        "Here are all the patients in the database.",
+        "Let me count the total number of patients for you.",
+        "Fetching the patient list from the database.",
+        "Displaying all available patients now.",
+        "Here are the patients currently stored in the database.",
+        "Counting the number of patients in the database for you.",
+        "Let me calculate the total patient count.",
+        "Fetching all patient records from the database.",
+        "Retrieving the complete list of all patients.",
+        "Retrieving all patients from the database now.",
+        "Showing all patients in the clinical database.",
+        "Let me retrieve the complete patient list for you.",
+        "Let me count the total number of patient records in the database.",
+        "Pulling all patients from the database now.",
+        "Fetching all patient data from the clinical database.",
+        "Listing all patients in the database.",
+        "Displaying the full patient database for you."
+      ]
+    },
+    {
+      "tag": "medical_terms",
+      "responses": [
+        "I can help with medical terminology! Use: medical <term> in <language>",
+        "Please provide the medical term and I'll look it up for you.",
+        "I can provide medical definitions. Use: medical <term> in <language>",
+        "I can explain clinical terms. Use: medical <term> in <language>",
+        "I have a comprehensive medical vocabulary database. What term do you need?",
+        "I can define medical terms in multiple languages. Use: medical <term> in <language>",
+        "I can translate medical terms to Spanish. Use: medical <term> in Spanish",
+        "A diagnosis is a clinical determination of the nature of a patient's condition.",
+        "I can explain medical terminology. Use: medical <term> in <language>",
+        "Sure! Provide the term and target language. Use: medical <term> in <language>",
+        "Hypertension is a condition where blood pressure in the arteries is persistently elevated.",
+        "Diabetes is a metabolic disease that causes high blood sugar levels due to insulin issues.",
+        "CBC stands for Complete Blood Count - a blood test measuring red/white cells and platelets.",
+        "Sepsis is a life-threatening condition caused by the body's response to an infection.",
+        "Tachycardia is a heart rate that exceeds the normal resting rate (over 100 bpm in adults).",
+        "I can help decode clinical jargon. Use: medical <term> in <language>",
+        "Bradycardia is a slower-than-normal heart rate (below 60 bpm in adults).",
+        "Edema is swelling caused by excess fluid trapped in the body's tissues.",
+        "Anemia is a condition where there aren't enough healthy red blood cells to carry oxygen.",
+        "A metabolic panel is a blood test that measures electrolytes"
+      ]
+    },
+    {
+      "tag": "ner",
+      "responses": [
+        "I can extract named entities from text. Use: ner <your text>",
+        "Named entity recognition is ready. Use: ner <your text>",
+        "I'll identify people, places, dates, and medical terms from your text.",
+        "I can find names and other entities. Use: ner <your text>",
+        "Provide text and I'll detect all named entities within it.",
+        "I can recognize entities in clinical text. Use: ner <your text>",
+        "I can identify who or what is mentioned in any text. Use: ner <your text>",
+        "I can extract all relevant entities. Use: ner <your text>",
+        "I'll extract key information from your text. Use: ner <your text>",
+        "I can extract dates and other entities. Use: ner <your text>",
+        "I can extract medical entities from clinical text. Use: ner <your text>",
+        "I can find people mentioned in text. Use: ner <your text>",
+        "I can identify organizations in your text. Use: ner <your text>",
+        "I can extract locations mentioned in your text. Use: ner <your text>",
+        "Use: ner <your text> and I'll extract all named entities.",
+        "I can extract proper nouns and named entities. Use: ner <your text>",
+        "I can identify names and named entities in text. Use: ner <your text>",
+        "Sure! Use: ner <your text> to run Named Entity Recognition.",
+        "I can perform entity extraction on any text. Use: ner <your text>",
+        "I'll identify medical terms, patient IDs, and clinical entities. Use: ner <text>",
+        "I can identify who appears in the text. Use: ner <your text>"
+      ]
+    },
+    {
+      "tag": "patient_lookup",
+      "responses": [
+        "I can look up a patient for you. Please provide the patient ID (e.g.",
+        "Sure! Provide a patient ID to retrieve their record.",
+        "I'll help find a patient. Please provide the patient ID.",
+        "To view a patient record",
+        "I can retrieve a patient record. Please provide the patient ID.",
+        "Provide a patient ID and I'll look them up right away.",
+        "I'll retrieve the patient data. Please give me the patient ID.",
+        "I'll display the patient information. What is the patient ID?",
+        "I need a patient ID to look up their details. Please provide one.",
+        "To get patient information",
+        "I can show patient details. Which patient ID would you like me to look up?",
+        "Provide the patient ID and I'll fetch their data immediately.",
+        "I can search for a patient. Please provide the patient ID.",
+        "I'll help you find a patient. What is the patient ID?",
+        "To access a patient file",
+        "I'll pull up the patient record. Please provide the patient ID.",
+        "I can check a patient record. What is the patient ID?",
+        "I'll open the patient chart. Please provide the patient ID.",
+        "I can retrieve a patient profile. Please provide the patient ID.",
+        "Sure! Which patient ID would you like me to pull up?"
+      ]
+    },
+    {
+      "tag": "sentiment",
+      "responses": [
+        "I can analyze the sentiment of any text. Use: sentiment <your text>",
+        "Sure! Provide text and I'll identify its emotional tone.",
+        "Provide the text and I'll determine if it's positive",
+        "Share the text and I'll analyze its sentiment for you.",
+        "I can assess the emotional tone of any text. Just provide it!",
+        "I can detect the emotional tone of text. Use: sentiment <your text>",
+        "Provide the text and I'll analyze its sentiment right away.",
+        "I can detect the mood of any text. Use: sentiment <your text>",
+        "I can detect emotions in text. Use: sentiment <your text>",
+        "Provide the text and I'll tell you if it's positive",
+        "Share the text and I'll confirm whether it carries a positive sentiment.",
+        "Provide the text and I'll determine its negative sentiment score.",
+        "I'll analyze the sentiment of your text. Please provide it using: sentiment <text>",
+        "Share the text and I'll calculate its sentiment score and label.",
+        "Sure! Use: sentiment <your text> to get a sentiment score.",
+        "I can check the emotional mood of any text. Use: sentiment <your text>",
+        "Provide the text and I'll calculate how positive it is on a [-1",
+        "Share the text and I'll calculate its negativity score.",
+        "I can detect the sentiment. Use: sentiment <your text>",
+        "Provide the text and I'll determine whether it expresses happiness!",
+        "Share the text and I'll analyze its tone for anger or frustration."
+      ]
+    },
+    {
+      "tag": "top100_q10",
+      "responses": [
+        "Welcome! Type 'help' to see all available commands, or just ask me a question."
+      ]
+    },
+    {
+      "tag": "top100_q100",
+      "responses": [
+        "Would you like to see their lab results or diagnoses? Try: labs <patient-id> or diagnoses <patient-id>"
+      ]
+    },
+    {
+      "tag": "top100_q12",
+      "responses": [
+        "I can look up patient records, retrieve admissions and diagnoses, show lab results, compute population statistics, analyse sentiment, extract named entities, search the knowledge base, and log feedback."
+      ]
+    },
+    {
+      "tag": "top100_q13",
+      "responses": [
+        "[Same as Q11 help listing]"
+      ]
+    },
+    {
+      "tag": "top100_q14",
+      "responses": [
+        "Type: patient <patient-uuid> Example: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3"
+      ]
+    },
+    {
+      "tag": "top100_q15",
+      "responses": [
+        "I have 100,000 patient records: gender, date of birth, race, marital status, language, poverty percentage, plus 361,760 admissions, 361,760 diagnoses, and 100,000 lab result rows."
+      ]
+    },
+    {
+      "tag": "top100_q16",
+      "responses": [
+        "Gender, age, race, language, poverty, and marital status distributions for the full 100,000-patient dataset."
+      ]
+    },
+    {
+      "tag": "top100_q17",
+      "responses": [
+        "The Hypotify database (hypotify.db) contains 8 tables: intents, patients_summary, conversation_log, user_feedback, patients, admissions, diagnoses, and labs."
+      ]
+    },
+    {
+      "tag": "top100_q18",
+      "responses": [
+        "Yes — I use a Bidirectional LSTM model to classify messages by intent, combined with regex pattern matching for deterministic commands."
+      ]
+    },
+    {
+      "tag": "top100_q19",
+      "responses": [
+        "Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 Gender: Female | DOB: 1951-07-10 | Race: Asian Marital: Single | Language: English | Poverty: 13.7%"
+      ]
+    },
+    {
+      "tag": "top100_q20",
+      "responses": [
+        "Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454 Gender: Male | DOB: 1956-01-27 | Race: African American Marital: Single | Language: English | Poverty: 15.73%"
+      ]
+    },
+    {
+      "tag": "top100_q21",
+      "responses": [
+        "Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F Gender: Male | DOB: 1972-12-22 | Race: White Marital: Married | Language: English | Poverty: 7.09%"
+      ]
+    },
+    {
+      "tag": "top100_q22",
+      "responses": [
+        "Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3 Gender: Male | DOB: 1984-01-17 | Race: Asian Marital: Separated | Language: Spanish | Poverty: 2.17%"
+      ]
+    },
+    {
+      "tag": "top100_q23",
+      "responses": [
+        "Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2 Gender: Female | DOB: 1978-12-21 | Race: White Marital: Married | Language: English | Poverty: 18.67%"
+      ]
+    },
+    {
+      "tag": "top100_q24",
+      "responses": [
+        "[Returns formatted patient record from the database]"
+      ]
+    },
+    {
+      "tag": "top100_q25",
+      "responses": [
+        "No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+      ]
+    },
+    {
+      "tag": "top100_q26",
+      "responses": [
+        "Look up individual patients by UUID. For population-level statistics, try: insights gender / insights age / insights race."
+      ]
+    },
+    {
+      "tag": "top100_q27",
+      "responses": [
+        "There are 100,000 patient records in the database."
+      ]
+    },
+    {
+      "tag": "top100_q28",
+      "responses": [
+        "Patient lookup is by UUID. The dataset does not contain patient names for privacy and data protection reasons."
+      ]
+    },
+    {
+      "tag": "top100_q29",
+      "responses": [
+        "Admissions for 9380F9E3-… (1 record): Admission 5: 2011-03-23 00:14:52 → 2011-03-28 01:57:56"
+      ]
+    },
+    {
+      "tag": "top100_q30",
+      "responses": [
+        "Admissions for 0A89658C-… (4 records): #1: 1974-02-10 → 1974-02-16 #2: 1991-05-22 → 1991-05-29 #3: 1995-02-26 → 1995-02-28 #4: 2005-03-17 → 2005-04-04"
+      ]
+    },
+    {
+      "tag": "top100_q31",
+      "responses": [
+        "Use: admissions <patient-uuid> Returns all admission IDs, start dates, and end dates."
+      ]
+    },
+    {
+      "tag": "top100_q32",
+      "responses": [
+        "The response header shows the total count, e.g. \"(4 records)\"."
+      ]
+    },
+    {
+      "tag": "top100_q33",
+      "responses": [
+        "The database contains 361,760 admission records."
+      ]
+    },
+    {
+      "tag": "top100_q34",
+      "responses": [
+        "Records are returned chronologically; the last listed is most recent."
+      ]
+    },
+    {
+      "tag": "top100_q35",
+      "responses": [
+        "[Returns all admission records for that patient]"
+      ]
+    },
+    {
+      "tag": "top100_q36",
+      "responses": [
+        "Diagnoses for 54C6E968-… (3 shown): F80.1 – Expressive language disorder R04.81 – Acute idiopathic pulmonary hemorrhage in infants I36 – Nonrheumatic tricuspid valve disorders"
+      ]
+    },
+    {
+      "tag": "top100_q37",
+      "responses": [
+        "Diagnoses for 9DD23357-…: H16.43 – Localized vascularization of cornea M05.161 – Rheumatoid lung disease with rheumatoid arthritis of right knee"
+      ]
+    },
+    {
+      "tag": "top100_q38",
+      "responses": [
+        "Use: diagnoses <patient-uuid> Returns up to 20 unique ICD-10 codes with plain-text descriptions."
+      ]
+    },
+    {
+      "tag": "top100_q39",
+      "responses": [
+        "Use: search <diagnosis-keyword> to search the knowledge base."
+      ]
+    },
+    {
+      "tag": "top100_q4",
+      "responses": [
+        "Hey! I'm the Hypotify Clinical Assistant. What can I help you with?"
+      ]
+    },
+    {
+      "tag": "top100_q40",
+      "responses": [
+        "F80.1 is \"Expressive language disorder\" — difficulties with verbal and written expression."
+      ]
+    },
+    {
+      "tag": "top100_q41",
+      "responses": [
+        "R04.81 is \"Acute idiopathic pulmonary hemorrhage in infants\" — bleeding into the lungs in infants without a clearly identified cause."
+      ]
+    },
+    {
+      "tag": "top100_q42",
+      "responses": [
+        "The database contains 361,760 diagnosis records."
+      ]
+    },
+    {
+      "tag": "top100_q43",
+      "responses": [
+        "Lab Results for BF7165BC-… (most recent 15): METABOLIC: ALT/SGPT – 40.0 U/L (1974-01-11) CBC: MONOCYTES – 0.9 k/cumm (1974-01-11) METABOLIC: GLUCOSE – 134.2 mg/dL (1974-01-11) CBC: RDW – 15.0 % (1974-01-11) METABOLIC: ALBUMIN – 2.8 gm/dL (1974-01-11)"
+      ]
+    },
+    {
+      "tag": "top100_q44",
+      "responses": [
+        "Use: labs <patient-uuid> Returns 15 most recent lab results with test name, value, units, and timestamp."
+      ]
+    },
+    {
+      "tag": "top100_q45",
+      "responses": [
+        "Metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT), CBC panels (MONOCYTES, RDW), and many other standard test categories."
+      ]
+    },
+    {
+      "tag": "top100_q46",
+      "responses": [
+        "134.2 mg/dL is above the normal range (70–100) and above the pre- diabetes threshold (100–125), placing it in the diabetes range (≥126). Clinical correlation is recommended."
+      ]
+    },
+    {
+      "tag": "top100_q47",
+      "responses": [
+        "Normal serum albumin is 3.4–5.4 g/dL. A value of 2.8 gm/dL may indicate hypoalbuminemia, associated with malnutrition or liver disease."
+      ]
+    },
+    {
+      "tag": "top100_q48",
+      "responses": [
+        "Search results for 'glucose': [up to 10 matching intent patterns from the intents knowledge base table]"
+      ]
+    },
+    {
+      "tag": "top100_q49",
+      "responses": [
+        "100,000 lab rows (a sample from >1 million in the source dataset)."
+      ]
+    },
+    {
+      "tag": "top100_q50",
+      "responses": [
+        "Gender Distribution (100,000 patients): Female: ~49,832 (49.8%) | Male: ~50,168 (50.2%)"
+      ]
+    },
+    {
+      "tag": "top100_q51",
+      "responses": [
+        "[Same as insights gender output]"
+      ]
+    },
+    {
+      "tag": "top100_q52",
+      "responses": [
+        "Age Statistics (100,000 patients): Mean: ~68.5 yrs | Youngest: 0.0 yrs | Oldest: 120+ yrs"
+      ]
+    },
+    {
+      "tag": "top100_q53",
+      "responses": [
+        "The mean age is approximately 68.5 years across all 100,000 patients."
+      ]
+    },
+    {
+      "tag": "top100_q54",
+      "responses": [
+        "Race Distribution – Top entries: White: ~79,000 (79.0%) African American: ~8,500 (8.5%) Asian: ~3,200 (3.2%) … (top 10 shown)"
+      ]
+    },
+    {
+      "tag": "top100_q55",
+      "responses": [
+        "[Same as insights race output]"
+      ]
+    },
+    {
+      "tag": "top100_q56",
+      "responses": [
+        "Language Distribution – Top entries: English: ~94,000 (94.0%) Spanish: ~3,800 (3.8%) Portuguese: ~700 (0.7%) … (top 10)"
+      ]
+    },
+    {
+      "tag": "top100_q57",
+      "responses": [
+        "[Same as insights language output]"
+      ]
+    },
+    {
+      "tag": "top100_q58",
+      "responses": [
+        "Poverty Statistics: Mean poverty %: ~17.6% | Patients with data: ~98,400"
+      ]
+    },
+    {
+      "tag": "top100_q59",
+      "responses": [
+        "The mean poverty percentage is approximately 17.6% (based on the geographic poverty rate for each patient's location)."
+      ]
+    },
+    {
+      "tag": "top100_q60",
+      "responses": [
+        "Marital Status Distribution: Married: ~45,200 (45.2%) Single: ~36,100 (36.1%) Divorced: ~10,300 (10.3%) Widowed: ~5,800 (5.8%) Separated: ~2,600 (2.6%)"
+      ]
+    },
+    {
+      "tag": "top100_q61",
+      "responses": [
+        "Approximately 45% of patients are married (use insights marital for exact current figures)."
+      ]
+    },
+    {
+      "tag": "top100_q62",
+      "responses": [
+        "I can show: gender, age, race, language, poverty, and marital statistics. Try: insights gender / insights age / insights race / etc."
+      ]
+    },
+    {
+      "tag": "top100_q63",
+      "responses": [
+        "The population spans multiple races, 10+ languages, and all age groups. Use the insights commands to see detailed breakdowns."
+      ]
+    },
+    {
+      "tag": "top100_q64",
+      "responses": [
+        "Sentiment: POSITIVE 😊 | Score: +0.836"
+      ]
+    },
+    {
+      "tag": "top100_q65",
+      "responses": [
+        "Sentiment: NEGATIVE 😟 | Score: -0.612 (Empathetic prefix added: \"I'm sorry to hear that. I'm here to help.\")"
+      ]
+    },
+    {
+      "tag": "top100_q66",
+      "responses": [
+        "Sentiment: NEUTRAL 😐 | Score: 0.000"
+      ]
+    },
+    {
+      "tag": "top100_q67",
+      "responses": [
+        "Sentiment: NEGATIVE 😟 | Score: -0.774"
+      ]
+    },
+    {
+      "tag": "top100_q68",
+      "responses": [
+        "Sentiment: POSITIVE 😊 | Score: +0.521"
+      ]
+    },
+    {
+      "tag": "top100_q69",
+      "responses": [
+        "I use VADER — a rule-based model that returns scores from -1.0 (very negative) to +1.0 (very positive). Scores >+0.05"
+      ]
+    },
+    {
+      "tag": "top100_q70",
+      "responses": [
+        "Sentiment: POSITIVE 😊 | Score: +0.432"
+      ]
+    },
+    {
+      "tag": "top100_q71",
+      "responses": [
+        "Sentiment: NEGATIVE 😟 | Score: -0.341 (Empathetic prefix added automatically due to high negative score)"
+      ]
+    },
+    {
+      "tag": "top100_q72",
+      "responses": [
+        "Entities: [PERSON] Dr. Patel | [DATE] 2025-03-10"
+      ]
+    },
+    {
+      "tag": "top100_q73",
+      "responses": [
+        "Entities: [PERSON] Shruti Malik | [ORG] St. Mary Hospital | [DATE] January 15 2025"
+      ]
+    },
+    {
+      "tag": "top100_q74",
+      "responses": [
+        "Entities: [MONEY] $3,400 | [ORG] Blue Cross Insurance"
+      ]
+    },
+    {
+      "tag": "top100_q75",
+      "responses": [
+        "Entities: [GPE] Omaha | [GPE] Nebraska | [DATE] December 5"
+      ]
+    },
+    {
+      "tag": "top100_q76",
+      "responses": [
+        "NER identifies PERSON, ORG, DATE, GPE, MONEY, and other entity types in free text using spaCy's en_core_web_sm model."
+      ]
+    },
+    {
+      "tag": "top100_q77",
+      "responses": [
+        "No named entities detected."
+      ]
+    },
+    {
+      "tag": "top100_q78",
+      "responses": [
+        "Yes — use 'ner <clinical text>' to identify PERSON entities, dates, organizations, locations, and more."
+      ]
+    },
+    {
+      "tag": "top100_q79",
+      "responses": [
+        "Database Statistics (hypotify.db): intents: 386 rows patients_summary: 51 rows conversation_log: (grows with use) user_feedback: (grows with use) patients: 100,000 rows admissions: 361,760 rows diagnoses: 361,760 rows labs: 100,000 rows"
+      ]
+    },
+    {
+      "tag": "top100_q8",
+      "responses": [
+        "Hello! Welcome to the Hypotify Clinical Chatbot."
+      ]
+    },
+    {
+      "tag": "top100_q80",
+      "responses": [
+        "Approximately 137 MB on disk with 8 tables and 900,000+ total rows."
+      ]
+    },
+    {
+      "tag": "top100_q81",
+      "responses": [
+        "Search results for 'hypertension': [up to 10 matching knowledge base entries from the intents table]"
+      ]
+    },
+    {
+      "tag": "top100_q82",
+      "responses": [
+        "Search results for 'diabetes': [matching intent patterns returned]"
+      ]
+    },
+    {
+      "tag": "top100_q83",
+      "responses": [
+        "Search results for 'admission': [matching intent patterns returned]"
+      ]
+    },
+    {
+      "tag": "top100_q84",
+      "responses": [
+        "8 tables: intents, patients_summary, conversation_log, user_feedback, patients, admissions, diagnoses, labs."
+      ]
+    },
+    {
+      "tag": "top100_q85",
+      "responses": [
+        "Yes — every turn is logged to conversation_log with session ID, message, response, and resolved intent tag."
+      ]
+    },
+    {
+      "tag": "top100_q86",
+      "responses": [
+        "Type: feedback <1-5> <optional comment> Example: feedback 5 Excellent patient lookup!"
+      ]
+    },
+    {
+      "tag": "top100_q87",
+      "responses": [
+        "Thank you for your 5/5 rating! Your comment has been saved."
+      ]
+    },
+    {
+      "tag": "top100_q88",
+      "responses": [
+        "ALT (Alanine Aminotransferase) is a liver enzyme. Elevated levels may indicate liver damage. Normal range: 7–56 U/L. Sample value: 40.0 U/L (within normal range)."
+      ]
+    },
+    {
+      "tag": "top100_q89",
+      "responses": [
+        "RDW (Red Cell Distribution Width) measures variation in red blood cell size. Normal: 11.5–14.5%. A value of 15.0% is mildly elevated and may indicate iron deficiency anemia."
+      ]
+    },
+    {
+      "tag": "top100_q90",
+      "responses": [
+        "Albumin below 3.4 g/dL can indicate malnutrition, liver disease, or kidney disease. Sample value: 2.8 gm/dL (below normal range)."
+      ]
+    },
+    {
+      "tag": "top100_q91",
+      "responses": [
+        "ICD-10 (International Classification of Diseases, 10th Revision) is the global standard for coding diseases and symptoms. All diagnoses in the database use ICD-10 codes."
+      ]
+    },
+    {
+      "tag": "top100_q92",
+      "responses": [
+        "Monocytes are white blood cells involved in immune response. Normal: 0.2–1.0 k/cumm. Sample value: 0.9 k/cumm (within normal range)."
+      ]
+    },
+    {
+      "tag": "top100_q93",
+      "responses": [
+        "Ask me directly, e.g.: 'What does ALT mean?' or 'Explain ICD-10'. For entity extraction from clinical text, use the ner command."
+      ]
+    },
+    {
+      "tag": "top100_q94",
+      "responses": [
+        "The percentage of the local population below the federal poverty line for each patient's geographic area—a socioeconomic indicator."
+      ]
+    },
+    {
+      "tag": "top100_q98",
+      "responses": [
+        "Goodbye! Have a great day."
+      ]
+    },
+    {
+      "tag": "top100_q99",
+      "responses": [
+        "I can also show age, race, language, poverty, or marital statistics. Which would you like to explore next?"
+      ]
+    },
+    {
+      "tag": "translate",
+      "responses": [
+        "I can translate text for you! Use: translate \"<text>\" to <language>",
+        "Sure! Tell me the text and target language for translation.",
+        "I can convert text to another language. Please provide the text and target language.",
+        "Provide the text you'd like translated and the target language. Example: translate \"Hello\" to Spanish",
+        "Tell me the phrase and the target language. Example: translate \"Hello\" to French",
+        "I can help with Spanish translation! Use: translate \"<text>\" to Spanish",
+        "I can help with French translation! Use: translate \"<text>\" to French",
+        "Provide the text and target language and I'll translate it for you.",
+        "Please provide the text and the target language for translation.",
+        "I can convert text between languages. What would you like to translate?",
+        "I can translate to Mandarin! Use: translate \"<text>\" to Mandarin",
+        "Translating to Hindi is supported. Use: translate \"<text>\" to Hindi",
+        "I can translate to Portuguese. Use: translate \"<text>\" to Portuguese",
+        "Arabic translation is supported. Use: translate \"<text>\" to Arabic",
+        "I can help with Italian translation. Use: translate \"<text>\" to Italian",
+        "German translation is available. Use: translate \"<text>\" to German",
+        "Sure! Use: translate \"<text>\" to French",
+        "Sure! Use: translate \"<text>\" to Spanish",
+        "I can translate text between many languages. Provide text and target language.",
+        "Use the command: translate \"<your text>\" to <language>"
+      ]
+    },
+    {
+      "tag": "unknown",
+      "responses": [
+        "I'm not sure what you mean. Could you rephrase that? Type 'help' to see available commands.",
+        "I didn't understand that. Could you rephrase? Type 'help' for available commands.",
+        "I'm not quite sure what you mean. Try rephrasing your query or type 'help'.",
+        "That doesn't look like a valid command. Type 'help' to see what I can do.",
+        "I'm a clinical chatbot and can only assist with patient and clinical data. Type 'help'.",
+        "I'm focused on clinical data queries. Type 'help' to see what I can assist with.",
+        "I'm a clinical assistant and don't support that. Type 'help' for what I can do.",
+        "I can only assist with clinical data queries. Type 'help' for available commands.",
+        "I'm a clinical assistant and can't do math. Type 'help' for what I support.",
+        "I don't have access to the clock. I'm here for clinical data queries. Type 'help'.",
+        "I'm a clinical chatbot and can't order food. Type 'help' for available commands.",
+        "I can only assist with clinical and patient data queries. Type 'help'.",
+        "I'm the Hypotify Clinical Chatbot! Type 'help' to see what I can do.",
+        "I was built by the Hypotify team to assist with clinical data. Type 'help' for commands."
+      ]
     }
-]
+  ]
+}

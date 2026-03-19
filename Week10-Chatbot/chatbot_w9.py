@@ -175,14 +175,18 @@ HARDCODED_FALLBACK = {
     ],
     "help": [
         ("Available commands:\n"
-         "  patient <id>           – lookup a specific patient\n"
-         "  insights language/age/gender/race/poverty/marital\n"
+         "  patient <id>           – look up a specific patient\n"
+         "  admissions <id>        – hospital admission history\n"
+         "  diagnoses <id>         – ICD-10 diagnoses\n"
+         "  labs <id>              – lab test results\n"
+         "  insights <category>    – population statistics\n"
+         "                           (gender/age/race/language/poverty/marital)\n"
          "  sentiment <text>       – analyse sentiment\n"
          "  ner <text>             – named entity recognition\n"
-         "  search <keyword>       – search chatbot knowledge base\n"
-         "  feedback <1-5> <text>  – submit feedback\n"
+         "  search <keyword>       – search the knowledge base\n"
+         "  feedback <1-5> <text>  – submit a star rating\n"
          "  db info                – show database statistics\n"
-         "  Type 'exit' to quit."),
+         "  Type 'exit' or 'goodbye' to quit."),
     ],
     "unknown": [
         "I'm not sure what you mean. Try rephrasing, or type 'help'.",
@@ -476,17 +480,40 @@ def predict_intent(text: str, model, tokenizer, le) -> tuple:
 
 
 # ── Regex command patterns ────────────────────────────────────────────────────
-_PATIENT_ID_RE  = re.compile(r"\bP\d{6}\b", re.IGNORECASE)
+# UUID pattern (both P######-style and full xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUIDs)
+_UUID_PAT = r"[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"
+_PATIENT_ID_RE  = re.compile(
+    r"\b(?:P\d{6}|" + _UUID_PAT + r")\b",
+    re.IGNORECASE
+)
 _SENTIMENT_RE   = re.compile(r"^sentiment\s+(.+)$", re.IGNORECASE)
 _NER_RE         = re.compile(r"^ner\s+(.+)$", re.IGNORECASE)
 _INSIGHTS_RE    = re.compile(r"\b(language|age|gender|race|poverty|marital)\b", re.IGNORECASE)
 _FEEDBACK_RE    = re.compile(r"^feedback\s+([1-5])\s*(.*)?$", re.IGNORECASE)
 _SEARCH_RE      = re.compile(r"^search\s+(.+)$", re.IGNORECASE)
 _DBINFO_RE      = re.compile(r"^db\s+info$", re.IGNORECASE)
-# New: sub-commands for clinical DB tables
+# Sub-commands for clinical DB tables (direct command form: word <uuid>)
 _ADMISSIONS_RE  = re.compile(r"^admissions?\s+(\S+)", re.IGNORECASE)
 _DIAGNOSES_RE   = re.compile(r"^diagnos[ei]s?\s+(\S+)", re.IGNORECASE)
 _LABS_RE        = re.compile(r"^labs?\s+(\S+)", re.IGNORECASE)
+# Natural-language phrase forms that contain a UUID anywhere in the message
+_PATIENT_PHRASE_RE = re.compile(
+    r"(?:look\s+up\s+patient|find\s+patient|show\s+(?:me\s+)?patient|get\s+patient"
+    r"|pull\s+up\s+patient|fetch\s+patient|patient\s+info\s+for|patient)\s+(" + _UUID_PAT + r")",
+    re.IGNORECASE
+)
+_ADMIT_PHRASE_RE = re.compile(
+    r"(?:admissions?|hospital\s+stays?|hospital\s+visits?|show\s+all\s+.*visits?)\s+.*(" + _UUID_PAT + r")",
+    re.IGNORECASE
+)
+_DIAG_PHRASE_RE = re.compile(
+    r"(?:diagnos[ei]s?|icd|diagnosis)\s+.*(" + _UUID_PAT + r")",
+    re.IGNORECASE
+)
+_LABS_PHRASE_RE = re.compile(
+    r"(?:labs?|lab\s+results?)\s+.*(" + _UUID_PAT + r")",
+    re.IGNORECASE
+)
 
 
 # ── Context-aware chatbot ─────────────────────────────────────────────────────
@@ -585,13 +612,8 @@ class HypotifyChatbot:
         Returns:
             tuple (response_text, resolved_intent_tag)
         """
-        # ── Low confidence ─────────────────────────────────────────────────────
-        if confidence < CONFIDENCE_THRESHOLD:
-            msg = ("I'm not quite sure what you mean. Could you rephrase? "
-                   "Type 'help' to see available commands.")
-            return msg, "unknown"
-
-        # ── feedback <rating> <comment> ────────────────────────────────────────
+        # ── feedback <rating> <comment> — checked BEFORE confidence gate ───────
+        # so "feedback 5 …" always routes regardless of NLP confidence
         m = _FEEDBACK_RE.match(raw_input)
         if m:
             rating  = int(m.group(1))
@@ -604,15 +626,21 @@ class HypotifyChatbot:
                             ).strip(), "user_feedback"
             return f"  Feedback received ({rating}/5). Thank you!", "user_feedback"
 
-        # ── db info ────────────────────────────────────────────────────────────
+        # ── db info — checked BEFORE confidence gate ──────────────────────────
         if _DBINFO_RE.match(raw_input.strip()):
             return _format_db_stats(), "db_info"
 
-        # ── search <keyword> ──────────────────────────────────────────────────
+        # ── search <keyword> — checked BEFORE confidence gate ─────────────────
         m = _SEARCH_RE.match(raw_input)
         if m:
             keyword = m.group(1).strip()
             return _format_search_results(keyword), "search"
+
+        # ── Low confidence — AFTER command checks ────────────────────────────
+        if confidence < CONFIDENCE_THRESHOLD:
+            msg = ("I'm not quite sure what you mean. Could you rephrase? "
+                   "Type 'help' to see available commands.")
+            return msg, "unknown"
 
         # ── sentiment analysis ─────────────────────────────────────────────────
         m = _SENTIMENT_RE.match(raw_input)
@@ -641,7 +669,7 @@ class HypotifyChatbot:
                 return "\n".join(lines), "ner"
             return f"  No named entities detected in: \"{text_for_ner}\"", "ner"
 
-        # ── admissions <id> ────────────────────────────────────────────────────
+        # ── admissions <id>  (direct command form) ────────────────────────────
         m = _ADMISSIONS_RE.match(raw_input)
         if m:
             pid = m.group(1).strip()
@@ -649,7 +677,15 @@ class HypotifyChatbot:
                 return db_manager.get_patient_admissions(pid), "admission_lookup"
             return get_fallback_patient(pid, "admissions"), "admission_lookup"
 
-        # ── diagnoses <id> ─────────────────────────────────────────────────────
+        # ── Natural-language admission phrases (e.g. "Show hospital stays for UUID") ─
+        m = _ADMIT_PHRASE_RE.search(raw_input)
+        if m:
+            pid = m.group(1).strip()
+            if DB_OK:
+                return db_manager.get_patient_admissions(pid), "admission_lookup"
+            return get_fallback_patient(pid, "admissions"), "admission_lookup"
+
+        # ── diagnoses <id>  (direct command form) ─────────────────────────────
         m = _DIAGNOSES_RE.match(raw_input)
         if m:
             pid = m.group(1).strip()
@@ -657,7 +693,15 @@ class HypotifyChatbot:
                 return db_manager.get_patient_diagnoses(pid), "diagnosis_lookup"
             return get_fallback_patient(pid, "diagnoses"), "diagnosis_lookup"
 
-        # ── labs <id> ──────────────────────────────────────────────────────────
+        # ── Natural-language diagnoses phrases ────────────────────────────────
+        m = _DIAG_PHRASE_RE.search(raw_input)
+        if m:
+            pid = m.group(1).strip()
+            if DB_OK:
+                return db_manager.get_patient_diagnoses(pid), "diagnosis_lookup"
+            return get_fallback_patient(pid, "diagnoses"), "diagnosis_lookup"
+
+        # ── labs <id>  (direct command form) ──────────────────────────────────
         m = _LABS_RE.match(raw_input)
         if m:
             pid = m.group(1).strip()
@@ -665,7 +709,23 @@ class HypotifyChatbot:
                 return db_manager.get_patient_labs(pid), "lab_results"
             return get_fallback_patient(pid, "labs"), "lab_results"
 
-        # ── Patient ID direct lookup ───────────────────────────────────────────
+        # ── Natural-language labs phrases ─────────────────────────────────────
+        m = _LABS_PHRASE_RE.search(raw_input)
+        if m:
+            pid = m.group(1).strip()
+            if DB_OK:
+                return db_manager.get_patient_labs(pid), "lab_results"
+            return get_fallback_patient(pid, "labs"), "lab_results"
+
+        # ── Natural-language patient phrases (e.g. "Look up patient UUID") ────
+        m = _PATIENT_PHRASE_RE.search(raw_input)
+        if m:
+            pid = m.group(1).strip()
+            if DB_OK:
+                return db_manager.get_patient_from_db(pid), "patient_lookup"
+            return get_patient_by_id(pid), "patient_lookup"
+
+        # ── Patient UUID anywhere in message ──────────────────────────────────
         pid_match = _PATIENT_ID_RE.search(raw_input)
         if pid_match:
             pid = pid_match.group()

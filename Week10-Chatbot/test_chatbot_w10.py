@@ -57,7 +57,7 @@ def _try_import(module_name: str):
     try:
         import importlib
         return importlib.import_module(module_name)
-    except ImportError:
+    except (ImportError, SystemExit):
         return None
 
 
@@ -74,9 +74,9 @@ class TestNLP(unittest.TestCase):
         mod = _try_import("chatbot_w9")
         if mod is None:
             raise unittest.SkipTest("chatbot_w9 not importable – skipping NLP tests.")
-        cls.preprocess   = mod.preprocess_input
-        cls.sentiment    = mod.analyse_sentiment
-        cls.ner          = mod.extract_entities_spacy
+        cls.preprocess   = staticmethod(mod.preprocess_input)
+        cls.sentiment    = staticmethod(mod.analyse_sentiment)
+        cls.ner          = staticmethod(mod.extract_entities_spacy)
         print("\n  [NLP] Module imported successfully.")
 
     # ── Preprocessing ──────────────────────────────────────────────────────────

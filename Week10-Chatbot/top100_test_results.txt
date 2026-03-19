@@ -1,0 +1,929 @@
+================================================================================
+  HYPOTIFY CLINICAL CHATBOT — TOP 100 QUESTION TEST REPORT
+  Date: 2026-03-19 09:32:48
+  Live URL: https://week10-itec5025-final-54k7qmgyfdwbwzwwvmod3j.streamlit.app/
+  Engine:   HypotifyChatbot (chatbot_w9.py) — same as live deployment
+================================================================================
+
+  Total questions   : 100
+  PASS              : 39  (39.0%)
+  FAIL              : 61  (61.0%)
+  Avg keyword match : 32.9%
+  Avg response time : 150 ms
+  Match threshold   : 30% keyword overlap = PASS
+
+────────────────────────────────────────────────────────────────────────────────
+  DETAILED RESULTS
+────────────────────────────────────────────────────────────────────────────────
+
+Q  1  [FAIL ✗]  Match: 17%  (4357 ms)
+  Question : Hello
+  Expected : Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you today? Type 'help' to see all available commands.
+  Actual   : Greetings! I'm here to help with clinical data.
+  Detail   : matched 2/12 keywords (17%) | found: [clinical, help] | missing: [assist, available, chatbot, commands, hello]
+
+Q  2  [PASS ✓]  Match: 40%  (122 ms)
+  Question : Hi there
+  Expected : Hi there! How can I assist you today?
+  Actual   : Hi! I'm here and ready to assist you with patient data.
+  Detail   : matched 2/5 keywords (40%) | found: [assist, hi] | missing: [how, there, today]
+
+Q  3  [FAIL ✗]  Match: 20%  (110 ms)
+  Question : Good morning
+  Expected : Good morning! Welcome to Hypotify. I'm ready to help with patient data and clinical queries.
+  Actual   : Hello! I'm the Hypotify clinical assistant. What do you need?
+  Detail   : matched 2/10 keywords (20%) | found: [clinical, hypotify] | missing: [data, good, help, morning, patient]
+
+Q  4  [FAIL ✗]  Match: 17%  (86 ms)
+  Question : Hey chatbot
+  Expected : Hey! I'm the Hypotify Clinical Assistant. What can I help you with?
+  Actual   : Good afternoon! How can I help?
+  Detail   : matched 1/6 keywords (17%) | found: [help] | missing: [assistant, clinical, hey, hypotify, what]
+
+Q  5  [FAIL ✗]  Match: 29%  (81 ms)
+  Question : Howdy
+  Expected : Howdy! Ready to help with your clinical queries. Type 'help' to get started.
+  Actual   : Greetings! I'm here to help with clinical data.
+  Detail   : matched 2/7 keywords (29%) | found: [clinical, help] | missing: [get, howdy, queries, ready, started]
+
+Q  6  [FAIL ✗]  Match: 0%  (77 ms)
+  Question : What's up
+  Expected : I'm here and ready! Ask me about patient records, population statistics, sentiment, NER, or database information.
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/12 keywords (0%) | found: [] | missing: [about, ask, database, here, information]
+
+Q  7  [FAIL ✗]  Match: 14%  (92 ms)
+  Question : Greetings
+  Expected : Greetings! I'm your Hypotify Clinical Chatbot. How may I assist you?
+  Actual   : Good day! Ready to help with all your clinical data needs.
+  Detail   : matched 1/7 keywords (14%) | found: [clinical] | missing: [assist, chatbot, greetings, how, hypotify]
+
+Q  8  [FAIL ✗]  Match: 25%  (91 ms)
+  Question : Hello Hypotify
+  Expected : Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you today?
+  Actual   : Good morning! Ready to assist with patient data and clinical insights.
+  Detail   : matched 2/8 keywords (25%) | found: [assist, clinical] | missing: [chatbot, hello, how, hypotify, today]
+
+Q  9  [FAIL ✗]  Match: 0%  (84 ms)
+  Question : Good afternoon
+  Expected : Good afternoon! Ready to assist. What would you like to know?
+  Actual   : Hola! How can I help you today?
+  Detail   : matched 0/8 keywords (0%) | found: [] | missing: [afternoon, assist, good, know, like]
+
+Q 10  [PASS ✓]  Match: 36%  (90 ms)
+  Question : Start
+  Expected : Welcome! I'm the Hypotify Clinical Chatbot. Type 'help' to see all available commands, or just ask me a question.
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 4/11 keywords (36%) | found: [available, commands, help, see] | missing: [ask, chatbot, clinical, hypotify, just]
+
+Q 11  [FAIL ✗]  Match: 8%  (91 ms)
+  Question : help
+  Expected : Available commands: patient <id> – look up a specific patient admissions <id> – hospital admission history [...]
+  Actual   : Available commands: patient <id>
+  Detail   : matched 4/50 keywords (8%) | found: [available, commands, id, patient] | missing: [1-5, admission, admissions, age, analyse]
+
+Q 12  [FAIL ✗]  Match: 0%  (96 ms)
+  Question : What can you do?
+  Expected : I can look up patient records, retrieve admissions and diagnoses, show lab results, compute population statistics, [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/24 keywords (0%) | found: [] | missing: [admissions, analyse, base, compute, diagnoses]
+
+Q 13  [PASS ✓]  Match: 100%  (82 ms)
+  Question : What commands are available?
+  Expected : [Returns the same help command list as Q11]
+  Actual   : I support patient lookups
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 14  [FAIL ✗]  Match: 0%  (92 ms)
+  Question : How do I look up a patient?
+  Expected : Type: patient <patient-uuid> Example: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 I'll return the patient's [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/15 keywords (0%) | found: [] | missing: [birth, date, example, f7cf0fe9-afcd-49ef-bfb3-e42302ffa0d3, gender]
+
+Q 15  [FAIL ✗]  Match: 5%  (95 ms)
+  Question : What patient data do you have?
+  Expected : I have 100,000 patient records including gender, date of birth, race, marital status, language, poverty [...]
+  Actual   : Displaying the full patient database for you.
+  Detail   : matched 1/22 keywords (5%) | found: [patient] | missing: [000, 100, 361, 760, admission]
+
+Q 16  [FAIL ✗]  Match: 0%  (95 ms)
+  Question : What statistics can you show?
+  Expected : I can show gender distribution, age statistics, race distribution, language distribution, poverty statistics, and [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/15 keywords (0%) | found: [] | missing: [000-patient, 100, age, breakdown, dataset]
+
+Q 17  [FAIL ✗]  Match: 0%  (93 ms)
+  Question : Tell me what you know about the database
+  Expected : The Hypotify database (hypotify.db) contains 8 tables: intents, patients_summary, conversation_log, user_feedback, [...]
+  Actual   : Sure! What would you like to know next?
+  Detail   : matched 0/20 keywords (0%) | found: [] | missing: [admissions, contains, conversation, counts, current]
+
+Q 18  [FAIL ✗]  Match: 0%  (196 ms)
+  Question : Can you understand natural language?
+  Expected : Yes — I use a Bidirectional LSTM neural network trained on clinical intent examples to classify your messages. I [...]
+  Actual   : Language Distribution – Top 10 (DB: 100,000 patients): English : 64,000 (64.0%) Spanish : 18,000 (18.0%) Icelandic [...]
+  Detail   : matched 0/18 keywords (0%) | found: [] | missing: [also, bidirectional, classify, clinical, commands]
+
+Q 19  [FAIL ✗]  Match: 5%  (115 ms)
+  Question : patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+  Expected : Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 Gender : Female Date of Birth : 1951-07-10 07:29:47 Race : [...]
+  Actual   : Fetching the full patient list now...
+  Detail   : matched 1/20 keywords (5%) | found: [patient] | missing: [07, 13, 1951-07-10, 29, 47]
+
+Q 20  [FAIL ✗]  Match: 14%  (93 ms)
+  Question : Look up patient C3935FBC-DBBA-4844-BBE4-A175FA508454
+  Expected : Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454 Gender : Male Date of Birth : 1956-01-27 22:46:39 Race : [...]
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 3/22 keywords (14%) | found: [gender, language, race] | missing: [15, 1956-01-27, 22, 39, 46]
+
+Q 21  [FAIL ✗]  Match: 15%  (91 ms)
+  Question : Show me patient 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+  Expected : Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F Gender : Male Date of Birth : 1972-12-22 10:11:01 Race : [...]
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 3/20 keywords (15%) | found: [gender, language, race] | missing: [01, 09, 10, 11, 1972-12-22]
+
+Q 22  [FAIL ✗]  Match: 15%  (80 ms)
+  Question : Pull up patient 81606388-2471-42A4-A6F1-1868AE25CFC3
+  Expected : Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3 Gender : Male Date of Birth : 1984-01-17 00:49:06 Race : [...]
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 3/20 keywords (15%) | found: [gender, language, race] | missing: [00, 06, 17, 1984-01-17, 49]
+
+Q 23  [FAIL ✗]  Match: 5%  (86 ms)
+  Question : Find patient E3120DE9-3361-40CF-A618-265C769E75A2
+  Expected : Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2 Gender : Female Date of Birth : 1978-12-21 07:24:08 Race : [...]
+  Actual   : Provide the patient ID and I'll fetch their data immediately.
+  Detail   : matched 1/21 keywords (5%) | found: [patient] | missing: [07, 08, 18, 1978-12-21, 24]
+
+Q 24  [PASS ✓]  Match: 100%  (78 ms)
+  Question : Get patient info for 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+  Expected : [Returns formatted patient record from the database]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 25  [FAIL ✗]  Match: 20%  (84 ms)
+  Question : patient XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (nonexistent)
+  Expected : No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+  Actual   : Fetching all patient data from the clinical database.
+  Detail   : matched 1/5 keywords (20%) | found: [patient] | missing: [found, id, no, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx]
+
+Q 26  [PASS ✓]  Match: 31%  (83 ms)
+  Question : Show me a list of patients
+  Expected : I can look up individual patients by their UUID. For population-level statistics, try: insights gender / insights [...]
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 4/13 keywords (31%) | found: [age, gender, patients, race] | missing: [individual, insights, look, population-level, statistics]
+
+Q 27  [FAIL ✗]  Match: 0%  (87 ms)
+  Question : How many patients are in the database?
+  Expected : There are 100,000 patient records in the database. Type 'db info' to see the full table statistics.
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 0/12 keywords (0%) | found: [] | missing: [000, 100, database, db, full]
+
+Q 28  [FAIL ✗]  Match: 0%  (94 ms)
+  Question : Can I search for a patient by name?
+  Expected : Patient lookup is by UUID (the unique patient identifier in the dataset). The dataset does not contain patient [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/11 keywords (0%) | found: [] | missing: [contain, dataset, does, identifier, lookup]
+
+Q 29  [PASS ✓]  Match: 92%  (96 ms)
+  Question : admissions 9380F9E3-1927-42F3-9731-03A74D4E4C6B
+  Expected : Admissions for 9380F9E3-… (1 record): Admission 5 2011-03-23 00:14:52 → 2011-03-28 01:57:56
+  Actual   : Admissions for 9380F9E3-1927-42F3-9731-03A74D4E4C6B (5 record(s)): [...]
+  Detail   : matched 11/12 keywords (92%) | found: [00, 01, 14, 2011-03-23, 2011-03-28, 52, 56, 57] | missing: [9380f9e3-]
+
+Q 30  [PASS ✓]  Match: 93%  (96 ms)
+  Question : admissions 0A89658C-C739-45CA-9BF1-CBDDDFB922C0
+  Expected : Admissions for 0A89658C-… (4 records): Admission 1 1974-02-10 00:04:28 → 1974-02-16 21:04:43 Admission 2 [...]
+  Actual   : Admissions for 0A89658C-C739-45CA-9BF1-CBDDDFB922C0 (5 record(s)): [...]
+  Detail   : matched 26/28 keywords (93%) | found: [00, 01, 04, 08, 12, 14, 15, 16] | missing: [0a89658c-, records]
+
+Q 31  [FAIL ✗]  Match: 17%  (88 ms)
+  Question : Show hospital stays for a patient
+  Expected : Use the command: admissions <patient-uuid> I'll show all admission IDs, start dates, and end dates in [...]
+  Actual   : I can retrieve the admission and discharge dates. Please provide the patient ID.
+  Detail   : matched 2/12 keywords (17%) | found: [admission, dates] | missing: [admissions, chronological, command, end, ids]
+
+Q 32  [FAIL ✗]  Match: 0%  (89 ms)
+  Question : How many times was a patient admitted?
+  Expected : Use: admissions <patient-uuid> The response header shows the total record count, e.g. "(4 records)".
+  Actual   : I can calculate the average length of hospital stay across all patients.
+  Detail   : matched 0/9 keywords (0%) | found: [] | missing: [admissions, count, header, patient-uuid, record]
+
+Q 33  [FAIL ✗]  Match: 0%  (84 ms)
+  Question : What is the total number of admissions?
+  Expected : The database contains 361,760 admission records across all patients.
+  Actual   : I can retrieve hospital stay information. Provide the patient ID.
+  Detail   : matched 0/8 keywords (0%) | found: [] | missing: [361, 760, across, admission, contains]
+
+Q 34  [FAIL ✗]  Match: 0%  (85 ms)
+  Question : When was the patient's most recent admission?
+  Expected : Use: admissions <patient-uuid> Records are returned in chronological order; the last one is the most recent.
+  Actual   : I can check if a patient has been readmitted. Please provide the patient ID.
+  Detail   : matched 0/10 keywords (0%) | found: [] | missing: [admissions, chronological, last, most, one]
+
+Q 35  [PASS ✓]  Match: 100%  (82 ms)
+  Question : Show all hospital visits for patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+  Expected : [Returns all admission records for that patient from the admissions table]
+  Actual   : I can retrieve hospital admission records. Please provide the patient ID.
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 36  [PASS ✓]  Match: 95%  (92 ms)
+  Question : diagnoses 54C6E968-45B3-46B1-A64F-2CE3124F2A65
+  Expected : Diagnoses for 54C6E968-… (up to 20 shown): F80.1 : Expressive language disorder R04.81 : Acute idiopathic [...]
+  Actual   : Diagnoses for 54C6E968-45B3-46B1-A64F-2CE3124F2A65 (up to 20 shown): [...]
+  Detail   : matched 20/21 keywords (95%) | found: [20, 81, acute, diagnoses, disorder, disorders, expressive, f80] | missing: [54c6e968-]
+
+Q 37  [PASS ✓]  Match: 87%  (97 ms)
+  Question : diagnosis 9DD23357-9BEB-43E4-802D-1AB7ACDD4A3A
+  Expected : Diagnoses for 9DD23357-…: H16.43 : Localized vascularization of cornea M05.161 : Rheumatoid lung disease with [...]
+  Actual   : Diagnoses for 9DD23357-9BEB-43E4-802D-1AB7ACDD4A3A (up to 20 shown): [...]
+  Detail   : matched 13/15 keywords (87%) | found: [161, 43, arthritis, cornea, diagnoses, disease, h16, localized] | missing: [9dd23357-, knee]
+
+Q 38  [FAIL ✗]  Match: 0%  (85 ms)
+  Question : What ICD codes does a patient have?
+  Expected : Use: diagnoses <patient-uuid> I'll return up to 20 unique ICD-10 diagnosis codes with descriptions.
+  Actual   : Would you also like to see the patient's admission history or lab results?
+  Detail   : matched 0/11 keywords (0%) | found: [] | missing: [20, codes, descriptions, diagnoses, diagnosis]
+
+Q 39  [FAIL ✗]  Match: 6%  (79 ms)
+  Question : What is the most common diagnosis?
+  Expected : Use: search <diagnosis-keyword> to search the knowledge base. For population-level diagnosis statistics, that [...]
+  Actual   : Would you also like to see the patient's admission history or lab results?
+  Detail   : matched 1/18 keywords (6%) | found: [would] | missing: [361, 760-row, across, aggregation, analysis]
+
+Q 40  [FAIL ✗]  Match: 0%  (73 ms)
+  Question : What does diagnosis code F80.1 mean?
+  Expected : ICD-10 code F80.1 is "Expressive language disorder" — a developmental disorder characterized by difficulties with [...]
+  Actual   : Would you also like to see the patient's admission history or lab results?
+  Detail   : matched 0/12 keywords (0%) | found: [] | missing: [characterized, code, developmental, difficulties, disorder]
+
+Q 41  [FAIL ✗]  Match: 0%  (83 ms)
+  Question : What does R04.81 mean?
+  Expected : ICD-10 code R04.81 is "Acute idiopathic pulmonary hemorrhage in infants" — bleeding into the lungs in infants [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/16 keywords (0%) | found: [] | missing: [81, acute, bleeding, cause, clearly]
+
+Q 42  [FAIL ✗]  Match: 0%  (99 ms)
+  Question : How many diagnoses are in the database?
+  Expected : The database contains 361,760 diagnosis records. Type 'db info' to verify.
+  Actual   : I can look up diagnoses for a specific patient. Please provide the patient ID.
+  Detail   : matched 0/9 keywords (0%) | found: [] | missing: [361, 760, contains, database, db]
+
+Q 43  [PASS ✓]  Match: 77%  (107 ms)
+  Question : labs BF7165BC-CCD9-4CE4-944F-E3C9786B7BF3
+  Expected : Lab Results for BF7165BC-… (most recent 15): METABOLIC: ALT/SGPT 40.0 U/L 1974-01-11 21:10 CBC: MONOCYTES 0.9 [...]
+  Actual   : Lab Results for BF7165BC-CCD9-4CE4-944F-E3C9786B7BF3 (most recent 15): [...]
+  Detail   : matched 23/30 keywords (77%) | found: [02, 03, 10, 13, 14, 15, 18, 40] | missing: [134, 1974-01-11, 21, 50, 57]
+
+Q 44  [FAIL ✗]  Match: 13%  (116 ms)
+  Question : Show lab results for a patient
+  Expected : Use: labs <patient-uuid> Returns the 15 most recent lab results sorted by date, with test name, value, units, and [...]
+  Actual   : Would you like a specific lab panel (CBC, metabolic) or all results?
+  Detail   : matched 2/15 keywords (13%) | found: [lab, results] | missing: [15, date, labs, most, name]
+
+Q 45  [FAIL ✗]  Match: 17%  (91 ms)
+  Question : What lab tests are recorded?
+  Expected : The labs table includes metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT), CBC panels (MONOCYTES, RDW), and many other [...]
+  Actual   : Would you like a specific lab panel (CBC, metabolic) or all results?
+  Detail   : matched 3/18 keywords (17%) | found: [cbc, lab, metabolic] | missing: [albumin, alt, categories, glucose, includes]
+
+Q 46  [FAIL ✗]  Match: 0%  (87 ms)
+  Question : What does a glucose of 134.2 mg/dL mean?
+  Expected : A fasting glucose of 134.2 mg/dL is above the normal range of 70–100 mg/dL and above the pre-diabetes threshold of [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/19 keywords (0%) | found: [] | missing: [100, 125, 126, 134, 70]
+
+Q 47  [FAIL ✗]  Match: 0%  (88 ms)
+  Question : What is a normal albumin level?
+  Expected : Normal serum albumin is approximately 3.4–5.4 g/dL. A value of 2.8 gm/dL (as in the sample data) may indicate [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/19 keywords (0%) | found: [] | missing: [albumin, approximately, associated, chronic, data]
+
+Q 48  [PASS ✓]  Match: 33%  (88 ms)
+  Question : search glucose
+  Expected : Search results for 'glucose': [lab_results] What are the glucose results for this patient? [lab_results] Show [...]
+  Actual   : Search results for 'glucose': -------------------------------------------------- [lab_results ] glucose level [...]
+  Detail   : matched 5/15 keywords (33%) | found: [glucose, lab, results, search, what] | missing: [10, blood, intents, levels, matching]
+
+Q 49  [FAIL ✗]  Match: 0%  (87 ms)
+  Question : How many lab records are in the database?
+  Expected : The labs table contains 100,000 rows (a representative sample from the original >1 million-row dataset). Type 'db [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/15 keywords (0%) | found: [] | missing: [000, 100, contains, counts, current]
+
+Q 50  [PASS ✓]  Match: 67%  (192 ms)
+  Question : insights gender
+  Expected : Gender Distribution (DB: 100,000 patients): Female : 49,832 (49.8%) Male : 50,168 (50.2%)
+  Actual   : Gender Distribution (DB: 100,000 patients): Female : 52,000 (52.0%) Male : 48,000 (48.0%)
+  Detail   : matched 8/12 keywords (67%) | found: [000, 100, db, distribution, female, gender, male, patients] | missing: [168, 49, 50, 832]
+
+Q 51  [PASS ✓]  Match: 100%  (244 ms)
+  Question : What is the gender breakdown of patients?
+  Expected : [Returns the same gender distribution from the patients table]
+  Actual   : Gender Distribution (DB: 100,000 patients): Female : 52,000 (52.0%) Male : 48,000 (48.0%)
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 52  [PASS ✓]  Match: 92%  (301 ms)
+  Question : insights age
+  Expected : Age Statistics (DB: 100,000 patients with DOB): Mean age : 68.5 years Youngest : 0.0 years Oldest : 120+ years
+  Actual   : Age Statistics (DB: 100,000 patients with DOB): Mean age : 68.5 years Youngest : 36.2 years Oldest : 106.2 years
+  Detail   : matched 12/13 keywords (92%) | found: [000, 100, 68, age, db, dob, mean, oldest] | missing: [120]
+
+Q 53  [PASS ✓]  Match: 42%  (157 ms)
+  Question : What is the average patient age?
+  Expected : The mean age of patients in the dataset is approximately 68.5 years, computed from date_of_birth fields in the [...]
+  Actual   : Age Statistics (DB: 100,000 patients with DOB): Mean age : 68.5 years Youngest : 36.2 years Oldest : 106.2 years
+  Detail   : matched 5/12 keywords (42%) | found: [68, age, mean, patients, years] | missing: [approximately, birth, computed, dataset, date]
+
+Q 54  [PASS ✓]  Match: 71%  (212 ms)
+  Question : insights race
+  Expected : Race Distribution – Top 10 (DB: 100,000 patients): White : 79,000 (79.0%) African American : 8,500 (8.5%) Asian : [...]
+  Actual   : Race Distribution – Top 10 (DB: 100,000 patients): White : 49,000 (49.0%) Asian : 23,000 (23.0%) African American [...]
+  Detail   : matched 12/17 keywords (71%) | found: [000, 10, 100, african, american, asian, db, distribution] | missing: [200, 500, 79, hispanic, shown]
+
+Q 55  [PASS ✓]  Match: 100%  (246 ms)
+  Question : What are the racial demographics?
+  Expected : [Returns the race distribution breakdown from the patients table]
+  Actual   : Race Distribution – Top 10 (DB: 100,000 patients): White : 49,000 (49.0%) Asian : 23,000 (23.0%) African American [...]
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 56  [PASS ✓]  Match: 67%  (250 ms)
+  Question : insights language
+  Expected : Language Distribution – Top 10 (DB: 100,000 patients): English : 94,000 (94.0%) Spanish : 3,800 (3.8%) Portuguese [...]
+  Actual   : Language Distribution – Top 10 (DB: 100,000 patients): English : 64,000 (64.0%) Spanish : 18,000 (18.0%) Icelandic [...]
+  Detail   : matched 10/15 keywords (67%) | found: [000, 10, 100, db, distribution, english, language, patients] | missing: [700, 800, 94, portuguese, shown]
+
+Q 57  [PASS ✓]  Match: 100%  (219 ms)
+  Question : What languages do patients speak?
+  Expected : [Returns the language distribution from the patients table]
+  Actual   : Language Distribution – Top 10 (DB: 100,000 patients): English : 64,000 (64.0%) Spanish : 18,000 (18.0%) Icelandic [...]
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 58  [PASS ✓]  Match: 73%  (197 ms)
+  Question : insights poverty
+  Expected : Poverty Statistics (DB: 100,000 patients): Mean poverty % : 17.6% Patients w/ data : 98,400
+  Actual   : I'm sorry to hear that. I'm here to help. Poverty Statistics (DB: 100,000 patients): Mean poverty % : 21.6% [...]
+  Detail   : matched 8/11 keywords (73%) | found: [000, 100, data, db, mean, patients, poverty, statistics] | missing: [17, 400, 98]
+
+Q 59  [FAIL ✗]  Match: 6%  (100 ms)
+  Question : What is the poverty level for patients in the database?
+  Expected : The mean poverty percentage across all patients is approximately 17.6%. This field represents the percentage of [...]
+  Actual   : I'm sorry to hear that. I'm here to help. I'm not quite sure what you mean. Could you rephrase? Type 'help' to see [...]
+  Detail   : matched 1/16 keywords (6%) | found: [mean] | missing: [17, across, approximately, below, each]
+
+Q 60  [PASS ✓]  Match: 68%  (158 ms)
+  Question : insights marital
+  Expected : Marital Status Distribution (DB: 100,000 patients): Married : 45,200 (45.2%) Single : 36,100 (36.1%) Divorced : [...]
+  Actual   : Marital Status Distribution (DB: 100,000 patients): Married : 45,000 (45.0%) Single : 32,000 (32.0%) Divorced : [...]
+  Detail   : matched 13/19 keywords (68%) | found: [000, 100, 45, db, distribution, divorced, marital, married] | missing: [10, 200, 300, 36, 600]
+
+Q 61  [PASS ✓]  Match: 100%  (198 ms)
+  Question : What percentage of patients are married?
+  Expected : [Returns the marital status distribution; married patients typically make up ~45% of the dataset]
+  Actual   : Marital Status Distribution (DB: 100,000 patients): Married : 45,000 (45.0%) Single : 32,000 (32.0%) Divorced : [...]
+  Detail   : meta-placeholder — checking non-empty response
+
+Q 62  [FAIL ✗]  Match: 0%  (107 ms)
+  Question : Show me statistics about the patient population
+  Expected : I can show: gender, age, race, language, poverty, and marital statistics. Try: insights gender / insights age / [...]
+  Actual   : Fetching the patient list from the database.
+  Detail   : matched 0/10 keywords (0%) | found: [] | missing: [age, gender, insights, language, marital]
+
+Q 63  [FAIL ✗]  Match: 4%  (92 ms)
+  Question : How diverse is the patient population?
+  Expected : The patient population spans multiple races (White, African American, Asian, Hispanic, and others), speaks 10+ [...]
+  Actual   : I can also filter patients by gender, race, language, or age.
+  Detail   : matched 1/26 keywords (4%) | found: [age] | missing: [10, 120, african, american, asian]
+
+Q 64  [PASS ✓]  Match: 92%  (82 ms)
+  Question : sentiment I love this clinical tool it is fantastic
+  Expected : Sentiment Analysis: Text : "I love this clinical tool it is fantastic" Sentiment: POSITIVE 😊 Score : +0.836 (+1.0 [...]
+  Actual   : Sentiment Analysis: Text : "I love this clinical tool it is fantastic" Sentiment: POSITIVE 😊 Score : +0.832 (+1.0 [...]
+  Detail   : matched 12/13 keywords (92%) | found: [-1, analysis, clinical, fantastic, love, negative, positive, score] | missing: [836]
+
+Q 65  [PASS ✓]  Match: 92%  (78 ms)
+  Question : sentiment I am very worried about my diagnosis
+  Expected : Sentiment Analysis: Text : "I am very worried about my diagnosis" Sentiment: NEGATIVE 😟 Score : -0.612
+  Actual   : Sentiment Analysis: Text : "I am very worried about my diagnosis" Sentiment: NEGATIVE 😟 Score : -0.360 (+1.0 = [...]
+  Detail   : matched 11/12 keywords (92%) | found: [-0, about, am, analysis, diagnosis, negative, score, sentiment] | missing: [612]
+
+Q 66  [PASS ✓]  Match: 78%  (80 ms)
+  Question : sentiment The patient was admitted on Tuesday
+  Expected : Sentiment Analysis: Text : "The patient was admitted on Tuesday" Sentiment: NEUTRAL 😐 Score : 0.000
+  Actual   : Sentiment Analysis: Text : "The patient was admitted on Tuesday" Sentiment: POSITIVE 😊 Score : +0.103 (+1.0 = very [...]
+  Detail   : matched 7/9 keywords (78%) | found: [admitted, analysis, patient, score, sentiment, text, tuesday] | missing: [000, neutral]
+
+Q 67  [PASS ✓]  Match: 92%  (81 ms)
+  Question : sentiment This is terrible I hate waiting for test results
+  Expected : Sentiment Analysis: Text : "This is terrible I hate waiting for test results" Sentiment: NEGATIVE 😟 Score : -0.774
+  Actual   : Sentiment Analysis: Text : "This is terrible I hate waiting for test results" Sentiment: NEGATIVE 😟 Score : -0.778 [...]
+  Detail   : matched 11/12 keywords (92%) | found: [-0, analysis, hate, negative, results, score, sentiment, terrible] | missing: [774]
+
+Q 68  [PASS ✓]  Match: 90%  (79 ms)
+  Question : sentiment The treatment was effective and the patient improved
+  Expected : Sentiment Analysis: Text : "The treatment was effective and the patient improved" Sentiment: POSITIVE 😊 Score : +0.521
+  Actual   : Sentiment Analysis: Text : "The treatment was effective and the patient improved" Sentiment: POSITIVE 😊 Score : [...]
+  Detail   : matched 9/10 keywords (90%) | found: [analysis, effective, improved, patient, positive, score, sentiment, text] | missing: [521]
+
+Q 69  [PASS ✓]  Match: 31%  (79 ms)
+  Question : How does sentiment analysis work?
+  Expected : I use VADER (Valence Aware Dictionary and sEntiment Reasoner), a rule-based model trained on social media text. It [...]
+  Actual   : Sentiment Analysis: Text : "How does sentiment analysis work?" Sentiment: NEUTRAL 😐 Score : +0.000 (+1.0 = very [...]
+  Detail   : matched 8/26 keywords (31%) | found: [-1, negative, neutral, positive, score, sentiment, text, very] | missing: [-0, 05, above, aware, below]
+
+Q 70  [FAIL ✗]  Match: 0%  (83 ms)
+  Question : Analyse the mood of: The patient is doing well
+  Expected : Sentiment Analysis: Text : "The patient is doing well" Sentiment: POSITIVE 😊 Score : +0.432
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/9 keywords (0%) | found: [] | missing: [432, analysis, doing, patient, positive]
+
+Q 71  [PASS ✓]  Match: 40%  (83 ms)
+  Question : sentiment I cannot believe how long I have waited
+  Expected : I'm sorry to hear that. I'm here to help. Sentiment Analysis: Sentiment: NEGATIVE 😟 Score : -0.341
+  Actual   : Sentiment Analysis: Text : "I cannot believe how long I have waited" Sentiment: NEUTRAL 😐 Score : +0.000 (+1.0 = [...]
+  Detail   : matched 4/10 keywords (40%) | found: [analysis, negative, score, sentiment] | missing: [-0, 341, hear, help, here]
+
+Q 72  [PASS ✓]  Match: 88%  (87 ms)
+  Question : ner Dr. Patel treated on 2025-03-10
+  Expected : Named Entities in: "Dr. Patel treated on 2025-03-10" [ PERSON] Dr. Patel [ DATE] 2025-03-10
+  Actual   : Named Entities in: "Dr. Patel treated on 2025-03-10" [ DATE] 2025-03-10 [ PROPER_NOUN] Patel
+  Detail   : matched 7/8 keywords (88%) | found: [2025-03-10, date, dr, entities, named, patel, treated] | missing: [person]
+
+Q 73  [PASS ✓]  Match: 86%  (84 ms)
+  Question : ner Shruti Malik was admitted to St. Mary Hospital on January 15 2025
+  Expected : Named Entities in: "Shruti Malik was admitted to St. Mary Hospital on January 15 2025" [ PERSON] Shruti Malik [ [...]
+  Actual   : Named Entities in: "Shruti Malik was admitted to St. Mary Hospital on January 15 2025" [ DATE] January 15 2025 [ [...]
+  Detail   : matched 12/14 keywords (86%) | found: [15, 2025, admitted, date, entities, hospital, january, malik] | missing: [org, person]
+
+Q 74  [PASS ✓]  Match: 73%  (91 ms)
+  Question : ner The patient owed $3400 to Blue Cross Insurance
+  Expected : Named Entities in: "The patient owed $3400 to Blue Cross Insurance" [ MONEY] $3,400 [ ORG] Blue Cross Insurance
+  Actual   : Named Entities in: "The patient owed $3400 to Blue Cross Insurance" [ PROPER_NOUN] The [ PROPER_NOUN] Blue Cross [...]
+  Detail   : matched 8/11 keywords (73%) | found: [3400, blue, cross, entities, insurance, named, owed, patient] | missing: [400, money, org]
+
+Q 75  [PASS ✓]  Match: 78%  (96 ms)
+  Question : ner Omaha Nebraska clinic discharge on December 5
+  Expected : Named Entities in: "Omaha Nebraska clinic discharge on December 5" [ GPE] Omaha [ GPE] Nebraska [ DATE] December 5
+  Actual   : Named Entities in: "Omaha Nebraska clinic discharge on December 5" [ PROPER_NOUN] Omaha Nebraska [ PROPER_NOUN] December
+  Detail   : matched 7/9 keywords (78%) | found: [clinic, december, discharge, entities, named, nebraska, omaha] | missing: [date, gpe]
+
+Q 76  [FAIL ✗]  Match: 14%  (89 ms)
+  Question : What is named entity recognition?
+  Expected : NER (Named Entity Recognition) identifies and classifies specific items of information (entities) in text. [...]
+  Actual   : Named Entities in: "What is named entity recognition?" [ PROPER_NOUN] What
+  Detail   : matched 4/28 keywords (14%) | found: [entities, entity, named, recognition] | missing: [classifies, clinical, core, date, detect]
+
+Q 77  [PASS ✓]  Match: 100%  (83 ms)
+  Question : ner No entities in this plain text about nothing specific
+  Expected : No named entities detected in: "No entities in this plain text about nothing specific"
+  Actual   : No named entities detected in: "No entities in this plain text about nothing specific"
+  Detail   : matched 9/9 keywords (100%) | found: [about, detected, entities, named, no, nothing, plain, specific] | missing: []
+
+Q 78  [FAIL ✗]  Match: 0%  (82 ms)
+  Question : Can you extract patient names from notes?
+  Expected : Yes — use the 'ner' command with free-form clinical text. I'll identify PERSON entities (and dates, organizations, [...]
+  Actual   : Listing all patients in the database.
+  Detail   : matched 0/15 keywords (0%) | found: [] | missing: [clinical, command, dates, entities, free-form]
+
+Q 79  [PASS ✓]  Match: 91%  (164 ms)
+  Question : db info
+  Expected : Database Statistics (hypotify.db): intents : 386 rows patients_summary : 51 rows conversation_log : (grows with [...]
+  Actual   : Database Statistics (hypotify.db): ------------------------------------------ intents : 475 rows patients_summary [...]
+  Detail   : matched 20/22 keywords (91%) | found: [000, 100, 361, 51, 760, admissions, conversation, database] | missing: [386, grows]
+
+Q 80  [FAIL ✗]  Match: 0%  (108 ms)
+  Question : How big is the database?
+  Expected : The hypotify.db file is approximately 137 MB on disk. It contains 8 tables and over 923,000 total rows of clinical [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/17 keywords (0%) | found: [] | missing: [000, 137, 923, approximately, chatbot]
+
+Q 81  [FAIL ✗]  Match: 18%  (90 ms)
+  Question : search hypertension
+  Expected : Search results for 'hypertension': [diagnosis_lookup] Do you have hypertension records? [diagnosis_lookup] Show [...]
+  Actual   : Search results for 'hypertension': -------------------------------------------------- [medical_terms ] what does [...]
+  Detail   : matched 3/17 keywords (18%) | found: [hypertension, results, search] | missing: [10, base, blood, diagnoses, diagnosis]
+
+Q 82  [FAIL ✗]  Match: 6%  (96 ms)
+  Question : search diabetes
+  Expected : Search results for 'diabetes': [lab_results] Show blood glucose results [diagnosis_lookup] What diabetes diagnoses [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 1/16 keywords (6%) | found: [what] | missing: [blood, diabetes, diagnoses, diagnosis, glucose]
+
+Q 83  [PASS ✓]  Match: 83%  (89 ms)
+  Question : search admission
+  Expected : Search results for 'admission': [admission_lookup] Show hospital admissions [admission_lookup] When was the [...]
+  Actual   : Search results for 'admission': -------------------------------------------------- [lab_results ] lab data [...]
+  Detail   : matched 10/12 keywords (83%) | found: [admission, admissions, admitted, hospital, lookup, patient, results, search] | missing: [matching, patterns]
+
+Q 84  [FAIL ✗]  Match: 0%  (174 ms)
+  Question : What tables are in the database?
+  Expected : The database has 8 tables: intents, patients_summary, conversation_log, user_feedback, patients, admissions, [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/13 keywords (0%) | found: [] | missing: [admissions, conversation, database, diagnoses, feedback]
+
+Q 85  [FAIL ✗]  Match: 0%  (106 ms)
+  Question : Is my conversation being recorded?
+  Expected : Yes — every conversation turn is logged to the conversation_log table with a timestamp, session ID, your message, [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/21 keywords (0%) | found: [] | missing: [analytics, audit, chatbot, conversation, enables]
+
+Q 86  [FAIL ✗]  Match: 0%  (92 ms)
+  Question : How do I submit feedback?
+  Expected : Type: feedback <rating> <optional comment> Example: feedback 5 Excellent patient lookup! Ratings are 1–5 stars and [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/13 keywords (0%) | found: [] | missing: [comment, database, example, excellent, feedback]
+
+Q 87  [FAIL ✗]  Match: 0%  (79 ms)
+  Question : feedback 5 This chatbot is incredibly helpful for clinical queries
+  Expected : Thank you for your 5/5 rating! Your comment has been saved.
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/6 keywords (0%) | found: [] | missing: [been, comment, has, rating, saved]
+
+Q 88  [FAIL ✗]  Match: 0%  (89 ms)
+  Question : What does ALT/SGPT measure?
+  Expected : ALT (Alanine Aminotransferase), also called SGPT, is a liver enzyme measured in blood. Elevated levels can [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/27 keywords (0%) | found: [] | missing: [40, 56, alanine, also, alt]
+
+Q 89  [FAIL ✗]  Match: 0%  (89 ms)
+  Question : What is RDW in a CBC?
+  Expected : RDW (Red Cell Distribution Width) measures the variation in size of red blood cells. Normal RDW is approximately [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/28 keywords (0%) | found: [] | missing: [11, 14, 15, anemia, approximately]
+
+Q 90  [FAIL ✗]  Match: 0%  (78 ms)
+  Question : What does low albumin mean?
+  Expected : Low serum albumin (hypoalbuminemia) — below 3.4 g/dL — can indicate malnutrition, liver disease (cirrhosis), [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/23 keywords (0%) | found: [] | missing: [albumin, below, cirrhosis, conditions, disease]
+
+Q 91  [FAIL ✗]  Match: 0%  (91 ms)
+  Question : What is ICD-10?
+  Expected : ICD-10 (International Classification of Diseases, 10th Revision) is a global standard for coding diseases, [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/27 keywords (0%) | found: [] | missing: [10th, causes, classification, code, coded]
+
+Q 92  [FAIL ✗]  Match: 0%  (89 ms)
+  Question : What is monocytes in a CBC?
+  Expected : Monocytes are a type of white blood cell involved in immune response. In a CBC (Complete Blood Count), monocytes [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/23 keywords (0%) | found: [] | missing: [approximately, blood, cbc, cell, complete]
+
+Q 93  [FAIL ✗]  Match: 9%  (86 ms)
+  Question : medical terms
+  Expected : I can explain clinical terms when you ask about them directly. For example: 'What does ALT mean?' / 'What is RDW?' [...]
+  Actual   : I can translate medical terms to Spanish. Use: medical <term> in Spanish
+  Detail   : matched 2/22 keywords (9%) | found: [medical, terms] | missing: [about, alt, ask, clinical, command]
+
+Q 94  [FAIL ✗]  Match: 0%  (82 ms)
+  Question : What does poverty_pct mean in the patient data?
+  Expected : The poverty_pct field represents the percentage of the residential population in that patient's geographic area [...]
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/18 keywords (0%) | found: [] | missing: [area, below, data, federal, field]
+
+Q 95  [PASS ✓]  Match: 33%  (87 ms)
+  Question : goodbye
+  Expected : Goodbye! Stay healthy!
+  Actual   : Great! Goodbye for now. Come back anytime you need help.
+  Detail   : matched 1/3 keywords (33%) | found: [goodbye] | missing: [healthy, stay]
+
+Q 96  [PASS ✓]  Match: 60%  (86 ms)
+  Question : bye
+  Expected : Take care! Come back anytime.
+  Actual   : Great! Goodbye for now. Come back anytime you need help.
+  Detail   : matched 3/5 keywords (60%) | found: [anytime, back, come] | missing: [care, take]
+
+Q 97  [FAIL ✗]  Match: 0%  (98 ms)
+  Question : exit
+  Expected : Goodbye! Stay healthy and well.
+  Actual   : Farewell! Have a great day.
+  Detail   : matched 0/4 keywords (0%) | found: [] | missing: [goodbye, healthy, stay, well]
+
+Q 98  [FAIL ✗]  Match: 0%  (94 ms)
+  Question : I'm done for today
+  Expected : Goodbye! Have a great day. Come back anytime you need clinical insights.
+  Actual   : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+  Detail   : matched 0/9 keywords (0%) | found: [] | missing: [anytime, back, clinical, come, day]
+
+Q 99  [FAIL ✗]  Match: 8%  (187 ms)
+  Question : Tell me more (after asking insights gender)
+  Expected : I can also show age, gender, poverty, or race statistics. Which would you like to explore next?
+  Actual   : Gender Distribution (DB: 100,000 patients): Female : 52,000 (52.0%) Male : 48,000 (48.0%)
+  Detail   : matched 1/12 keywords (8%) | found: [gender] | missing: [age, also, explore, like, next]
+
+Q100  [FAIL ✗]  Match: 0%  (107 ms)
+  Question : What else can you tell me? (after a patient lookup)
+  Expected : Would you like to also see their lab results or diagnoses? Type: labs <patient-id> or diagnoses <patient-id>
+  Actual   : Retrieving the complete list of all patients.
+  Detail   : matched 0/10 keywords (0%) | found: [] | missing: [also, diagnoses, lab, labs, like]
+
+────────────────────────────────────────────────────────────────────────────────
+  FAILURES SUMMARY
+────────────────────────────────────────────────────────────────────────────────
+  Q  1: Hello
+        Expected  : Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you today? Type 'help' to [...]
+        Actual    : Greetings! I'm here to help with clinical data.
+        Match     : 17%  — matched 2/12 keywords (17%) | found: [clinical, help] | missing: [assist, available, chatbot, commands, hello]
+
+  Q  3: Good morning
+        Expected  : Good morning! Welcome to Hypotify. I'm ready to help with patient data and clinical queries.
+        Actual    : Hello! I'm the Hypotify clinical assistant. What do you need?
+        Match     : 20%  — matched 2/10 keywords (20%) | found: [clinical, hypotify] | missing: [data, good, help, morning, patient]
+
+  Q  4: Hey chatbot
+        Expected  : Hey! I'm the Hypotify Clinical Assistant. What can I help you with?
+        Actual    : Good afternoon! How can I help?
+        Match     : 17%  — matched 1/6 keywords (17%) | found: [help] | missing: [assistant, clinical, hey, hypotify, what]
+
+  Q  5: Howdy
+        Expected  : Howdy! Ready to help with your clinical queries. Type 'help' to get started.
+        Actual    : Greetings! I'm here to help with clinical data.
+        Match     : 29%  — matched 2/7 keywords (29%) | found: [clinical, help] | missing: [get, howdy, queries, ready, started]
+
+  Q  6: What's up
+        Expected  : I'm here and ready! Ask me about patient records, population statistics, sentiment, NER, or [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/12 keywords (0%) | found: [] | missing: [about, ask, database, here, information]
+
+  Q  7: Greetings
+        Expected  : Greetings! I'm your Hypotify Clinical Chatbot. How may I assist you?
+        Actual    : Good day! Ready to help with all your clinical data needs.
+        Match     : 14%  — matched 1/7 keywords (14%) | found: [clinical] | missing: [assist, chatbot, greetings, how, hypotify]
+
+  Q  8: Hello Hypotify
+        Expected  : Hello! Welcome to the Hypotify Clinical Chatbot. How can I assist you today?
+        Actual    : Good morning! Ready to assist with patient data and clinical insights.
+        Match     : 25%  — matched 2/8 keywords (25%) | found: [assist, clinical] | missing: [chatbot, hello, how, hypotify, today]
+
+  Q  9: Good afternoon
+        Expected  : Good afternoon! Ready to assist. What would you like to know?
+        Actual    : Hola! How can I help you today?
+        Match     : 0%  — matched 0/8 keywords (0%) | found: [] | missing: [afternoon, assist, good, know, like]
+
+  Q 11: help
+        Expected  : Available commands: patient <id> – look up a specific patient admissions <id> – hospital [...]
+        Actual    : Available commands: patient <id>
+        Match     : 8%  — matched 4/50 keywords (8%) | found: [available, commands, id, patient] | missing: [1-5, admission, admissions, age, analyse]
+
+  Q 12: What can you do?
+        Expected  : I can look up patient records, retrieve admissions and diagnoses, show lab results, compute [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/24 keywords (0%) | found: [] | missing: [admissions, analyse, base, compute, diagnoses]
+
+  Q 14: How do I look up a patient?
+        Expected  : Type: patient <patient-uuid> Example: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 I'll return [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/15 keywords (0%) | found: [] | missing: [birth, date, example, f7cf0fe9-afcd-49ef-bfb3-e42302ffa0d3, gender]
+
+  Q 15: What patient data do you have?
+        Expected  : I have 100,000 patient records including gender, date of birth, race, marital status, [...]
+        Actual    : Displaying the full patient database for you.
+        Match     : 5%  — matched 1/22 keywords (5%) | found: [patient] | missing: [000, 100, 361, 760, admission]
+
+  Q 16: What statistics can you show?
+        Expected  : I can show gender distribution, age statistics, race distribution, language distribution, [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/15 keywords (0%) | found: [] | missing: [000-patient, 100, age, breakdown, dataset]
+
+  Q 17: Tell me what you know about the database
+        Expected  : The Hypotify database (hypotify.db) contains 8 tables: intents, patients_summary, [...]
+        Actual    : Sure! What would you like to know next?
+        Match     : 0%  — matched 0/20 keywords (0%) | found: [] | missing: [admissions, contains, conversation, counts, current]
+
+  Q 18: Can you understand natural language?
+        Expected  : Yes — I use a Bidirectional LSTM neural network trained on clinical intent examples to [...]
+        Actual    : Language Distribution – Top 10 (DB: 100,000 patients): English : 64,000 (64.0%) Spanish : [...]
+        Match     : 0%  — matched 0/18 keywords (0%) | found: [] | missing: [also, bidirectional, classify, clinical, commands]
+
+  Q 19: patient F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3
+        Expected  : Patient Record: F7CF0FE9-AFCD-49EF-BFB3-E42302FFA0D3 Gender : Female Date of Birth : [...]
+        Actual    : Fetching the full patient list now...
+        Match     : 5%  — matched 1/20 keywords (5%) | found: [patient] | missing: [07, 13, 1951-07-10, 29, 47]
+
+  Q 20: Look up patient C3935FBC-DBBA-4844-BBE4-A175FA508454
+        Expected  : Patient Record: C3935FBC-DBBA-4844-BBE4-A175FA508454 Gender : Male Date of Birth : 1956-01-27 [...]
+        Actual    : I can also filter patients by gender, race, language, or age.
+        Match     : 14%  — matched 3/22 keywords (14%) | found: [gender, language, race] | missing: [15, 1956-01-27, 22, 39, 46]
+
+  Q 21: Show me patient 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F
+        Expected  : Patient Record: 1CA33F6F-2E84-4C99-AF6A-D40F7B4DB27F Gender : Male Date of Birth : 1972-12-22 [...]
+        Actual    : I can also filter patients by gender, race, language, or age.
+        Match     : 15%  — matched 3/20 keywords (15%) | found: [gender, language, race] | missing: [01, 09, 10, 11, 1972-12-22]
+
+  Q 22: Pull up patient 81606388-2471-42A4-A6F1-1868AE25CFC3
+        Expected  : Patient Record: 81606388-2471-42A4-A6F1-1868AE25CFC3 Gender : Male Date of Birth : 1984-01-17 [...]
+        Actual    : I can also filter patients by gender, race, language, or age.
+        Match     : 15%  — matched 3/20 keywords (15%) | found: [gender, language, race] | missing: [00, 06, 17, 1984-01-17, 49]
+
+  Q 23: Find patient E3120DE9-3361-40CF-A618-265C769E75A2
+        Expected  : Patient Record: E3120DE9-3361-40CF-A618-265C769E75A2 Gender : Female Date of Birth : [...]
+        Actual    : Provide the patient ID and I'll fetch their data immediately.
+        Match     : 5%  — matched 1/21 keywords (5%) | found: [patient] | missing: [07, 08, 18, 1978-12-21, 24]
+
+  Q 25: patient XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (nonexistent)
+        Expected  : No patient found with ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        Actual    : Fetching all patient data from the clinical database.
+        Match     : 20%  — matched 1/5 keywords (20%) | found: [patient] | missing: [found, id, no, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx]
+
+  Q 27: How many patients are in the database?
+        Expected  : There are 100,000 patient records in the database. Type 'db info' to see the full table statistics.
+        Actual    : I can also filter patients by gender, race, language, or age.
+        Match     : 0%  — matched 0/12 keywords (0%) | found: [] | missing: [000, 100, database, db, full]
+
+  Q 28: Can I search for a patient by name?
+        Expected  : Patient lookup is by UUID (the unique patient identifier in the dataset). The dataset does not [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/11 keywords (0%) | found: [] | missing: [contain, dataset, does, identifier, lookup]
+
+  Q 31: Show hospital stays for a patient
+        Expected  : Use the command: admissions <patient-uuid> I'll show all admission IDs, start dates, and end [...]
+        Actual    : I can retrieve the admission and discharge dates. Please provide the patient ID.
+        Match     : 17%  — matched 2/12 keywords (17%) | found: [admission, dates] | missing: [admissions, chronological, command, end, ids]
+
+  Q 32: How many times was a patient admitted?
+        Expected  : Use: admissions <patient-uuid> The response header shows the total record count, e.g. "(4 records)".
+        Actual    : I can calculate the average length of hospital stay across all patients.
+        Match     : 0%  — matched 0/9 keywords (0%) | found: [] | missing: [admissions, count, header, patient-uuid, record]
+
+  Q 33: What is the total number of admissions?
+        Expected  : The database contains 361,760 admission records across all patients.
+        Actual    : I can retrieve hospital stay information. Provide the patient ID.
+        Match     : 0%  — matched 0/8 keywords (0%) | found: [] | missing: [361, 760, across, admission, contains]
+
+  Q 34: When was the patient's most recent admission?
+        Expected  : Use: admissions <patient-uuid> Records are returned in chronological order; the last one is [...]
+        Actual    : I can check if a patient has been readmitted. Please provide the patient ID.
+        Match     : 0%  — matched 0/10 keywords (0%) | found: [] | missing: [admissions, chronological, last, most, one]
+
+  Q 38: What ICD codes does a patient have?
+        Expected  : Use: diagnoses <patient-uuid> I'll return up to 20 unique ICD-10 diagnosis codes with descriptions.
+        Actual    : Would you also like to see the patient's admission history or lab results?
+        Match     : 0%  — matched 0/11 keywords (0%) | found: [] | missing: [20, codes, descriptions, diagnoses, diagnosis]
+
+  Q 39: What is the most common diagnosis?
+        Expected  : Use: search <diagnosis-keyword> to search the knowledge base. For population-level diagnosis [...]
+        Actual    : Would you also like to see the patient's admission history or lab results?
+        Match     : 6%  — matched 1/18 keywords (6%) | found: [would] | missing: [361, 760-row, across, aggregation, analysis]
+
+  Q 40: What does diagnosis code F80.1 mean?
+        Expected  : ICD-10 code F80.1 is "Expressive language disorder" — a developmental disorder characterized [...]
+        Actual    : Would you also like to see the patient's admission history or lab results?
+        Match     : 0%  — matched 0/12 keywords (0%) | found: [] | missing: [characterized, code, developmental, difficulties, disorder]
+
+  Q 41: What does R04.81 mean?
+        Expected  : ICD-10 code R04.81 is "Acute idiopathic pulmonary hemorrhage in infants" — bleeding into the [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/16 keywords (0%) | found: [] | missing: [81, acute, bleeding, cause, clearly]
+
+  Q 42: How many diagnoses are in the database?
+        Expected  : The database contains 361,760 diagnosis records. Type 'db info' to verify.
+        Actual    : I can look up diagnoses for a specific patient. Please provide the patient ID.
+        Match     : 0%  — matched 0/9 keywords (0%) | found: [] | missing: [361, 760, contains, database, db]
+
+  Q 44: Show lab results for a patient
+        Expected  : Use: labs <patient-uuid> Returns the 15 most recent lab results sorted by date, with test [...]
+        Actual    : Would you like a specific lab panel (CBC, metabolic) or all results?
+        Match     : 13%  — matched 2/15 keywords (13%) | found: [lab, results] | missing: [15, date, labs, most, name]
+
+  Q 45: What lab tests are recorded?
+        Expected  : The labs table includes metabolic panels (GLUCOSE, ALBUMIN, ALT/SGPT), CBC panels (MONOCYTES, [...]
+        Actual    : Would you like a specific lab panel (CBC, metabolic) or all results?
+        Match     : 17%  — matched 3/18 keywords (17%) | found: [cbc, lab, metabolic] | missing: [albumin, alt, categories, glucose, includes]
+
+  Q 46: What does a glucose of 134.2 mg/dL mean?
+        Expected  : A fasting glucose of 134.2 mg/dL is above the normal range of 70–100 mg/dL and above the pre- [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/19 keywords (0%) | found: [] | missing: [100, 125, 126, 134, 70]
+
+  Q 47: What is a normal albumin level?
+        Expected  : Normal serum albumin is approximately 3.4–5.4 g/dL. A value of 2.8 gm/dL (as in the sample [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/19 keywords (0%) | found: [] | missing: [albumin, approximately, associated, chronic, data]
+
+  Q 49: How many lab records are in the database?
+        Expected  : The labs table contains 100,000 rows (a representative sample from the original >1 million-row [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/15 keywords (0%) | found: [] | missing: [000, 100, contains, counts, current]
+
+  Q 59: What is the poverty level for patients in the database?
+        Expected  : The mean poverty percentage across all patients is approximately 17.6%. This field represents [...]
+        Actual    : I'm sorry to hear that. I'm here to help. I'm not quite sure what you mean. Could you [...]
+        Match     : 6%  — matched 1/16 keywords (6%) | found: [mean] | missing: [17, across, approximately, below, each]
+
+  Q 62: Show me statistics about the patient population
+        Expected  : I can show: gender, age, race, language, poverty, and marital statistics. Try: insights gender [...]
+        Actual    : Fetching the patient list from the database.
+        Match     : 0%  — matched 0/10 keywords (0%) | found: [] | missing: [age, gender, insights, language, marital]
+
+  Q 63: How diverse is the patient population?
+        Expected  : The patient population spans multiple races (White, African American, Asian, Hispanic, and [...]
+        Actual    : I can also filter patients by gender, race, language, or age.
+        Match     : 4%  — matched 1/26 keywords (4%) | found: [age] | missing: [10, 120, african, american, asian]
+
+  Q 70: Analyse the mood of: The patient is doing well
+        Expected  : Sentiment Analysis: Text : "The patient is doing well" Sentiment: POSITIVE 😊 Score : +0.432
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/9 keywords (0%) | found: [] | missing: [432, analysis, doing, patient, positive]
+
+  Q 76: What is named entity recognition?
+        Expected  : NER (Named Entity Recognition) identifies and classifies specific items of information [...]
+        Actual    : Named Entities in: "What is named entity recognition?" [ PROPER_NOUN] What
+        Match     : 14%  — matched 4/28 keywords (14%) | found: [entities, entity, named, recognition] | missing: [classifies, clinical, core, date, detect]
+
+  Q 78: Can you extract patient names from notes?
+        Expected  : Yes — use the 'ner' command with free-form clinical text. I'll identify PERSON entities (and [...]
+        Actual    : Listing all patients in the database.
+        Match     : 0%  — matched 0/15 keywords (0%) | found: [] | missing: [clinical, command, dates, entities, free-form]
+
+  Q 80: How big is the database?
+        Expected  : The hypotify.db file is approximately 137 MB on disk. It contains 8 tables and over 923,000 [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/17 keywords (0%) | found: [] | missing: [000, 137, 923, approximately, chatbot]
+
+  Q 81: search hypertension
+        Expected  : Search results for 'hypertension': [diagnosis_lookup] Do you have hypertension records? [...]
+        Actual    : Search results for 'hypertension': -------------------------------------------------- [...]
+        Match     : 18%  — matched 3/17 keywords (18%) | found: [hypertension, results, search] | missing: [10, base, blood, diagnoses, diagnosis]
+
+  Q 82: search diabetes
+        Expected  : Search results for 'diabetes': [lab_results] Show blood glucose results [diagnosis_lookup] [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 6%  — matched 1/16 keywords (6%) | found: [what] | missing: [blood, diabetes, diagnoses, diagnosis, glucose]
+
+  Q 84: What tables are in the database?
+        Expected  : The database has 8 tables: intents, patients_summary, conversation_log, user_feedback, [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/13 keywords (0%) | found: [] | missing: [admissions, conversation, database, diagnoses, feedback]
+
+  Q 85: Is my conversation being recorded?
+        Expected  : Yes — every conversation turn is logged to the conversation_log table with a timestamp, [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/21 keywords (0%) | found: [] | missing: [analytics, audit, chatbot, conversation, enables]
+
+  Q 86: How do I submit feedback?
+        Expected  : Type: feedback <rating> <optional comment> Example: feedback 5 Excellent patient lookup! [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/13 keywords (0%) | found: [] | missing: [comment, database, example, excellent, feedback]
+
+  Q 87: feedback 5 This chatbot is incredibly helpful for clinical queries
+        Expected  : Thank you for your 5/5 rating! Your comment has been saved.
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/6 keywords (0%) | found: [] | missing: [been, comment, has, rating, saved]
+
+  Q 88: What does ALT/SGPT measure?
+        Expected  : ALT (Alanine Aminotransferase), also called SGPT, is a liver enzyme measured in blood. [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/27 keywords (0%) | found: [] | missing: [40, 56, alanine, also, alt]
+
+  Q 89: What is RDW in a CBC?
+        Expected  : RDW (Red Cell Distribution Width) measures the variation in size of red blood cells. Normal [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/28 keywords (0%) | found: [] | missing: [11, 14, 15, anemia, approximately]
+
+  Q 90: What does low albumin mean?
+        Expected  : Low serum albumin (hypoalbuminemia) — below 3.4 g/dL — can indicate malnutrition, liver [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/23 keywords (0%) | found: [] | missing: [albumin, below, cirrhosis, conditions, disease]
+
+  Q 91: What is ICD-10?
+        Expected  : ICD-10 (International Classification of Diseases, 10th Revision) is a global standard for [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/27 keywords (0%) | found: [] | missing: [10th, causes, classification, code, coded]
+
+  Q 92: What is monocytes in a CBC?
+        Expected  : Monocytes are a type of white blood cell involved in immune response. In a CBC (Complete Blood [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/23 keywords (0%) | found: [] | missing: [approximately, blood, cbc, cell, complete]
+
+  Q 93: medical terms
+        Expected  : I can explain clinical terms when you ask about them directly. For example: 'What does ALT [...]
+        Actual    : I can translate medical terms to Spanish. Use: medical <term> in Spanish
+        Match     : 9%  — matched 2/22 keywords (9%) | found: [medical, terms] | missing: [about, alt, ask, clinical, command]
+
+  Q 94: What does poverty_pct mean in the patient data?
+        Expected  : The poverty_pct field represents the percentage of the residential population in that [...]
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/18 keywords (0%) | found: [] | missing: [area, below, data, federal, field]
+
+  Q 97: exit
+        Expected  : Goodbye! Stay healthy and well.
+        Actual    : Farewell! Have a great day.
+        Match     : 0%  — matched 0/4 keywords (0%) | found: [] | missing: [goodbye, healthy, stay, well]
+
+  Q 98: I'm done for today
+        Expected  : Goodbye! Have a great day. Come back anytime you need clinical insights.
+        Actual    : I'm not quite sure what you mean. Could you rephrase? Type 'help' to see available commands.
+        Match     : 0%  — matched 0/9 keywords (0%) | found: [] | missing: [anytime, back, clinical, come, day]
+
+  Q 99: Tell me more (after asking insights gender)
+        Expected  : I can also show age, gender, poverty, or race statistics. Which would you like to explore next?
+        Actual    : Gender Distribution (DB: 100,000 patients): Female : 52,000 (52.0%) Male : 48,000 (48.0%)
+        Match     : 8%  — matched 1/12 keywords (8%) | found: [gender] | missing: [age, also, explore, like, next]
+
+  Q100: What else can you tell me? (after a patient lookup)
+        Expected  : Would you like to also see their lab results or diagnoses? Type: labs <patient-id> or [...]
+        Actual    : Retrieving the complete list of all patients.
+        Match     : 0%  — matched 0/10 keywords (0%) | found: [] | missing: [also, diagnoses, lab, labs, like]
+
+================================================================================
+  FINAL RESULT: 39/100 PASS (39.0%)
+================================================================================
