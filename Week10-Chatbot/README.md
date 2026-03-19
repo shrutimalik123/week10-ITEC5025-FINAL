@@ -40,6 +40,9 @@
 
 ## Quick Start
 
+### 🌐 Live Deployment
+**Access the live chatbot on Streamlit Cloud:** [https://week10-itec5025-final-54k7qmgyfdwbwzwwvmod3j.streamlit.app/](https://week10-itec5025-final-54k7qmgyfdwbwzwwvmod3j.streamlit.app/)
+
 ### 1. Install dependencies
 
 ```bash

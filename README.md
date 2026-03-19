@@ -57,9 +57,18 @@ week10-ITEC5025-FINAL/
 └── README.md                ← This file
 ```
 
+## Database Reassembly for GitHub
+
+To comply with GitHub's strict 100MB file size limit, the full 137MB `hypotify.db` was split into two smaller files (`hypotify.db.part1` and `hypotify.db.part2`). The application is programmed in `db_manager.py` to automatically detect if `hypotify.db` is missing, and will dynamically stitch `part1` and `part2` back together upon launch.
+
 ---
 
 ## Quick Start
+
+### 🌐 Live Deployment
+**Play with the Chatbot live on Streamlit Cloud:** [https://week10-itec5025-final-54k7qmgyfdwbwzwwvmod3j.streamlit.app/](https://week10-itec5025-final-54k7qmgyfdwbwzwwvmod3j.streamlit.app/)
+
+### Local Setup
 
 ```bash
 cd Week10-Chatbot
