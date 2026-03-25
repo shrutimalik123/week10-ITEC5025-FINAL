@@ -240,7 +240,7 @@ def render_sidebar(chatbot, dbm):
     """Build the left sidebar with status, DB stats, and quick commands."""
 
     st.sidebar.markdown("## 🏥 Hypotify")
-    st.sidebar.markdown("*Clinical Chatbot — Week 10*")
+    st.sidebar.markdown("*Clinical Chatbot*")
     st.sidebar.divider()
 
     # ── Status ────────────────────────────────────────────────────────────────
@@ -334,7 +334,7 @@ def render_sidebar(chatbot, dbm):
     st.sidebar.divider()
     st.sidebar.caption(
         "Author: Shruti Malik · ITEC5025\n"
-        "Week 10 · March 2026"
+        "March 2026"
     )
 
 
@@ -441,7 +441,7 @@ def main():
     st.markdown(
         '<h2 style="color:#e6edf3; margin-bottom:0">Hypotify Clinical Chatbot</h2>'
         '<p style="color:#7d8590; font-size:13px; margin-top:4px">'
-        'ITEC5025 · Week 10 Deployment · Author: Shruti Malik</p>',
+        'ITEC5025 · Deployment · Author: Shruti Malik</p>',
         unsafe_allow_html=True,
     )
     st.divider()

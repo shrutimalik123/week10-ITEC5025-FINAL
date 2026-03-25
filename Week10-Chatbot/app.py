@@ -248,7 +248,7 @@ def main():
     _init_chatbot()
 
     print(f"\n  ╔═══════════════════════════════════════════╗")
-    print(f"  ║   Hypotify Clinical Chatbot – Week 10     ║")
+    print(f"  ║   Hypotify Clinical Chatbot               ║")
     print(f"  ║   Web UI → http://{args.host}:{args.port}/         ║")
     print(f"  ╚═══════════════════════════════════════════╝\n")
 
