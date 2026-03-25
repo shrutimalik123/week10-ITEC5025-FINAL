@@ -48,7 +48,11 @@ week10-ITEC5025-FINAL/
 │   ├── templates/
 │   │   └── index.html       # Flask chat UI (dark glassmorphism)
 │   ├── test_chatbot_w10.py  # 30-test automated suite
+│   ├── test_top100_live.py  # Live Top 100 Q&A test script
 │   ├── top100_qa.txt        # 100 probable Q&A reference pairs
+│   ├── top100_test_results.txt # Results of the Top 100 live test (100% PASS)
+│   ├── BeyondWeek10_Part1_ShrutiMalik.txt   # Post-Week 10 accuracy audit paper
+│   ├── BeyondWeek10_Part1_ShrutiMalik.pdf   # PDF version of audit paper
 │   ├── Week10_Deploy_Paper_ShrutiMalik.txt  # Academic paper
 │   ├── Week10_Deploy_Paper_ShrutiMalik.pdf  # PDF version of paper
 │   └── requirements_w10.txt # Python dependencies
@@ -86,6 +90,9 @@ python app.py
 
 # Run the test suite
 python test_chatbot_w10.py -v
+
+# Run the live Top 100 Q&A test
+python test_top100_live.py
 ```
 
 ---
@@ -103,9 +110,14 @@ python test_chatbot_w10.py -v
 
 ---
 
-## Academic Paper
+## Academic Papers
 
 The full development retrospective (Weeks 6–10), including 100 Q&A pairs, is documented in:
 
 - [`Week10_Deploy_Paper_ShrutiMalik.pdf`](Week10-Chatbot/Week10_Deploy_Paper_ShrutiMalik.pdf)
 - [`Week10_Deploy_Paper_ShrutiMalik.txt`](Week10-Chatbot/Week10_Deploy_Paper_ShrutiMalik.txt)
+
+The post-Week 10 accuracy audit, non-deterministic testing strategy, and live routing fixes (achieving 100% accuracy) are documented in:
+
+- [`BeyondWeek10_Part1_ShrutiMalik.pdf`](Week10-Chatbot/BeyondWeek10_Part1_ShrutiMalik.pdf)
+- [`BeyondWeek10_Part1_ShrutiMalik.txt`](Week10-Chatbot/BeyondWeek10_Part1_ShrutiMalik.txt)

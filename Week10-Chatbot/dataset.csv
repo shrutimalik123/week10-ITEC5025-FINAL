@@ -385,3 +385,15 @@ order food,unknown,I'm a clinical chatbot and can't order food. Type 'help' for 
 book a flight,unknown,I can only assist with clinical and patient data queries. Type 'help'.
 what is your name,unknown,I'm the Hypotify Clinical Chatbot! Type 'help' to see what I can do.
 who made you,unknown,I was built by the Hypotify team to assist with clinical data. Type 'help' for commands.
+what commands are available,help,"Here's what I can help with: patient lookup, list patients, clinical insights, translation, medical terms, sentiment analysis, and named entity recognition."
+what commands do you have,help,Type 'help' to see the full list of available commands.
+what patient data do you have,help,"I can look up patient records, admissions, diagnoses, labs, and population insights. Type 'help' for commands."
+what kind of data do you have,help,I support patient lookups, clinical insights, translations, sentiment analysis, and named entity recognition.
+can you extract patient names,ner,I can identify who appears in the text. Use: ner <your text>
+extract patient names from notes,ner,I can extract proper nouns and named entities. Use: ner <your text>
+can you extract names from text,ner,I can find people mentioned in text. Use: ner <your text>
+extract names from clinical notes,ner,I can identify names and named entities in text. Use: ner <your text>
+show me statistics about the patient population,insights_gender,Fetching gender distribution statistics now.
+statistics about patients,insights_gender,Let me look up the gender breakdown for you.
+patient population statistics,insights_gender,Loading gender statistics from the clinical database.
+how diverse is the patient population,insights_race,Loading diversity and race statistics from the patient population.

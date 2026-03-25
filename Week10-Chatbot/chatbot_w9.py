@@ -514,6 +514,17 @@ _LABS_PHRASE_RE = re.compile(
     r"(?:labs?|lab\s+results?)\s+.*(" + _UUID_PAT + r")",
     re.IGNORECASE
 )
+# NER capability questions ("can you extract names/entities from…")
+_NER_CAPABILITY_RE = re.compile(
+    r"(?:extract|identify|detect).*(?:names?|entities|persons?)\b",
+    re.IGNORECASE,
+)
+# Population-level statistics questions ("statistics about the patient population", etc.)
+_POPULATION_STAT_RE = re.compile(
+    r"(?:statistics|breakdown|demographics|diverse).*(?:patients?|population)|"
+    r"(?:patients?|population).*(?:statistics|breakdown|demographics|diverse)",
+    re.IGNORECASE,
+)
 
 
 # ── Context-aware chatbot ─────────────────────────────────────────────────────
@@ -636,6 +647,25 @@ class HypotifyChatbot:
             keyword = m.group(1).strip()
             return _format_search_results(keyword), "search"
 
+        # ── help command (direct intercept for consistent output) ────────────
+        if raw_input.strip().lower() == "help":
+            return HARDCODED_FALLBACK["help"][0], "help"
+
+        # ── farewell commands (direct intercept for consistency) ──────────────
+        _farewell = raw_input.strip().lower()
+        if _farewell == "exit":
+            return "Closing session. Goodbye!", "goodbye"
+        if _farewell == "goodbye":
+            return "Goodbye! Thank you for using the Hypotify Clinical Chatbot.", "goodbye"
+
+        # ── patient <any-id> direct command (catches non-hex IDs too) ─────────
+        _pm = re.match(r"^patient\s+(\S+)", raw_input.strip(), re.IGNORECASE)
+        if _pm:
+            _pid = _pm.group(1).rstrip(")").strip()
+            if DB_OK:
+                return db_manager.get_patient_from_db(_pid), "patient_lookup"
+            return get_patient_by_id(_pid), "patient_lookup"
+
         # ── Low confidence — AFTER command checks ────────────────────────────
         if confidence < CONFIDENCE_THRESHOLD:
             msg = ("I'm not quite sure what you mean. Could you rephrase? "
@@ -750,6 +780,25 @@ class HypotifyChatbot:
         if kw_match and intent not in ("translate", "medical_terms"):
             category = kw_match.group(1)
             return _get_insights(category), f"insights_{category}"
+
+        # ── NER capability questions ("can you extract names from notes?") ──────
+        if _NER_CAPABILITY_RE.search(raw_input):
+            return (
+                "Yes! Use:  ner <text>  to extract named entities (names, dates, orgs, money).\n"
+                "  Example:  ner Shruti Malik admitted to St. Mary Hospital on Jan 15 2025"
+            ), "ner"
+
+        # ── Population statistics overview ("show statistics about patients") ───
+        if _POPULATION_STAT_RE.search(raw_input):
+            return (
+                "I can show population statistics. Try:\n"
+                "  insights gender   – gender distribution\n"
+                "  insights age      – age statistics (mean, youngest, oldest)\n"
+                "  insights race     – racial demographics\n"
+                "  insights language – language distribution\n"
+                "  insights poverty  – poverty statistics\n"
+                "  insights marital  – marital status distribution"
+            ), "insights_gender"
 
         # ── Context elaboration ────────────────────────────────────────────────
         if self._is_followup(intent) and intent in CONTEXT_ELABORATIONS:

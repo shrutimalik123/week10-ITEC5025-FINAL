@@ -1,0 +1,7840 @@
+{
+  "metadata": {
+    "total_records": 381,
+    "unique_intents": 20,
+    "intent_classes": [
+      "admission_lookup",
+      "context_followup",
+      "diagnosis_lookup",
+      "goodbye",
+      "greeting",
+      "help",
+      "insights_age",
+      "insights_gender",
+      "insights_language",
+      "insights_marital",
+      "insights_poverty",
+      "insights_race",
+      "lab_results",
+      "list_patients",
+      "medical_terms",
+      "ner",
+      "patient_lookup",
+      "sentiment",
+      "translate",
+      "unknown"
+    ],
+    "preprocessing_steps": [
+      "1. Lowercase + HTML strip + punctuation removal + whitespace collapse",
+      "2. NLTK word_tokenize (Penn Treebank tokeniser)",
+      "3. NLTK English stop-word removal",
+      "4. NLTK WordNetLemmatizer"
+    ],
+    "tfidf_summary": {
+      "global_top_terms": [
+        "patient",
+        "language",
+        "age",
+        "translate",
+        "many",
+        "poverty",
+        "diagnosis",
+        "show",
+        "gender",
+        "statistic"
+      ],
+      "feature_names": [
+        "111111",
+        "additional",
+        "additional detail",
+        "adios",
+        "admission",
+        "admission date",
+        "admission history",
+        "admission record",
+        "admitted",
+        "afternoon",
+        "age",
+        "age analytics",
+        "age breakdown",
+        "age distribution",
+        "age group",
+        "age insight",
+        "age patient",
+        "age range",
+        "age statistic",
+        "alt",
+        "alt sgpt",
+        "analysis",
+        "analytics",
+        "analyze",
+        "analyze sentiment",
+        "analyze text",
+        "anemia",
+        "angry",
+        "another",
+        "another language",
+        "anything",
+        "anything else",
+        "appears",
+        "appears text",
+        "arabic",
+        "asdfgh",
+        "asian",
+        "asian patient",
+        "assist",
+        "available",
+        "average",
+        "average age",
+        "average length",
+        "average patient",
+        "average poverty",
+        "bad",
+        "bad sentiment",
+        "black",
+        "black patient",
+        "blah"
+      ]
+    },
+    "word2vec_summary": {
+      "status": "skipped",
+      "reason": "gensim not installed"
+    }
+  },
+  "records": [
+    {
+      "index": 0,
+      "original": "hello",
+      "intent": "greeting",
+      "response": "Hello! Welcome to the Hypotify Clinical Chatbot. How can I help you today?",
+      "cleaned": "hello",
+      "tokens": [
+        "hello"
+      ],
+      "filtered": [
+        "hello"
+      ],
+      "lemmas": [
+        "hello"
+      ],
+      "joined": "hello"
+    },
+    {
+      "index": 1,
+      "original": "hi",
+      "intent": "greeting",
+      "response": "Hi there! I'm your Hypotify clinical assistant. Type 'help' to see what I can do.",
+      "cleaned": "hi",
+      "tokens": [
+        "hi"
+      ],
+      "filtered": [
+        "hi"
+      ],
+      "lemmas": [
+        "hi"
+      ],
+      "joined": "hi"
+    },
+    {
+      "index": 2,
+      "original": "hey",
+      "intent": "greeting",
+      "response": "Hey! How can I assist you today?",
+      "cleaned": "hey",
+      "tokens": [
+        "hey"
+      ],
+      "filtered": [
+        "hey"
+      ],
+      "lemmas": [
+        "hey"
+      ],
+      "joined": "hey"
+    },
+    {
+      "index": 3,
+      "original": "good morning",
+      "intent": "greeting",
+      "response": "Good morning! Ready to assist with patient data and clinical insights.",
+      "cleaned": "good morning",
+      "tokens": [
+        "good",
+        "morning"
+      ],
+      "filtered": [
+        "good",
+        "morning"
+      ],
+      "lemmas": [
+        "good",
+        "morning"
+      ],
+      "joined": "good morning"
+    },
+    {
+      "index": 4,
+      "original": "good afternoon",
+      "intent": "greeting",
+      "response": "Good afternoon! How can I help?",
+      "cleaned": "good afternoon",
+      "tokens": [
+        "good",
+        "afternoon"
+      ],
+      "filtered": [
+        "good",
+        "afternoon"
+      ],
+      "lemmas": [
+        "good",
+        "afternoon"
+      ],
+      "joined": "good afternoon"
+    },
+    {
+      "index": 5,
+      "original": "good evening",
+      "intent": "greeting",
+      "response": "Good evening! What can I do for you?",
+      "cleaned": "good evening",
+      "tokens": [
+        "good",
+        "evening"
+      ],
+      "filtered": [
+        "good",
+        "evening"
+      ],
+      "lemmas": [
+        "good",
+        "evening"
+      ],
+      "joined": "good evening"
+    },
+    {
+      "index": 6,
+      "original": "howdy",
+      "intent": "greeting",
+      "response": "Howdy! Welcome to the Hypotify Clinical Chatbot.",
+      "cleaned": "howdy",
+      "tokens": [
+        "howdy"
+      ],
+      "filtered": [
+        "howdy"
+      ],
+      "lemmas": [
+        "howdy"
+      ],
+      "joined": "howdy"
+    },
+    {
+      "index": 7,
+      "original": "greetings",
+      "intent": "greeting",
+      "response": "Greetings! I'm here to help with clinical data.",
+      "cleaned": "greetings",
+      "tokens": [
+        "greetings"
+      ],
+      "filtered": [
+        "greetings"
+      ],
+      "lemmas": [
+        "greeting"
+      ],
+      "joined": "greeting"
+    },
+    {
+      "index": 8,
+      "original": "what's up",
+      "intent": "greeting",
+      "response": "Hi! I'm here and ready to assist you with patient data.",
+      "cleaned": "what s up",
+      "tokens": [
+        "what",
+        "s",
+        "up"
+      ],
+      "filtered": [],
+      "lemmas": [],
+      "joined": ""
+    },
+    {
+      "index": 9,
+      "original": "hola",
+      "intent": "greeting",
+      "response": "Hola! How can I help you today?",
+      "cleaned": "hola",
+      "tokens": [
+        "hola"
+      ],
+      "filtered": [
+        "hola"
+      ],
+      "lemmas": [
+        "hola"
+      ],
+      "joined": "hola"
+    },
+    {
+      "index": 10,
+      "original": "hi there",
+      "intent": "greeting",
+      "response": "Hi there! Welcome to Hypotify. How can I assist?",
+      "cleaned": "hi there",
+      "tokens": [
+        "hi",
+        "there"
+      ],
+      "filtered": [
+        "hi"
+      ],
+      "lemmas": [
+        "hi"
+      ],
+      "joined": "hi"
+    },
+    {
+      "index": 11,
+      "original": "good day",
+      "intent": "greeting",
+      "response": "Good day! Ready to help with all your clinical data needs.",
+      "cleaned": "good day",
+      "tokens": [
+        "good",
+        "day"
+      ],
+      "filtered": [
+        "good",
+        "day"
+      ],
+      "lemmas": [
+        "good",
+        "day"
+      ],
+      "joined": "good day"
+    },
+    {
+      "index": 12,
+      "original": "hey there",
+      "intent": "greeting",
+      "response": "Hey there! I'm your Hypotify clinical assistant.",
+      "cleaned": "hey there",
+      "tokens": [
+        "hey",
+        "there"
+      ],
+      "filtered": [
+        "hey"
+      ],
+      "lemmas": [
+        "hey"
+      ],
+      "joined": "hey"
+    },
+    {
+      "index": 13,
+      "original": "morning",
+      "intent": "greeting",
+      "response": "Good morning! How can I assist you today?",
+      "cleaned": "morning",
+      "tokens": [
+        "morning"
+      ],
+      "filtered": [
+        "morning"
+      ],
+      "lemmas": [
+        "morning"
+      ],
+      "joined": "morning"
+    },
+    {
+      "index": 14,
+      "original": "evening",
+      "intent": "greeting",
+      "response": "Good evening! Ready to help with clinical queries.",
+      "cleaned": "evening",
+      "tokens": [
+        "evening"
+      ],
+      "filtered": [
+        "evening"
+      ],
+      "lemmas": [
+        "evening"
+      ],
+      "joined": "evening"
+    },
+    {
+      "index": 15,
+      "original": "hello chatbot",
+      "intent": "greeting",
+      "response": "Hello! I'm the Hypotify clinical assistant. What do you need?",
+      "cleaned": "hello chatbot",
+      "tokens": [
+        "hello",
+        "chatbot"
+      ],
+      "filtered": [
+        "hello",
+        "chatbot"
+      ],
+      "lemmas": [
+        "hello",
+        "chatbot"
+      ],
+      "joined": "hello chatbot"
+    },
+    {
+      "index": 16,
+      "original": "hi bot",
+      "intent": "greeting",
+      "response": "Hi! I'm here to assist with your patient data needs.",
+      "cleaned": "hi bot",
+      "tokens": [
+        "hi",
+        "bot"
+      ],
+      "filtered": [
+        "hi",
+        "bot"
+      ],
+      "lemmas": [
+        "hi",
+        "bot"
+      ],
+      "joined": "hi bot"
+    },
+    {
+      "index": 17,
+      "original": "hello there",
+      "intent": "greeting",
+      "response": "Hello! Welcome. How can I help you with the clinical database today?",
+      "cleaned": "hello there",
+      "tokens": [
+        "hello",
+        "there"
+      ],
+      "filtered": [
+        "hello"
+      ],
+      "lemmas": [
+        "hello"
+      ],
+      "joined": "hello"
+    },
+    {
+      "index": 18,
+      "original": "goodbye",
+      "intent": "goodbye",
+      "response": "Goodbye! Thank you for using Hypotify. Stay healthy!",
+      "cleaned": "goodbye",
+      "tokens": [
+        "goodbye"
+      ],
+      "filtered": [
+        "goodbye"
+      ],
+      "lemmas": [
+        "goodbye"
+      ],
+      "joined": "goodbye"
+    },
+    {
+      "index": 19,
+      "original": "bye",
+      "intent": "goodbye",
+      "response": "Take care! Come back anytime you need clinical insights.",
+      "cleaned": "bye",
+      "tokens": [
+        "bye"
+      ],
+      "filtered": [
+        "bye"
+      ],
+      "lemmas": [
+        "bye"
+      ],
+      "joined": "bye"
+    },
+    {
+      "index": 20,
+      "original": "exit",
+      "intent": "goodbye",
+      "response": "Farewell! Hope I was able to assist you today.",
+      "cleaned": "exit",
+      "tokens": [
+        "exit"
+      ],
+      "filtered": [
+        "exit"
+      ],
+      "lemmas": [
+        "exit"
+      ],
+      "joined": "exit"
+    },
+    {
+      "index": 21,
+      "original": "quit",
+      "intent": "goodbye",
+      "response": "Goodbye! Until next time.",
+      "cleaned": "quit",
+      "tokens": [
+        "quit"
+      ],
+      "filtered": [
+        "quit"
+      ],
+      "lemmas": [
+        "quit"
+      ],
+      "joined": "quit"
+    },
+    {
+      "index": 22,
+      "original": "see you later",
+      "intent": "goodbye",
+      "response": "See you! Stay healthy!",
+      "cleaned": "see you later",
+      "tokens": [
+        "see",
+        "you",
+        "later"
+      ],
+      "filtered": [
+        "see",
+        "later"
+      ],
+      "lemmas": [
+        "see",
+        "later"
+      ],
+      "joined": "see later"
+    },
+    {
+      "index": 23,
+      "original": "farewell",
+      "intent": "goodbye",
+      "response": "Farewell! Have a great day.",
+      "cleaned": "farewell",
+      "tokens": [
+        "farewell"
+      ],
+      "filtered": [
+        "farewell"
+      ],
+      "lemmas": [
+        "farewell"
+      ],
+      "joined": "farewell"
+    },
+    {
+      "index": 24,
+      "original": "adios",
+      "intent": "goodbye",
+      "response": "Adios! Take care.",
+      "cleaned": "adios",
+      "tokens": [
+        "adios"
+      ],
+      "filtered": [
+        "adios"
+      ],
+      "lemmas": [
+        "adios"
+      ],
+      "joined": "adios"
+    },
+    {
+      "index": 25,
+      "original": "take care",
+      "intent": "goodbye",
+      "response": "Take care! Come back anytime.",
+      "cleaned": "take care",
+      "tokens": [
+        "take",
+        "care"
+      ],
+      "filtered": [
+        "take",
+        "care"
+      ],
+      "lemmas": [
+        "take",
+        "care"
+      ],
+      "joined": "take care"
+    },
+    {
+      "index": 26,
+      "original": "close",
+      "intent": "goodbye",
+      "response": "Closing session. Goodbye!",
+      "cleaned": "close",
+      "tokens": [
+        "close"
+      ],
+      "filtered": [
+        "close"
+      ],
+      "lemmas": [
+        "close"
+      ],
+      "joined": "close"
+    },
+    {
+      "index": 27,
+      "original": "see you",
+      "intent": "goodbye",
+      "response": "See you later! Stay healthy!",
+      "cleaned": "see you",
+      "tokens": [
+        "see",
+        "you"
+      ],
+      "filtered": [
+        "see"
+      ],
+      "lemmas": [
+        "see"
+      ],
+      "joined": "see"
+    },
+    {
+      "index": 28,
+      "original": "bye bye",
+      "intent": "goodbye",
+      "response": "Bye bye! Thanks for using Hypotify.",
+      "cleaned": "bye bye",
+      "tokens": [
+        "bye",
+        "bye"
+      ],
+      "filtered": [
+        "bye",
+        "bye"
+      ],
+      "lemmas": [
+        "bye",
+        "bye"
+      ],
+      "joined": "bye bye"
+    },
+    {
+      "index": 29,
+      "original": "good night",
+      "intent": "goodbye",
+      "response": "Good night! Come back anytime.",
+      "cleaned": "good night",
+      "tokens": [
+        "good",
+        "night"
+      ],
+      "filtered": [
+        "good",
+        "night"
+      ],
+      "lemmas": [
+        "good",
+        "night"
+      ],
+      "joined": "good night"
+    },
+    {
+      "index": 30,
+      "original": "have a good day",
+      "intent": "goodbye",
+      "response": "You too! Goodbye and stay healthy.",
+      "cleaned": "have a good day",
+      "tokens": [
+        "have",
+        "a",
+        "good",
+        "day"
+      ],
+      "filtered": [
+        "good",
+        "day"
+      ],
+      "lemmas": [
+        "good",
+        "day"
+      ],
+      "joined": "good day"
+    },
+    {
+      "index": 31,
+      "original": "i'm leaving",
+      "intent": "goodbye",
+      "response": "Goodbye! Thank you for using the Hypotify Clinical Chatbot.",
+      "cleaned": "i m leaving",
+      "tokens": [
+        "i",
+        "m",
+        "leaving"
+      ],
+      "filtered": [
+        "leaving"
+      ],
+      "lemmas": [
+        "leaving"
+      ],
+      "joined": "leaving"
+    },
+    {
+      "index": 32,
+      "original": "thanks bye",
+      "intent": "goodbye",
+      "response": "You're welcome! Goodbye and take care.",
+      "cleaned": "thanks bye",
+      "tokens": [
+        "thanks",
+        "bye"
+      ],
+      "filtered": [
+        "thanks",
+        "bye"
+      ],
+      "lemmas": [
+        "thanks",
+        "bye"
+      ],
+      "joined": "thanks bye"
+    },
+    {
+      "index": 33,
+      "original": "that's all",
+      "intent": "goodbye",
+      "response": "Alright! Goodbye and feel free to come back anytime.",
+      "cleaned": "that s all",
+      "tokens": [
+        "that",
+        "s",
+        "all"
+      ],
+      "filtered": [],
+      "lemmas": [],
+      "joined": ""
+    },
+    {
+      "index": 34,
+      "original": "done for now",
+      "intent": "goodbye",
+      "response": "Great! Goodbye for now. Come back anytime you need help.",
+      "cleaned": "done for now",
+      "tokens": [
+        "done",
+        "for",
+        "now"
+      ],
+      "filtered": [
+        "done"
+      ],
+      "lemmas": [
+        "done"
+      ],
+      "joined": "done"
+    },
+    {
+      "index": 35,
+      "original": "help",
+      "intent": "help",
+      "response": "Here's what I can help with: patient lookup, list patients, clinical insights, translation, medical terms, sentiment analysis, and named entity recognition.",
+      "cleaned": "help",
+      "tokens": [
+        "help"
+      ],
+      "filtered": [
+        "help"
+      ],
+      "lemmas": [
+        "help"
+      ],
+      "joined": "help"
+    },
+    {
+      "index": 36,
+      "original": "commands",
+      "intent": "help",
+      "response": "Here are the available commands. Type 'help' to see the full list.",
+      "cleaned": "commands",
+      "tokens": [
+        "commands"
+      ],
+      "filtered": [
+        "commands"
+      ],
+      "lemmas": [
+        "command"
+      ],
+      "joined": "command"
+    },
+    {
+      "index": 37,
+      "original": "menu",
+      "intent": "help",
+      "response": "Here is the menu of options. Type 'help' to see what I can do.",
+      "cleaned": "menu",
+      "tokens": [
+        "menu"
+      ],
+      "filtered": [
+        "menu"
+      ],
+      "lemmas": [
+        "menu"
+      ],
+      "joined": "menu"
+    },
+    {
+      "index": 38,
+      "original": "assist me",
+      "intent": "help",
+      "response": "I'm here to help! Type 'help' to see the list of available commands.",
+      "cleaned": "assist me",
+      "tokens": [
+        "assist",
+        "me"
+      ],
+      "filtered": [
+        "assist"
+      ],
+      "lemmas": [
+        "assist"
+      ],
+      "joined": "assist"
+    },
+    {
+      "index": 39,
+      "original": "guide me",
+      "intent": "help",
+      "response": "Sure! Type 'help' to see a guided list of everything I can do.",
+      "cleaned": "guide me",
+      "tokens": [
+        "guide",
+        "me"
+      ],
+      "filtered": [
+        "guide"
+      ],
+      "lemmas": [
+        "guide"
+      ],
+      "joined": "guide"
+    },
+    {
+      "index": 40,
+      "original": "how does this work",
+      "intent": "help",
+      "response": "This chatbot uses NLP and machine learning to understand your queries. Type 'help' for commands.",
+      "cleaned": "how does this work",
+      "tokens": [
+        "how",
+        "does",
+        "this",
+        "work"
+      ],
+      "filtered": [
+        "work"
+      ],
+      "lemmas": [
+        "work"
+      ],
+      "joined": "work"
+    },
+    {
+      "index": 41,
+      "original": "what commands",
+      "intent": "help",
+      "response": "Type 'help' to see the full list of available commands.",
+      "cleaned": "what commands",
+      "tokens": [
+        "what",
+        "commands"
+      ],
+      "filtered": [
+        "commands"
+      ],
+      "lemmas": [
+        "command"
+      ],
+      "joined": "command"
+    },
+    {
+      "index": 42,
+      "original": "show me the menu",
+      "intent": "help",
+      "response": "Here is the command menu. Type 'help' for the full list of supported operations.",
+      "cleaned": "show me the menu",
+      "tokens": [
+        "show",
+        "me",
+        "the",
+        "menu"
+      ],
+      "filtered": [
+        "show",
+        "menu"
+      ],
+      "lemmas": [
+        "show",
+        "menu"
+      ],
+      "joined": "show menu"
+    },
+    {
+      "index": 43,
+      "original": "what are my options",
+      "intent": "help",
+      "response": "You have many options! Type 'help' to see the complete list of commands.",
+      "cleaned": "what are my options",
+      "tokens": [
+        "what",
+        "are",
+        "my",
+        "options"
+      ],
+      "filtered": [
+        "options"
+      ],
+      "lemmas": [
+        "option"
+      ],
+      "joined": "option"
+    },
+    {
+      "index": 44,
+      "original": "i need help",
+      "intent": "help",
+      "response": "I'm here to help! Type 'help' to see all available commands.",
+      "cleaned": "i need help",
+      "tokens": [
+        "i",
+        "need",
+        "help"
+      ],
+      "filtered": [
+        "need",
+        "help"
+      ],
+      "lemmas": [
+        "need",
+        "help"
+      ],
+      "joined": "need help"
+    },
+    {
+      "index": 45,
+      "original": "can you help me",
+      "intent": "help",
+      "response": "Of course! Type 'help' to see a full list of what I can assist with.",
+      "cleaned": "can you help me",
+      "tokens": [
+        "can",
+        "you",
+        "help",
+        "me"
+      ],
+      "filtered": [
+        "help"
+      ],
+      "lemmas": [
+        "help"
+      ],
+      "joined": "help"
+    },
+    {
+      "index": 46,
+      "original": "tutorial",
+      "intent": "help",
+      "response": "I can walk you through the system. Type 'help' to see all available commands and examples.",
+      "cleaned": "tutorial",
+      "tokens": [
+        "tutorial"
+      ],
+      "filtered": [
+        "tutorial"
+      ],
+      "lemmas": [
+        "tutorial"
+      ],
+      "joined": "tutorial"
+    },
+    {
+      "index": 47,
+      "original": "get patient",
+      "intent": "patient_lookup",
+      "response": "Sure! Provide a patient ID to retrieve their record.",
+      "cleaned": "get patient",
+      "tokens": [
+        "get",
+        "patient"
+      ],
+      "filtered": [
+        "get",
+        "patient"
+      ],
+      "lemmas": [
+        "get",
+        "patient"
+      ],
+      "joined": "get patient"
+    },
+    {
+      "index": 48,
+      "original": "find patient",
+      "intent": "patient_lookup",
+      "response": "I'll help find a patient. Please provide the patient ID.",
+      "cleaned": "find patient",
+      "tokens": [
+        "find",
+        "patient"
+      ],
+      "filtered": [
+        "find",
+        "patient"
+      ],
+      "lemmas": [
+        "find",
+        "patient"
+      ],
+      "joined": "find patient"
+    },
+    {
+      "index": 49,
+      "original": "patient record",
+      "intent": "patient_lookup",
+      "response": "I can retrieve a patient record. Please provide the patient ID.",
+      "cleaned": "patient record",
+      "tokens": [
+        "patient",
+        "record"
+      ],
+      "filtered": [
+        "patient",
+        "record"
+      ],
+      "lemmas": [
+        "patient",
+        "record"
+      ],
+      "joined": "patient record"
+    },
+    {
+      "index": 50,
+      "original": "lookup patient",
+      "intent": "patient_lookup",
+      "response": "Provide a patient ID and I'll look them up right away.",
+      "cleaned": "lookup patient",
+      "tokens": [
+        "lookup",
+        "patient"
+      ],
+      "filtered": [
+        "lookup",
+        "patient"
+      ],
+      "lemmas": [
+        "lookup",
+        "patient"
+      ],
+      "joined": "lookup patient"
+    },
+    {
+      "index": 51,
+      "original": "retrieve patient",
+      "intent": "patient_lookup",
+      "response": "I'll retrieve the patient data. Please give me the patient ID.",
+      "cleaned": "retrieve patient",
+      "tokens": [
+        "retrieve",
+        "patient"
+      ],
+      "filtered": [
+        "retrieve",
+        "patient"
+      ],
+      "lemmas": [
+        "retrieve",
+        "patient"
+      ],
+      "joined": "retrieve patient"
+    },
+    {
+      "index": 52,
+      "original": "display patient",
+      "intent": "patient_lookup",
+      "response": "I'll display the patient information. What is the patient ID?",
+      "cleaned": "display patient",
+      "tokens": [
+        "display",
+        "patient"
+      ],
+      "filtered": [
+        "display",
+        "patient"
+      ],
+      "lemmas": [
+        "display",
+        "patient"
+      ],
+      "joined": "display patient"
+    },
+    {
+      "index": 53,
+      "original": "what is patient",
+      "intent": "patient_lookup",
+      "response": "I need a patient ID to look up their details. Please provide one.",
+      "cleaned": "what is patient",
+      "tokens": [
+        "what",
+        "is",
+        "patient"
+      ],
+      "filtered": [
+        "patient"
+      ],
+      "lemmas": [
+        "patient"
+      ],
+      "joined": "patient"
+    },
+    {
+      "index": 54,
+      "original": "show patient details",
+      "intent": "patient_lookup",
+      "response": "I can show patient details. Which patient ID would you like me to look up?",
+      "cleaned": "show patient details",
+      "tokens": [
+        "show",
+        "patient",
+        "details"
+      ],
+      "filtered": [
+        "show",
+        "patient",
+        "details"
+      ],
+      "lemmas": [
+        "show",
+        "patient",
+        "detail"
+      ],
+      "joined": "show patient detail"
+    },
+    {
+      "index": 55,
+      "original": "get me patient data",
+      "intent": "patient_lookup",
+      "response": "Provide the patient ID and I'll fetch their data immediately.",
+      "cleaned": "get me patient data",
+      "tokens": [
+        "get",
+        "me",
+        "patient",
+        "data"
+      ],
+      "filtered": [
+        "get",
+        "patient",
+        "data"
+      ],
+      "lemmas": [
+        "get",
+        "patient",
+        "data"
+      ],
+      "joined": "get patient data"
+    },
+    {
+      "index": 56,
+      "original": "search for patient",
+      "intent": "patient_lookup",
+      "response": "I can search for a patient. Please provide the patient ID.",
+      "cleaned": "search for patient",
+      "tokens": [
+        "search",
+        "for",
+        "patient"
+      ],
+      "filtered": [
+        "search",
+        "patient"
+      ],
+      "lemmas": [
+        "search",
+        "patient"
+      ],
+      "joined": "search patient"
+    },
+    {
+      "index": 57,
+      "original": "find me a patient",
+      "intent": "patient_lookup",
+      "response": "I'll help you find a patient. What is the patient ID?",
+      "cleaned": "find me a patient",
+      "tokens": [
+        "find",
+        "me",
+        "a",
+        "patient"
+      ],
+      "filtered": [
+        "find",
+        "patient"
+      ],
+      "lemmas": [
+        "find",
+        "patient"
+      ],
+      "joined": "find patient"
+    },
+    {
+      "index": 58,
+      "original": "pull up patient",
+      "intent": "patient_lookup",
+      "response": "I'll pull up the patient record. Please provide the patient ID.",
+      "cleaned": "pull up patient",
+      "tokens": [
+        "pull",
+        "up",
+        "patient"
+      ],
+      "filtered": [
+        "pull",
+        "patient"
+      ],
+      "lemmas": [
+        "pull",
+        "patient"
+      ],
+      "joined": "pull patient"
+    },
+    {
+      "index": 59,
+      "original": "check patient record",
+      "intent": "patient_lookup",
+      "response": "I can check a patient record. What is the patient ID?",
+      "cleaned": "check patient record",
+      "tokens": [
+        "check",
+        "patient",
+        "record"
+      ],
+      "filtered": [
+        "check",
+        "patient",
+        "record"
+      ],
+      "lemmas": [
+        "check",
+        "patient",
+        "record"
+      ],
+      "joined": "check patient record"
+    },
+    {
+      "index": 60,
+      "original": "open patient chart",
+      "intent": "patient_lookup",
+      "response": "I'll open the patient chart. Please provide the patient ID.",
+      "cleaned": "open patient chart",
+      "tokens": [
+        "open",
+        "patient",
+        "chart"
+      ],
+      "filtered": [
+        "open",
+        "patient",
+        "chart"
+      ],
+      "lemmas": [
+        "open",
+        "patient",
+        "chart"
+      ],
+      "joined": "open patient chart"
+    },
+    {
+      "index": 61,
+      "original": "get patient profile",
+      "intent": "patient_lookup",
+      "response": "I can retrieve a patient profile. Please provide the patient ID.",
+      "cleaned": "get patient profile",
+      "tokens": [
+        "get",
+        "patient",
+        "profile"
+      ],
+      "filtered": [
+        "get",
+        "patient",
+        "profile"
+      ],
+      "lemmas": [
+        "get",
+        "patient",
+        "profile"
+      ],
+      "joined": "get patient profile"
+    },
+    {
+      "index": 62,
+      "original": "show me a patient",
+      "intent": "patient_lookup",
+      "response": "Sure! Which patient ID would you like me to pull up?",
+      "cleaned": "show me a patient",
+      "tokens": [
+        "show",
+        "me",
+        "a",
+        "patient"
+      ],
+      "filtered": [
+        "show",
+        "patient"
+      ],
+      "lemmas": [
+        "show",
+        "patient"
+      ],
+      "joined": "show patient"
+    },
+    {
+      "index": 63,
+      "original": "list all patients",
+      "intent": "list_patients",
+      "response": "I'll list all patients in the database for you.",
+      "cleaned": "list all patients",
+      "tokens": [
+        "list",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "list",
+        "patients"
+      ],
+      "lemmas": [
+        "list",
+        "patient"
+      ],
+      "joined": "list patient"
+    },
+    {
+      "index": 64,
+      "original": "show all patients",
+      "intent": "list_patients",
+      "response": "Fetching the full patient list now...",
+      "cleaned": "show all patients",
+      "tokens": [
+        "show",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "show",
+        "patients"
+      ],
+      "lemmas": [
+        "show",
+        "patient"
+      ],
+      "joined": "show patient"
+    },
+    {
+      "index": 65,
+      "original": "all patients",
+      "intent": "list_patients",
+      "response": "Here are all the patients in the database.",
+      "cleaned": "all patients",
+      "tokens": [
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "patients"
+      ],
+      "lemmas": [
+        "patient"
+      ],
+      "joined": "patient"
+    },
+    {
+      "index": 66,
+      "original": "how many patients",
+      "intent": "list_patients",
+      "response": "Let me count the total number of patients for you.",
+      "cleaned": "how many patients",
+      "tokens": [
+        "how",
+        "many",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "patient"
+      ],
+      "joined": "many patient"
+    },
+    {
+      "index": 67,
+      "original": "patient list",
+      "intent": "list_patients",
+      "response": "Fetching the patient list from the database.",
+      "cleaned": "patient list",
+      "tokens": [
+        "patient",
+        "list"
+      ],
+      "filtered": [
+        "patient",
+        "list"
+      ],
+      "lemmas": [
+        "patient",
+        "list"
+      ],
+      "joined": "patient list"
+    },
+    {
+      "index": 68,
+      "original": "display all patients",
+      "intent": "list_patients",
+      "response": "Displaying all available patients now.",
+      "cleaned": "display all patients",
+      "tokens": [
+        "display",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "display",
+        "patients"
+      ],
+      "lemmas": [
+        "display",
+        "patient"
+      ],
+      "joined": "display patient"
+    },
+    {
+      "index": 69,
+      "original": "patients in database",
+      "intent": "list_patients",
+      "response": "Here are the patients currently stored in the database.",
+      "cleaned": "patients in database",
+      "tokens": [
+        "patients",
+        "in",
+        "database"
+      ],
+      "filtered": [
+        "patients",
+        "database"
+      ],
+      "lemmas": [
+        "patient",
+        "database"
+      ],
+      "joined": "patient database"
+    },
+    {
+      "index": 70,
+      "original": "count patients",
+      "intent": "list_patients",
+      "response": "Counting the number of patients in the database for you.",
+      "cleaned": "count patients",
+      "tokens": [
+        "count",
+        "patients"
+      ],
+      "filtered": [
+        "count",
+        "patients"
+      ],
+      "lemmas": [
+        "count",
+        "patient"
+      ],
+      "joined": "count patient"
+    },
+    {
+      "index": 71,
+      "original": "total patients",
+      "intent": "list_patients",
+      "response": "Let me calculate the total patient count.",
+      "cleaned": "total patients",
+      "tokens": [
+        "total",
+        "patients"
+      ],
+      "filtered": [
+        "total",
+        "patients"
+      ],
+      "lemmas": [
+        "total",
+        "patient"
+      ],
+      "joined": "total patient"
+    },
+    {
+      "index": 72,
+      "original": "show me all records",
+      "intent": "list_patients",
+      "response": "Fetching all patient records from the database.",
+      "cleaned": "show me all records",
+      "tokens": [
+        "show",
+        "me",
+        "all",
+        "records"
+      ],
+      "filtered": [
+        "show",
+        "records"
+      ],
+      "lemmas": [
+        "show",
+        "record"
+      ],
+      "joined": "show record"
+    },
+    {
+      "index": 73,
+      "original": "every patient",
+      "intent": "list_patients",
+      "response": "Retrieving the complete list of all patients.",
+      "cleaned": "every patient",
+      "tokens": [
+        "every",
+        "patient"
+      ],
+      "filtered": [
+        "every",
+        "patient"
+      ],
+      "lemmas": [
+        "every",
+        "patient"
+      ],
+      "joined": "every patient"
+    },
+    {
+      "index": 74,
+      "original": "patients list",
+      "intent": "list_patients",
+      "response": "Fetching the patient list from the database.",
+      "cleaned": "patients list",
+      "tokens": [
+        "patients",
+        "list"
+      ],
+      "filtered": [
+        "patients",
+        "list"
+      ],
+      "lemmas": [
+        "patient",
+        "list"
+      ],
+      "joined": "patient list"
+    },
+    {
+      "index": 75,
+      "original": "give me all patients",
+      "intent": "list_patients",
+      "response": "Retrieving all patients from the database now.",
+      "cleaned": "give me all patients",
+      "tokens": [
+        "give",
+        "me",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "give",
+        "patients"
+      ],
+      "lemmas": [
+        "give",
+        "patient"
+      ],
+      "joined": "give patient"
+    },
+    {
+      "index": 76,
+      "original": "show patients",
+      "intent": "list_patients",
+      "response": "Showing all patients in the clinical database.",
+      "cleaned": "show patients",
+      "tokens": [
+        "show",
+        "patients"
+      ],
+      "filtered": [
+        "show",
+        "patients"
+      ],
+      "lemmas": [
+        "show",
+        "patient"
+      ],
+      "joined": "show patient"
+    },
+    {
+      "index": 77,
+      "original": "full patient list",
+      "intent": "list_patients",
+      "response": "Let me retrieve the complete patient list for you.",
+      "cleaned": "full patient list",
+      "tokens": [
+        "full",
+        "patient",
+        "list"
+      ],
+      "filtered": [
+        "full",
+        "patient",
+        "list"
+      ],
+      "lemmas": [
+        "full",
+        "patient",
+        "list"
+      ],
+      "joined": "full patient list"
+    },
+    {
+      "index": 78,
+      "original": "how many records",
+      "intent": "list_patients",
+      "response": "Let me count the total number of patient records in the database.",
+      "cleaned": "how many records",
+      "tokens": [
+        "how",
+        "many",
+        "records"
+      ],
+      "filtered": [
+        "many",
+        "records"
+      ],
+      "lemmas": [
+        "many",
+        "record"
+      ],
+      "joined": "many record"
+    },
+    {
+      "index": 79,
+      "original": "pull all patients",
+      "intent": "list_patients",
+      "response": "Pulling all patients from the database now.",
+      "cleaned": "pull all patients",
+      "tokens": [
+        "pull",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "pull",
+        "patients"
+      ],
+      "lemmas": [
+        "pull",
+        "patient"
+      ],
+      "joined": "pull patient"
+    },
+    {
+      "index": 80,
+      "original": "retrieve all patients",
+      "intent": "list_patients",
+      "response": "Fetching all patient data from the clinical database.",
+      "cleaned": "retrieve all patients",
+      "tokens": [
+        "retrieve",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "retrieve",
+        "patients"
+      ],
+      "lemmas": [
+        "retrieve",
+        "patient"
+      ],
+      "joined": "retrieve patient"
+    },
+    {
+      "index": 81,
+      "original": "list patients",
+      "intent": "list_patients",
+      "response": "Listing all patients in the database.",
+      "cleaned": "list patients",
+      "tokens": [
+        "list",
+        "patients"
+      ],
+      "filtered": [
+        "list",
+        "patients"
+      ],
+      "lemmas": [
+        "list",
+        "patient"
+      ],
+      "joined": "list patient"
+    },
+    {
+      "index": 82,
+      "original": "show database",
+      "intent": "list_patients",
+      "response": "Displaying the full patient database for you.",
+      "cleaned": "show database",
+      "tokens": [
+        "show",
+        "database"
+      ],
+      "filtered": [
+        "show",
+        "database"
+      ],
+      "lemmas": [
+        "show",
+        "database"
+      ],
+      "joined": "show database"
+    },
+    {
+      "index": 83,
+      "original": "language distribution",
+      "intent": "insights_language",
+      "response": "Let me pull up the language distribution statistics.",
+      "cleaned": "language distribution",
+      "tokens": [
+        "language",
+        "distribution"
+      ],
+      "filtered": [
+        "language",
+        "distribution"
+      ],
+      "lemmas": [
+        "language",
+        "distribution"
+      ],
+      "joined": "language distribution"
+    },
+    {
+      "index": 84,
+      "original": "what languages",
+      "intent": "insights_language",
+      "response": "Fetching the language breakdown from the patient database.",
+      "cleaned": "what languages",
+      "tokens": [
+        "what",
+        "languages"
+      ],
+      "filtered": [
+        "languages"
+      ],
+      "lemmas": [
+        "language"
+      ],
+      "joined": "language"
+    },
+    {
+      "index": 85,
+      "original": "language statistics",
+      "intent": "insights_language",
+      "response": "Here are the language statistics for the patient population.",
+      "cleaned": "language statistics",
+      "tokens": [
+        "language",
+        "statistics"
+      ],
+      "filtered": [
+        "language",
+        "statistics"
+      ],
+      "lemmas": [
+        "language",
+        "statistic"
+      ],
+      "joined": "language statistic"
+    },
+    {
+      "index": 86,
+      "original": "how many speak spanish",
+      "intent": "insights_language",
+      "response": "Let me check how many patients speak Spanish.",
+      "cleaned": "how many speak spanish",
+      "tokens": [
+        "how",
+        "many",
+        "speak",
+        "spanish"
+      ],
+      "filtered": [
+        "many",
+        "speak",
+        "spanish"
+      ],
+      "lemmas": [
+        "many",
+        "speak",
+        "spanish"
+      ],
+      "joined": "many speak spanish"
+    },
+    {
+      "index": 87,
+      "original": "language breakdown",
+      "intent": "insights_language",
+      "response": "I'll show you the complete language breakdown.",
+      "cleaned": "language breakdown",
+      "tokens": [
+        "language",
+        "breakdown"
+      ],
+      "filtered": [
+        "language",
+        "breakdown"
+      ],
+      "lemmas": [
+        "language",
+        "breakdown"
+      ],
+      "joined": "language breakdown"
+    },
+    {
+      "index": 88,
+      "original": "patients by language",
+      "intent": "insights_language",
+      "response": "Fetching patients grouped by language now.",
+      "cleaned": "patients by language",
+      "tokens": [
+        "patients",
+        "by",
+        "language"
+      ],
+      "filtered": [
+        "patients",
+        "language"
+      ],
+      "lemmas": [
+        "patient",
+        "language"
+      ],
+      "joined": "patient language"
+    },
+    {
+      "index": 89,
+      "original": "language insights",
+      "intent": "insights_language",
+      "response": "Here are the language-based insights from the patient database.",
+      "cleaned": "language insights",
+      "tokens": [
+        "language",
+        "insights"
+      ],
+      "filtered": [
+        "language",
+        "insights"
+      ],
+      "lemmas": [
+        "language",
+        "insight"
+      ],
+      "joined": "language insight"
+    },
+    {
+      "index": 90,
+      "original": "language stats",
+      "intent": "insights_language",
+      "response": "Loading language statistics for the clinical population.",
+      "cleaned": "language stats",
+      "tokens": [
+        "language",
+        "stats"
+      ],
+      "filtered": [
+        "language",
+        "stats"
+      ],
+      "lemmas": [
+        "language",
+        "stats"
+      ],
+      "joined": "language stats"
+    },
+    {
+      "index": 91,
+      "original": "what languages do patients speak",
+      "intent": "insights_language",
+      "response": "Let me check the language distribution across all patients.",
+      "cleaned": "what languages do patients speak",
+      "tokens": [
+        "what",
+        "languages",
+        "do",
+        "patients",
+        "speak"
+      ],
+      "filtered": [
+        "languages",
+        "patients",
+        "speak"
+      ],
+      "lemmas": [
+        "language",
+        "patient",
+        "speak"
+      ],
+      "joined": "language patient speak"
+    },
+    {
+      "index": 92,
+      "original": "show language data",
+      "intent": "insights_language",
+      "response": "Pulling up language data from the patient records.",
+      "cleaned": "show language data",
+      "tokens": [
+        "show",
+        "language",
+        "data"
+      ],
+      "filtered": [
+        "show",
+        "language",
+        "data"
+      ],
+      "lemmas": [
+        "show",
+        "language",
+        "data"
+      ],
+      "joined": "show language data"
+    },
+    {
+      "index": 93,
+      "original": "language demographics",
+      "intent": "insights_language",
+      "response": "Fetching language demographic data from the patient population.",
+      "cleaned": "language demographics",
+      "tokens": [
+        "language",
+        "demographics"
+      ],
+      "filtered": [
+        "language",
+        "demographics"
+      ],
+      "lemmas": [
+        "language",
+        "demographic"
+      ],
+      "joined": "language demographic"
+    },
+    {
+      "index": 94,
+      "original": "most common language",
+      "intent": "insights_language",
+      "response": "Let me find the most commonly spoken language in the patient population.",
+      "cleaned": "most common language",
+      "tokens": [
+        "most",
+        "common",
+        "language"
+      ],
+      "filtered": [
+        "common",
+        "language"
+      ],
+      "lemmas": [
+        "common",
+        "language"
+      ],
+      "joined": "common language"
+    },
+    {
+      "index": 95,
+      "original": "spoken languages",
+      "intent": "insights_language",
+      "response": "I can show you data on languages spoken by patients. Fetching now.",
+      "cleaned": "spoken languages",
+      "tokens": [
+        "spoken",
+        "languages"
+      ],
+      "filtered": [
+        "spoken",
+        "languages"
+      ],
+      "lemmas": [
+        "spoken",
+        "language"
+      ],
+      "joined": "spoken language"
+    },
+    {
+      "index": 96,
+      "original": "language of patients",
+      "intent": "insights_language",
+      "response": "Retrieving language distribution data for all patients.",
+      "cleaned": "language of patients",
+      "tokens": [
+        "language",
+        "of",
+        "patients"
+      ],
+      "filtered": [
+        "language",
+        "patients"
+      ],
+      "lemmas": [
+        "language",
+        "patient"
+      ],
+      "joined": "language patient"
+    },
+    {
+      "index": 97,
+      "original": "how many english speakers",
+      "intent": "insights_language",
+      "response": "Let me count the number of English-speaking patients in the database.",
+      "cleaned": "how many english speakers",
+      "tokens": [
+        "how",
+        "many",
+        "english",
+        "speakers"
+      ],
+      "filtered": [
+        "many",
+        "english",
+        "speakers"
+      ],
+      "lemmas": [
+        "many",
+        "english",
+        "speaker"
+      ],
+      "joined": "many english speaker"
+    },
+    {
+      "index": 98,
+      "original": "how many mandarin speakers",
+      "intent": "insights_language",
+      "response": "Fetching the count of Mandarin-speaking patients from the database.",
+      "cleaned": "how many mandarin speakers",
+      "tokens": [
+        "how",
+        "many",
+        "mandarin",
+        "speakers"
+      ],
+      "filtered": [
+        "many",
+        "mandarin",
+        "speakers"
+      ],
+      "lemmas": [
+        "many",
+        "mandarin",
+        "speaker"
+      ],
+      "joined": "many mandarin speaker"
+    },
+    {
+      "index": 99,
+      "original": "language count",
+      "intent": "insights_language",
+      "response": "Let me count patients by language for you.",
+      "cleaned": "language count",
+      "tokens": [
+        "language",
+        "count"
+      ],
+      "filtered": [
+        "language",
+        "count"
+      ],
+      "lemmas": [
+        "language",
+        "count"
+      ],
+      "joined": "language count"
+    },
+    {
+      "index": 100,
+      "original": "language percentages",
+      "intent": "insights_language",
+      "response": "Calculating language percentages across the patient population.",
+      "cleaned": "language percentages",
+      "tokens": [
+        "language",
+        "percentages"
+      ],
+      "filtered": [
+        "language",
+        "percentages"
+      ],
+      "lemmas": [
+        "language",
+        "percentage"
+      ],
+      "joined": "language percentage"
+    },
+    {
+      "index": 101,
+      "original": "language report",
+      "intent": "insights_language",
+      "response": "Generating a language distribution report from the patient database.",
+      "cleaned": "language report",
+      "tokens": [
+        "language",
+        "report"
+      ],
+      "filtered": [
+        "language",
+        "report"
+      ],
+      "lemmas": [
+        "language",
+        "report"
+      ],
+      "joined": "language report"
+    },
+    {
+      "index": 102,
+      "original": "language of all patients",
+      "intent": "insights_language",
+      "response": "Here is the language breakdown for all patients in the database.",
+      "cleaned": "language of all patients",
+      "tokens": [
+        "language",
+        "of",
+        "all",
+        "patients"
+      ],
+      "filtered": [
+        "language",
+        "patients"
+      ],
+      "lemmas": [
+        "language",
+        "patient"
+      ],
+      "joined": "language patient"
+    },
+    {
+      "index": 103,
+      "original": "age statistics",
+      "intent": "insights_age",
+      "response": "Let me calculate the age statistics for you.",
+      "cleaned": "age statistics",
+      "tokens": [
+        "age",
+        "statistics"
+      ],
+      "filtered": [
+        "age",
+        "statistics"
+      ],
+      "lemmas": [
+        "age",
+        "statistic"
+      ],
+      "joined": "age statistic"
+    },
+    {
+      "index": 104,
+      "original": "average age",
+      "intent": "insights_age",
+      "response": "I'll compute the average patient age right away.",
+      "cleaned": "average age",
+      "tokens": [
+        "average",
+        "age"
+      ],
+      "filtered": [
+        "average",
+        "age"
+      ],
+      "lemmas": [
+        "average",
+        "age"
+      ],
+      "joined": "average age"
+    },
+    {
+      "index": 105,
+      "original": "age distribution",
+      "intent": "insights_age",
+      "response": "Fetching the age distribution across the patient population.",
+      "cleaned": "age distribution",
+      "tokens": [
+        "age",
+        "distribution"
+      ],
+      "filtered": [
+        "age",
+        "distribution"
+      ],
+      "lemmas": [
+        "age",
+        "distribution"
+      ],
+      "joined": "age distribution"
+    },
+    {
+      "index": 106,
+      "original": "how old are patients",
+      "intent": "insights_age",
+      "response": "Let me pull up age data for the patients.",
+      "cleaned": "how old are patients",
+      "tokens": [
+        "how",
+        "old",
+        "are",
+        "patients"
+      ],
+      "filtered": [
+        "old",
+        "patients"
+      ],
+      "lemmas": [
+        "old",
+        "patient"
+      ],
+      "joined": "old patient"
+    },
+    {
+      "index": 107,
+      "original": "patient ages",
+      "intent": "insights_age",
+      "response": "I'll retrieve the patient age statistics from the database.",
+      "cleaned": "patient ages",
+      "tokens": [
+        "patient",
+        "ages"
+      ],
+      "filtered": [
+        "patient",
+        "ages"
+      ],
+      "lemmas": [
+        "patient",
+        "age"
+      ],
+      "joined": "patient age"
+    },
+    {
+      "index": 108,
+      "original": "age breakdown",
+      "intent": "insights_age",
+      "response": "Here is the age breakdown for all patients.",
+      "cleaned": "age breakdown",
+      "tokens": [
+        "age",
+        "breakdown"
+      ],
+      "filtered": [
+        "age",
+        "breakdown"
+      ],
+      "lemmas": [
+        "age",
+        "breakdown"
+      ],
+      "joined": "age breakdown"
+    },
+    {
+      "index": 109,
+      "original": "age insights",
+      "intent": "insights_age",
+      "response": "Fetching age-based insights from the clinical database.",
+      "cleaned": "age insights",
+      "tokens": [
+        "age",
+        "insights"
+      ],
+      "filtered": [
+        "age",
+        "insights"
+      ],
+      "lemmas": [
+        "age",
+        "insight"
+      ],
+      "joined": "age insight"
+    },
+    {
+      "index": 110,
+      "original": "demographics age",
+      "intent": "insights_age",
+      "response": "Loading age demographics from the patient database.",
+      "cleaned": "demographics age",
+      "tokens": [
+        "demographics",
+        "age"
+      ],
+      "filtered": [
+        "demographics",
+        "age"
+      ],
+      "lemmas": [
+        "demographic",
+        "age"
+      ],
+      "joined": "demographic age"
+    },
+    {
+      "index": 111,
+      "original": "youngest patient",
+      "intent": "insights_age",
+      "response": "Let me find age statistics including the youngest patient.",
+      "cleaned": "youngest patient",
+      "tokens": [
+        "youngest",
+        "patient"
+      ],
+      "filtered": [
+        "youngest",
+        "patient"
+      ],
+      "lemmas": [
+        "youngest",
+        "patient"
+      ],
+      "joined": "youngest patient"
+    },
+    {
+      "index": 112,
+      "original": "oldest patient",
+      "intent": "insights_age",
+      "response": "I'll look up the age range including the oldest patient on record.",
+      "cleaned": "oldest patient",
+      "tokens": [
+        "oldest",
+        "patient"
+      ],
+      "filtered": [
+        "oldest",
+        "patient"
+      ],
+      "lemmas": [
+        "oldest",
+        "patient"
+      ],
+      "joined": "oldest patient"
+    },
+    {
+      "index": 113,
+      "original": "mean age",
+      "intent": "insights_age",
+      "response": "Let me calculate the mean age of all patients in the database.",
+      "cleaned": "mean age",
+      "tokens": [
+        "mean",
+        "age"
+      ],
+      "filtered": [
+        "mean",
+        "age"
+      ],
+      "lemmas": [
+        "mean",
+        "age"
+      ],
+      "joined": "mean age"
+    },
+    {
+      "index": 114,
+      "original": "median age",
+      "intent": "insights_age",
+      "response": "I'll compute the median age across all patients.",
+      "cleaned": "median age",
+      "tokens": [
+        "median",
+        "age"
+      ],
+      "filtered": [
+        "median",
+        "age"
+      ],
+      "lemmas": [
+        "median",
+        "age"
+      ],
+      "joined": "median age"
+    },
+    {
+      "index": 115,
+      "original": "age range",
+      "intent": "insights_age",
+      "response": "Let me pull up the minimum and maximum patient ages.",
+      "cleaned": "age range",
+      "tokens": [
+        "age",
+        "range"
+      ],
+      "filtered": [
+        "age",
+        "range"
+      ],
+      "lemmas": [
+        "age",
+        "range"
+      ],
+      "joined": "age range"
+    },
+    {
+      "index": 116,
+      "original": "age analytics",
+      "intent": "insights_age",
+      "response": "Fetching age analytics from the patient database.",
+      "cleaned": "age analytics",
+      "tokens": [
+        "age",
+        "analytics"
+      ],
+      "filtered": [
+        "age",
+        "analytics"
+      ],
+      "lemmas": [
+        "age",
+        "analytics"
+      ],
+      "joined": "age analytics"
+    },
+    {
+      "index": 117,
+      "original": "age of patients",
+      "intent": "insights_age",
+      "response": "Retrieving age data for all patients in the clinical database.",
+      "cleaned": "age of patients",
+      "tokens": [
+        "age",
+        "of",
+        "patients"
+      ],
+      "filtered": [
+        "age",
+        "patients"
+      ],
+      "lemmas": [
+        "age",
+        "patient"
+      ],
+      "joined": "age patient"
+    },
+    {
+      "index": 118,
+      "original": "age groups",
+      "intent": "insights_age",
+      "response": "Let me show you the age group distribution across patients.",
+      "cleaned": "age groups",
+      "tokens": [
+        "age",
+        "groups"
+      ],
+      "filtered": [
+        "age",
+        "groups"
+      ],
+      "lemmas": [
+        "age",
+        "group"
+      ],
+      "joined": "age group"
+    },
+    {
+      "index": 119,
+      "original": "senior patients",
+      "intent": "insights_age",
+      "response": "Let me show age statistics including the distribution of older patients.",
+      "cleaned": "senior patients",
+      "tokens": [
+        "senior",
+        "patients"
+      ],
+      "filtered": [
+        "senior",
+        "patients"
+      ],
+      "lemmas": [
+        "senior",
+        "patient"
+      ],
+      "joined": "senior patient"
+    },
+    {
+      "index": 120,
+      "original": "patient demographics age",
+      "intent": "insights_age",
+      "response": "Loading age demographic data from the patient records.",
+      "cleaned": "patient demographics age",
+      "tokens": [
+        "patient",
+        "demographics",
+        "age"
+      ],
+      "filtered": [
+        "patient",
+        "demographics",
+        "age"
+      ],
+      "lemmas": [
+        "patient",
+        "demographic",
+        "age"
+      ],
+      "joined": "patient demographic age"
+    },
+    {
+      "index": 121,
+      "original": "how old is the average patient",
+      "intent": "insights_age",
+      "response": "I'll calculate the average patient age from the database.",
+      "cleaned": "how old is the average patient",
+      "tokens": [
+        "how",
+        "old",
+        "is",
+        "the",
+        "average",
+        "patient"
+      ],
+      "filtered": [
+        "old",
+        "average",
+        "patient"
+      ],
+      "lemmas": [
+        "old",
+        "average",
+        "patient"
+      ],
+      "joined": "old average patient"
+    },
+    {
+      "index": 122,
+      "original": "what is the average age",
+      "intent": "insights_age",
+      "response": "Let me compute the average age across all patients in the database.",
+      "cleaned": "what is the average age",
+      "tokens": [
+        "what",
+        "is",
+        "the",
+        "average",
+        "age"
+      ],
+      "filtered": [
+        "average",
+        "age"
+      ],
+      "lemmas": [
+        "average",
+        "age"
+      ],
+      "joined": "average age"
+    },
+    {
+      "index": 123,
+      "original": "gender distribution",
+      "intent": "insights_gender",
+      "response": "Fetching gender distribution statistics now.",
+      "cleaned": "gender distribution",
+      "tokens": [
+        "gender",
+        "distribution"
+      ],
+      "filtered": [
+        "gender",
+        "distribution"
+      ],
+      "lemmas": [
+        "gender",
+        "distribution"
+      ],
+      "joined": "gender distribution"
+    },
+    {
+      "index": 124,
+      "original": "gender statistics",
+      "intent": "insights_gender",
+      "response": "Let me look up the gender breakdown for you.",
+      "cleaned": "gender statistics",
+      "tokens": [
+        "gender",
+        "statistics"
+      ],
+      "filtered": [
+        "gender",
+        "statistics"
+      ],
+      "lemmas": [
+        "gender",
+        "statistic"
+      ],
+      "joined": "gender statistic"
+    },
+    {
+      "index": 125,
+      "original": "male female ratio",
+      "intent": "insights_gender",
+      "response": "I'll calculate the male-to-female ratio in the patient population.",
+      "cleaned": "male female ratio",
+      "tokens": [
+        "male",
+        "female",
+        "ratio"
+      ],
+      "filtered": [
+        "male",
+        "female",
+        "ratio"
+      ],
+      "lemmas": [
+        "male",
+        "female",
+        "ratio"
+      ],
+      "joined": "male female ratio"
+    },
+    {
+      "index": 126,
+      "original": "how many male",
+      "intent": "insights_gender",
+      "response": "Let me count the number of male patients in the database.",
+      "cleaned": "how many male",
+      "tokens": [
+        "how",
+        "many",
+        "male"
+      ],
+      "filtered": [
+        "many",
+        "male"
+      ],
+      "lemmas": [
+        "many",
+        "male"
+      ],
+      "joined": "many male"
+    },
+    {
+      "index": 127,
+      "original": "how many female",
+      "intent": "insights_gender",
+      "response": "Fetching the count of female patients now.",
+      "cleaned": "how many female",
+      "tokens": [
+        "how",
+        "many",
+        "female"
+      ],
+      "filtered": [
+        "many",
+        "female"
+      ],
+      "lemmas": [
+        "many",
+        "female"
+      ],
+      "joined": "many female"
+    },
+    {
+      "index": 128,
+      "original": "gender breakdown",
+      "intent": "insights_gender",
+      "response": "Here is the gender breakdown across all patients.",
+      "cleaned": "gender breakdown",
+      "tokens": [
+        "gender",
+        "breakdown"
+      ],
+      "filtered": [
+        "gender",
+        "breakdown"
+      ],
+      "lemmas": [
+        "gender",
+        "breakdown"
+      ],
+      "joined": "gender breakdown"
+    },
+    {
+      "index": 129,
+      "original": "gender stats",
+      "intent": "insights_gender",
+      "response": "Loading gender statistics from the clinical database.",
+      "cleaned": "gender stats",
+      "tokens": [
+        "gender",
+        "stats"
+      ],
+      "filtered": [
+        "gender",
+        "stats"
+      ],
+      "lemmas": [
+        "gender",
+        "stats"
+      ],
+      "joined": "gender stats"
+    },
+    {
+      "index": 130,
+      "original": "gender insights",
+      "intent": "insights_gender",
+      "response": "Fetching gender-based insights from the patient population.",
+      "cleaned": "gender insights",
+      "tokens": [
+        "gender",
+        "insights"
+      ],
+      "filtered": [
+        "gender",
+        "insights"
+      ],
+      "lemmas": [
+        "gender",
+        "insight"
+      ],
+      "joined": "gender insight"
+    },
+    {
+      "index": 131,
+      "original": "sex distribution",
+      "intent": "insights_gender",
+      "response": "Pulling up the sex/gender distribution across all patients.",
+      "cleaned": "sex distribution",
+      "tokens": [
+        "sex",
+        "distribution"
+      ],
+      "filtered": [
+        "sex",
+        "distribution"
+      ],
+      "lemmas": [
+        "sex",
+        "distribution"
+      ],
+      "joined": "sex distribution"
+    },
+    {
+      "index": 132,
+      "original": "show gender data",
+      "intent": "insights_gender",
+      "response": "Here is the gender data from the patient records.",
+      "cleaned": "show gender data",
+      "tokens": [
+        "show",
+        "gender",
+        "data"
+      ],
+      "filtered": [
+        "show",
+        "gender",
+        "data"
+      ],
+      "lemmas": [
+        "show",
+        "gender",
+        "data"
+      ],
+      "joined": "show gender data"
+    },
+    {
+      "index": 133,
+      "original": "how many men",
+      "intent": "insights_gender",
+      "response": "Let me count the number of male patients in the database.",
+      "cleaned": "how many men",
+      "tokens": [
+        "how",
+        "many",
+        "men"
+      ],
+      "filtered": [
+        "many",
+        "men"
+      ],
+      "lemmas": [
+        "many",
+        "men"
+      ],
+      "joined": "many men"
+    },
+    {
+      "index": 134,
+      "original": "how many women",
+      "intent": "insights_gender",
+      "response": "Fetching the count of female patients from the database.",
+      "cleaned": "how many women",
+      "tokens": [
+        "how",
+        "many",
+        "women"
+      ],
+      "filtered": [
+        "many",
+        "women"
+      ],
+      "lemmas": [
+        "many",
+        "woman"
+      ],
+      "joined": "many woman"
+    },
+    {
+      "index": 135,
+      "original": "gender percentages",
+      "intent": "insights_gender",
+      "response": "Calculating gender percentages across the patient population.",
+      "cleaned": "gender percentages",
+      "tokens": [
+        "gender",
+        "percentages"
+      ],
+      "filtered": [
+        "gender",
+        "percentages"
+      ],
+      "lemmas": [
+        "gender",
+        "percentage"
+      ],
+      "joined": "gender percentage"
+    },
+    {
+      "index": 136,
+      "original": "gender report",
+      "intent": "insights_gender",
+      "response": "Generating a gender distribution report from the patient database.",
+      "cleaned": "gender report",
+      "tokens": [
+        "gender",
+        "report"
+      ],
+      "filtered": [
+        "gender",
+        "report"
+      ],
+      "lemmas": [
+        "gender",
+        "report"
+      ],
+      "joined": "gender report"
+    },
+    {
+      "index": 137,
+      "original": "male patients",
+      "intent": "insights_gender",
+      "response": "Fetching the count and percentage of male patients.",
+      "cleaned": "male patients",
+      "tokens": [
+        "male",
+        "patients"
+      ],
+      "filtered": [
+        "male",
+        "patients"
+      ],
+      "lemmas": [
+        "male",
+        "patient"
+      ],
+      "joined": "male patient"
+    },
+    {
+      "index": 138,
+      "original": "female patients",
+      "intent": "insights_gender",
+      "response": "Fetching the count and percentage of female patients.",
+      "cleaned": "female patients",
+      "tokens": [
+        "female",
+        "patients"
+      ],
+      "filtered": [
+        "female",
+        "patients"
+      ],
+      "lemmas": [
+        "female",
+        "patient"
+      ],
+      "joined": "female patient"
+    },
+    {
+      "index": 139,
+      "original": "gender demographics",
+      "intent": "insights_gender",
+      "response": "Loading gender demographic data from the patient population.",
+      "cleaned": "gender demographics",
+      "tokens": [
+        "gender",
+        "demographics"
+      ],
+      "filtered": [
+        "gender",
+        "demographics"
+      ],
+      "lemmas": [
+        "gender",
+        "demographic"
+      ],
+      "joined": "gender demographic"
+    },
+    {
+      "index": 140,
+      "original": "what percent male",
+      "intent": "insights_gender",
+      "response": "Let me calculate the percentage of male patients in the database.",
+      "cleaned": "what percent male",
+      "tokens": [
+        "what",
+        "percent",
+        "male"
+      ],
+      "filtered": [
+        "percent",
+        "male"
+      ],
+      "lemmas": [
+        "percent",
+        "male"
+      ],
+      "joined": "percent male"
+    },
+    {
+      "index": 141,
+      "original": "what percent female",
+      "intent": "insights_gender",
+      "response": "Calculating the percentage of female patients in the database.",
+      "cleaned": "what percent female",
+      "tokens": [
+        "what",
+        "percent",
+        "female"
+      ],
+      "filtered": [
+        "percent",
+        "female"
+      ],
+      "lemmas": [
+        "percent",
+        "female"
+      ],
+      "joined": "percent female"
+    },
+    {
+      "index": 142,
+      "original": "patient gender breakdown",
+      "intent": "insights_gender",
+      "response": "Here is the gender breakdown for all patients in the clinical database.",
+      "cleaned": "patient gender breakdown",
+      "tokens": [
+        "patient",
+        "gender",
+        "breakdown"
+      ],
+      "filtered": [
+        "patient",
+        "gender",
+        "breakdown"
+      ],
+      "lemmas": [
+        "patient",
+        "gender",
+        "breakdown"
+      ],
+      "joined": "patient gender breakdown"
+    },
+    {
+      "index": 143,
+      "original": "poverty statistics",
+      "intent": "insights_poverty",
+      "response": "Analyzing poverty data across the patient population.",
+      "cleaned": "poverty statistics",
+      "tokens": [
+        "poverty",
+        "statistics"
+      ],
+      "filtered": [
+        "poverty",
+        "statistics"
+      ],
+      "lemmas": [
+        "poverty",
+        "statistic"
+      ],
+      "joined": "poverty statistic"
+    },
+    {
+      "index": 144,
+      "original": "poverty rate",
+      "intent": "insights_poverty",
+      "response": "Let me pull up the poverty rate statistics for you.",
+      "cleaned": "poverty rate",
+      "tokens": [
+        "poverty",
+        "rate"
+      ],
+      "filtered": [
+        "poverty",
+        "rate"
+      ],
+      "lemmas": [
+        "poverty",
+        "rate"
+      ],
+      "joined": "poverty rate"
+    },
+    {
+      "index": 145,
+      "original": "below poverty",
+      "intent": "insights_poverty",
+      "response": "Fetching data on patients living below the poverty line.",
+      "cleaned": "below poverty",
+      "tokens": [
+        "below",
+        "poverty"
+      ],
+      "filtered": [
+        "poverty"
+      ],
+      "lemmas": [
+        "poverty"
+      ],
+      "joined": "poverty"
+    },
+    {
+      "index": 146,
+      "original": "poverty analysis",
+      "intent": "insights_poverty",
+      "response": "Performing a poverty analysis across the patient population.",
+      "cleaned": "poverty analysis",
+      "tokens": [
+        "poverty",
+        "analysis"
+      ],
+      "filtered": [
+        "poverty",
+        "analysis"
+      ],
+      "lemmas": [
+        "poverty",
+        "analysis"
+      ],
+      "joined": "poverty analysis"
+    },
+    {
+      "index": 147,
+      "original": "poverty percentage",
+      "intent": "insights_poverty",
+      "response": "Calculating the poverty percentage for the clinical population.",
+      "cleaned": "poverty percentage",
+      "tokens": [
+        "poverty",
+        "percentage"
+      ],
+      "filtered": [
+        "poverty",
+        "percentage"
+      ],
+      "lemmas": [
+        "poverty",
+        "percentage"
+      ],
+      "joined": "poverty percentage"
+    },
+    {
+      "index": 148,
+      "original": "low income patients",
+      "intent": "insights_poverty",
+      "response": "Fetching data on low-income patients in the database.",
+      "cleaned": "low income patients",
+      "tokens": [
+        "low",
+        "income",
+        "patients"
+      ],
+      "filtered": [
+        "low",
+        "income",
+        "patients"
+      ],
+      "lemmas": [
+        "low",
+        "income",
+        "patient"
+      ],
+      "joined": "low income patient"
+    },
+    {
+      "index": 149,
+      "original": "socioeconomic data",
+      "intent": "insights_poverty",
+      "response": "Loading socioeconomic data from the patient database.",
+      "cleaned": "socioeconomic data",
+      "tokens": [
+        "socioeconomic",
+        "data"
+      ],
+      "filtered": [
+        "socioeconomic",
+        "data"
+      ],
+      "lemmas": [
+        "socioeconomic",
+        "data"
+      ],
+      "joined": "socioeconomic data"
+    },
+    {
+      "index": 150,
+      "original": "poverty distribution",
+      "intent": "insights_poverty",
+      "response": "Here is the poverty distribution across all patients.",
+      "cleaned": "poverty distribution",
+      "tokens": [
+        "poverty",
+        "distribution"
+      ],
+      "filtered": [
+        "poverty",
+        "distribution"
+      ],
+      "lemmas": [
+        "poverty",
+        "distribution"
+      ],
+      "joined": "poverty distribution"
+    },
+    {
+      "index": 151,
+      "original": "how many patients below poverty line",
+      "intent": "insights_poverty",
+      "response": "Let me calculate the number of patients below the poverty line.",
+      "cleaned": "how many patients below poverty line",
+      "tokens": [
+        "how",
+        "many",
+        "patients",
+        "below",
+        "poverty",
+        "line"
+      ],
+      "filtered": [
+        "many",
+        "patients",
+        "poverty",
+        "line"
+      ],
+      "lemmas": [
+        "many",
+        "patient",
+        "poverty",
+        "line"
+      ],
+      "joined": "many patient poverty line"
+    },
+    {
+      "index": 152,
+      "original": "poverty level breakdown",
+      "intent": "insights_poverty",
+      "response": "Fetching the poverty level breakdown for the clinical population.",
+      "cleaned": "poverty level breakdown",
+      "tokens": [
+        "poverty",
+        "level",
+        "breakdown"
+      ],
+      "filtered": [
+        "poverty",
+        "level",
+        "breakdown"
+      ],
+      "lemmas": [
+        "poverty",
+        "level",
+        "breakdown"
+      ],
+      "joined": "poverty level breakdown"
+    },
+    {
+      "index": 153,
+      "original": "poverty stats",
+      "intent": "insights_poverty",
+      "response": "Loading poverty statistics from the patient records.",
+      "cleaned": "poverty stats",
+      "tokens": [
+        "poverty",
+        "stats"
+      ],
+      "filtered": [
+        "poverty",
+        "stats"
+      ],
+      "lemmas": [
+        "poverty",
+        "stats"
+      ],
+      "joined": "poverty stats"
+    },
+    {
+      "index": 154,
+      "original": "poverty insights",
+      "intent": "insights_poverty",
+      "response": "Fetching poverty-based insights from the patient database.",
+      "cleaned": "poverty insights",
+      "tokens": [
+        "poverty",
+        "insights"
+      ],
+      "filtered": [
+        "poverty",
+        "insights"
+      ],
+      "lemmas": [
+        "poverty",
+        "insight"
+      ],
+      "joined": "poverty insight"
+    },
+    {
+      "index": 155,
+      "original": "socioeconomic status",
+      "intent": "insights_poverty",
+      "response": "Loading socioeconomic status data from the patient population.",
+      "cleaned": "socioeconomic status",
+      "tokens": [
+        "socioeconomic",
+        "status"
+      ],
+      "filtered": [
+        "socioeconomic",
+        "status"
+      ],
+      "lemmas": [
+        "socioeconomic",
+        "status"
+      ],
+      "joined": "socioeconomic status"
+    },
+    {
+      "index": 156,
+      "original": "income data",
+      "intent": "insights_poverty",
+      "response": "Fetching income level data from the patient database.",
+      "cleaned": "income data",
+      "tokens": [
+        "income",
+        "data"
+      ],
+      "filtered": [
+        "income",
+        "data"
+      ],
+      "lemmas": [
+        "income",
+        "data"
+      ],
+      "joined": "income data"
+    },
+    {
+      "index": 157,
+      "original": "financial hardship",
+      "intent": "insights_poverty",
+      "response": "Loading data on patients experiencing financial hardship.",
+      "cleaned": "financial hardship",
+      "tokens": [
+        "financial",
+        "hardship"
+      ],
+      "filtered": [
+        "financial",
+        "hardship"
+      ],
+      "lemmas": [
+        "financial",
+        "hardship"
+      ],
+      "joined": "financial hardship"
+    },
+    {
+      "index": 158,
+      "original": "poverty percent",
+      "intent": "insights_poverty",
+      "response": "Calculating the poverty percentage across the clinical population.",
+      "cleaned": "poverty percent",
+      "tokens": [
+        "poverty",
+        "percent"
+      ],
+      "filtered": [
+        "poverty",
+        "percent"
+      ],
+      "lemmas": [
+        "poverty",
+        "percent"
+      ],
+      "joined": "poverty percent"
+    },
+    {
+      "index": 159,
+      "original": "how poor",
+      "intent": "insights_poverty",
+      "response": "Let me pull up poverty statistics for the patient population.",
+      "cleaned": "how poor",
+      "tokens": [
+        "how",
+        "poor"
+      ],
+      "filtered": [
+        "poor"
+      ],
+      "lemmas": [
+        "poor"
+      ],
+      "joined": "poor"
+    },
+    {
+      "index": 160,
+      "original": "poverty demographics",
+      "intent": "insights_poverty",
+      "response": "Fetching poverty demographic data from the patient database.",
+      "cleaned": "poverty demographics",
+      "tokens": [
+        "poverty",
+        "demographics"
+      ],
+      "filtered": [
+        "poverty",
+        "demographics"
+      ],
+      "lemmas": [
+        "poverty",
+        "demographic"
+      ],
+      "joined": "poverty demographic"
+    },
+    {
+      "index": 161,
+      "original": "what is the poverty rate",
+      "intent": "insights_poverty",
+      "response": "Let me calculate the poverty rate across all patients.",
+      "cleaned": "what is the poverty rate",
+      "tokens": [
+        "what",
+        "is",
+        "the",
+        "poverty",
+        "rate"
+      ],
+      "filtered": [
+        "poverty",
+        "rate"
+      ],
+      "lemmas": [
+        "poverty",
+        "rate"
+      ],
+      "joined": "poverty rate"
+    },
+    {
+      "index": 162,
+      "original": "average poverty percentage",
+      "intent": "insights_poverty",
+      "response": "I'll compute the mean poverty percentage across all patients.",
+      "cleaned": "average poverty percentage",
+      "tokens": [
+        "average",
+        "poverty",
+        "percentage"
+      ],
+      "filtered": [
+        "average",
+        "poverty",
+        "percentage"
+      ],
+      "lemmas": [
+        "average",
+        "poverty",
+        "percentage"
+      ],
+      "joined": "average poverty percentage"
+    },
+    {
+      "index": 163,
+      "original": "translate",
+      "intent": "translate",
+      "response": "I can translate text for you! Use: translate \"<text>\" to <language>",
+      "cleaned": "translate",
+      "tokens": [
+        "translate"
+      ],
+      "filtered": [
+        "translate"
+      ],
+      "lemmas": [
+        "translate"
+      ],
+      "joined": "translate"
+    },
+    {
+      "index": 164,
+      "original": "translation",
+      "intent": "translate",
+      "response": "Sure! Tell me the text and target language for translation.",
+      "cleaned": "translation",
+      "tokens": [
+        "translation"
+      ],
+      "filtered": [
+        "translation"
+      ],
+      "lemmas": [
+        "translation"
+      ],
+      "joined": "translation"
+    },
+    {
+      "index": 165,
+      "original": "convert text",
+      "intent": "translate",
+      "response": "I can convert text to another language. Please provide the text and target language.",
+      "cleaned": "convert text",
+      "tokens": [
+        "convert",
+        "text"
+      ],
+      "filtered": [
+        "convert",
+        "text"
+      ],
+      "lemmas": [
+        "convert",
+        "text"
+      ],
+      "joined": "convert text"
+    },
+    {
+      "index": 166,
+      "original": "translate this",
+      "intent": "translate",
+      "response": "Provide the text you'd like translated and the target language. Example: translate \"Hello\" to Spanish",
+      "cleaned": "translate this",
+      "tokens": [
+        "translate",
+        "this"
+      ],
+      "filtered": [
+        "translate"
+      ],
+      "lemmas": [
+        "translate"
+      ],
+      "joined": "translate"
+    },
+    {
+      "index": 167,
+      "original": "how do you say",
+      "intent": "translate",
+      "response": "Tell me the phrase and the target language. Example: translate \"Hello\" to French",
+      "cleaned": "how do you say",
+      "tokens": [
+        "how",
+        "do",
+        "you",
+        "say"
+      ],
+      "filtered": [
+        "say"
+      ],
+      "lemmas": [
+        "say"
+      ],
+      "joined": "say"
+    },
+    {
+      "index": 168,
+      "original": "in spanish",
+      "intent": "translate",
+      "response": "I can help with Spanish translation! Use: translate \"<text>\" to Spanish",
+      "cleaned": "in spanish",
+      "tokens": [
+        "in",
+        "spanish"
+      ],
+      "filtered": [
+        "spanish"
+      ],
+      "lemmas": [
+        "spanish"
+      ],
+      "joined": "spanish"
+    },
+    {
+      "index": 169,
+      "original": "in french",
+      "intent": "translate",
+      "response": "I can help with French translation! Use: translate \"<text>\" to French",
+      "cleaned": "in french",
+      "tokens": [
+        "in",
+        "french"
+      ],
+      "filtered": [
+        "french"
+      ],
+      "lemmas": [
+        "french"
+      ],
+      "joined": "french"
+    },
+    {
+      "index": 170,
+      "original": "in another language",
+      "intent": "translate",
+      "response": "Provide the text and target language and I'll translate it for you.",
+      "cleaned": "in another language",
+      "tokens": [
+        "in",
+        "another",
+        "language"
+      ],
+      "filtered": [
+        "another",
+        "language"
+      ],
+      "lemmas": [
+        "another",
+        "language"
+      ],
+      "joined": "another language"
+    },
+    {
+      "index": 171,
+      "original": "translate to",
+      "intent": "translate",
+      "response": "Please provide the text and the target language for translation.",
+      "cleaned": "translate to",
+      "tokens": [
+        "translate",
+        "to"
+      ],
+      "filtered": [
+        "translate"
+      ],
+      "lemmas": [
+        "translate"
+      ],
+      "joined": "translate"
+    },
+    {
+      "index": 172,
+      "original": "language convert",
+      "intent": "translate",
+      "response": "I can convert text between languages. What would you like to translate?",
+      "cleaned": "language convert",
+      "tokens": [
+        "language",
+        "convert"
+      ],
+      "filtered": [
+        "language",
+        "convert"
+      ],
+      "lemmas": [
+        "language",
+        "convert"
+      ],
+      "joined": "language convert"
+    },
+    {
+      "index": 173,
+      "original": "translate to mandarin",
+      "intent": "translate",
+      "response": "I can translate to Mandarin! Use: translate \"<text>\" to Mandarin",
+      "cleaned": "translate to mandarin",
+      "tokens": [
+        "translate",
+        "to",
+        "mandarin"
+      ],
+      "filtered": [
+        "translate",
+        "mandarin"
+      ],
+      "lemmas": [
+        "translate",
+        "mandarin"
+      ],
+      "joined": "translate mandarin"
+    },
+    {
+      "index": 174,
+      "original": "translate to hindi",
+      "intent": "translate",
+      "response": "Translating to Hindi is supported. Use: translate \"<text>\" to Hindi",
+      "cleaned": "translate to hindi",
+      "tokens": [
+        "translate",
+        "to",
+        "hindi"
+      ],
+      "filtered": [
+        "translate",
+        "hindi"
+      ],
+      "lemmas": [
+        "translate",
+        "hindi"
+      ],
+      "joined": "translate hindi"
+    },
+    {
+      "index": 175,
+      "original": "translate to portuguese",
+      "intent": "translate",
+      "response": "I can translate to Portuguese. Use: translate \"<text>\" to Portuguese",
+      "cleaned": "translate to portuguese",
+      "tokens": [
+        "translate",
+        "to",
+        "portuguese"
+      ],
+      "filtered": [
+        "translate",
+        "portuguese"
+      ],
+      "lemmas": [
+        "translate",
+        "portuguese"
+      ],
+      "joined": "translate portuguese"
+    },
+    {
+      "index": 176,
+      "original": "translate to arabic",
+      "intent": "translate",
+      "response": "Arabic translation is supported. Use: translate \"<text>\" to Arabic",
+      "cleaned": "translate to arabic",
+      "tokens": [
+        "translate",
+        "to",
+        "arabic"
+      ],
+      "filtered": [
+        "translate",
+        "arabic"
+      ],
+      "lemmas": [
+        "translate",
+        "arabic"
+      ],
+      "joined": "translate arabic"
+    },
+    {
+      "index": 177,
+      "original": "translate to italian",
+      "intent": "translate",
+      "response": "I can help with Italian translation. Use: translate \"<text>\" to Italian",
+      "cleaned": "translate to italian",
+      "tokens": [
+        "translate",
+        "to",
+        "italian"
+      ],
+      "filtered": [
+        "translate",
+        "italian"
+      ],
+      "lemmas": [
+        "translate",
+        "italian"
+      ],
+      "joined": "translate italian"
+    },
+    {
+      "index": 178,
+      "original": "translate to german",
+      "intent": "translate",
+      "response": "German translation is available. Use: translate \"<text>\" to German",
+      "cleaned": "translate to german",
+      "tokens": [
+        "translate",
+        "to",
+        "german"
+      ],
+      "filtered": [
+        "translate",
+        "german"
+      ],
+      "lemmas": [
+        "translate",
+        "german"
+      ],
+      "joined": "translate german"
+    },
+    {
+      "index": 179,
+      "original": "say it in french",
+      "intent": "translate",
+      "response": "Sure! Use: translate \"<text>\" to French",
+      "cleaned": "say it in french",
+      "tokens": [
+        "say",
+        "it",
+        "in",
+        "french"
+      ],
+      "filtered": [
+        "say",
+        "french"
+      ],
+      "lemmas": [
+        "say",
+        "french"
+      ],
+      "joined": "say french"
+    },
+    {
+      "index": 180,
+      "original": "say it in spanish",
+      "intent": "translate",
+      "response": "Sure! Use: translate \"<text>\" to Spanish",
+      "cleaned": "say it in spanish",
+      "tokens": [
+        "say",
+        "it",
+        "in",
+        "spanish"
+      ],
+      "filtered": [
+        "say",
+        "spanish"
+      ],
+      "lemmas": [
+        "say",
+        "spanish"
+      ],
+      "joined": "say spanish"
+    },
+    {
+      "index": 181,
+      "original": "language translation",
+      "intent": "translate",
+      "response": "I can translate text between many languages. Provide text and target language.",
+      "cleaned": "language translation",
+      "tokens": [
+        "language",
+        "translation"
+      ],
+      "filtered": [
+        "language",
+        "translation"
+      ],
+      "lemmas": [
+        "language",
+        "translation"
+      ],
+      "joined": "language translation"
+    },
+    {
+      "index": 182,
+      "original": "how to translate",
+      "intent": "translate",
+      "response": "Use the command: translate \"<your text>\" to <language>",
+      "cleaned": "how to translate",
+      "tokens": [
+        "how",
+        "to",
+        "translate"
+      ],
+      "filtered": [
+        "translate"
+      ],
+      "lemmas": [
+        "translate"
+      ],
+      "joined": "translate"
+    },
+    {
+      "index": 183,
+      "original": "medical term",
+      "intent": "medical_terms",
+      "response": "I can help with medical terminology! Use: medical <term> in <language>",
+      "cleaned": "medical term",
+      "tokens": [
+        "medical",
+        "term"
+      ],
+      "filtered": [
+        "medical",
+        "term"
+      ],
+      "lemmas": [
+        "medical",
+        "term"
+      ],
+      "joined": "medical term"
+    },
+    {
+      "index": 184,
+      "original": "what does it mean",
+      "intent": "medical_terms",
+      "response": "Please provide the medical term and I'll look it up for you.",
+      "cleaned": "what does it mean",
+      "tokens": [
+        "what",
+        "does",
+        "it",
+        "mean"
+      ],
+      "filtered": [
+        "mean"
+      ],
+      "lemmas": [
+        "mean"
+      ],
+      "joined": "mean"
+    },
+    {
+      "index": 185,
+      "original": "medical definition",
+      "intent": "medical_terms",
+      "response": "I can provide medical definitions. Use: medical <term> in <language>",
+      "cleaned": "medical definition",
+      "tokens": [
+        "medical",
+        "definition"
+      ],
+      "filtered": [
+        "medical",
+        "definition"
+      ],
+      "lemmas": [
+        "medical",
+        "definition"
+      ],
+      "joined": "medical definition"
+    },
+    {
+      "index": 186,
+      "original": "clinical term",
+      "intent": "medical_terms",
+      "response": "I can explain clinical terms. Use: medical <term> in <language>",
+      "cleaned": "clinical term",
+      "tokens": [
+        "clinical",
+        "term"
+      ],
+      "filtered": [
+        "clinical",
+        "term"
+      ],
+      "lemmas": [
+        "clinical",
+        "term"
+      ],
+      "joined": "clinical term"
+    },
+    {
+      "index": 187,
+      "original": "medical vocabulary",
+      "intent": "medical_terms",
+      "response": "I have a comprehensive medical vocabulary database. What term do you need?",
+      "cleaned": "medical vocabulary",
+      "tokens": [
+        "medical",
+        "vocabulary"
+      ],
+      "filtered": [
+        "medical",
+        "vocabulary"
+      ],
+      "lemmas": [
+        "medical",
+        "vocabulary"
+      ],
+      "joined": "medical vocabulary"
+    },
+    {
+      "index": 188,
+      "original": "define medical",
+      "intent": "medical_terms",
+      "response": "I can define medical terms in multiple languages. Use: medical <term> in <language>",
+      "cleaned": "define medical",
+      "tokens": [
+        "define",
+        "medical"
+      ],
+      "filtered": [
+        "define",
+        "medical"
+      ],
+      "lemmas": [
+        "define",
+        "medical"
+      ],
+      "joined": "define medical"
+    },
+    {
+      "index": 189,
+      "original": "medical in spanish",
+      "intent": "medical_terms",
+      "response": "I can translate medical terms to Spanish. Use: medical <term> in Spanish",
+      "cleaned": "medical in spanish",
+      "tokens": [
+        "medical",
+        "in",
+        "spanish"
+      ],
+      "filtered": [
+        "medical",
+        "spanish"
+      ],
+      "lemmas": [
+        "medical",
+        "spanish"
+      ],
+      "joined": "medical spanish"
+    },
+    {
+      "index": 190,
+      "original": "what does diagnosis mean",
+      "intent": "medical_terms",
+      "response": "A diagnosis is a clinical determination of the nature of a patient's condition.",
+      "cleaned": "what does diagnosis mean",
+      "tokens": [
+        "what",
+        "does",
+        "diagnosis",
+        "mean"
+      ],
+      "filtered": [
+        "diagnosis",
+        "mean"
+      ],
+      "lemmas": [
+        "diagnosis",
+        "mean"
+      ],
+      "joined": "diagnosis mean"
+    },
+    {
+      "index": 191,
+      "original": "medical terminology",
+      "intent": "medical_terms",
+      "response": "I can explain medical terminology. Use: medical <term> in <language>",
+      "cleaned": "medical terminology",
+      "tokens": [
+        "medical",
+        "terminology"
+      ],
+      "filtered": [
+        "medical",
+        "terminology"
+      ],
+      "lemmas": [
+        "medical",
+        "terminology"
+      ],
+      "joined": "medical terminology"
+    },
+    {
+      "index": 192,
+      "original": "explain medical term",
+      "intent": "medical_terms",
+      "response": "Sure! Provide the term and target language. Use: medical <term> in <language>",
+      "cleaned": "explain medical term",
+      "tokens": [
+        "explain",
+        "medical",
+        "term"
+      ],
+      "filtered": [
+        "explain",
+        "medical",
+        "term"
+      ],
+      "lemmas": [
+        "explain",
+        "medical",
+        "term"
+      ],
+      "joined": "explain medical term"
+    },
+    {
+      "index": 193,
+      "original": "what does hypertension mean",
+      "intent": "medical_terms",
+      "response": "Hypertension is a condition where blood pressure in the arteries is persistently elevated.",
+      "cleaned": "what does hypertension mean",
+      "tokens": [
+        "what",
+        "does",
+        "hypertension",
+        "mean"
+      ],
+      "filtered": [
+        "hypertension",
+        "mean"
+      ],
+      "lemmas": [
+        "hypertension",
+        "mean"
+      ],
+      "joined": "hypertension mean"
+    },
+    {
+      "index": 194,
+      "original": "define diabetes",
+      "intent": "medical_terms",
+      "response": "Diabetes is a metabolic disease that causes high blood sugar levels due to insulin issues.",
+      "cleaned": "define diabetes",
+      "tokens": [
+        "define",
+        "diabetes"
+      ],
+      "filtered": [
+        "define",
+        "diabetes"
+      ],
+      "lemmas": [
+        "define",
+        "diabetes"
+      ],
+      "joined": "define diabetes"
+    },
+    {
+      "index": 195,
+      "original": "what is a CBC",
+      "intent": "medical_terms",
+      "response": "CBC stands for Complete Blood Count - a blood test measuring red/white cells and platelets.",
+      "cleaned": "what is a cbc",
+      "tokens": [
+        "what",
+        "is",
+        "a",
+        "cbc"
+      ],
+      "filtered": [
+        "cbc"
+      ],
+      "lemmas": [
+        "cbc"
+      ],
+      "joined": "cbc"
+    },
+    {
+      "index": 196,
+      "original": "define sepsis",
+      "intent": "medical_terms",
+      "response": "Sepsis is a life-threatening condition caused by the body's response to an infection.",
+      "cleaned": "define sepsis",
+      "tokens": [
+        "define",
+        "sepsis"
+      ],
+      "filtered": [
+        "define",
+        "sepsis"
+      ],
+      "lemmas": [
+        "define",
+        "sepsis"
+      ],
+      "joined": "define sepsis"
+    },
+    {
+      "index": 197,
+      "original": "what is tachycardia",
+      "intent": "medical_terms",
+      "response": "Tachycardia is a heart rate that exceeds the normal resting rate (over 100 bpm in adults).",
+      "cleaned": "what is tachycardia",
+      "tokens": [
+        "what",
+        "is",
+        "tachycardia"
+      ],
+      "filtered": [
+        "tachycardia"
+      ],
+      "lemmas": [
+        "tachycardia"
+      ],
+      "joined": "tachycardia"
+    },
+    {
+      "index": 198,
+      "original": "clinical jargon",
+      "intent": "medical_terms",
+      "response": "I can help decode clinical jargon. Use: medical <term> in <language>",
+      "cleaned": "clinical jargon",
+      "tokens": [
+        "clinical",
+        "jargon"
+      ],
+      "filtered": [
+        "clinical",
+        "jargon"
+      ],
+      "lemmas": [
+        "clinical",
+        "jargon"
+      ],
+      "joined": "clinical jargon"
+    },
+    {
+      "index": 199,
+      "original": "what is bradycardia",
+      "intent": "medical_terms",
+      "response": "Bradycardia is a slower-than-normal heart rate (below 60 bpm in adults).",
+      "cleaned": "what is bradycardia",
+      "tokens": [
+        "what",
+        "is",
+        "bradycardia"
+      ],
+      "filtered": [
+        "bradycardia"
+      ],
+      "lemmas": [
+        "bradycardia"
+      ],
+      "joined": "bradycardia"
+    },
+    {
+      "index": 200,
+      "original": "define edema",
+      "intent": "medical_terms",
+      "response": "Edema is swelling caused by excess fluid trapped in the body's tissues.",
+      "cleaned": "define edema",
+      "tokens": [
+        "define",
+        "edema"
+      ],
+      "filtered": [
+        "define",
+        "edema"
+      ],
+      "lemmas": [
+        "define",
+        "edema"
+      ],
+      "joined": "define edema"
+    },
+    {
+      "index": 201,
+      "original": "what is anemia",
+      "intent": "medical_terms",
+      "response": "Anemia is a condition where there aren't enough healthy red blood cells to carry oxygen.",
+      "cleaned": "what is anemia",
+      "tokens": [
+        "what",
+        "is",
+        "anemia"
+      ],
+      "filtered": [
+        "anemia"
+      ],
+      "lemmas": [
+        "anemia"
+      ],
+      "joined": "anemia"
+    },
+    {
+      "index": 202,
+      "original": "sentiment",
+      "intent": "sentiment",
+      "response": "I can analyze the sentiment of any text. Use: sentiment <your text>",
+      "cleaned": "sentiment",
+      "tokens": [
+        "sentiment"
+      ],
+      "filtered": [
+        "sentiment"
+      ],
+      "lemmas": [
+        "sentiment"
+      ],
+      "joined": "sentiment"
+    },
+    {
+      "index": 203,
+      "original": "analyze sentiment",
+      "intent": "sentiment",
+      "response": "Sure! Provide text and I'll identify its emotional tone.",
+      "cleaned": "analyze sentiment",
+      "tokens": [
+        "analyze",
+        "sentiment"
+      ],
+      "filtered": [
+        "analyze",
+        "sentiment"
+      ],
+      "lemmas": [
+        "analyze",
+        "sentiment"
+      ],
+      "joined": "analyze sentiment"
+    },
+    {
+      "index": 204,
+      "original": "is this negative",
+      "intent": "sentiment",
+      "response": "Share the text and I'll analyze its sentiment for you.",
+      "cleaned": "is this negative",
+      "tokens": [
+        "is",
+        "this",
+        "negative"
+      ],
+      "filtered": [
+        "negative"
+      ],
+      "lemmas": [
+        "negative"
+      ],
+      "joined": "negative"
+    },
+    {
+      "index": 205,
+      "original": "how does this feel",
+      "intent": "sentiment",
+      "response": "I can assess the emotional tone of any text. Just provide it!",
+      "cleaned": "how does this feel",
+      "tokens": [
+        "how",
+        "does",
+        "this",
+        "feel"
+      ],
+      "filtered": [
+        "feel"
+      ],
+      "lemmas": [
+        "feel"
+      ],
+      "joined": "feel"
+    },
+    {
+      "index": 206,
+      "original": "emotional tone",
+      "intent": "sentiment",
+      "response": "I can detect the emotional tone of text. Use: sentiment <your text>",
+      "cleaned": "emotional tone",
+      "tokens": [
+        "emotional",
+        "tone"
+      ],
+      "filtered": [
+        "emotional",
+        "tone"
+      ],
+      "lemmas": [
+        "emotional",
+        "tone"
+      ],
+      "joined": "emotional tone"
+    },
+    {
+      "index": 207,
+      "original": "text sentiment",
+      "intent": "sentiment",
+      "response": "Provide the text and I'll analyze its sentiment right away.",
+      "cleaned": "text sentiment",
+      "tokens": [
+        "text",
+        "sentiment"
+      ],
+      "filtered": [
+        "text",
+        "sentiment"
+      ],
+      "lemmas": [
+        "text",
+        "sentiment"
+      ],
+      "joined": "text sentiment"
+    },
+    {
+      "index": 208,
+      "original": "mood of text",
+      "intent": "sentiment",
+      "response": "I can detect the mood of any text. Use: sentiment <your text>",
+      "cleaned": "mood of text",
+      "tokens": [
+        "mood",
+        "of",
+        "text"
+      ],
+      "filtered": [
+        "mood",
+        "text"
+      ],
+      "lemmas": [
+        "mood",
+        "text"
+      ],
+      "joined": "mood text"
+    },
+    {
+      "index": 209,
+      "original": "detect emotion",
+      "intent": "sentiment",
+      "response": "I can detect emotions in text. Use: sentiment <your text>",
+      "cleaned": "detect emotion",
+      "tokens": [
+        "detect",
+        "emotion"
+      ],
+      "filtered": [
+        "detect",
+        "emotion"
+      ],
+      "lemmas": [
+        "detect",
+        "emotion"
+      ],
+      "joined": "detect emotion"
+    },
+    {
+      "index": 210,
+      "original": "good sentiment",
+      "intent": "sentiment",
+      "response": "Share the text and I'll confirm whether it carries a positive sentiment.",
+      "cleaned": "good sentiment",
+      "tokens": [
+        "good",
+        "sentiment"
+      ],
+      "filtered": [
+        "good",
+        "sentiment"
+      ],
+      "lemmas": [
+        "good",
+        "sentiment"
+      ],
+      "joined": "good sentiment"
+    },
+    {
+      "index": 211,
+      "original": "bad sentiment",
+      "intent": "sentiment",
+      "response": "Provide the text and I'll determine its negative sentiment score.",
+      "cleaned": "bad sentiment",
+      "tokens": [
+        "bad",
+        "sentiment"
+      ],
+      "filtered": [
+        "bad",
+        "sentiment"
+      ],
+      "lemmas": [
+        "bad",
+        "sentiment"
+      ],
+      "joined": "bad sentiment"
+    },
+    {
+      "index": 212,
+      "original": "analyze this text",
+      "intent": "sentiment",
+      "response": "I'll analyze the sentiment of your text. Please provide it using: sentiment <text>",
+      "cleaned": "analyze this text",
+      "tokens": [
+        "analyze",
+        "this",
+        "text"
+      ],
+      "filtered": [
+        "analyze",
+        "text"
+      ],
+      "lemmas": [
+        "analyze",
+        "text"
+      ],
+      "joined": "analyze text"
+    },
+    {
+      "index": 213,
+      "original": "what is the sentiment",
+      "intent": "sentiment",
+      "response": "Share the text and I'll calculate its sentiment score and label.",
+      "cleaned": "what is the sentiment",
+      "tokens": [
+        "what",
+        "is",
+        "the",
+        "sentiment"
+      ],
+      "filtered": [
+        "sentiment"
+      ],
+      "lemmas": [
+        "sentiment"
+      ],
+      "joined": "sentiment"
+    },
+    {
+      "index": 214,
+      "original": "run sentiment analysis",
+      "intent": "sentiment",
+      "response": "Sure! Use: sentiment <your text> to get a sentiment score.",
+      "cleaned": "run sentiment analysis",
+      "tokens": [
+        "run",
+        "sentiment",
+        "analysis"
+      ],
+      "filtered": [
+        "run",
+        "sentiment",
+        "analysis"
+      ],
+      "lemmas": [
+        "run",
+        "sentiment",
+        "analysis"
+      ],
+      "joined": "run sentiment analysis"
+    },
+    {
+      "index": 215,
+      "original": "check the mood",
+      "intent": "sentiment",
+      "response": "I can check the emotional mood of any text. Use: sentiment <your text>",
+      "cleaned": "check the mood",
+      "tokens": [
+        "check",
+        "the",
+        "mood"
+      ],
+      "filtered": [
+        "check",
+        "mood"
+      ],
+      "lemmas": [
+        "check",
+        "mood"
+      ],
+      "joined": "check mood"
+    },
+    {
+      "index": 216,
+      "original": "how negative is this",
+      "intent": "sentiment",
+      "response": "Share the text and I'll calculate its negativity score.",
+      "cleaned": "how negative is this",
+      "tokens": [
+        "how",
+        "negative",
+        "is",
+        "this"
+      ],
+      "filtered": [
+        "negative"
+      ],
+      "lemmas": [
+        "negative"
+      ],
+      "joined": "negative"
+    },
+    {
+      "index": 217,
+      "original": "detect sentiment",
+      "intent": "sentiment",
+      "response": "I can detect the sentiment. Use: sentiment <your text>",
+      "cleaned": "detect sentiment",
+      "tokens": [
+        "detect",
+        "sentiment"
+      ],
+      "filtered": [
+        "detect",
+        "sentiment"
+      ],
+      "lemmas": [
+        "detect",
+        "sentiment"
+      ],
+      "joined": "detect sentiment"
+    },
+    {
+      "index": 218,
+      "original": "is this happy",
+      "intent": "sentiment",
+      "response": "Provide the text and I'll determine whether it expresses happiness!",
+      "cleaned": "is this happy",
+      "tokens": [
+        "is",
+        "this",
+        "happy"
+      ],
+      "filtered": [
+        "happy"
+      ],
+      "lemmas": [
+        "happy"
+      ],
+      "joined": "happy"
+    },
+    {
+      "index": 219,
+      "original": "is this angry",
+      "intent": "sentiment",
+      "response": "Share the text and I'll analyze its tone for anger or frustration.",
+      "cleaned": "is this angry",
+      "tokens": [
+        "is",
+        "this",
+        "angry"
+      ],
+      "filtered": [
+        "angry"
+      ],
+      "lemmas": [
+        "angry"
+      ],
+      "joined": "angry"
+    },
+    {
+      "index": 220,
+      "original": "named entity",
+      "intent": "ner",
+      "response": "I can extract named entities from text. Use: ner <your text>",
+      "cleaned": "named entity",
+      "tokens": [
+        "named",
+        "entity"
+      ],
+      "filtered": [
+        "named",
+        "entity"
+      ],
+      "lemmas": [
+        "named",
+        "entity"
+      ],
+      "joined": "named entity"
+    },
+    {
+      "index": 221,
+      "original": "ner",
+      "intent": "ner",
+      "response": "Named entity recognition is ready. Use: ner <your text>",
+      "cleaned": "ner",
+      "tokens": [
+        "ner"
+      ],
+      "filtered": [
+        "ner"
+      ],
+      "lemmas": [
+        "ner"
+      ],
+      "joined": "ner"
+    },
+    {
+      "index": 222,
+      "original": "extract entities",
+      "intent": "ner",
+      "response": "I'll identify people, places, dates, and medical terms from your text.",
+      "cleaned": "extract entities",
+      "tokens": [
+        "extract",
+        "entities"
+      ],
+      "filtered": [
+        "extract",
+        "entities"
+      ],
+      "lemmas": [
+        "extract",
+        "entity"
+      ],
+      "joined": "extract entity"
+    },
+    {
+      "index": 223,
+      "original": "find names",
+      "intent": "ner",
+      "response": "I can find names and other entities. Use: ner <your text>",
+      "cleaned": "find names",
+      "tokens": [
+        "find",
+        "names"
+      ],
+      "filtered": [
+        "find",
+        "names"
+      ],
+      "lemmas": [
+        "find",
+        "name"
+      ],
+      "joined": "find name"
+    },
+    {
+      "index": 224,
+      "original": "detect entities",
+      "intent": "ner",
+      "response": "Provide text and I'll detect all named entities within it.",
+      "cleaned": "detect entities",
+      "tokens": [
+        "detect",
+        "entities"
+      ],
+      "filtered": [
+        "detect",
+        "entities"
+      ],
+      "lemmas": [
+        "detect",
+        "entity"
+      ],
+      "joined": "detect entity"
+    },
+    {
+      "index": 225,
+      "original": "entity recognition",
+      "intent": "ner",
+      "response": "I can recognize entities in clinical text. Use: ner <your text>",
+      "cleaned": "entity recognition",
+      "tokens": [
+        "entity",
+        "recognition"
+      ],
+      "filtered": [
+        "entity",
+        "recognition"
+      ],
+      "lemmas": [
+        "entity",
+        "recognition"
+      ],
+      "joined": "entity recognition"
+    },
+    {
+      "index": 226,
+      "original": "who is mentioned",
+      "intent": "ner",
+      "response": "I can identify who or what is mentioned in any text. Use: ner <your text>",
+      "cleaned": "who is mentioned",
+      "tokens": [
+        "who",
+        "is",
+        "mentioned"
+      ],
+      "filtered": [
+        "mentioned"
+      ],
+      "lemmas": [
+        "mentioned"
+      ],
+      "joined": "mentioned"
+    },
+    {
+      "index": 227,
+      "original": "what is mentioned",
+      "intent": "ner",
+      "response": "I can extract all relevant entities. Use: ner <your text>",
+      "cleaned": "what is mentioned",
+      "tokens": [
+        "what",
+        "is",
+        "mentioned"
+      ],
+      "filtered": [
+        "mentioned"
+      ],
+      "lemmas": [
+        "mentioned"
+      ],
+      "joined": "mentioned"
+    },
+    {
+      "index": 228,
+      "original": "extract information",
+      "intent": "ner",
+      "response": "I'll extract key information from your text. Use: ner <your text>",
+      "cleaned": "extract information",
+      "tokens": [
+        "extract",
+        "information"
+      ],
+      "filtered": [
+        "extract",
+        "information"
+      ],
+      "lemmas": [
+        "extract",
+        "information"
+      ],
+      "joined": "extract information"
+    },
+    {
+      "index": 229,
+      "original": "find dates",
+      "intent": "ner",
+      "response": "I can extract dates and other entities. Use: ner <your text>",
+      "cleaned": "find dates",
+      "tokens": [
+        "find",
+        "dates"
+      ],
+      "filtered": [
+        "find",
+        "dates"
+      ],
+      "lemmas": [
+        "find",
+        "date"
+      ],
+      "joined": "find date"
+    },
+    {
+      "index": 230,
+      "original": "extract medical entities",
+      "intent": "ner",
+      "response": "I can extract medical entities from clinical text. Use: ner <your text>",
+      "cleaned": "extract medical entities",
+      "tokens": [
+        "extract",
+        "medical",
+        "entities"
+      ],
+      "filtered": [
+        "extract",
+        "medical",
+        "entities"
+      ],
+      "lemmas": [
+        "extract",
+        "medical",
+        "entity"
+      ],
+      "joined": "extract medical entity"
+    },
+    {
+      "index": 231,
+      "original": "find people",
+      "intent": "ner",
+      "response": "I can find people mentioned in text. Use: ner <your text>",
+      "cleaned": "find people",
+      "tokens": [
+        "find",
+        "people"
+      ],
+      "filtered": [
+        "find",
+        "people"
+      ],
+      "lemmas": [
+        "find",
+        "people"
+      ],
+      "joined": "find people"
+    },
+    {
+      "index": 232,
+      "original": "find organizations",
+      "intent": "ner",
+      "response": "I can identify organizations in your text. Use: ner <your text>",
+      "cleaned": "find organizations",
+      "tokens": [
+        "find",
+        "organizations"
+      ],
+      "filtered": [
+        "find",
+        "organizations"
+      ],
+      "lemmas": [
+        "find",
+        "organization"
+      ],
+      "joined": "find organization"
+    },
+    {
+      "index": 233,
+      "original": "find locations",
+      "intent": "ner",
+      "response": "I can extract locations mentioned in your text. Use: ner <your text>",
+      "cleaned": "find locations",
+      "tokens": [
+        "find",
+        "locations"
+      ],
+      "filtered": [
+        "find",
+        "locations"
+      ],
+      "lemmas": [
+        "find",
+        "location"
+      ],
+      "joined": "find location"
+    },
+    {
+      "index": 234,
+      "original": "what entities are in this",
+      "intent": "ner",
+      "response": "Use: ner <your text> and I'll extract all named entities.",
+      "cleaned": "what entities are in this",
+      "tokens": [
+        "what",
+        "entities",
+        "are",
+        "in",
+        "this"
+      ],
+      "filtered": [
+        "entities"
+      ],
+      "lemmas": [
+        "entity"
+      ],
+      "joined": "entity"
+    },
+    {
+      "index": 235,
+      "original": "extract proper nouns",
+      "intent": "ner",
+      "response": "I can extract proper nouns and named entities. Use: ner <your text>",
+      "cleaned": "extract proper nouns",
+      "tokens": [
+        "extract",
+        "proper",
+        "nouns"
+      ],
+      "filtered": [
+        "extract",
+        "proper",
+        "nouns"
+      ],
+      "lemmas": [
+        "extract",
+        "proper",
+        "noun"
+      ],
+      "joined": "extract proper noun"
+    },
+    {
+      "index": 236,
+      "original": "identify names",
+      "intent": "ner",
+      "response": "I can identify names and named entities in text. Use: ner <your text>",
+      "cleaned": "identify names",
+      "tokens": [
+        "identify",
+        "names"
+      ],
+      "filtered": [
+        "identify",
+        "names"
+      ],
+      "lemmas": [
+        "identify",
+        "name"
+      ],
+      "joined": "identify name"
+    },
+    {
+      "index": 237,
+      "original": "run ner",
+      "intent": "ner",
+      "response": "Sure! Use: ner <your text> to run Named Entity Recognition.",
+      "cleaned": "run ner",
+      "tokens": [
+        "run",
+        "ner"
+      ],
+      "filtered": [
+        "run",
+        "ner"
+      ],
+      "lemmas": [
+        "run",
+        "ner"
+      ],
+      "joined": "run ner"
+    },
+    {
+      "index": 238,
+      "original": "entity extraction",
+      "intent": "ner",
+      "response": "I can perform entity extraction on any text. Use: ner <your text>",
+      "cleaned": "entity extraction",
+      "tokens": [
+        "entity",
+        "extraction"
+      ],
+      "filtered": [
+        "entity",
+        "extraction"
+      ],
+      "lemmas": [
+        "entity",
+        "extraction"
+      ],
+      "joined": "entity extraction"
+    },
+    {
+      "index": 239,
+      "original": "find medical entities",
+      "intent": "ner",
+      "response": "I'll identify medical terms, patient IDs, and clinical entities. Use: ner <text>",
+      "cleaned": "find medical entities",
+      "tokens": [
+        "find",
+        "medical",
+        "entities"
+      ],
+      "filtered": [
+        "find",
+        "medical",
+        "entities"
+      ],
+      "lemmas": [
+        "find",
+        "medical",
+        "entity"
+      ],
+      "joined": "find medical entity"
+    },
+    {
+      "index": 240,
+      "original": "who appears in this text",
+      "intent": "ner",
+      "response": "I can identify who appears in the text. Use: ner <your text>",
+      "cleaned": "who appears in this text",
+      "tokens": [
+        "who",
+        "appears",
+        "in",
+        "this",
+        "text"
+      ],
+      "filtered": [
+        "appears",
+        "text"
+      ],
+      "lemmas": [
+        "appears",
+        "text"
+      ],
+      "joined": "appears text"
+    },
+    {
+      "index": 241,
+      "original": "cbc",
+      "intent": "lab_results",
+      "response": "I can help with CBC (Complete Blood Count) lab values. Which patient or panel are you interested in?",
+      "cleaned": "cbc",
+      "tokens": [
+        "cbc"
+      ],
+      "filtered": [
+        "cbc"
+      ],
+      "lemmas": [
+        "cbc"
+      ],
+      "joined": "cbc"
+    },
+    {
+      "index": 242,
+      "original": "metabolic panel",
+      "intent": "lab_results",
+      "response": "Metabolic panel data is available. Please provide a patient ID for specific results.",
+      "cleaned": "metabolic panel",
+      "tokens": [
+        "metabolic",
+        "panel"
+      ],
+      "filtered": [
+        "metabolic",
+        "panel"
+      ],
+      "lemmas": [
+        "metabolic",
+        "panel"
+      ],
+      "joined": "metabolic panel"
+    },
+    {
+      "index": 243,
+      "original": "blood work",
+      "intent": "lab_results",
+      "response": "I can help interpret blood work results. Provide a patient ID for their lab data.",
+      "cleaned": "blood work",
+      "tokens": [
+        "blood",
+        "work"
+      ],
+      "filtered": [
+        "blood",
+        "work"
+      ],
+      "lemmas": [
+        "blood",
+        "work"
+      ],
+      "joined": "blood work"
+    },
+    {
+      "index": 244,
+      "original": "lab data",
+      "intent": "lab_results",
+      "response": "Lab data is linked to patient admissions. Provide a patient ID for specific lab results.",
+      "cleaned": "lab data",
+      "tokens": [
+        "lab",
+        "data"
+      ],
+      "filtered": [
+        "lab",
+        "data"
+      ],
+      "lemmas": [
+        "lab",
+        "data"
+      ],
+      "joined": "lab data"
+    },
+    {
+      "index": 245,
+      "original": "test results",
+      "intent": "lab_results",
+      "response": "I can retrieve test results. Please provide the patient ID.",
+      "cleaned": "test results",
+      "tokens": [
+        "test",
+        "results"
+      ],
+      "filtered": [
+        "test",
+        "results"
+      ],
+      "lemmas": [
+        "test",
+        "result"
+      ],
+      "joined": "test result"
+    },
+    {
+      "index": 246,
+      "original": "hemoglobin",
+      "intent": "lab_results",
+      "response": "Hemoglobin values are part of the CBC panel. Provide a patient ID for their specific value.",
+      "cleaned": "hemoglobin",
+      "tokens": [
+        "hemoglobin"
+      ],
+      "filtered": [
+        "hemoglobin"
+      ],
+      "lemmas": [
+        "hemoglobin"
+      ],
+      "joined": "hemoglobin"
+    },
+    {
+      "index": 247,
+      "original": "glucose level",
+      "intent": "lab_results",
+      "response": "Glucose levels are tracked in the metabolic panel. Provide a patient ID to see their results.",
+      "cleaned": "glucose level",
+      "tokens": [
+        "glucose",
+        "level"
+      ],
+      "filtered": [
+        "glucose",
+        "level"
+      ],
+      "lemmas": [
+        "glucose",
+        "level"
+      ],
+      "joined": "glucose level"
+    },
+    {
+      "index": 248,
+      "original": "creatinine",
+      "intent": "lab_results",
+      "response": "Creatinine is a key metabolic indicator. Provide a patient ID for their specific value.",
+      "cleaned": "creatinine",
+      "tokens": [
+        "creatinine"
+      ],
+      "filtered": [
+        "creatinine"
+      ],
+      "lemmas": [
+        "creatinine"
+      ],
+      "joined": "creatinine"
+    },
+    {
+      "index": 249,
+      "original": "lab values",
+      "intent": "lab_results",
+      "response": "I can look up lab values by patient ID. Which patient or test are you looking for?",
+      "cleaned": "lab values",
+      "tokens": [
+        "lab",
+        "values"
+      ],
+      "filtered": [
+        "lab",
+        "values"
+      ],
+      "lemmas": [
+        "lab",
+        "value"
+      ],
+      "joined": "lab value"
+    },
+    {
+      "index": 250,
+      "original": "alt sgpt",
+      "intent": "lab_results",
+      "response": "ALT/SGPT (alanine aminotransferase) is a liver enzyme test. Provide a patient ID for their results.",
+      "cleaned": "alt sgpt",
+      "tokens": [
+        "alt",
+        "sgpt"
+      ],
+      "filtered": [
+        "alt",
+        "sgpt"
+      ],
+      "lemmas": [
+        "alt",
+        "sgpt"
+      ],
+      "joined": "alt sgpt"
+    },
+    {
+      "index": 251,
+      "original": "urinalysis",
+      "intent": "lab_results",
+      "response": "Urinalysis results are available. Provide a patient ID to retrieve their data.",
+      "cleaned": "urinalysis",
+      "tokens": [
+        "urinalysis"
+      ],
+      "filtered": [
+        "urinalysis"
+      ],
+      "lemmas": [
+        "urinalysis"
+      ],
+      "joined": "urinalysis"
+    },
+    {
+      "index": 252,
+      "original": "blood test results",
+      "intent": "lab_results",
+      "response": "I can retrieve blood test results. Please provide the patient ID.",
+      "cleaned": "blood test results",
+      "tokens": [
+        "blood",
+        "test",
+        "results"
+      ],
+      "filtered": [
+        "blood",
+        "test",
+        "results"
+      ],
+      "lemmas": [
+        "blood",
+        "test",
+        "result"
+      ],
+      "joined": "blood test result"
+    },
+    {
+      "index": 253,
+      "original": "show lab results",
+      "intent": "lab_results",
+      "response": "I can show lab results. Please provide the patient ID.",
+      "cleaned": "show lab results",
+      "tokens": [
+        "show",
+        "lab",
+        "results"
+      ],
+      "filtered": [
+        "show",
+        "lab",
+        "results"
+      ],
+      "lemmas": [
+        "show",
+        "lab",
+        "result"
+      ],
+      "joined": "show lab result"
+    },
+    {
+      "index": 254,
+      "original": "get lab data",
+      "intent": "lab_results",
+      "response": "Fetching lab data. Please provide the patient ID.",
+      "cleaned": "get lab data",
+      "tokens": [
+        "get",
+        "lab",
+        "data"
+      ],
+      "filtered": [
+        "get",
+        "lab",
+        "data"
+      ],
+      "lemmas": [
+        "get",
+        "lab",
+        "data"
+      ],
+      "joined": "get lab data"
+    },
+    {
+      "index": 255,
+      "original": "platelet count",
+      "intent": "lab_results",
+      "response": "Platelet counts are part of the CBC panel. Provide a patient ID to see their value.",
+      "cleaned": "platelet count",
+      "tokens": [
+        "platelet",
+        "count"
+      ],
+      "filtered": [
+        "platelet",
+        "count"
+      ],
+      "lemmas": [
+        "platelet",
+        "count"
+      ],
+      "joined": "platelet count"
+    },
+    {
+      "index": 256,
+      "original": "white blood cells",
+      "intent": "lab_results",
+      "response": "White blood cell counts are in the CBC panel. Provide a patient ID for their results.",
+      "cleaned": "white blood cells",
+      "tokens": [
+        "white",
+        "blood",
+        "cells"
+      ],
+      "filtered": [
+        "white",
+        "blood",
+        "cells"
+      ],
+      "lemmas": [
+        "white",
+        "blood",
+        "cell"
+      ],
+      "joined": "white blood cell"
+    },
+    {
+      "index": 257,
+      "original": "red blood cells",
+      "intent": "lab_results",
+      "response": "Red blood cell counts come from the CBC panel. Provide a patient ID.",
+      "cleaned": "red blood cells",
+      "tokens": [
+        "red",
+        "blood",
+        "cells"
+      ],
+      "filtered": [
+        "red",
+        "blood",
+        "cells"
+      ],
+      "lemmas": [
+        "red",
+        "blood",
+        "cell"
+      ],
+      "joined": "red blood cell"
+    },
+    {
+      "index": 258,
+      "original": "lab panel",
+      "intent": "lab_results",
+      "response": "I can retrieve any lab panel result. Please provide the patient ID and panel name.",
+      "cleaned": "lab panel",
+      "tokens": [
+        "lab",
+        "panel"
+      ],
+      "filtered": [
+        "lab",
+        "panel"
+      ],
+      "lemmas": [
+        "lab",
+        "panel"
+      ],
+      "joined": "lab panel"
+    },
+    {
+      "index": 259,
+      "original": "bun creatinine",
+      "intent": "lab_results",
+      "response": "BUN and creatinine are kidney function indicators in the metabolic panel. Provide a patient ID.",
+      "cleaned": "bun creatinine",
+      "tokens": [
+        "bun",
+        "creatinine"
+      ],
+      "filtered": [
+        "bun",
+        "creatinine"
+      ],
+      "lemmas": [
+        "bun",
+        "creatinine"
+      ],
+      "joined": "bun creatinine"
+    },
+    {
+      "index": 260,
+      "original": "sodium potassium",
+      "intent": "lab_results",
+      "response": "Sodium and potassium are electrolytes measured in the metabolic panel. Provide a patient ID.",
+      "cleaned": "sodium potassium",
+      "tokens": [
+        "sodium",
+        "potassium"
+      ],
+      "filtered": [
+        "sodium",
+        "potassium"
+      ],
+      "lemmas": [
+        "sodium",
+        "potassium"
+      ],
+      "joined": "sodium potassium"
+    },
+    {
+      "index": 261,
+      "original": "tell me more",
+      "intent": "context_followup",
+      "response": "Happy to elaborate! Could you specify which topic you'd like more detail on?",
+      "cleaned": "tell me more",
+      "tokens": [
+        "tell",
+        "me",
+        "more"
+      ],
+      "filtered": [
+        "tell"
+      ],
+      "lemmas": [
+        "tell"
+      ],
+      "joined": "tell"
+    },
+    {
+      "index": 262,
+      "original": "what else",
+      "intent": "context_followup",
+      "response": "Of course! Let me know which area you'd like me to expand on.",
+      "cleaned": "what else",
+      "tokens": [
+        "what",
+        "else"
+      ],
+      "filtered": [
+        "else"
+      ],
+      "lemmas": [
+        "else"
+      ],
+      "joined": "else"
+    },
+    {
+      "index": 263,
+      "original": "and then",
+      "intent": "context_followup",
+      "response": "Sure! What would you like to know next?",
+      "cleaned": "and then",
+      "tokens": [
+        "and",
+        "then"
+      ],
+      "filtered": [],
+      "lemmas": [],
+      "joined": ""
+    },
+    {
+      "index": 264,
+      "original": "continue",
+      "intent": "context_followup",
+      "response": "I'll continue! What specific information are you looking for?",
+      "cleaned": "continue",
+      "tokens": [
+        "continue"
+      ],
+      "filtered": [
+        "continue"
+      ],
+      "lemmas": [
+        "continue"
+      ],
+      "joined": "continue"
+    },
+    {
+      "index": 265,
+      "original": "more details",
+      "intent": "context_followup",
+      "response": "I can provide more details. Which topic would you like me to elaborate on?",
+      "cleaned": "more details",
+      "tokens": [
+        "more",
+        "details"
+      ],
+      "filtered": [
+        "details"
+      ],
+      "lemmas": [
+        "detail"
+      ],
+      "joined": "detail"
+    },
+    {
+      "index": 266,
+      "original": "elaborate",
+      "intent": "context_followup",
+      "response": "I'd be happy to elaborate. What aspect do you need more information on?",
+      "cleaned": "elaborate",
+      "tokens": [
+        "elaborate"
+      ],
+      "filtered": [
+        "elaborate"
+      ],
+      "lemmas": [
+        "elaborate"
+      ],
+      "joined": "elaborate"
+    },
+    {
+      "index": 267,
+      "original": "anything else",
+      "intent": "context_followup",
+      "response": "Is there anything else I can help you with today?",
+      "cleaned": "anything else",
+      "tokens": [
+        "anything",
+        "else"
+      ],
+      "filtered": [
+        "anything",
+        "else"
+      ],
+      "lemmas": [
+        "anything",
+        "else"
+      ],
+      "joined": "anything else"
+    },
+    {
+      "index": 268,
+      "original": "can you explain",
+      "intent": "context_followup",
+      "response": "Of course! What would you like me to explain in more detail?",
+      "cleaned": "can you explain",
+      "tokens": [
+        "can",
+        "you",
+        "explain"
+      ],
+      "filtered": [
+        "explain"
+      ],
+      "lemmas": [
+        "explain"
+      ],
+      "joined": "explain"
+    },
+    {
+      "index": 269,
+      "original": "explain that",
+      "intent": "context_followup",
+      "response": "Happy to explain further. Which part would you like clarified?",
+      "cleaned": "explain that",
+      "tokens": [
+        "explain",
+        "that"
+      ],
+      "filtered": [
+        "explain"
+      ],
+      "lemmas": [
+        "explain"
+      ],
+      "joined": "explain"
+    },
+    {
+      "index": 270,
+      "original": "can you repeat",
+      "intent": "context_followup",
+      "response": "Sure! Let me repeat the information for you. What would you like me to go over again?",
+      "cleaned": "can you repeat",
+      "tokens": [
+        "can",
+        "you",
+        "repeat"
+      ],
+      "filtered": [
+        "repeat"
+      ],
+      "lemmas": [
+        "repeat"
+      ],
+      "joined": "repeat"
+    },
+    {
+      "index": 271,
+      "original": "i don't understand",
+      "intent": "context_followup",
+      "response": "I'll try to clarify. Which part was unclear?",
+      "cleaned": "i don t understand",
+      "tokens": [
+        "i",
+        "don",
+        "t",
+        "understand"
+      ],
+      "filtered": [
+        "understand"
+      ],
+      "lemmas": [
+        "understand"
+      ],
+      "joined": "understand"
+    },
+    {
+      "index": 272,
+      "original": "i didn't get that",
+      "intent": "context_followup",
+      "response": "Let me rephrase that. What part would you like me to explain again?",
+      "cleaned": "i didn t get that",
+      "tokens": [
+        "i",
+        "didn",
+        "t",
+        "get",
+        "that"
+      ],
+      "filtered": [
+        "get"
+      ],
+      "lemmas": [
+        "get"
+      ],
+      "joined": "get"
+    },
+    {
+      "index": 273,
+      "original": "what do you mean",
+      "intent": "context_followup",
+      "response": "I'll clarify! Which part of my response was confusing?",
+      "cleaned": "what do you mean",
+      "tokens": [
+        "what",
+        "do",
+        "you",
+        "mean"
+      ],
+      "filtered": [
+        "mean"
+      ],
+      "lemmas": [
+        "mean"
+      ],
+      "joined": "mean"
+    },
+    {
+      "index": 274,
+      "original": "please explain",
+      "intent": "context_followup",
+      "response": "Sure! What would you like me to explain in more detail?",
+      "cleaned": "please explain",
+      "tokens": [
+        "please",
+        "explain"
+      ],
+      "filtered": [
+        "please",
+        "explain"
+      ],
+      "lemmas": [
+        "please",
+        "explain"
+      ],
+      "joined": "please explain"
+    },
+    {
+      "index": 275,
+      "original": "can you clarify",
+      "intent": "context_followup",
+      "response": "Happy to clarify. What part was unclear?",
+      "cleaned": "can you clarify",
+      "tokens": [
+        "can",
+        "you",
+        "clarify"
+      ],
+      "filtered": [
+        "clarify"
+      ],
+      "lemmas": [
+        "clarify"
+      ],
+      "joined": "clarify"
+    },
+    {
+      "index": 276,
+      "original": "i need more info",
+      "intent": "context_followup",
+      "response": "I can provide more information. Which topic would you like to expand on?",
+      "cleaned": "i need more info",
+      "tokens": [
+        "i",
+        "need",
+        "more",
+        "info"
+      ],
+      "filtered": [
+        "need",
+        "info"
+      ],
+      "lemmas": [
+        "need",
+        "info"
+      ],
+      "joined": "need info"
+    },
+    {
+      "index": 277,
+      "original": "give me more",
+      "intent": "context_followup",
+      "response": "Sure! What would you like more detail about?",
+      "cleaned": "give me more",
+      "tokens": [
+        "give",
+        "me",
+        "more"
+      ],
+      "filtered": [
+        "give"
+      ],
+      "lemmas": [
+        "give"
+      ],
+      "joined": "give"
+    },
+    {
+      "index": 278,
+      "original": "additional details",
+      "intent": "context_followup",
+      "response": "I can give additional details. What topic would you like more information on?",
+      "cleaned": "additional details",
+      "tokens": [
+        "additional",
+        "details"
+      ],
+      "filtered": [
+        "additional",
+        "details"
+      ],
+      "lemmas": [
+        "additional",
+        "detail"
+      ],
+      "joined": "additional detail"
+    },
+    {
+      "index": 279,
+      "original": "keep going",
+      "intent": "context_followup",
+      "response": "I'll continue! What would you like to know next?",
+      "cleaned": "keep going",
+      "tokens": [
+        "keep",
+        "going"
+      ],
+      "filtered": [
+        "keep",
+        "going"
+      ],
+      "lemmas": [
+        "keep",
+        "going"
+      ],
+      "joined": "keep going"
+    },
+    {
+      "index": 280,
+      "original": "explain more",
+      "intent": "context_followup",
+      "response": "Happy to explain more. Which part would you like me to elaborate on?",
+      "cleaned": "explain more",
+      "tokens": [
+        "explain",
+        "more"
+      ],
+      "filtered": [
+        "explain"
+      ],
+      "lemmas": [
+        "explain"
+      ],
+      "joined": "explain"
+    },
+    {
+      "index": 281,
+      "original": "race distribution",
+      "intent": "insights_race",
+      "response": "Let me pull up the race distribution across the patient population.",
+      "cleaned": "race distribution",
+      "tokens": [
+        "race",
+        "distribution"
+      ],
+      "filtered": [
+        "race",
+        "distribution"
+      ],
+      "lemmas": [
+        "race",
+        "distribution"
+      ],
+      "joined": "race distribution"
+    },
+    {
+      "index": 282,
+      "original": "racial breakdown",
+      "intent": "insights_race",
+      "response": "Fetching the racial breakdown from the patient database.",
+      "cleaned": "racial breakdown",
+      "tokens": [
+        "racial",
+        "breakdown"
+      ],
+      "filtered": [
+        "racial",
+        "breakdown"
+      ],
+      "lemmas": [
+        "racial",
+        "breakdown"
+      ],
+      "joined": "racial breakdown"
+    },
+    {
+      "index": 283,
+      "original": "patient race statistics",
+      "intent": "insights_race",
+      "response": "Loading race statistics from the clinical database.",
+      "cleaned": "patient race statistics",
+      "tokens": [
+        "patient",
+        "race",
+        "statistics"
+      ],
+      "filtered": [
+        "patient",
+        "race",
+        "statistics"
+      ],
+      "lemmas": [
+        "patient",
+        "race",
+        "statistic"
+      ],
+      "joined": "patient race statistic"
+    },
+    {
+      "index": 284,
+      "original": "how many asian patients",
+      "intent": "insights_race",
+      "response": "Let me count the number of Asian patients in the database.",
+      "cleaned": "how many asian patients",
+      "tokens": [
+        "how",
+        "many",
+        "asian",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "asian",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "asian",
+        "patient"
+      ],
+      "joined": "many asian patient"
+    },
+    {
+      "index": 285,
+      "original": "how many hispanic patients",
+      "intent": "insights_race",
+      "response": "Fetching the count of Hispanic patients from the database.",
+      "cleaned": "how many hispanic patients",
+      "tokens": [
+        "how",
+        "many",
+        "hispanic",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "hispanic",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "hispanic",
+        "patient"
+      ],
+      "joined": "many hispanic patient"
+    },
+    {
+      "index": 286,
+      "original": "race insights",
+      "intent": "insights_race",
+      "response": "Here are the race-based insights from the patient population.",
+      "cleaned": "race insights",
+      "tokens": [
+        "race",
+        "insights"
+      ],
+      "filtered": [
+        "race",
+        "insights"
+      ],
+      "lemmas": [
+        "race",
+        "insight"
+      ],
+      "joined": "race insight"
+    },
+    {
+      "index": 287,
+      "original": "ethnicity distribution",
+      "intent": "insights_race",
+      "response": "I can show the ethnicity/race distribution. Fetching data now.",
+      "cleaned": "ethnicity distribution",
+      "tokens": [
+        "ethnicity",
+        "distribution"
+      ],
+      "filtered": [
+        "ethnicity",
+        "distribution"
+      ],
+      "lemmas": [
+        "ethnicity",
+        "distribution"
+      ],
+      "joined": "ethnicity distribution"
+    },
+    {
+      "index": 288,
+      "original": "racial statistics",
+      "intent": "insights_race",
+      "response": "Loading racial statistics from the patient records.",
+      "cleaned": "racial statistics",
+      "tokens": [
+        "racial",
+        "statistics"
+      ],
+      "filtered": [
+        "racial",
+        "statistics"
+      ],
+      "lemmas": [
+        "racial",
+        "statistic"
+      ],
+      "joined": "racial statistic"
+    },
+    {
+      "index": 289,
+      "original": "how many white patients",
+      "intent": "insights_race",
+      "response": "Let me count the number of White patients in the database.",
+      "cleaned": "how many white patients",
+      "tokens": [
+        "how",
+        "many",
+        "white",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "white",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "white",
+        "patient"
+      ],
+      "joined": "many white patient"
+    },
+    {
+      "index": 290,
+      "original": "show race data",
+      "intent": "insights_race",
+      "response": "Pulling up race data from the patient records.",
+      "cleaned": "show race data",
+      "tokens": [
+        "show",
+        "race",
+        "data"
+      ],
+      "filtered": [
+        "show",
+        "race",
+        "data"
+      ],
+      "lemmas": [
+        "show",
+        "race",
+        "data"
+      ],
+      "joined": "show race data"
+    },
+    {
+      "index": 291,
+      "original": "race demographics",
+      "intent": "insights_race",
+      "response": "Fetching race demographic data from the patient population.",
+      "cleaned": "race demographics",
+      "tokens": [
+        "race",
+        "demographics"
+      ],
+      "filtered": [
+        "race",
+        "demographics"
+      ],
+      "lemmas": [
+        "race",
+        "demographic"
+      ],
+      "joined": "race demographic"
+    },
+    {
+      "index": 292,
+      "original": "race percentages",
+      "intent": "insights_race",
+      "response": "Calculating race percentages across the patient population.",
+      "cleaned": "race percentages",
+      "tokens": [
+        "race",
+        "percentages"
+      ],
+      "filtered": [
+        "race",
+        "percentages"
+      ],
+      "lemmas": [
+        "race",
+        "percentage"
+      ],
+      "joined": "race percentage"
+    },
+    {
+      "index": 293,
+      "original": "racial disparities",
+      "intent": "insights_race",
+      "response": "Loading data on racial distribution across the patient population.",
+      "cleaned": "racial disparities",
+      "tokens": [
+        "racial",
+        "disparities"
+      ],
+      "filtered": [
+        "racial",
+        "disparities"
+      ],
+      "lemmas": [
+        "racial",
+        "disparity"
+      ],
+      "joined": "racial disparity"
+    },
+    {
+      "index": 294,
+      "original": "minority patients",
+      "intent": "insights_race",
+      "response": "Fetching demographic data on minority patients in the database.",
+      "cleaned": "minority patients",
+      "tokens": [
+        "minority",
+        "patients"
+      ],
+      "filtered": [
+        "minority",
+        "patients"
+      ],
+      "lemmas": [
+        "minority",
+        "patient"
+      ],
+      "joined": "minority patient"
+    },
+    {
+      "index": 295,
+      "original": "racial composition",
+      "intent": "insights_race",
+      "response": "Here is the racial composition of the patient population.",
+      "cleaned": "racial composition",
+      "tokens": [
+        "racial",
+        "composition"
+      ],
+      "filtered": [
+        "racial",
+        "composition"
+      ],
+      "lemmas": [
+        "racial",
+        "composition"
+      ],
+      "joined": "racial composition"
+    },
+    {
+      "index": 296,
+      "original": "race report",
+      "intent": "insights_race",
+      "response": "Generating a race distribution report from the patient database.",
+      "cleaned": "race report",
+      "tokens": [
+        "race",
+        "report"
+      ],
+      "filtered": [
+        "race",
+        "report"
+      ],
+      "lemmas": [
+        "race",
+        "report"
+      ],
+      "joined": "race report"
+    },
+    {
+      "index": 297,
+      "original": "how many black patients",
+      "intent": "insights_race",
+      "response": "Let me count the number of Black/African American patients in the database.",
+      "cleaned": "how many black patients",
+      "tokens": [
+        "how",
+        "many",
+        "black",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "black",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "black",
+        "patient"
+      ],
+      "joined": "many black patient"
+    },
+    {
+      "index": 298,
+      "original": "diversity statistics",
+      "intent": "insights_race",
+      "response": "Loading diversity and race statistics from the patient population.",
+      "cleaned": "diversity statistics",
+      "tokens": [
+        "diversity",
+        "statistics"
+      ],
+      "filtered": [
+        "diversity",
+        "statistics"
+      ],
+      "lemmas": [
+        "diversity",
+        "statistic"
+      ],
+      "joined": "diversity statistic"
+    },
+    {
+      "index": 299,
+      "original": "race of patients",
+      "intent": "insights_race",
+      "response": "Here is the race breakdown for all patients in the clinical database.",
+      "cleaned": "race of patients",
+      "tokens": [
+        "race",
+        "of",
+        "patients"
+      ],
+      "filtered": [
+        "race",
+        "patients"
+      ],
+      "lemmas": [
+        "race",
+        "patient"
+      ],
+      "joined": "race patient"
+    },
+    {
+      "index": 300,
+      "original": "patient ethnicity",
+      "intent": "insights_race",
+      "response": "Fetching ethnicity data for all patients in the database.",
+      "cleaned": "patient ethnicity",
+      "tokens": [
+        "patient",
+        "ethnicity"
+      ],
+      "filtered": [
+        "patient",
+        "ethnicity"
+      ],
+      "lemmas": [
+        "patient",
+        "ethnicity"
+      ],
+      "joined": "patient ethnicity"
+    },
+    {
+      "index": 301,
+      "original": "marital status distribution",
+      "intent": "insights_marital",
+      "response": "Let me pull up marital status statistics for the patient population.",
+      "cleaned": "marital status distribution",
+      "tokens": [
+        "marital",
+        "status",
+        "distribution"
+      ],
+      "filtered": [
+        "marital",
+        "status",
+        "distribution"
+      ],
+      "lemmas": [
+        "marital",
+        "status",
+        "distribution"
+      ],
+      "joined": "marital status distribution"
+    },
+    {
+      "index": 302,
+      "original": "how many married patients",
+      "intent": "insights_marital",
+      "response": "Fetching the count of married patients from the database.",
+      "cleaned": "how many married patients",
+      "tokens": [
+        "how",
+        "many",
+        "married",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "married",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "married",
+        "patient"
+      ],
+      "joined": "many married patient"
+    },
+    {
+      "index": 303,
+      "original": "single patients",
+      "intent": "insights_marital",
+      "response": "Let me check how many patients are listed as single.",
+      "cleaned": "single patients",
+      "tokens": [
+        "single",
+        "patients"
+      ],
+      "filtered": [
+        "single",
+        "patients"
+      ],
+      "lemmas": [
+        "single",
+        "patient"
+      ],
+      "joined": "single patient"
+    },
+    {
+      "index": 304,
+      "original": "marital breakdown",
+      "intent": "insights_marital",
+      "response": "Here is the marital status breakdown for all patients.",
+      "cleaned": "marital breakdown",
+      "tokens": [
+        "marital",
+        "breakdown"
+      ],
+      "filtered": [
+        "marital",
+        "breakdown"
+      ],
+      "lemmas": [
+        "marital",
+        "breakdown"
+      ],
+      "joined": "marital breakdown"
+    },
+    {
+      "index": 305,
+      "original": "divorce statistics",
+      "intent": "insights_marital",
+      "response": "Fetching divorce/separated patient statistics from the database.",
+      "cleaned": "divorce statistics",
+      "tokens": [
+        "divorce",
+        "statistics"
+      ],
+      "filtered": [
+        "divorce",
+        "statistics"
+      ],
+      "lemmas": [
+        "divorce",
+        "statistic"
+      ],
+      "joined": "divorce statistic"
+    },
+    {
+      "index": 306,
+      "original": "marital status insights",
+      "intent": "insights_marital",
+      "response": "Here are the marital status insights from the clinical population.",
+      "cleaned": "marital status insights",
+      "tokens": [
+        "marital",
+        "status",
+        "insights"
+      ],
+      "filtered": [
+        "marital",
+        "status",
+        "insights"
+      ],
+      "lemmas": [
+        "marital",
+        "status",
+        "insight"
+      ],
+      "joined": "marital status insight"
+    },
+    {
+      "index": 307,
+      "original": "how many divorced",
+      "intent": "insights_marital",
+      "response": "Let me count the number of divorced patients in the database.",
+      "cleaned": "how many divorced",
+      "tokens": [
+        "how",
+        "many",
+        "divorced"
+      ],
+      "filtered": [
+        "many",
+        "divorced"
+      ],
+      "lemmas": [
+        "many",
+        "divorced"
+      ],
+      "joined": "many divorced"
+    },
+    {
+      "index": 308,
+      "original": "widowed patients",
+      "intent": "insights_marital",
+      "response": "Fetching data on widowed patients in the clinical database.",
+      "cleaned": "widowed patients",
+      "tokens": [
+        "widowed",
+        "patients"
+      ],
+      "filtered": [
+        "widowed",
+        "patients"
+      ],
+      "lemmas": [
+        "widowed",
+        "patient"
+      ],
+      "joined": "widowed patient"
+    },
+    {
+      "index": 309,
+      "original": "patient relationship status",
+      "intent": "insights_marital",
+      "response": "Loading relationship/marital status data from the patient records.",
+      "cleaned": "patient relationship status",
+      "tokens": [
+        "patient",
+        "relationship",
+        "status"
+      ],
+      "filtered": [
+        "patient",
+        "relationship",
+        "status"
+      ],
+      "lemmas": [
+        "patient",
+        "relationship",
+        "status"
+      ],
+      "joined": "patient relationship status"
+    },
+    {
+      "index": 310,
+      "original": "marital demographics",
+      "intent": "insights_marital",
+      "response": "Fetching marital demographic data from the patient population.",
+      "cleaned": "marital demographics",
+      "tokens": [
+        "marital",
+        "demographics"
+      ],
+      "filtered": [
+        "marital",
+        "demographics"
+      ],
+      "lemmas": [
+        "marital",
+        "demographic"
+      ],
+      "joined": "marital demographic"
+    },
+    {
+      "index": 311,
+      "original": "marital stats",
+      "intent": "insights_marital",
+      "response": "Loading marital status statistics from the clinical database.",
+      "cleaned": "marital stats",
+      "tokens": [
+        "marital",
+        "stats"
+      ],
+      "filtered": [
+        "marital",
+        "stats"
+      ],
+      "lemmas": [
+        "marital",
+        "stats"
+      ],
+      "joined": "marital stats"
+    },
+    {
+      "index": 312,
+      "original": "how many single patients",
+      "intent": "insights_marital",
+      "response": "Let me count the number of single patients in the database.",
+      "cleaned": "how many single patients",
+      "tokens": [
+        "how",
+        "many",
+        "single",
+        "patients"
+      ],
+      "filtered": [
+        "many",
+        "single",
+        "patients"
+      ],
+      "lemmas": [
+        "many",
+        "single",
+        "patient"
+      ],
+      "joined": "many single patient"
+    },
+    {
+      "index": 313,
+      "original": "marital status report",
+      "intent": "insights_marital",
+      "response": "Generating a marital status distribution report.",
+      "cleaned": "marital status report",
+      "tokens": [
+        "marital",
+        "status",
+        "report"
+      ],
+      "filtered": [
+        "marital",
+        "status",
+        "report"
+      ],
+      "lemmas": [
+        "marital",
+        "status",
+        "report"
+      ],
+      "joined": "marital status report"
+    },
+    {
+      "index": 314,
+      "original": "coupled patients",
+      "intent": "insights_marital",
+      "response": "Fetching data on married or partnered patients.",
+      "cleaned": "coupled patients",
+      "tokens": [
+        "coupled",
+        "patients"
+      ],
+      "filtered": [
+        "coupled",
+        "patients"
+      ],
+      "lemmas": [
+        "coupled",
+        "patient"
+      ],
+      "joined": "coupled patient"
+    },
+    {
+      "index": 315,
+      "original": "marital status of patients",
+      "intent": "insights_marital",
+      "response": "Here is the marital status breakdown for all patients.",
+      "cleaned": "marital status of patients",
+      "tokens": [
+        "marital",
+        "status",
+        "of",
+        "patients"
+      ],
+      "filtered": [
+        "marital",
+        "status",
+        "patients"
+      ],
+      "lemmas": [
+        "marital",
+        "status",
+        "patient"
+      ],
+      "joined": "marital status patient"
+    },
+    {
+      "index": 316,
+      "original": "patient diagnoses",
+      "intent": "diagnosis_lookup",
+      "response": "I can look up diagnoses for a specific patient. Please provide the patient ID.",
+      "cleaned": "patient diagnoses",
+      "tokens": [
+        "patient",
+        "diagnoses"
+      ],
+      "filtered": [
+        "patient",
+        "diagnoses"
+      ],
+      "lemmas": [
+        "patient",
+        "diagnosis"
+      ],
+      "joined": "patient diagnosis"
+    },
+    {
+      "index": 317,
+      "original": "what diagnosis",
+      "intent": "diagnosis_lookup",
+      "response": "Provide a patient ID and I'll retrieve their diagnosis information.",
+      "cleaned": "what diagnosis",
+      "tokens": [
+        "what",
+        "diagnosis"
+      ],
+      "filtered": [
+        "diagnosis"
+      ],
+      "lemmas": [
+        "diagnosis"
+      ],
+      "joined": "diagnosis"
+    },
+    {
+      "index": 318,
+      "original": "diagnoses for patient",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve all diagnoses linked to a patient. What is the patient ID?",
+      "cleaned": "diagnoses for patient",
+      "tokens": [
+        "diagnoses",
+        "for",
+        "patient"
+      ],
+      "filtered": [
+        "diagnoses",
+        "patient"
+      ],
+      "lemmas": [
+        "diagnosis",
+        "patient"
+      ],
+      "joined": "diagnosis patient"
+    },
+    {
+      "index": 319,
+      "original": "diagnosis history",
+      "intent": "diagnosis_lookup",
+      "response": "I'll retrieve the diagnosis history. Please provide the patient ID.",
+      "cleaned": "diagnosis history",
+      "tokens": [
+        "diagnosis",
+        "history"
+      ],
+      "filtered": [
+        "diagnosis",
+        "history"
+      ],
+      "lemmas": [
+        "diagnosis",
+        "history"
+      ],
+      "joined": "diagnosis history"
+    },
+    {
+      "index": 320,
+      "original": "medical history",
+      "intent": "diagnosis_lookup",
+      "response": "I can look up a patient's medical history. Please provide the patient ID.",
+      "cleaned": "medical history",
+      "tokens": [
+        "medical",
+        "history"
+      ],
+      "filtered": [
+        "medical",
+        "history"
+      ],
+      "lemmas": [
+        "medical",
+        "history"
+      ],
+      "joined": "medical history"
+    },
+    {
+      "index": 321,
+      "original": "conditions",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve patient conditions/diagnoses. Provide the patient ID.",
+      "cleaned": "conditions",
+      "tokens": [
+        "conditions"
+      ],
+      "filtered": [
+        "conditions"
+      ],
+      "lemmas": [
+        "condition"
+      ],
+      "joined": "condition"
+    },
+    {
+      "index": 322,
+      "original": "what diseases",
+      "intent": "diagnosis_lookup",
+      "response": "Let me look up the patient's recorded diseases/diagnoses. Provide the patient ID.",
+      "cleaned": "what diseases",
+      "tokens": [
+        "what",
+        "diseases"
+      ],
+      "filtered": [
+        "diseases"
+      ],
+      "lemmas": [
+        "disease"
+      ],
+      "joined": "disease"
+    },
+    {
+      "index": 323,
+      "original": "icd code",
+      "intent": "diagnosis_lookup",
+      "response": "I can look up ICD diagnosis codes. Please provide a patient ID or specific code.",
+      "cleaned": "icd code",
+      "tokens": [
+        "icd",
+        "code"
+      ],
+      "filtered": [
+        "icd",
+        "code"
+      ],
+      "lemmas": [
+        "icd",
+        "code"
+      ],
+      "joined": "icd code"
+    },
+    {
+      "index": 324,
+      "original": "diagnosis code",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve diagnosis codes for a patient. What is the patient ID?",
+      "cleaned": "diagnosis code",
+      "tokens": [
+        "diagnosis",
+        "code"
+      ],
+      "filtered": [
+        "diagnosis",
+        "code"
+      ],
+      "lemmas": [
+        "diagnosis",
+        "code"
+      ],
+      "joined": "diagnosis code"
+    },
+    {
+      "index": 325,
+      "original": "medical conditions",
+      "intent": "diagnosis_lookup",
+      "response": "I can look up medical conditions by patient ID. Please provide the ID.",
+      "cleaned": "medical conditions",
+      "tokens": [
+        "medical",
+        "conditions"
+      ],
+      "filtered": [
+        "medical",
+        "conditions"
+      ],
+      "lemmas": [
+        "medical",
+        "condition"
+      ],
+      "joined": "medical condition"
+    },
+    {
+      "index": 326,
+      "original": "show diagnosis",
+      "intent": "diagnosis_lookup",
+      "response": "I can show diagnostic information. Please provide the patient ID.",
+      "cleaned": "show diagnosis",
+      "tokens": [
+        "show",
+        "diagnosis"
+      ],
+      "filtered": [
+        "show",
+        "diagnosis"
+      ],
+      "lemmas": [
+        "show",
+        "diagnosis"
+      ],
+      "joined": "show diagnosis"
+    },
+    {
+      "index": 327,
+      "original": "get diagnoses",
+      "intent": "diagnosis_lookup",
+      "response": "Fetching diagnoses. Please provide the patient ID.",
+      "cleaned": "get diagnoses",
+      "tokens": [
+        "get",
+        "diagnoses"
+      ],
+      "filtered": [
+        "get",
+        "diagnoses"
+      ],
+      "lemmas": [
+        "get",
+        "diagnosis"
+      ],
+      "joined": "get diagnosis"
+    },
+    {
+      "index": 328,
+      "original": "patient health issues",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve health issues/diagnoses for a patient. Provide the patient ID.",
+      "cleaned": "patient health issues",
+      "tokens": [
+        "patient",
+        "health",
+        "issues"
+      ],
+      "filtered": [
+        "patient",
+        "health",
+        "issues"
+      ],
+      "lemmas": [
+        "patient",
+        "health",
+        "issue"
+      ],
+      "joined": "patient health issue"
+    },
+    {
+      "index": 329,
+      "original": "patient disorders",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve patient disorders/diagnoses. Please provide the patient ID.",
+      "cleaned": "patient disorders",
+      "tokens": [
+        "patient",
+        "disorders"
+      ],
+      "filtered": [
+        "patient",
+        "disorders"
+      ],
+      "lemmas": [
+        "patient",
+        "disorder"
+      ],
+      "joined": "patient disorder"
+    },
+    {
+      "index": 330,
+      "original": "what was diagnosed",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve what was diagnosed for a patient. Please provide the patient ID.",
+      "cleaned": "what was diagnosed",
+      "tokens": [
+        "what",
+        "was",
+        "diagnosed"
+      ],
+      "filtered": [
+        "diagnosed"
+      ],
+      "lemmas": [
+        "diagnosed"
+      ],
+      "joined": "diagnosed"
+    },
+    {
+      "index": 331,
+      "original": "chronic conditions",
+      "intent": "diagnosis_lookup",
+      "response": "I can look up chronic conditions for a patient. Please provide the patient ID.",
+      "cleaned": "chronic conditions",
+      "tokens": [
+        "chronic",
+        "conditions"
+      ],
+      "filtered": [
+        "chronic",
+        "conditions"
+      ],
+      "lemmas": [
+        "chronic",
+        "condition"
+      ],
+      "joined": "chronic condition"
+    },
+    {
+      "index": 332,
+      "original": "past diagnoses",
+      "intent": "diagnosis_lookup",
+      "response": "Fetching past diagnosis history. Please provide the patient ID.",
+      "cleaned": "past diagnoses",
+      "tokens": [
+        "past",
+        "diagnoses"
+      ],
+      "filtered": [
+        "past",
+        "diagnoses"
+      ],
+      "lemmas": [
+        "past",
+        "diagnosis"
+      ],
+      "joined": "past diagnosis"
+    },
+    {
+      "index": 333,
+      "original": "current diagnoses",
+      "intent": "diagnosis_lookup",
+      "response": "I can retrieve current diagnoses for a patient. Please provide the patient ID.",
+      "cleaned": "current diagnoses",
+      "tokens": [
+        "current",
+        "diagnoses"
+      ],
+      "filtered": [
+        "current",
+        "diagnoses"
+      ],
+      "lemmas": [
+        "current",
+        "diagnosis"
+      ],
+      "joined": "current diagnosis"
+    },
+    {
+      "index": 334,
+      "original": "top diagnoses",
+      "intent": "diagnosis_lookup",
+      "response": "I can show the most common diagnoses across the patient population.",
+      "cleaned": "top diagnoses",
+      "tokens": [
+        "top",
+        "diagnoses"
+      ],
+      "filtered": [
+        "top",
+        "diagnoses"
+      ],
+      "lemmas": [
+        "top",
+        "diagnosis"
+      ],
+      "joined": "top diagnosis"
+    },
+    {
+      "index": 335,
+      "original": "diagnosis statistics",
+      "intent": "diagnosis_lookup",
+      "response": "Fetching diagnosis frequency data from the clinical database.",
+      "cleaned": "diagnosis statistics",
+      "tokens": [
+        "diagnosis",
+        "statistics"
+      ],
+      "filtered": [
+        "diagnosis",
+        "statistics"
+      ],
+      "lemmas": [
+        "diagnosis",
+        "statistic"
+      ],
+      "joined": "diagnosis statistic"
+    },
+    {
+      "index": 336,
+      "original": "admission history",
+      "intent": "admission_lookup",
+      "response": "I can retrieve admission history. Please provide the patient ID.",
+      "cleaned": "admission history",
+      "tokens": [
+        "admission",
+        "history"
+      ],
+      "filtered": [
+        "admission",
+        "history"
+      ],
+      "lemmas": [
+        "admission",
+        "history"
+      ],
+      "joined": "admission history"
+    },
+    {
+      "index": 337,
+      "original": "when was patient admitted",
+      "intent": "admission_lookup",
+      "response": "Provide the patient ID and I'll fetch their admission records.",
+      "cleaned": "when was patient admitted",
+      "tokens": [
+        "when",
+        "was",
+        "patient",
+        "admitted"
+      ],
+      "filtered": [
+        "patient",
+        "admitted"
+      ],
+      "lemmas": [
+        "patient",
+        "admitted"
+      ],
+      "joined": "patient admitted"
+    },
+    {
+      "index": 338,
+      "original": "hospital stays",
+      "intent": "admission_lookup",
+      "response": "I can retrieve hospital stay history. Please provide the patient ID.",
+      "cleaned": "hospital stays",
+      "tokens": [
+        "hospital",
+        "stays"
+      ],
+      "filtered": [
+        "hospital",
+        "stays"
+      ],
+      "lemmas": [
+        "hospital",
+        "stay"
+      ],
+      "joined": "hospital stay"
+    },
+    {
+      "index": 339,
+      "original": "admissions",
+      "intent": "admission_lookup",
+      "response": "Fetching admission records. Please provide the patient ID.",
+      "cleaned": "admissions",
+      "tokens": [
+        "admissions"
+      ],
+      "filtered": [
+        "admissions"
+      ],
+      "lemmas": [
+        "admission"
+      ],
+      "joined": "admission"
+    },
+    {
+      "index": 340,
+      "original": "patient visits",
+      "intent": "admission_lookup",
+      "response": "I can retrieve patient visit/admission data. What is the patient ID?",
+      "cleaned": "patient visits",
+      "tokens": [
+        "patient",
+        "visits"
+      ],
+      "filtered": [
+        "patient",
+        "visits"
+      ],
+      "lemmas": [
+        "patient",
+        "visit"
+      ],
+      "joined": "patient visit"
+    },
+    {
+      "index": 341,
+      "original": "how many admissions",
+      "intent": "admission_lookup",
+      "response": "Let me look up the number of admissions for a patient. Provide the patient ID.",
+      "cleaned": "how many admissions",
+      "tokens": [
+        "how",
+        "many",
+        "admissions"
+      ],
+      "filtered": [
+        "many",
+        "admissions"
+      ],
+      "lemmas": [
+        "many",
+        "admission"
+      ],
+      "joined": "many admission"
+    },
+    {
+      "index": 342,
+      "original": "admission dates",
+      "intent": "admission_lookup",
+      "response": "I can retrieve the admission and discharge dates. Please provide the patient ID.",
+      "cleaned": "admission dates",
+      "tokens": [
+        "admission",
+        "dates"
+      ],
+      "filtered": [
+        "admission",
+        "dates"
+      ],
+      "lemmas": [
+        "admission",
+        "date"
+      ],
+      "joined": "admission date"
+    },
+    {
+      "index": 343,
+      "original": "discharge date",
+      "intent": "admission_lookup",
+      "response": "I'll look up the discharge date for the patient. Please provide the patient ID.",
+      "cleaned": "discharge date",
+      "tokens": [
+        "discharge",
+        "date"
+      ],
+      "filtered": [
+        "discharge",
+        "date"
+      ],
+      "lemmas": [
+        "discharge",
+        "date"
+      ],
+      "joined": "discharge date"
+    },
+    {
+      "index": 344,
+      "original": "length of stay",
+      "intent": "admission_lookup",
+      "response": "I can calculate the length of hospital stay. Please provide the patient ID.",
+      "cleaned": "length of stay",
+      "tokens": [
+        "length",
+        "of",
+        "stay"
+      ],
+      "filtered": [
+        "length",
+        "stay"
+      ],
+      "lemmas": [
+        "length",
+        "stay"
+      ],
+      "joined": "length stay"
+    },
+    {
+      "index": 345,
+      "original": "show admissions",
+      "intent": "admission_lookup",
+      "response": "Fetching admission records from the database. Please provide the patient ID.",
+      "cleaned": "show admissions",
+      "tokens": [
+        "show",
+        "admissions"
+      ],
+      "filtered": [
+        "show",
+        "admissions"
+      ],
+      "lemmas": [
+        "show",
+        "admission"
+      ],
+      "joined": "show admission"
+    },
+    {
+      "index": 346,
+      "original": "hospital admission",
+      "intent": "admission_lookup",
+      "response": "I can retrieve hospital admission records. Please provide the patient ID.",
+      "cleaned": "hospital admission",
+      "tokens": [
+        "hospital",
+        "admission"
+      ],
+      "filtered": [
+        "hospital",
+        "admission"
+      ],
+      "lemmas": [
+        "hospital",
+        "admission"
+      ],
+      "joined": "hospital admission"
+    },
+    {
+      "index": 347,
+      "original": "when admitted",
+      "intent": "admission_lookup",
+      "response": "Provide the patient ID and I'll retrieve their admission date.",
+      "cleaned": "when admitted",
+      "tokens": [
+        "when",
+        "admitted"
+      ],
+      "filtered": [
+        "admitted"
+      ],
+      "lemmas": [
+        "admitted"
+      ],
+      "joined": "admitted"
+    },
+    {
+      "index": 348,
+      "original": "when discharged",
+      "intent": "admission_lookup",
+      "response": "I can retrieve the discharge date. Please provide the patient ID.",
+      "cleaned": "when discharged",
+      "tokens": [
+        "when",
+        "discharged"
+      ],
+      "filtered": [
+        "discharged"
+      ],
+      "lemmas": [
+        "discharged"
+      ],
+      "joined": "discharged"
+    },
+    {
+      "index": 349,
+      "original": "patient stay",
+      "intent": "admission_lookup",
+      "response": "I can retrieve hospital stay information. Provide the patient ID.",
+      "cleaned": "patient stay",
+      "tokens": [
+        "patient",
+        "stay"
+      ],
+      "filtered": [
+        "patient",
+        "stay"
+      ],
+      "lemmas": [
+        "patient",
+        "stay"
+      ],
+      "joined": "patient stay"
+    },
+    {
+      "index": 350,
+      "original": "readmission",
+      "intent": "admission_lookup",
+      "response": "I can check if a patient has been readmitted. Please provide the patient ID.",
+      "cleaned": "readmission",
+      "tokens": [
+        "readmission"
+      ],
+      "filtered": [
+        "readmission"
+      ],
+      "lemmas": [
+        "readmission"
+      ],
+      "joined": "readmission"
+    },
+    {
+      "index": 351,
+      "original": "total admissions",
+      "intent": "admission_lookup",
+      "response": "Fetching the total number of admissions for a patient. Please provide the patient ID.",
+      "cleaned": "total admissions",
+      "tokens": [
+        "total",
+        "admissions"
+      ],
+      "filtered": [
+        "total",
+        "admissions"
+      ],
+      "lemmas": [
+        "total",
+        "admission"
+      ],
+      "joined": "total admission"
+    },
+    {
+      "index": 352,
+      "original": "average length of stay",
+      "intent": "admission_lookup",
+      "response": "I can calculate the average length of hospital stay across all patients.",
+      "cleaned": "average length of stay",
+      "tokens": [
+        "average",
+        "length",
+        "of",
+        "stay"
+      ],
+      "filtered": [
+        "average",
+        "length",
+        "stay"
+      ],
+      "lemmas": [
+        "average",
+        "length",
+        "stay"
+      ],
+      "joined": "average length stay"
+    },
+    {
+      "index": 353,
+      "original": "admission record",
+      "intent": "admission_lookup",
+      "response": "I can retrieve admission records. Please provide the patient ID.",
+      "cleaned": "admission record",
+      "tokens": [
+        "admission",
+        "record"
+      ],
+      "filtered": [
+        "admission",
+        "record"
+      ],
+      "lemmas": [
+        "admission",
+        "record"
+      ],
+      "joined": "admission record"
+    },
+    {
+      "index": 354,
+      "original": "how long was patient admitted",
+      "intent": "admission_lookup",
+      "response": "I can calculate the length of each hospital stay. Please provide the patient ID.",
+      "cleaned": "how long was patient admitted",
+      "tokens": [
+        "how",
+        "long",
+        "was",
+        "patient",
+        "admitted"
+      ],
+      "filtered": [
+        "long",
+        "patient",
+        "admitted"
+      ],
+      "lemmas": [
+        "long",
+        "patient",
+        "admitted"
+      ],
+      "joined": "long patient admitted"
+    },
+    {
+      "index": 355,
+      "original": "list admissions",
+      "intent": "admission_lookup",
+      "response": "Fetching the list of admissions for a patient. Please provide the patient ID.",
+      "cleaned": "list admissions",
+      "tokens": [
+        "list",
+        "admissions"
+      ],
+      "filtered": [
+        "list",
+        "admissions"
+      ],
+      "lemmas": [
+        "list",
+        "admission"
+      ],
+      "joined": "list admission"
+    },
+    {
+      "index": 356,
+      "original": "blah blah blah",
+      "intent": "unknown",
+      "response": "I'm not sure what you mean. Could you rephrase that? Type 'help' to see available commands.",
+      "cleaned": "blah blah blah",
+      "tokens": [
+        "blah",
+        "blah",
+        "blah"
+      ],
+      "filtered": [
+        "blah",
+        "blah",
+        "blah"
+      ],
+      "lemmas": [
+        "blah",
+        "blah",
+        "blah"
+      ],
+      "joined": "blah blah blah"
+    },
+    {
+      "index": 357,
+      "original": "asdfgh",
+      "intent": "unknown",
+      "response": "I didn't understand that. Could you rephrase? Type 'help' for available commands.",
+      "cleaned": "asdfgh",
+      "tokens": [
+        "asdfgh"
+      ],
+      "filtered": [
+        "asdfgh"
+      ],
+      "lemmas": [
+        "asdfgh"
+      ],
+      "joined": "asdfgh"
+    },
+    {
+      "index": 358,
+      "original": "random text",
+      "intent": "unknown",
+      "response": "I'm not quite sure what you mean. Try rephrasing your query or type 'help'.",
+      "cleaned": "random text",
+      "tokens": [
+        "random",
+        "text"
+      ],
+      "filtered": [
+        "random",
+        "text"
+      ],
+      "lemmas": [
+        "random",
+        "text"
+      ],
+      "joined": "random text"
+    },
+    {
+      "index": 359,
+      "original": "111111",
+      "intent": "unknown",
+      "response": "That doesn't look like a valid command. Type 'help' to see what I can do.",
+      "cleaned": "111111",
+      "tokens": [
+        "111111"
+      ],
+      "filtered": [
+        "111111"
+      ],
+      "lemmas": [
+        "111111"
+      ],
+      "joined": "111111"
+    },
+    {
+      "index": 360,
+      "original": "what is the weather",
+      "intent": "unknown",
+      "response": "I'm a clinical chatbot and can only assist with patient and clinical data. Type 'help'.",
+      "cleaned": "what is the weather",
+      "tokens": [
+        "what",
+        "is",
+        "the",
+        "weather"
+      ],
+      "filtered": [
+        "weather"
+      ],
+      "lemmas": [
+        "weather"
+      ],
+      "joined": "weather"
+    },
+    {
+      "index": 361,
+      "original": "tell me a joke",
+      "intent": "unknown",
+      "response": "I'm focused on clinical data queries. Type 'help' to see what I can assist with.",
+      "cleaned": "tell me a joke",
+      "tokens": [
+        "tell",
+        "me",
+        "a",
+        "joke"
+      ],
+      "filtered": [
+        "tell",
+        "joke"
+      ],
+      "lemmas": [
+        "tell",
+        "joke"
+      ],
+      "joined": "tell joke"
+    },
+    {
+      "index": 362,
+      "original": "play music",
+      "intent": "unknown",
+      "response": "I'm a clinical assistant and don't support that. Type 'help' for what I can do.",
+      "cleaned": "play music",
+      "tokens": [
+        "play",
+        "music"
+      ],
+      "filtered": [
+        "play",
+        "music"
+      ],
+      "lemmas": [
+        "play",
+        "music"
+      ],
+      "joined": "play music"
+    },
+    {
+      "index": 363,
+      "original": "search google",
+      "intent": "unknown",
+      "response": "I can only assist with clinical data queries. Type 'help' for available commands.",
+      "cleaned": "search google",
+      "tokens": [
+        "search",
+        "google"
+      ],
+      "filtered": [
+        "search",
+        "google"
+      ],
+      "lemmas": [
+        "search",
+        "google"
+      ],
+      "joined": "search google"
+    },
+    {
+      "index": 364,
+      "original": "what is 2 plus 2",
+      "intent": "unknown",
+      "response": "I'm a clinical assistant and can't do math. Type 'help' for what I support.",
+      "cleaned": "what is 2 plus 2",
+      "tokens": [
+        "what",
+        "is",
+        "2",
+        "plus",
+        "2"
+      ],
+      "filtered": [
+        "plus"
+      ],
+      "lemmas": [
+        "plus"
+      ],
+      "joined": "plus"
+    },
+    {
+      "index": 365,
+      "original": "what time is it",
+      "intent": "unknown",
+      "response": "I don't have access to the clock. I'm here for clinical data queries. Type 'help'.",
+      "cleaned": "what time is it",
+      "tokens": [
+        "what",
+        "time",
+        "is",
+        "it"
+      ],
+      "filtered": [
+        "time"
+      ],
+      "lemmas": [
+        "time"
+      ],
+      "joined": "time"
+    },
+    {
+      "index": 366,
+      "original": "order food",
+      "intent": "unknown",
+      "response": "I'm a clinical chatbot and can't order food. Type 'help' for available commands.",
+      "cleaned": "order food",
+      "tokens": [
+        "order",
+        "food"
+      ],
+      "filtered": [
+        "order",
+        "food"
+      ],
+      "lemmas": [
+        "order",
+        "food"
+      ],
+      "joined": "order food"
+    },
+    {
+      "index": 367,
+      "original": "book a flight",
+      "intent": "unknown",
+      "response": "I can only assist with clinical and patient data queries. Type 'help'.",
+      "cleaned": "book a flight",
+      "tokens": [
+        "book",
+        "a",
+        "flight"
+      ],
+      "filtered": [
+        "book",
+        "flight"
+      ],
+      "lemmas": [
+        "book",
+        "flight"
+      ],
+      "joined": "book flight"
+    },
+    {
+      "index": 368,
+      "original": "what is your name",
+      "intent": "unknown",
+      "response": "I'm the Hypotify Clinical Chatbot! Type 'help' to see what I can do.",
+      "cleaned": "what is your name",
+      "tokens": [
+        "what",
+        "is",
+        "your",
+        "name"
+      ],
+      "filtered": [
+        "name"
+      ],
+      "lemmas": [
+        "name"
+      ],
+      "joined": "name"
+    },
+    {
+      "index": 369,
+      "original": "who made you",
+      "intent": "unknown",
+      "response": "I was built by the Hypotify team to assist with clinical data. Type 'help' for commands.",
+      "cleaned": "who made you",
+      "tokens": [
+        "who",
+        "made",
+        "you"
+      ],
+      "filtered": [
+        "made"
+      ],
+      "lemmas": [
+        "made"
+      ],
+      "joined": "made"
+    },
+    {
+      "index": 370,
+      "original": "what commands are available",
+      "intent": "help",
+      "response": "Here's what I can help with: patient lookup, list patients, clinical insights, translation, medical terms, sentiment analysis, and named entity recognition.",
+      "cleaned": "what commands are available",
+      "tokens": [
+        "what",
+        "commands",
+        "are",
+        "available"
+      ],
+      "filtered": [
+        "commands",
+        "available"
+      ],
+      "lemmas": [
+        "command",
+        "available"
+      ],
+      "joined": "command available"
+    },
+    {
+      "index": 371,
+      "original": "what commands do you have",
+      "intent": "help",
+      "response": "Type 'help' to see the full list of available commands.",
+      "cleaned": "what commands do you have",
+      "tokens": [
+        "what",
+        "commands",
+        "do",
+        "you",
+        "have"
+      ],
+      "filtered": [
+        "commands"
+      ],
+      "lemmas": [
+        "command"
+      ],
+      "joined": "command"
+    },
+    {
+      "index": 372,
+      "original": "what patient data do you have",
+      "intent": "help",
+      "response": "I can look up patient records, admissions, diagnoses, labs, and population insights. Type 'help' for commands.",
+      "cleaned": "what patient data do you have",
+      "tokens": [
+        "what",
+        "patient",
+        "data",
+        "do",
+        "you",
+        "have"
+      ],
+      "filtered": [
+        "patient",
+        "data"
+      ],
+      "lemmas": [
+        "patient",
+        "data"
+      ],
+      "joined": "patient data"
+    },
+    {
+      "index": 373,
+      "original": "can you extract patient names",
+      "intent": "ner",
+      "response": "I can identify who appears in the text. Use: ner <your text>",
+      "cleaned": "can you extract patient names",
+      "tokens": [
+        "can",
+        "you",
+        "extract",
+        "patient",
+        "names"
+      ],
+      "filtered": [
+        "extract",
+        "patient",
+        "names"
+      ],
+      "lemmas": [
+        "extract",
+        "patient",
+        "name"
+      ],
+      "joined": "extract patient name"
+    },
+    {
+      "index": 374,
+      "original": "extract patient names from notes",
+      "intent": "ner",
+      "response": "I can extract proper nouns and named entities. Use: ner <your text>",
+      "cleaned": "extract patient names from notes",
+      "tokens": [
+        "extract",
+        "patient",
+        "names",
+        "from",
+        "notes"
+      ],
+      "filtered": [
+        "extract",
+        "patient",
+        "names",
+        "notes"
+      ],
+      "lemmas": [
+        "extract",
+        "patient",
+        "name",
+        "note"
+      ],
+      "joined": "extract patient name note"
+    },
+    {
+      "index": 375,
+      "original": "can you extract names from text",
+      "intent": "ner",
+      "response": "I can find people mentioned in text. Use: ner <your text>",
+      "cleaned": "can you extract names from text",
+      "tokens": [
+        "can",
+        "you",
+        "extract",
+        "names",
+        "from",
+        "text"
+      ],
+      "filtered": [
+        "extract",
+        "names",
+        "text"
+      ],
+      "lemmas": [
+        "extract",
+        "name",
+        "text"
+      ],
+      "joined": "extract name text"
+    },
+    {
+      "index": 376,
+      "original": "extract names from clinical notes",
+      "intent": "ner",
+      "response": "I can identify names and named entities in text. Use: ner <your text>",
+      "cleaned": "extract names from clinical notes",
+      "tokens": [
+        "extract",
+        "names",
+        "from",
+        "clinical",
+        "notes"
+      ],
+      "filtered": [
+        "extract",
+        "names",
+        "clinical",
+        "notes"
+      ],
+      "lemmas": [
+        "extract",
+        "name",
+        "clinical",
+        "note"
+      ],
+      "joined": "extract name clinical note"
+    },
+    {
+      "index": 377,
+      "original": "show me statistics about the patient population",
+      "intent": "insights_gender",
+      "response": "Fetching gender distribution statistics now.",
+      "cleaned": "show me statistics about the patient population",
+      "tokens": [
+        "show",
+        "me",
+        "statistics",
+        "about",
+        "the",
+        "patient",
+        "population"
+      ],
+      "filtered": [
+        "show",
+        "statistics",
+        "patient",
+        "population"
+      ],
+      "lemmas": [
+        "show",
+        "statistic",
+        "patient",
+        "population"
+      ],
+      "joined": "show statistic patient population"
+    },
+    {
+      "index": 378,
+      "original": "statistics about patients",
+      "intent": "insights_gender",
+      "response": "Let me look up the gender breakdown for you.",
+      "cleaned": "statistics about patients",
+      "tokens": [
+        "statistics",
+        "about",
+        "patients"
+      ],
+      "filtered": [
+        "statistics",
+        "patients"
+      ],
+      "lemmas": [
+        "statistic",
+        "patient"
+      ],
+      "joined": "statistic patient"
+    },
+    {
+      "index": 379,
+      "original": "patient population statistics",
+      "intent": "insights_gender",
+      "response": "Loading gender statistics from the clinical database.",
+      "cleaned": "patient population statistics",
+      "tokens": [
+        "patient",
+        "population",
+        "statistics"
+      ],
+      "filtered": [
+        "patient",
+        "population",
+        "statistics"
+      ],
+      "lemmas": [
+        "patient",
+        "population",
+        "statistic"
+      ],
+      "joined": "patient population statistic"
+    },
+    {
+      "index": 380,
+      "original": "how diverse is the patient population",
+      "intent": "insights_race",
+      "response": "Loading diversity and race statistics from the patient population.",
+      "cleaned": "how diverse is the patient population",
+      "tokens": [
+        "how",
+        "diverse",
+        "is",
+        "the",
+        "patient",
+        "population"
+      ],
+      "filtered": [
+        "diverse",
+        "patient",
+        "population"
+      ],
+      "lemmas": [
+        "diverse",
+        "patient",
+        "population"
+      ],
+      "joined": "diverse patient population"
+    }
+  ]
+}
