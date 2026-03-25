@@ -169,6 +169,50 @@ def load_db_manager():
         return None
 
 
+@st.cache_resource(show_spinner=False)
+def load_top100_questions():
+    """
+    Parse top100_qa.txt and return a list of (category_name, [(qnum, qtext), ...]).
+
+    Cached so the file is read only once per server session.
+    """
+    import re
+    import os
+
+    qa_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "top100_qa.txt")
+    categories = []
+    current_cat = "General"
+    current_questions = []
+
+    cat_re = re.compile(r"^CATEGORY\s+\d+\s+[–\-]\s+(.+?)\s+\(Q\d+", re.IGNORECASE)
+    q_re   = re.compile(r"^Q(\d+):\s+(.+)")
+    # Strip trailing context notes like "(after asking insights gender)"
+    note_re = re.compile(r"\s*\(.*?\)\s*$")
+
+    try:
+        with open(qa_path, encoding="utf-8") as f:
+            for line in f:
+                line = line.rstrip()
+                m = cat_re.match(line)
+                if m:
+                    if current_questions:
+                        categories.append((current_cat, current_questions))
+                    current_cat = m.group(1).strip()
+                    current_questions = []
+                    continue
+                m = q_re.match(line)
+                if m:
+                    qnum  = int(m.group(1))
+                    qtext = note_re.sub("", m.group(2).strip())
+                    current_questions.append((qnum, qtext))
+        if current_questions:
+            categories.append((current_cat, current_questions))
+    except Exception:
+        pass
+
+    return categories
+
+
 # ── Session state init ─────────────────────────────────────────────────────────
 
 def _init_session():
@@ -265,6 +309,27 @@ def render_sidebar(chatbot, dbm):
         if st.sidebar.button(label, key=f"quick_{cmd}", use_container_width=True):
             _send_message(cmd, chatbot)
             st.rerun()
+
+    st.sidebar.divider()
+
+    # ── Top 100 Questions ──────────────────────────────────────────────────────
+    st.sidebar.markdown("**Top 100 Questions**")
+    st.sidebar.caption("Click any question to send it to the chatbot.")
+
+    top100 = load_top100_questions()
+    for cat_name, questions in top100:
+        with st.sidebar.expander(cat_name, expanded=False):
+            for qnum, qtext in questions:
+                label = f"Q{qnum}: {qtext}"
+                display = label if len(label) <= 52 else label[:49] + "…"
+                if st.button(
+                    display,
+                    key=f"q100_{qnum}",
+                    use_container_width=True,
+                    help=qtext,
+                ):
+                    _send_message(qtext, chatbot)
+                    st.rerun()
 
     st.sidebar.divider()
     st.sidebar.caption(
