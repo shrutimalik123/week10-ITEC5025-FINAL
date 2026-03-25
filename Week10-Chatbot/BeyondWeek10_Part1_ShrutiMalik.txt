@@ -544,8 +544,8 @@ Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). Design patterns:
 Grinberg, M. (2018). Flask web development: Developing web applications with
     Python (2nd ed.). O'Reilly Media.
 
-Jurafsky, D., & Martin, J. H. (2023). Speech and language processing (3rd ed.
-    draft). Stanford University. https://web.stanford.edu/~jurafsky/slp3/
+Jurafsky, D., & Martin, J. H. (2026). Speech and language processing (3rd ed.
+    draft, Jan. 6, 2026). Stanford University. https://web.stanford.edu/~jurafsky/slp3/
 
 Manning, C. D., Raghavan, P., & Schutze, H. (2008). Introduction to information
     retrieval. Cambridge University Press.
@@ -553,14 +553,14 @@ Manning, C. D., Raghavan, P., & Schutze, H. (2008). Introduction to information
 Ng, A. (2018). Machine learning yearning. DeepLearning.AI.
     https://www.deeplearning.ai/programs/machine-learning-yearning/
 
-SQLite Consortium. (2023). Appropriate uses for SQLite.
+SQLite Consortium. (2026). Appropriate uses for SQLite.
     https://www.sqlite.org/whentouse.html
 
 Tan, P. N., Steinbach, M., & Kumar, V. (2019). Introduction to data mining
     (2nd ed.). Pearson.
 
-Van Rossum, G., & Drake, F. L. (2009). Python 3 reference manual.
-    CreateSpace.
+Van Rossum, G., & Drake, F. L. (2025). The Python language reference (3.12 ed.).
+    Python Software Foundation. https://docs.python.org/3.12/reference/
 
 ================================================================================
 
